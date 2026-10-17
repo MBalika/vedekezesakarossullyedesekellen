@@ -64,7 +64,7 @@
   </div>
 
   <div class="sub-h"><span class="lt">H</span><h3>Az alapmozgások jellemzői – próbáld ki!</h3></div>
-  <p>Az MSZ EN 1997-1 H melléklete szerint ellenőrizendő jellemzők: <b>s</b> süllyedés, <b>δs</b> süllyedéskülönbség, <b>θ</b> elfordulás, <b>ω</b> merev billenés (dőlés), <b>Δ</b> relatív lehajlás, <b>Δ/L</b> lehajlási viszonyszám és <b>β</b> relatív elfordulás (szögtorzulás). A megengedett értékeket a felszerkezet tervezője adja meg.</p>
+  <p>Az MSZ EN 1997-1 H melléklete szerint ellenőrizendő jellemzők: <b>s</b> süllyedés, <b>δs</b> süllyedéskülönbség, <b>θ</b> elfordulás, <b>ω</b> merev billenés (dőlés), <b>Δ</b> relatív lehajlás, <b>Δ/L</b> lehajlási viszonyszám és <b>β</b> relatív elfordulás (szögtorzulás), valamint a vízszintes eltolódás és a rezgésamplitúdó. A megengedett értékeket a felszerkezet tervezője adja meg.</p>
   <div class="sim wide">
     <div class="panel"><div class="ph"><h4>Négy alappont süllyedése (L = 12 m)</h4><div class="seg" id="movPre"><button data-v="egyenletes">Egyenletes</button><button data-v="billenes">Billenés</button><button data-v="behajlas" class="on">Behajlás</button><button data-v="felhajlas">Felhajlás</button><button data-v="egy">Egy pillér</button></div></div><div class="pb"><div id="movSvg"></div><div class="legend"><span><i style="background:var(--sky)"></i>billenés vonala (A–D)</span><span><i style="background:var(--violet)"></i>relatív lehajlás Δ</span><span><i style="background:var(--coral)"></i>süllyedés (torzított)</span></div></div></div>
     <div class="panel"><div class="pb">
@@ -78,7 +78,7 @@
 
   <div class="grid g3" style="margin-top:22px">
     <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">50 mm</h4><p>abszolút süllyedés – általában megengedhető</p></div>
-    <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">20 mm</h4><p>oszlopok süllyedéskülönbsége – gyakorlatilag mindig megengedhető</p></div>
+    <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">20 mm</h4><p>szomszédos oszlopok süllyedéskülönbsége – szokványos szerkezeteknél általában megengedhető; a mértékadó a δs/L arány</p></div>
     <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">1/500</h4><p>relatív elfordulás – szerkezetileg általában megengedhető; <b>1/150</b> már tönkremenetelt okoz(hat)</p></div>
   </div>
   <div class="callout web"><span class="ci">W</span><p><b>Kitekintés:</b> a nemzetközi szakirodalom (pl. Poulos és társai, 2001) szerint az <b>1/300</b> körüli billenés szemmel már feltűnő, a keretszerkezetek szerkezeti kára 1/150–1/250 relatív elfordulásnál kezdődik, a falak és válaszfalak repedése már 1/500 körül megjelenhet. <span class="src">Forrás: <a href="https://eng.libretexts.org/Bookshelves/Civil_Engineering/Fundamentals_of_Foundation_Engineering_and_their_Applications_2e/04%3A_SETTLEMENT_OF_SHALLOW_FOUNDATIONS/4.03%3A_Tolerable_settlement" target="_blank" rel="noopener">Fundamentals of Foundation Engineering – Tolerable settlement</a></span></p></div>
@@ -101,7 +101,7 @@
   </div>
   <div class="tscroll" style="margin-top:22px"><table class="t">
     <thead><tr><th>Repedéstágasság</th><th>Jelleg</th><th>Teendő</th></tr></thead>
-    <tbody><tr><td class="n">&lt; 0,1 mm</td><td>hajszálrepedés</td><td>esztétikai</td></tr><tr><td class="n">≈ 1–5 mm</td><td>enyhe, látható repedések</td><td>festés, javítóvakolat</td></tr><tr><td class="n">5–15 mm</td><td>mérsékelt</td><td>vakolással rendbe hozható (duzzadó cementtel)</td></tr><tr><td class="n">15–25 mm</td><td>súlyos – nyílászárók befeszülnek</td><td>részleges átépítés</td></tr><tr><td class="n">&gt; 25 mm</td><td>nagyon súlyos</td><td>felújítás, szerkezeti megerősítés</td></tr></tbody>
+    <tbody><tr><td class="n">&lt; 0,1 mm</td><td>hajszálrepedés</td><td>esztétikai</td></tr><tr><td class="n">0,1–1 mm</td><td>nagyon enyhe</td><td>festéskor javítható</td></tr><tr><td class="n">1–5 mm</td><td>enyhe, látható repedések</td><td>festés, javítóvakolat</td></tr><tr><td class="n">5–15 mm</td><td>mérsékelt</td><td>vakolással rendbe hozható (duzzadó cementtel)</td></tr><tr><td class="n">15–25 mm</td><td>súlyos – nyílászárók befeszülnek</td><td>részleges átépítés</td></tr><tr><td class="n">&gt; 25 mm</td><td>nagyon súlyos</td><td>szerkezeti megerősítés, durvább esetben részleges vagy teljes újraépítés</td></tr></tbody>
   </table></div>
   <p class="src" style="margin-top:6px">A repedések a nagyobb süllyedésű hely felé emelkednek; az első repedések a leggyengébb helyeken (ajtók, ablakok sarkai között) jelennek meg. A kategóriák Burland és társai (1977) besorolását követik.</p>
 
@@ -227,7 +227,7 @@
       <p class="src" style="margin:8px 0 0">Szemléltetés: kb. 12 kPa/szint + 15 kPa alaplemez, γ = 19 kN/m³.</p>
     </div></div>
   </div>
-  <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta. <span class="src">Forrás: <a href="https://www.ice.org.uk/what-is-civil-engineering/infrastructure-projects/torre-latinoamericana" target="_blank" rel="noopener">ICE – Torre Latinoamericana</a></span></p></div>
+  <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta. <span class="src">Forrás: <a href="https://www.ice.org.uk/what-is-civil-engineering/infrastructure-projects/torre-latinoamericana" target="_blank" rel="noopener">ICE – Torre Latinoamericana</a></span></p></div>
   <div class="vinline"><button class="vcard" data-video="tj1"></button></div>
   <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 3. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
