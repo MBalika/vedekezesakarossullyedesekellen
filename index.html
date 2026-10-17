@@ -1738,8 +1738,8 @@ const SEG = { x: 56, z: 28 };
 function init3D(host) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.outputColorSpace = THREE.SRGBColorSpace;
   host.prepend(renderer.domElement);
-  const scene = new THREE.Scene(); const cam = new THREE.PerspectiveCamera(36, 1.4, 0.1, 200); cam.position.set(4.6, 1.7, 13.4);
-  const ctl = new OrbitControls(cam, renderer.domElement); ctl.target.set(0, -3.2, 0); ctl.enableDamping = true; ctl.dampingFactor = 0.09; ctl.minDistance = 7; ctl.maxDistance = 30; ctl.maxPolarAngle = Math.PI * 0.6; ctl.minAzimuthAngle = -Math.PI * 0.42; ctl.maxAzimuthAngle = Math.PI * 0.42; ctl.enablePan = false; ctl.update();
+  const scene = new THREE.Scene(); const cam = new THREE.PerspectiveCamera(36, 1.4, 0.1, 200); cam.position.set(4.6, 2.5, 13.4);
+  const ctl = new OrbitControls(cam, renderer.domElement); ctl.target.set(0, -2.4, 0); ctl.enableDamping = true; ctl.dampingFactor = 0.09; ctl.minDistance = 7; ctl.maxDistance = 30; ctl.maxPolarAngle = Math.PI * 0.6; ctl.minAzimuthAngle = -Math.PI * 0.42; ctl.maxAzimuthAngle = Math.PI * 0.42; ctl.enablePan = false; ctl.update();
   scene.add(new THREE.HemisphereLight(0xf7f3ea, 0x5a4c40, 1.25)); const sun = new THREE.DirectionalLight(0xffffff, 1.35); sun.position.set(5, 12, 10); scene.add(sun);
   const grp = { soil: new THREE.Group(), ghost: new THREE.Group(), fnd: new THREE.Group(), bulb: new THREE.Group() }; Object.values(grp).forEach(g => scene.add(g));
   const texs = {}; ['clay', 'clay2', 'sand', 'silt', 'grav'].forEach(k => texs[k] = noiseTex(k));
@@ -1787,9 +1787,9 @@ function buildBulbs() {
 function placeFoundation() {
   const T = three, { B, D, N } = st;
   T.foot.scale.set(B, 1, B); T.foot.position.set(0, -D + HF / 2, 0);
-  const ch = D - HF + 1.6; T.col.scale.set(1, ch, 1); T.col.position.set(0, -D + HF + ch / 2, 0);
+  const ch = D - HF + 1.15; T.col.scale.set(1, ch, 1); T.col.position.set(0, -D + HF + ch / 2, 0);
   const bh = Math.max(0.01, D - HF); T.back.scale.set(B + .5, bh, 1); T.back.position.set(0, -bh / 2, 0.03); T.back.visible = D - HF > 0.05;
-  const al = 0.8 + N / 1000; T.shaft.scale.set(1, al, 1); T.shaft.position.set(0, 1.6 + 0.5 + al / 2, 0); T.head.position.set(0, 1.6 + 0.25, 0);
+  const al = 0.4 + N / 1500; T.shaft.scale.set(1, al, 1); T.shaft.position.set(0, 1.15 + 0.5 + al / 2, 0); T.head.position.set(0, 1.15 + 0.25, 0);
   T.m0.position.y = -(D + R.m0); T.m0.visible = D + R.m0 < HD + 0.01;
 }
 // süllyedésmező: u(x, mélység, z) – a mélységgel csökken (a még alatta lévő rétegek összenyomódása), oldalirányban lecseng
@@ -1810,7 +1810,7 @@ function labels3D() {
   const T = three, ov = $('#simOv'); if (!ov) return; const w = T.host.clientWidth, h = T.host.clientHeight; const v = new THREE.Vector3();
   const put = (key, x, y, z, text, cls = '') => { let e = LBL[key]; if (!e) { e = H('div', { class: 'lbl ' + cls }); ov.appendChild(e); LBL[key] = e; } v.set(x, y, z).project(T.cam); const px = (v.x + 1) / 2 * w, py = (1 - v.y) / 2 * h; const vis = v.z < 1 && px > -40 && px < w + 40 && py > 24 && py < h - 24; e.style.display = vis ? 'block' : 'none'; e.textContent = text; const hw = (e.offsetWidth || 0) / 2 + 6; e.style.left = clamp(px, hw, w - hw) + 'px'; e.style.top = py + 'px'; };
   const s = -T.grp.fnd.position.y;
-  put('N', 1.25, 2.4, 0, `N = ${fmt(st.N)} kN`, 'c');
+  put('N', 1.2, 1.75, 0, `N = ${fmt(st.N)} kN`, 'c');
   put('B', 0, -st.D - s - 0.32, st.B / 2 + 0.1, `B × B = ${fmt(st.B, 1)} × ${fmt(st.B, 1)} m`, 't');
   put('D', 1.0, -Math.max(0.3, (st.D - HF) / 2) - s, 0.25, `D = ${fmt(st.D, 1)} m`);
   put('m0', st.B / 2 + 1.9, -(st.D + R.m0) + 0.05, 0.1, `m₀ = ${fmt(R.m0, 1)} m`, 'c');
