@@ -74,7 +74,7 @@ window.VIDEOS = VIDEOS;
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
   };
   const close = () => { modal.classList.remove('on'); frame.innerHTML = ''; document.body.style.overflow = ''; };
-  $('.mh button', modal).addEventListener('click', close); modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  $('#vclose').addEventListener('click', close); modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('on')) close(); });
   const fs = $('#vfs'); if (fs) fs.addEventListener('click', () => { const f = $('iframe', frame); if (f && f.requestFullscreen) f.requestFullscreen().catch(() => { }); });
   $$('[data-video]').forEach(b => b.addEventListener('click', () => open(b.dataset.video)));

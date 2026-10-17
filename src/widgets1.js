@@ -45,7 +45,7 @@ window.SVpat = pat;
   r.addEventListener('input', upd); upd();
   // kis automatikus bemutató, amíg a felhasználó nem nyúl hozzá
   let touched = false; r.addEventListener('pointerdown', () => touched = true); let t0 = performance.now();
-  const demo = (t) => { if (touched) return; const u = ((t - t0) / 6000) % 1; const v = Math.round(40 * (1 - Math.cos(u * Math.PI * 2)) / 2 * 1.5); r.value = Math.min(60, v); upd(); requestAnimationFrame(demo); };
+  const demo = (t) => { if (touched) return; if (document.hidden || scrollY > innerHeight * 1.2) { requestAnimationFrame(demo); return; } const u = ((t - t0) / 6000) % 1; const v = Math.round(40 * (1 - Math.cos(u * Math.PI * 2)) / 2 * 1.5); r.value = Math.min(60, v); upd(); requestAnimationFrame(demo); };
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(demo);
 })();
 
