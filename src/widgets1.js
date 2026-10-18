@@ -187,7 +187,7 @@ window.SVpat = pat;
     const qNow = qB * prog; const mx = 70, my = 40, mh = 90; SV('text', { x: mx, y: my - 10, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 700, fill: 'var(--ink2)', text: 'épület / föld' }, s);
     const sc = mh / Math.max(qB, relief, 1); SV('rect', { x: mx - 30, y: my + mh - qNow * sc, width: 24, height: qNow * sc, fill: 'var(--coral)', rx: 3 }, s); SV('rect', { x: mx + 6, y: my + mh - relief * sc, width: 24, height: relief * sc, fill: '#8c735f', rx: 3 }, s);
     SV('text', { x: mx - 18, y: my + mh + 14, 'text-anchor': 'middle', 'font-size': 10, fill: 'var(--mute)', text: Math.round(qNow) }, s); SV('text', { x: mx + 18, y: my + mh + 14, 'text-anchor': 'middle', 'font-size': 10, fill: 'var(--mute)', text: Math.round(relief) }, s);
-    // konszolidációs görbe (24. ábra b)
+    // konszolidációs görbe
     const cx0 = 372, cy0 = 248, cw = 248, ch = 96; const G = SV('g', {}, s);
     SV('rect', { x: cx0 - 10, y: cy0 - 20, width: cw + 20, height: ch + 34, rx: 10, fill: 'var(--card)', opacity: .94 }, G);
     SV('text', { x: cx0, y: cy0 - 4, 'font-size': 11.5, 'font-weight': 800, fill: 'var(--ink)', text: 'teher és süllyedés az építés során' }, G);
@@ -205,7 +205,7 @@ window.SVpat = pat;
   const pl = $('#bsPlay'); if (pl) pl.addEventListener('click', () => { const t0 = performance.now(); const step = (t) => { const u = clamp((t - t0) / 4000, 0, 1); rT.value = Math.round(u * 100); draw(); if (u < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); });
 })();
 
-/* ---------- 3 eset: teher / szélesség hatása a feszültségre (dia 20) ---------- */
+/* ---------- 3 eset: teher / szélesség hatása a feszültségre ---------- */
 (function threeCases() {
   const host = $('#tcSvg'); if (!host) return; const s = svg(host, 660, 220);
   const cases = [['Kétszeres teher', 'b, 2q', 'feszültség mindenhol kétszeres, a mélység ugyanaz', 1, 2], ['Kétszeres szélesség', '2b, q', 'ugyanaz a feszültség kétszer mélyebben', 2, 1], ['Fele felület', 'b/2, 2q', 'nagy feszültség felül, de sekély hatás', 0.5, 2]];

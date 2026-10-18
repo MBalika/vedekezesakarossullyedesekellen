@@ -5,15 +5,15 @@ const U = window.U; const { $, $$, clamp, lerp, fmt, S, H, css } = U;
 
 // ---------------- talajprofilok ----------------
 export const PROFILES = {
-  A: { key: 'A', name: 'Puha agyag felül, homok alul', note: 'A jegyzet 22. ábrája, A eset', layers: [
+  A: { key: 'A', name: 'Puha agyag felül, homok alul', note: 'A eset: puha agyag felül, homok alul', layers: [
     { n: 'Puha agyag', top: 0, bot: 3.5, g: 18, E: 3.0, tex: 'clay', c: '#8c735f' },
     { n: 'Tömör homok', top: 3.5, bot: 99, g: 20, E: 30, tex: 'sand', c: '#d8b56b' }] },
-  B: { key: 'B', name: 'Homok felül, puha agyag alul', note: 'A jegyzet 22. ábrája, B eset', layers: [
+  B: { key: 'B', name: 'Homok felül, puha agyag alul', note: 'B eset: homok felül, puha agyag alul', layers: [
     { n: 'Tömör homok', top: 0, bot: 3.0, g: 19, E: 30, tex: 'sand', c: '#d8b56b' },
     { n: 'Puha agyag', top: 3.0, bot: 99, g: 18, E: 3.0, tex: 'clay', c: '#8c735f' }] },
   C: { key: 'C', name: 'Homogén közepes agyag', note: 'összehasonlító eset', layers: [
     { n: 'Közepes agyag', top: 0, bot: 99, g: 18.5, E: 5.0, tex: 'clay2', c: '#9b8470' }] },
-  D: { key: 'D', name: 'Puha réteg, 2,6 m-től kavics', note: 'mélyebb alapsík esete (23. ábra)', layers: [
+  D: { key: 'D', name: 'Puha réteg, 2,6 m-től kavics', note: 'mélyebb alapsík esete', layers: [
     { n: 'Puha iszapos agyag', top: 0, bot: 2.6, g: 18, E: 2.5, tex: 'silt', c: '#8a7d6b' },
     { n: 'Homokos kavics', top: 2.6, bot: 99, g: 21, E: 60, tex: 'grav', c: '#b9a48a' }] },
 };

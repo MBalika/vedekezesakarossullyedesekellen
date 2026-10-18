@@ -330,6 +330,7 @@ table.t{width:100%;border-collapse:collapse;font-size:14px}
 table.t th,table.t td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
 table.t th{font:700 12px var(--fb);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
 table.t td.n{font-family:var(--fm);white-space:nowrap}
+.nw{white-space:nowrap}
 .tscroll{overflow-x:auto}
 
 footer.foot{background:var(--hero1);color:var(--hero-mute);padding-block:40px max(40px,env(safe-area-inset-bottom,0px));margin-top:80px;font-size:13.5px}
