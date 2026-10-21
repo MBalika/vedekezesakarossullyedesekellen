@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Védekezés a káros süllyedések ellen</title>
-<meta name="description" content="Interaktív tananyag: kisebb talpnyomás, mélyebb alapsík, talajcsere, tömörítés, injektálás, tömegstabilizáció, előterhelés – 3D szimulátorral, videókkal, kvízekkel.">
+<meta name="description" content="Interaktív tananyag: kisebb talpnyomás, mélyebb alapsík, talajcsere, tömörítés, injektálás, tömegstabilizáció, előterhelés – 3D szimulátorral, valós felvételekkel, kvízekkel.">
 <meta name="theme-color" content="#0b2420">
 <meta property="og:title" content="Védekezés a káros süllyedések ellen">
-<meta property="og:description" content="BME Alapozás · interaktív tananyag 3D süllyedés-szimulátorral, animációs videókkal és kvízekkel.">
+<meta property="og:description" content="BME Alapozás · interaktív tananyag 3D süllyedés-szimulátorral, videókkal és kvízekkel.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d7a68'/%3E%3Cpath d='M7 25h18M10 25V14l6-5 6 5v11' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<script src="vendor/hyphenopoly/Hyphenopoly_Loader.js"></script>
+<script>Hyphenopoly.config({ require: { "hu": "FORCEHYPHENOPOLY" }, setup: { hide: "none", selectors: { ".hyphenate": { minWordLength: 6, compound: "auto" } } } });</script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <style>
 :root{
@@ -383,6 +385,85 @@ footer.foot li{margin:.35em 0}
 .sumt td{vertical-align:top;font-size:14px}.sumt td:first-child{white-space:nowrap}
 @media (max-width:640px){.sumt{min-width:640px}}
 
+/* ---- formázás: sorkizárás + magyar elválasztás (Hyphenopoly + formázás-őr) ---- */
+main p, main li, main dd, main figcaption, main .insight, main .expl, main .tf .fb, main .callout p, main .card p, .hero p.lead, footer.foot p {
+  text-align: justify; text-justify: inter-word; hyphens: manual; -webkit-hyphens: manual; text-wrap: pretty;
+}
+main .qres p { text-align: center; }
+.nw { white-space: nowrap; }
+.nw, sub, sup, td, th, output, .mono, .chip, button, .kicker, .stat, .fact { hyphens: none; -webkit-hyphens: none; }
+main h1, main h2, main h3, main h4 { hyphens: none; }
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* ---- BME YouTube-felvételek: „Nézd meg élőben is!” kártya ---- */
+.ytc { --ytc-bg: #0b1513; position: relative; margin: 26px 0 8px; border-radius: 18px; overflow: hidden; background: var(--ytc-bg); color: #eef3f1; border: 1px solid var(--line); box-shadow: var(--shadow); isolation: isolate; }
+.ytc::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 26px 26px,
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 26px 26px,
+  radial-gradient(70% 60% at 50% 45%, rgba(57, 194, 165, 0.10), transparent 70%); }
+.ytc-head { text-align: center; padding: 20px 96px 4px; }
+.ytc-kick { font: 800 clamp(11px, 1.3vw, 14px)/1.2 var(--fb); letter-spacing: 0.16em; text-transform: uppercase; color: #e5ae47; }
+.ytc-title { font: 800 clamp(28px, 4.2vw, 48px)/1 var(--fh); letter-spacing: -0.01em; margin: 6px 0 0; color: #fff; }
+.ytc-board { position: relative; margin: 10px auto 0; width: min(100%, 980px); aspect-ratio: 16 / 8.2; }
+.ytc-main { position: absolute; left: 50%; top: 50%; width: 49%; transform: translate(-50%, -50%) rotate(-0.6deg); z-index: 3; border: 0; padding: 7px; background: #fff; border-radius: 4px; cursor: pointer; box-shadow: 0 18px 40px rgba(0,0,0,0.55); transition: transform 0.18s; }
+.ytc-main:hover { transform: translate(-50%, -50%) rotate(0deg) scale(1.025); }
+.ytc-main img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.ytc-yt { position: absolute; left: 50%; top: 50%; width: 17%; aspect-ratio: 1.42; transform: translate(-50%, -50%); border-radius: 22% / 30%; background: #ff0000; box-shadow: 0 6px 18px rgba(0,0,0,0.45); display: grid; place-items: center; transition: transform 0.15s; }
+.ytc-yt::before { content: ""; border-left: clamp(12px, 2vw, 22px) solid #fff; border-top: clamp(8px, 1.3vw, 14px) solid transparent; border-bottom: clamp(8px, 1.3vw, 14px) solid transparent; margin-left: 8%; }
+.ytc-main:hover .ytc-yt { transform: translate(-50%, -50%) scale(1.1); }
+.ytc-pol { position: absolute; z-index: 2; width: 31%; margin: 0; padding: 6px 6px 0; background: #f4f1ea; border-radius: 3px; box-shadow: 0 12px 28px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.18s; }
+.ytc-pol img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.ytc-pol figcaption { font: 800 clamp(10px, 1.15vw, 14px)/1 var(--fh); letter-spacing: 0.05em; text-transform: uppercase; color: #1c1c1c; text-align: left; padding: 8px 8px 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; hyphens: none; }
+.ytc-pol.p1 { left: 1%; top: 4%; transform: rotate(-6deg); }
+.ytc-pol.p2 figcaption, .ytc-pol.p4 figcaption { text-align: right; }
+.ytc-pol.p2 { right: 2%; top: 3%; transform: rotate(5deg); }
+.ytc-pol.p3 { left: 4%; bottom: 3%; transform: rotate(4deg); }
+.ytc-pol.p4 { right: 4%; bottom: 2%; transform: rotate(-4deg); }
+.ytc-pol:hover { z-index: 4; transform: rotate(0deg) scale(1.05); }
+.ytc-bar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px 14px; align-items: center; margin: 14px 16px 16px; padding: 12px 16px; border-radius: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); }
+.ytc-logo { width: 46px; height: 32px; border-radius: 9px; background: #ff0000; display: grid; place-items: center; }
+.ytc-logo::before { content: ""; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+.ytc-bar b { display: block; font: 700 17px/1.25 var(--fh); color: #fff; }
+.ytc-bar small { display: block; font-size: 13px; color: #a9bbb5; line-height: 1.35; margin-top: 2px; }
+.ytc-link { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; text-decoration: none; }
+.ytc-link .u { font: 700 clamp(15px, 1.7vw, 20px)/1 var(--fm); color: #e5ae47; white-space: nowrap; }
+.ytc-link .h { font-size: 12px; color: #a9bbb5; white-space: nowrap; }
+.ytc-link:hover .u { text-decoration: underline; text-underline-offset: 4px; }
+.ytc-qr { position: absolute; right: 14px; top: 14px; width: 74px; padding: 5px; background: #fff; border-radius: 6px; }
+.ytc-qr img { width: 100%; image-rendering: pixelated; }
+@media (max-width: 820px) { .ytc-qr { display: none; } .ytc-head { padding: 18px 16px 4px; } }
+@media (max-width: 680px) {
+  .ytc-board { aspect-ratio: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 4px 12px 0; }
+  .ytc-main { position: relative; left: auto; top: auto; transform: none; width: 100%; grid-column: 1 / -1; order: -1; }
+  .ytc-main:hover { transform: scale(1.01); }
+  .ytc-pol { position: relative; left: auto !important; right: auto !important; top: auto !important; bottom: auto !important; width: 100%; padding: 4px 4px 0; }
+  .ytc-pol.p1, .ytc-pol.p4 { transform: rotate(-2deg); } .ytc-pol.p2, .ytc-pol.p3 { transform: rotate(2deg); }
+  .ytc-pol figcaption, .ytc-pol.p2 figcaption, .ytc-pol.p4 figcaption { text-align: center; font-size: 11px; padding: 6px 2px 7px; }
+  .ytc-bar { grid-template-columns: auto minmax(0, 1fr); }
+  .ytc-link { grid-column: 1 / -1; align-items: flex-start; }
+  .ytc-link .h { white-space: normal; }
+}
+/* kis változat (videótár, oldalsávok) */
+.ytm { display: flex; flex-direction: column; border-radius: 14px; overflow: hidden; background: #0b1513; color: #eef3f1; box-shadow: var(--shadow); cursor: pointer; border: 1px solid var(--line); padding: 0; text-align: left; font: inherit; width: 100%; transition: transform 0.15s, border-color 0.15s; }
+.ytm:hover { transform: translateY(-2px); border-color: var(--c); }
+.ytm .th { position: relative; aspect-ratio: 16 / 9; }
+.ytm .th img { width: 100%; height: 100%; object-fit: cover; }
+.ytm .th .ytc-yt { width: 20%; }
+.ytm .th .d { position: absolute; right: 7px; bottom: 6px; font: 700 11.5px/1 var(--fm); color: #fff; background: rgba(0,0,0,0.7); padding: 3px 6px; border-radius: 5px; }
+.ytm .strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; padding: 3px 3px 0; }
+.ytm .strip img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
+.ytm .m { padding: 9px 12px 12px; }
+.ytm .m small { display: block; font: 700 10.5px/1.2 var(--fm); letter-spacing: 0.08em; text-transform: uppercase; color: #e5ae47; }
+.ytm .m b { display: block; font: 700 18px/1.15 var(--fh); margin-top: 4px; color: #fff; }
+.ytgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+.vinline .ytm { max-width: 520px; }
+.vinline .ytnote { font-size: 13px; color: var(--mute); margin: 0 0 8px; }
+/* YouTube-lejátszó ablak */
+.modal .mh { flex-wrap: wrap; }
+.modal .mh a.mhb { border: 0; background: rgba(255,255,255,.12); color: #fff; border-radius: 8px; padding: 6px 12px; font: 700 13px var(--fb); text-decoration: none; }
+.modal .mh a.mhb:hover, .modal .mh button:hover { background: rgba(255,255,255,.2); }
+.modal .ytinfo { padding: 8px 14px 10px; font-size: 12.5px; color: #a9bbb5; }
+
 </style>
 </head>
 <body>
@@ -420,13 +501,14 @@ footer.foot li{margin:.35em 0}
       <div class="stats">
         <div class="stat"><b>8</b><span>beavatkozási mód (a–h)</span></div>
         <div class="stat"><b>3D</b><span>süllyedés-szimulátor</span></div>
-        <div class="stat"><b>7</b><span>animációs videó</span></div>
+        <div class="stat"><b>8</b><span>valós BME-felvétel</span></div>
+        <div class="stat"><b>2</b><span>animációs videó</span></div>
         <div class="stat"><b>15+</b><span>interaktív ábra</span></div>
         <div class="stat"><b>40</b><span>igaz/hamis állítás</span></div>
       </div>
       <div class="btns">
         <a class="btn pri" href="#alapozas">Indítsd a 3D szimulátort →</a>
-        <a class="btn ghost" href="#videok">▶ Animációs videók</a>
+        <a class="btn ghost" href="#videok">▶ Videók</a>
         <a class="btn ghost" href="#igazhamis">Igaz/hamis teszt</a>
       </div>
     </div>
@@ -652,7 +734,8 @@ footer.foot li{margin:.35em 0}
 
 <!-- 5. MECHANIKAI TÖMÖRÍTÉS -->
 <section class="chap c-amber" id="tomorites"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · mechanikai eljárások</div><h2>Tömörítés: rázással, ejtéssel, kőoszlopokkal</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Négy mechanikai eljárás:</p></div></div>
+  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · mechanikai eljárások</div><h2>Tömörítés: rázással, ejtéssel, kőoszlopokkal</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be – előbb egy valós felvétel a talajjavítások egészéről.</p></div></div>
+  <div data-ytc="8Zcv7ktWD68"></div>
   <div class="tabs" data-group="mech"><button data-tab="m1" class="on"><span class="n">1</span>Mélytömörítés</button><button data-tab="m2"><span class="n">2</span>Dinamikus tömörítés</button><button data-tab="m3"><span class="n">3</span>Kőtömzs</button><button data-tab="m4"><span class="n">4</span>Kavicscölöp</button></div>
 
   <div class="tabpane on" data-group="mech" data-tab="m1">
@@ -671,9 +754,9 @@ footer.foot li{margin:.35em 0}
           <p class="src" style="margin-top:10px">Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12% alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.</p>
         </div></div>
         <div class="grid g2" style="margin-top:14px"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Mélyvibrátor öblítéssel" loading="lazy"><figcaption>Mélyvibrátor öblítés közben</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Daruval függesztett mélyvibrátorok" loading="lazy"><figcaption>Daruval függesztett vibrátorok</figcaption></figure></div>
-        <div class="vinline"><button class="vcard" data-video="tj2"></button></div>
       </div>
     </div>
+    <div data-ytc="Gca4PGhTC5o"></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m2">
@@ -692,9 +775,9 @@ footer.foot li{margin:.35em 0}
           <div class="callout web" style="margin-bottom:0"><span class="ci">i</span><p>Ménard–Mayne-féle becslés: <b class="nw">d ≈ n·√(W·H)</b> (W tonnában, H méterben), n ≈ 0,5 a legtöbb talajra, 0,35–0,40 telített finomszemcsés talajra. Becslés – a tényleges hatásmélységet próbatömörítéssel igazolják; a gyakorlatban jellemzően <span class="nw">max. 5–7 m</span>.</p></div>
         </div></div>
         <figure class="photo" style="margin-top:14px"><img src="img/dinamikus-foto1.jpg" alt="Dinamikus tömörítés munkaterülete" loading="lazy"><figcaption>Dinamikus tömörítés: a raszterben ejtegetett pontok gödrei</figcaption></figure>
-        <div class="vinline"><button class="vcard" data-video="tj3"></button></div>
       </div>
     </div>
+    <div data-ytc="LtSalNj4ByQ"></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m3">
@@ -709,7 +792,7 @@ footer.foot li{margin:.35em 0}
       <div>
         <div class="stepper" id="ktSteps"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
         <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
-        <div class="vinline"><button class="vcard" data-video="tj3"></button></div>
+        <div class="vinline"><p class="ytnote">A döngölésről szóló felvétel a kőtömzsök készítését is megmutatja.</p><button data-ytm="LtSalNj4ByQ" data-tech="Döngölés és kőtömzs"></button></div>
       </div>
     </div>
   </div>
@@ -733,9 +816,9 @@ footer.foot li{margin:.35em 0}
           <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
           <p class="src" style="margin-top:8px">Egységcella-modell: aₛ = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s₀ = 1 / [1 + aₛ(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.</p>
         </div></div>
-        <div class="vinline"><button class="vcard" data-video="tj4"></button></div>
       </div>
     </div>
+    <div data-ytc="cNkNZV6kgqk"></div>
   </div>
   <div class="quiz" id="q5"><div class="qh"><h4>Önellenőrzés · 5. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
@@ -766,7 +849,7 @@ footer.foot li{margin:.35em 0}
     <div class="sub-h"><span class="lt">📷</span><h3>Utólagos alapmegerősítés injektálással – lépésről lépésre</h3></div>
     <div class="stepper" id="injBar"></div>
     <div id="injPhotos"></div>
-    <div class="vinline"><button class="vcard" data-video="tj5"></button></div>
+    <div data-ytc="CgKwZBWn_xM"></div>
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
     <div class="twocol">
@@ -787,9 +870,9 @@ footer.foot li{margin:.35em 0}
           <div class="res" id="msOut"></div>
           <p class="src" style="margin-top:8px">Kitekintés: egy helsinki kísérleti projektben tőzegben 100 kg/m³ cementtel érték el a legjobb eredményt; a kötőanyag a teljes költség közel felét adta, a szilárdság 30 és 90 nap között akár megduplázódhat.</p>
         </div></div>
-        <div class="vinline"><button class="vcard" data-video="tj6"></button></div>
       </div>
     </div>
+    <div data-ytc="wh31VB1fY_8"></div>
   </div>
   <div class="quiz" id="q6"><div class="qh"><h4>Önellenőrzés · 6. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
@@ -842,16 +925,21 @@ footer.foot li{margin:.35em 0}
   <div class="sub-h"><span class="lt">h</span><h3>Mélyalapozás tervezése</h3></div>
   <div class="grid g2">
     <div class="card top"><p>Ha a síkalapozás mellett a számítások meg nem engedhető süllyedéseket, süllyedéskülönbségeket jeleznek, a tervezők jelentős része áttér a <b>mélyalapozásra</b> (cölöp, résfal). Sok esetben ez a <b>legegyszerűbb, leggyorsabb és legolcsóbb</b> megoldás.</p></div>
-    <div class="card top"><h4>Mélyalapozás a videótárban</h4><p>CFA-cölöp, csavart cölöpök, fúrt cölöpök, előregyártott cölöpök, mikrocölöpök, jet grouting, mélykeverés, résfal, kút- és szekrényalapozás – a sorozat mélyalapozási animációi.</p></div>
+    <div class="card top"><h4>Mélyalapozás részletesen</h4><p>CFA-cölöp, csavart, fúrt és előregyártott cölöpök, mikrocölöp, jet-grouting, mélykeverés, résfal, kút- és szekrényalapozás – a <a href="https://melyalapozasok.vercel.app" target="_blank" rel="noopener">Mélyalapozások</a> interaktív tananyagban, 3D cölöpépítővel. Valós felvételen:</p></div>
   </div>
+  <div class="ytgrid" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
   <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 8. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
 <!-- VIDEÓTÁR -->
 <section class="chap c-teal" id="videok"><div class="wrap">
-  <div class="chhead"><div class="chnum">▶</div><div><div class="kicker">Videótár</div><h2>Hét technológia – animációban</h2><p class="lead">3D animációs videók zenével és feliratokkal. Kattints egy kártyára a lejátszáshoz; a lejátszóban teljes képernyő is elérhető.</p></div></div>
+  <div class="chhead"><div class="chnum">▶</div><div><div class="kicker">Videótár</div><h2>Animációk és valós felvételek</h2><p class="lead">Két 3D animáció az elvekről – zenével és feliratokkal –, és a BME Építőmérnöki Kar felvételei arról, hogyan készülnek a talajjavítások egy valódi munkaterületen. Kattints egy kártyára a lejátszáshoz; a lejátszóban teljes képernyő is elérhető.</p></div></div>
   <div class="grid g3 vgrid">
-    <button class="vcard" data-video="tj1"></button><button class="vcard" data-video="tj2"></button><button class="vcard" data-video="tj3"></button><button class="vcard" data-video="tj4"></button><button class="vcard" data-video="tj5"></button><button class="vcard" data-video="tj6"></button><button class="vcard" data-video="tj7"></button>
+    <button class="vcard" data-video="tj1"></button><button class="vcard" data-video="tj7"></button>
+  </div>
+  <div class="sub-h"><span class="lt">▶</span><h3>A BME Építőmérnöki Kar felvételei</h3></div>
+  <div class="ytgrid">
+    <button data-ytm="8Zcv7ktWD68"></button><button data-ytm="Gca4PGhTC5o"></button><button data-ytm="LtSalNj4ByQ"></button><button data-ytm="cNkNZV6kgqk"></button><button data-ytm="CgKwZBWn_xM"></button><button data-ytm="wh31VB1fY_8"></button><button data-ytm="MPjXIhchN-w"></button><button data-ytm="c3vKfjgqJdA"></button>
   </div>
 </div></section>
 
@@ -871,6 +959,7 @@ footer.foot li{margin:.35em 0}
 </div></footer>
 <button class="totop" aria-label="Vissza a tetejére">↑</button>
 <div class="modal" id="vmodal" role="dialog" aria-modal="true"><div class="box"><div class="mh"><span></span><div style="display:flex;gap:8px"><button id="vfs">⛶ Teljes képernyő</button><button id="vclose">✕ Bezárás</button></div></div><div class="frame"></div></div></div>
+<div class="modal" id="ytmodal" role="dialog" aria-modal="true" aria-label="YouTube-videó"><div class="box"><div class="mh"><span></span><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="mhb" id="ytopen" href="#" target="_blank" rel="noopener">Megnyitás a YouTube-on ↗</a><button id="ytclose">✕ Bezárás</button></div></div><div class="frame"></div><div class="ytinfo"></div></div></div>
 <script>
 /* ===== Védekezés a káros süllyedések ellen – alap UI ===== */
 const $ = (s, r = document) => r.querySelector(s);
@@ -932,11 +1021,6 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 // --- videók ---
 const VIDEOS = {
   tj1: { t: 'Talajcsere', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '1:52', ch: 'a–c' },
-  tj2: { t: 'Mélytömörítés – vibroflotáció', s: 'mélyvibrátor, öblítés, tömörítés, raszter', d: '1:50', ch: 'd/1' },
-  tj3: { t: 'Dinamikus tömörítés + kőtömzs', s: 'ejtősúly 15–40 t, H = 10–40 m, kőtömzsök', d: '1:51', ch: 'd/2–3' },
-  tj4: { t: 'Kavicscölöp (vibrált kőoszlop)', s: 'lehajtás, töltés, tömörítés, raszter, drénhatás', d: '1:49', ch: 'd/4' },
-  tj5: { t: 'Injektálás', s: 'cementbesajtolás, kétkomponensű műanyag, utólagos megerősítés', d: '1:56', ch: 'd/5' },
-  tj6: { t: 'Tömegstabilizáció', s: 'keverőfej, kötőanyag, géplánc, max. 7 m', d: '1:47', ch: 'd/6' },
   tj7: { t: 'Előterhelés – Mexikóváros', s: 'kavicsterhelés, kivárás, ütemezett eltávolítás', d: '1:50', ch: 'e' },
 };
 window.VIDEOS = VIDEOS;
@@ -944,7 +1028,7 @@ window.VIDEOS = VIDEOS;
   const modal = $('#vmodal'); if (!modal) return; const frame = $('.frame', modal), title = $('.mh span', modal);
   const open = (k) => {
     const v = VIDEOS[k]; if (!v) return; title.textContent = v.t; frame.innerHTML = '';
-    const f = H('iframe', { src: `video/${k}.html`, title: v.t, allow: 'autoplay; fullscreen', allowfullscreen: '' }); frame.appendChild(f);
+    const f = H('iframe', { src: `video/${k}.html`, title: v.t, allow: 'autoplay; fullscreen' }); frame.appendChild(f);
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
   };
   const close = () => { modal.classList.remove('on'); frame.innerHTML = ''; document.body.style.overflow = ''; };
@@ -1628,6 +1712,283 @@ window.addEventListener('DOMContentLoaded', () => {
   window.TF(document.getElementById('tfGrid'), TFI, document.getElementById('tfScore'));
 });
 })();
+
+</script>
+<script>
+/* ===== BME Építőmérnöki Kar – YouTube-felvételek („Nézd meg élőben is!” kártyák) ===== */
+(function () {
+  const { $, $$ } = window.U;
+  // a felhasznált videók adatai (cím, hossz, lejátszási lista, a polaroidok feliratai)
+  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA';
+  const YT = {
+    '8Zcv7ktWD68': { title: 'Talajjavítások', dur: '2:36', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A talajjavítások áttekintése', tech: 'Talajjavítások', caps: ['Mélytömörítés', 'Vibrátorfej kavicsban', 'Talajjavítási módszerek', 'Dinamikus tömörítés'] },
+    Gca4PGhTC5o: { title: 'Vibroflotáció', dur: '2:23', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A vibroflotáció a valóságban', tech: 'Vibroflotáció', caps: ['Vibroflot a talajban', 'Vízöblítés', 'Utántöltés', 'Raszteres tömörítés'] },
+    LtSalNj4ByQ: { title: 'Talajtömörítés döngöléssel', dur: '3:16', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A döngölés a valóságban', tech: 'Döngölés, kőtömzs', caps: ['Döngölési raszter', 'Ejtősúly', 'Kőtömzs', 'Ejtegetés'] },
+    cNkNZV6kgqk: { title: 'Vibrált kőoszlopok', dur: '2:48', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A vibrált kőoszlop a valóságban', tech: 'Vibrált kőoszlop', caps: ['Vibrátoros gép', 'Anyagtartály feltöltése', 'Kavics a mélyponton', 'Kőoszlop-raszter'] },
+    CgKwZBWn_xM: { title: 'Injektálások', dur: '5:53', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'Az injektálás a valóságban', tech: 'Injektálás', caps: ['Furatkészítés', 'Injektáló furatok', 'Injektálás alagútban', 'Behatoló habarcs'] },
+    wh31VB1fY_8: { title: 'Mélykeverés', dur: '5:52', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A mélykeverés és a tömegstabilizáció a valóságban', tech: 'Mélykeverés, tömegstabilizáció', caps: ['Keverés a part mentén', 'Kiemelt keverőszár', 'Keverőmarós fal', 'Tömegstabilizáció'] },
+    'MPjXIhchN-w': { title: 'Jet-grouting', dur: '4:27', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A jet-grouting a valóságban', tech: 'Jet-grouting', caps: ['Foghíjtelek', 'Fúrás a gödörben', 'Visszafolyó iszap', 'Feltárt jet-oszlopok'] },
+    c3vKfjgqJdA: { title: 'Cölöpalapozások rendszerezése', dur: '2:32', playlist: 'Cölöpalapozások', list: LIST_C, kick: 'A cölöpözési technológiák áttekintése', tech: 'Cölöpalapozások', caps: ['Teherviselő oszlop', 'CFA-spirál', 'Nagyátmérőjű fúrt', 'Franki-hagymák'] },
+  };
+  window.YT = YT;
+  const img = (id, f) => `img/yt/${id}/${f}`;
+  const watch = (id) => `https://www.youtube.com/watch?v=${id}` + (YT[id].list ? `&list=${YT[id].list}` : '');
+  function mk(tag, attrs = {}, ...kids) {
+    const e = document.createElement(tag);
+    for (const k in attrs) { const v = attrs[k]; if (v == null || v === false) continue; if (k.startsWith('on') && typeof v === 'function') e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? '' : v); }
+    for (const c of kids.flat()) if (c != null && c !== false) e.append(c.nodeType ? c : document.createTextNode(String(c)));
+    return e;
+  }
+
+  // --- lejátszó ablak (youtube-nocookie) ---
+  const modal = $('#ytmodal');
+  let lastFocus = null;
+  function openYT(id) {
+    const y = YT[id]; if (!y || !modal) return;
+    lastFocus = document.activeElement;
+    $('.mh span', modal).textContent = y.title;
+    $('.frame', modal).innerHTML = '';
+    $('.frame', modal).appendChild(mk('iframe', { src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`, title: y.title, allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', referrerpolicy: 'strict-origin-when-cross-origin' }));
+    $('#ytopen', modal).href = watch(id);
+    $('.ytinfo', modal).textContent = `BME Építőmérnöki Kar · YouTube · ${y.playlist} lejátszási lista · ${y.dur}`;
+    modal.classList.add('on'); document.body.style.overflow = 'hidden';
+    setTimeout(() => { const b = $('#ytclose', modal); if (b) b.focus(); }, 50);
+  }
+  function closeYT() {
+    if (!modal || !modal.classList.contains('on')) return;
+    modal.classList.remove('on'); $('.frame', modal).innerHTML = ''; document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  if (modal) {
+    $('#ytclose', modal).addEventListener('click', closeYT);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeYT(); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') closeYT(); });
+  }
+  window.openYT = openYT;
+
+  // --- nagy kártya: <div data-ytc="ID" [data-kick="…"]></div> ---
+  function ytCard(el, id) {
+    const y = YT[id]; if (!y) { console.warn('Nincs ilyen YouTube-videó:', id); return; }
+    const caps = el.dataset.caps ? el.dataset.caps.split('|') : y.caps;
+    const go = () => openYT(id);
+    el.classList.add('ytc'); el.innerHTML = '';
+    const board = mk('div', { class: 'ytc-board' },
+      [1, 2, 3, 4].map((k) => mk('figure', { class: 'ytc-pol p' + k, onclick: go }, mk('img', { src: img(id, `p${k}.jpg`), alt: caps[k - 1] || '', loading: 'lazy', decoding: 'async' }), mk('figcaption', {}, caps[k - 1] || ''))),
+      mk('button', { class: 'ytc-main', type: 'button', onclick: go, 'aria-label': 'Videó lejátszása: ' + y.title }, mk('img', { src: img(id, 't.jpg'), alt: '', loading: 'lazy', decoding: 'async' }), mk('span', { class: 'ytc-yt' })));
+    el.append(
+      mk('div', { class: 'ytc-head' }, mk('div', { class: 'ytc-kick' }, el.dataset.kick || y.kick), mk('div', { class: 'ytc-title' }, 'Nézd meg élőben is!')),
+      mk('div', { class: 'ytc-qr' }, mk('img', { src: img(id, 'qr.png'), alt: 'QR-kód: youtu.be/' + id, loading: 'lazy' })),
+      board,
+      mk('div', { class: 'ytc-bar' }, mk('span', { class: 'ytc-logo', 'aria-hidden': 'true' }),
+        mk('div', {}, mk('b', {}, y.title), mk('small', {}, `BME Építőmérnöki Kar · YouTube · ${y.playlist} lejátszási lista · ${y.dur}`)),
+        mk('a', { class: 'ytc-link', href: watch(id), target: '_blank', rel: 'noopener' }, mk('span', { class: 'u' }, 'youtu.be/' + id), mk('span', { class: 'h' }, '▶ kattints a képre, vagy nyisd meg a YouTube-on ↗'))));
+  }
+  // --- kis kártya: <button data-ytm="ID"></button> ---
+  function ytMini(el, id) {
+    const y = YT[id]; if (!y) return;
+    el.classList.add('ytm'); el.innerHTML = ''; el.type = 'button';
+    el.append(mk('div', { class: 'th' }, mk('img', { src: img(id, 't.jpg'), alt: '', loading: 'lazy' }), mk('span', { class: 'ytc-yt' }), mk('span', { class: 'd' }, y.dur)),
+      mk('div', { class: 'strip' }, [1, 2, 3, 4].map((k) => mk('img', { src: img(id, `p${k}.jpg`), alt: '', loading: 'lazy' }))),
+      mk('div', { class: 'm' }, mk('small', {}, 'BME Építőmérnöki Kar · YouTube'), mk('b', {}, el.dataset.tech || y.tech)));
+    el.addEventListener('click', () => openYT(id));
+    el.setAttribute('aria-label', 'YouTube-videó: ' + y.title);
+  }
+  $$('[data-ytc]').forEach((el) => ytCard(el, el.dataset.ytc));
+  $$('[data-ytm]').forEach((el) => ytMini(el, el.dataset.ytm));
+})();
+
+</script>
+<script>
+/* ===== Formázás (sorkizárás + magyar elválasztás + nem törő egységek) – a /formazas szabályai szerint ===== */
+const GUARD = (() => {
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const NB = '\u00A0', WJ = '\u2060', NNB = '\u202F', NBH = '\u2011', SHY = '\u00AD';
+  const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'CODE', 'PRE', 'svg', 'SVG', 'CANVAS', 'SELECT', 'OPTION']);
+  const BLOCK = 'main p, main li, main dd, main figcaption, main h2, main h3, main h4, main td, main th, main .insight, main .expl, main .qt, main .opt span, main .tf .st, main .tf .fb, main label, main .res, main .lead, main .card h4, .hero .lead, .hero .sub, footer p, footer li, .ytc-bar small';
+  const HYPH = 'main p, main li, main dd, main figcaption, main .insight, main .expl, main .tf .fb, main .lead, .hero .lead, footer p';
+  const NOHY = 'sub, sup, code, button, label, output, td, th, .nw, .mono, h1, h2, h3, h4, h5, .kicker, .stat, .chip, .seg, .fact, .val, .v, .k';
+  const TERMS = ['káros süllyedés', 'egyenlőtlen süllyedés', 'használhatósági határállapot', 'teherbírási határállapot', 'kisebb talpnyomás', 'mélyebb alapsík', 'mélytömörítés', 'dinamikus tömörítés', 'vibrált kőoszlop', 'kőoszlop-raszter', 'kétkomponensű injektálás', 'műanyag bázisú injektálás', 'utólagos alapmegerősítés', 'függőleges drén', 'konszolidációs idő', 'hatékony feszültség', 'normálisan konszolidált', 'süllyedési hézag', 'statikailag határozott', 'építési sorrend', 'teherterjedési szög', 'feszültségkoncentráció', 'rugalmas féltér', 'relatív elfordulás', 'szögtorzulás', 'finomszem-tartalom', 'ejtési magasság', 'Ménard–Mayne-féle becslés', 'Jáky-féle', 'e–log σ′', 'talajtörés', 'merev csomópontok', 'csuklós csomópontok', 'térszíni lemezalap', 'cement+homok habarcs', 'vízüveg alapú', 'Torre Latinoamericana'];
+  const termRx = new RegExp('(' + TERMS.sort((a, b) => b.length - a.length).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[ \\u00A0]')).join('|') + ')', 'giu');
+  const MULT_SYM = /^(tg|ctg|sin|cos|tan|exp|ln|log)\b/;
+  const NUMW = /(^|[\s(\u00A0\u2060„])((?:[Kk]ét|[Hh]árom|[Nn]égy|[Öö]t|[Hh]at|[Hh]ét|[Nn]yolc|[Kk]ilenc|[Tt]íz|[Hh]úsz|[Ss]záz|[Ee]zer|[Ee]lső|[Mm]ásodik|[Hh]armadik|[Nn]egyedik|[Öö]tödik|[Hh]atodik|[Hh]etedik|[Nn]yolcadik|[Kk]ilencedik|[Tt]izedik|[Mm]indkét|[Mm]indhárom|[Nn]éhány|[Ee]gyik|[Kk]ettő|[Hh]armincnyolc|[Nn]egyven|[Hh]etven))(?=\s\S)\s/g;
+  function textPass(s) {
+    if (!/[ \-–·]/.test(s)) return s;
+    // ezres tagolás
+    s = s.replace(/(^|[^\d,.])(\d{1,3}) (\d{3})(?!\d)/g, '$1$2' + NNB + '$3');
+    // operátorok
+    s = s.replace(/ ([=≤≥≈→←×±<>⇒]) /g, NB + '$1' + NB);
+    s = s.replace(/([\p{N}\p{L})\]′″]) ([+−]) (?=[\p{N}\p{L}(])/gu, '$1' + NB + '$2' + NB);
+    s = s.replace(/ \/ /g, NB + '/' + NB);
+    // a · kettős szerepe
+    s = s.replace(/ · (?=(\S+))/g, (m, nxt) => {
+      const w = nxt.replace(/^[(„"]/, '');
+      if (/^\p{L}{3,}/u.test(w) && !MULT_SYM.test(w)) return m;
+      return NB + '·' + NB;
+    });
+    // azonosítók
+    s = s.replace(/(\d)-(\d)/g, '$1' + NBH + '$2');
+    s = s.replace(/\b([A-Z]{2,5})-(\d)/g, '$1' + NBH + '$2');
+    s = s.replace(/\b(MSZ|EN|ISO|DIN|ASCE|IRC|FprEN|prEN) (?=[A-Z\d])/g, '$1' + NB);
+    s = s.replace(/(\S)–(\S)/g, '$1' + WJ + '–' + WJ + '$2');
+    // függvénynév + argumentum
+    s = s.replace(/\b(tg|ctg|sin|cos|tan|ln|log|exp) /g, '$1' + NB);
+    // rövidítések
+    s = s.replace(/(^|[\s(\u00A0])(pl\.|kb\.|ill\.|ún\.|max\.|min\.|ld\.|vö\.|cca\.|átl\.|ill|ún|kb) (?=\S)/g, '$1$2' + NB);
+    // szám + mértékegység / szó; magában álló szám
+    s = s.replace(/(^|[\s(\u00A0\u2060~≈≤≥=<>−+])(\d+(?:[,.]\d+)?\.?%?) (?=\S)/g, '$1$2' + NB);
+    s = s.replace(/(^|[\s(\u00A0\u2060~≈≤≥=<>−+])(\d+(?:[,.]\d+)?\.?%?) (?=\S)/g, '$1$2' + NB);
+    // névelők, rövid kötőszavak
+    for (let i = 0; i < 2; i++) s = s.replace(/(^|[\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És) (?=\S)/g, '$1$2' + NB);
+    // betűvel írt számnév + amit számlál
+    s = s.replace(NUMW, '$1$2' + NB);
+    // utótagos kötőjel (30°-nál, RFA-n, 1173-ban)
+    s = s.replace(/([\d°′″%)\]\p{Lu}\u2080-\u2089])-(\p{Ll}{1,6})(?=$|[\s.,;:!?)”\u00A0\u2060])/gu, '$1' + NBH + '$2');
+    return s;
+  }
+  function bindPositions(full, cpl = 70) {
+    const bind = new Set();
+    const segMax = Math.max(14, Math.min(38, 0.42 * cpl)), parMax = Math.max(10, Math.min(24, 0.30 * cpl));
+    const mark = (a, b) => { for (let i = a; i < b; i++) if (full[i] === ' ') bind.add(i); };
+    // tagolás · ; – mentén
+    const sepRx = / · |; | – /g;
+    let last = 0, m, lastSep = '';
+    const segs = [];
+    while ((m = sepRx.exec(full))) { segs.push([last, m.index, lastSep, m[0]]); last = m.index + m[0].length; lastSep = m[0]; }
+    segs.push([last, full.length, lastSep, '']);
+    if (segs.length > 1) {
+      for (const [a, b, before, after] of segs) {
+        const t = full.slice(a, b).trim();
+        // felsorolás-tag (· ;) ~38 karakterig; gondolatjel mellett csak rövid címke vagy verdikt
+        const dashOnly = (before === ' – ' || before === '') && (after === ' – ' || after === '') && (before || after);
+        const lim = dashOnly ? Math.min(22, segMax) : segMax;
+        if (t.length > 0 && t.length < lim) mark(a, b);
+      }
+    }
+    // rövid zárójeles rész
+    const pr = /\(([^()]{1,30})\)/g;
+    while ((m = pr.exec(full))) { if (m[0].length <= parMax) mark(m.index, m.index + m[0].length); }
+    // szakkifejezések
+    termRx.lastIndex = 0;
+    while ((m = termRx.exec(full))) mark(m.index, m.index + m[0].length);
+    // címke: érték
+    const lv = /(\p{L}[\p{L}\p{N}′_]{1,22}): ([\d−+±≤≥=<>~≈α-ωΑ-Ω]\S{0,9}(?:[ \u00A0][^\s;·]{1,7})?)(?=$|[;,.·)\s])/gu;
+    while ((m = lv.exec(full))) { if (m[0].length <= 34) mark(m.index, m.index + m[0].length); }
+    return bind;
+  }
+  function textNodes(root) {
+    const out = [];
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(n) {
+        let p = n.parentNode;
+        while (p && p !== root) { if (SKIP.has(p.nodeName) || (p.dataset && p.dataset.noguard !== undefined)) return NodeFilter.FILTER_REJECT; p = p.parentNode; }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let n; while ((n = w.nextNode())) out.push(n);
+    return out;
+  }
+  let hyph = null;
+  const done = new WeakMap();
+  function processBlock(el) {
+    if (!el.isConnected) return;
+    if (el.closest('[data-noguard]')) return;
+    const cur = el.textContent;
+    if (done.get(el) === cur) return;
+    const nodes = textNodes(el);
+    for (const n of nodes) { const v = textPass(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
+    // blokk-szintű kötés
+    const full = nodes.map(n => n.nodeValue).join('');
+    // sorhossz karakterben: a doboz szélességéhez igazodó „rövid” határ
+    const fs = parseFloat(getComputedStyle(el).fontSize) || 16;
+    const cpl = el.clientWidth > 40 ? el.clientWidth / (fs * 0.52) : 70;
+    const bind = bindPositions(full, cpl);
+    if (bind.size) {
+      let off = 0;
+      for (const n of nodes) {
+        const v = n.nodeValue; let o = '', ch = false;
+        for (let i = 0; i < v.length; i++) {
+          if (v[i] === ' ' && bind.has(off + i)) { o += NB + WJ; ch = true; } else o += v[i];
+        }
+        off += v.length;
+        if (ch) n.nodeValue = o;
+      }
+    }
+    if (hyph && el.matches(HYPH)) {
+      for (const n of textNodes(el)) {
+        if (n.parentElement && n.parentElement.closest(NOHY) && n.parentElement.closest(NOHY) !== el) continue;
+        const parts = n.nodeValue.split(/( )/);
+        let ch = false;
+        for (let i = 0; i < parts.length; i += 2) {
+          const t = parts[i];
+          if (!t || !/\p{L}{6,}/u.test(t)) continue;
+          const clean = t.replace(/\u00AD/g, '');
+          let h;
+          if (t.includes(WJ)) {
+            // 16 karakternél hosszabb kötött csoport: csak az utolsó szava választható el
+            const vis = clean.replace(/[\u2060]/g, '');
+            if (vis.length <= 16) continue;
+            const k = Math.max(clean.lastIndexOf('\u00A0'), clean.lastIndexOf(WJ));
+            const tail = clean.slice(k + 1);
+            if (!/\p{L}{6,}/u.test(tail)) continue;
+            h = clean.slice(0, k + 1) + hyph(tail);
+          } else h = hyph(clean);
+          if (h !== t) { parts[i] = h; ch = true; }
+        }
+        if (ch) n.nodeValue = parts.join('');
+      }
+    }
+    done.set(el, el.textContent);
+  }
+  let obs = null, pend = new Set(), sched = false;
+  function run(root = document.body) {
+    const set = new Set();
+    if (root.matches && root.matches(BLOCK)) set.add(root);
+    $$(BLOCK, root).forEach(e => set.add(e));
+    if (obs) obs.disconnect();
+    set.forEach(processBlock);
+    if (obs) { obs.takeRecords(); observe(); }
+  }
+  function observe() { obs.observe(document.body, { childList: true, subtree: true, characterData: true }); }
+  function flush() {
+    sched = false;
+    const roots = Array.from(pend); pend.clear();
+    if (obs) obs.disconnect();
+    for (const r of roots) {
+      if (!r.isConnected) continue;
+      const blk = r.closest ? r.closest(BLOCK) : null;
+      if (blk) processBlock(blk);
+      if (r.querySelectorAll) $$(BLOCK, r).forEach(processBlock);
+    }
+    if (obs) { obs.takeRecords(); observe(); }
+  }
+  function start() {
+    run();
+    obs = new MutationObserver(recs => {
+      for (const r of recs) {
+        const t = r.type === 'characterData' ? r.target.parentElement : r.target;
+        if (t) pend.add(t);
+      }
+      if (!sched) { sched = true; requestAnimationFrame(flush); }
+    });
+    observe();
+    // Hyphenopoly
+    const H = window.Hyphenopoly;
+    if (H && H.hyphenators && H.hyphenators.hu) {
+      H.hyphenators.hu.then(fn => { hyph = s => fn(s); const all = $$(HYPH); all.forEach(e => done.delete(e)); run(); }).catch(() => {});
+    }
+  }
+  // vászonra szánt szöveg őrzése
+  function text(s, cpl = 60) {
+    let v = textPass(s);
+    const bind = bindPositions(v, cpl);
+    if (bind.size) v = Array.from(v).map((c, i) => (c === ' ' && bind.has(i)) ? NB + WJ : c).join('');
+    return v;
+  }
+  return { start, run, text, textPass };
+})();
+
+window.GUARD = GUARD;
+try { GUARD.start(); } catch (e) { console.error('Formázás-őr hiba', e); }
 
 </script>
 <script type="module">

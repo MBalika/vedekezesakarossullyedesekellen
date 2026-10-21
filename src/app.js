@@ -58,11 +58,6 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 // --- videók ---
 const VIDEOS = {
   tj1: { t: 'Talajcsere', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '1:52', ch: 'a–c' },
-  tj2: { t: 'Mélytömörítés – vibroflotáció', s: 'mélyvibrátor, öblítés, tömörítés, raszter', d: '1:50', ch: 'd/1' },
-  tj3: { t: 'Dinamikus tömörítés + kőtömzs', s: 'ejtősúly 15–40 t, H = 10–40 m, kőtömzsök', d: '1:51', ch: 'd/2–3' },
-  tj4: { t: 'Kavicscölöp (vibrált kőoszlop)', s: 'lehajtás, töltés, tömörítés, raszter, drénhatás', d: '1:49', ch: 'd/4' },
-  tj5: { t: 'Injektálás', s: 'cementbesajtolás, kétkomponensű műanyag, utólagos megerősítés', d: '1:56', ch: 'd/5' },
-  tj6: { t: 'Tömegstabilizáció', s: 'keverőfej, kötőanyag, géplánc, max. 7 m', d: '1:47', ch: 'd/6' },
   tj7: { t: 'Előterhelés – Mexikóváros', s: 'kavicsterhelés, kivárás, ütemezett eltávolítás', d: '1:50', ch: 'e' },
 };
 window.VIDEOS = VIDEOS;
@@ -70,7 +65,7 @@ window.VIDEOS = VIDEOS;
   const modal = $('#vmodal'); if (!modal) return; const frame = $('.frame', modal), title = $('.mh span', modal);
   const open = (k) => {
     const v = VIDEOS[k]; if (!v) return; title.textContent = v.t; frame.innerHTML = '';
-    const f = H('iframe', { src: `video/${k}.html`, title: v.t, allow: 'autoplay; fullscreen', allowfullscreen: '' }); frame.appendChild(f);
+    const f = H('iframe', { src: `video/${k}.html`, title: v.t, allow: 'autoplay; fullscreen' }); frame.appendChild(f);
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
   };
   const close = () => { modal.classList.remove('on'); frame.innerHTML = ''; document.body.style.overflow = ''; };
