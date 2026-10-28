@@ -45,7 +45,7 @@ p{margin:0 0 .9em}
 .mono{font-family:var(--fm);font-variant-numeric:tabular-nums}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .kicker{font:700 12px/1.2 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
-.lead{font-size:18px;color:var(--ink2);max-width:72ch}
+.lead{font-size:18px;color:var(--ink2)}
 .muted{color:var(--mute)}
 b,strong{font-weight:650}
 mark{background:var(--cs);color:var(--ci);padding:0 .25em;border-radius:4px}
@@ -168,6 +168,7 @@ input[type=range]:focus-visible{outline:2px solid var(--c);outline-offset:2px;bo
 .panel .ph h4{font-size:16px}
 .panel .pb{padding:16px 18px}
 .res{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.res>.r:last-child:nth-child(odd){grid-column:1/-1}
 .res .r{border:1px solid var(--line2);background:var(--card2);border-radius:10px;padding:8px 10px}
 .res .r span{display:block;font-size:11.5px;color:var(--mute);font-weight:600}
 .res .r b{font:700 17px var(--fm)}
@@ -216,7 +217,7 @@ svg text{font-family:var(--fb)}
 .tabpane{display:none}
 .tabpane.on{display:block;animation:fade .3s}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center}
 .steps{counter-reset:st;list-style:none;padding:0;margin:8px 0}
 .steps li{counter-increment:st;position:relative;padding:0 0 12px 40px}
 .steps li::before{content:counter(st);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:8px;background:var(--cs);color:var(--ci);font:800 14px var(--fh);display:grid;place-items:center}
@@ -362,6 +363,30 @@ footer.foot li{margin:.35em 0}
   .brand small{display:none}
   .big b{font-size:38px}
   section.chap{padding-block:60px 20px}
+}
+main .rag, footer .rag{text-align:left!important}
+/* ---- elrendezés: kitöltött, kiegyensúlyozott blokkok (formázás skill 5.) ---- */
+.tw-ab{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
+.tw-k{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr)}
+.sim.wide{align-items:stretch}
+.ctl2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start}
+.ctl2>:not(.ctl){grid-column:1/-1}
+.pb-split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:center}
+.prose.two{columns:2;column-gap:32px}
+.prose.two>p:first-child{margin-top:0}
+.prose.two>ul{break-inside:avoid}
+.sel{grid-template-columns:1fr}
+.sel>.panel>.pb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 26px}
+.sel>.panel>.pb>.src{grid-column:1/-1}
+#selList{grid-template-columns:repeat(2,minmax(0,1fr))}
+#selList>:last-child:nth-child(odd){grid-column:1/-1}
+@media (max-width:980px){
+  .tw-ab,.tw-k,.pb-split{grid-template-columns:1fr}
+  .prose.two{columns:1}
+  .sel>.panel>.pb{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .ctl2,.sel>.panel>.pb,#selList{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 

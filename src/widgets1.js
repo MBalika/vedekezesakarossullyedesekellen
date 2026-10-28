@@ -32,20 +32,22 @@ window.SVpat = pat;
   const arrow = SV('g', {}, s); SV('line', { x1: X1 + 22, y1: Y0, x2: X1 + 22, y2: Y0, stroke: '#d4553a', 'stroke-width': 2.5 }, arrow);
   const lab = SV('text', { x: X1 + 30, y: Y0 + 14, 'font-size': 13, 'font-weight': 800, fill: '#d4553a' }, s);
   const r = $('#heroDs'), val = $('#heroVal'), pill = $('#heroPill'), beta = $('#heroBeta');
+  const setT = (e, t) => { if (e.textContent !== t) e.textContent = t; };   // csak valódi változáskor ír (nincs fölösleges DOM-mutáció)
+  let lastDs = null;
   const upd = () => {
-    const ds = +r.value; window.U.fillRange(r); const L = 10000; const b = ds / L; const drop = ds * 0.55; const ang = Math.atan2(drop, X1 - X0) * 180 / Math.PI;
+    const ds = +r.value; if (ds === lastDs) return; lastDs = ds; window.U.fillRange(r); const L = 10000; const b = ds / L; const drop = ds * 0.55; const ang = Math.atan2(drop, X1 - X0) * 180 / Math.PI;
     house.setAttribute('transform', `rotate(${ang} ${X0} ${Y0})`);
     const lv = b < 1 / 1000 ? 0 : b < 1 / 500 ? 1 : b < 1 / 300 ? 2 : b < 1 / 150 ? 3 : 4;
     cr.forEach((p, i) => { const on = i < [0, 1, 3, 5, 6][lv]; p.setAttribute('opacity', on ? 1 : 0); p.setAttribute('stroke-width', [1, 1.2, 1.8, 2.6, 3.6][lv]); p.setAttribute('stroke', lv >= 4 ? '#b5302a' : '#3b2f28'); });
-    arrow.firstChild.setAttribute('y2', Y0 + drop); lab.setAttribute('y', Y0 + drop + 16); lab.textContent = `Δs = ${ds} mm`;
-    val.textContent = ds + ' mm'; beta.textContent = ds ? `β ≈ 1/${Math.round(L / ds)}` : 'β = 0';
+    arrow.firstChild.setAttribute('y2', Y0 + drop); lab.setAttribute('y', Y0 + drop + 16); setT(lab, `Δs = ${ds} mm`);
+    setT(val, ds + ' mm'); setT(beta, ds ? `β ≈ 1/${Math.round(L / ds)}` : 'β = 0');
     const T = [['nincs károsodás', ''], ['hajszálrepedés (< 0,1 mm)', ''], ['látható repedések – szerkezetileg még elviselhető', 'w'], ['repedések, nyílászárók befeszülnek', 'w'], ['szerkezeti kár (≈ 1/150)', 'b']][lv];
-    pill.textContent = T[0]; pill.className = 'status' + (T[1] ? ' ' + T[1] : '');
+    setT(pill, T[0]); const pc = 'status' + (T[1] ? ' ' + T[1] : ''); if (pill.className !== pc) pill.className = pc;
   };
   r.addEventListener('input', upd); upd();
   // kis automatikus bemutató, amíg a felhasználó nem nyúl hozzá
-  let touched = false; r.addEventListener('pointerdown', () => touched = true); let t0 = performance.now();
-  const demo = (t) => { if (touched) return; if (document.hidden || scrollY > innerHeight * 1.2) { requestAnimationFrame(demo); return; } const u = ((t - t0) / 6000) % 1; const v = Math.round(40 * (1 - Math.cos(u * Math.PI * 2)) / 2 * 1.5); r.value = Math.min(60, v); upd(); requestAnimationFrame(demo); };
+  let touched = false; r.addEventListener('pointerdown', () => touched = true); let t0 = performance.now(); const v0 = +r.value;
+  const demo = (t) => { if (touched) return; if (document.hidden || scrollY > innerHeight * 1.2) { t0 += 16; requestAnimationFrame(demo); return; } if (t - t0 > 12000) { r.value = v0; upd(); return; } const u = ((t - t0) / 6000) % 1; const v = Math.round(40 * (1 - Math.cos(u * Math.PI * 2)) / 2 * 1.5); r.value = Math.min(60, v); upd(); requestAnimationFrame(demo); };
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(demo);
 })();
 

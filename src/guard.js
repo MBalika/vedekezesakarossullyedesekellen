@@ -44,6 +44,14 @@ const GUARD = (() => {
     s = s.replace(/([\d°′″%)\]\p{Lu}\u2080-\u2089])-(\p{Ll}{1,6})(?=$|[\s.,;:!?)”\u00A0\u2060])/gu, '$1' + NBH + '$2');
     return s;
   }
+  // szövegcsomópontok határán: a névelő / rövid szó / szám ne maradjon a sor végén, ha a következő szó egy másik elemben (pl. <b>) kezdődik
+  const SHORTEND = new RegExp('(^|[\\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És|pl\\.|kb\\.|ill\\.|ún\\.|\\d+(?:[,.]\\d+)?\\.?%?) $');
+  function crossPass(nodes) {
+    for (let i = 0; i < nodes.length - 1; i++) { const a = nodes[i], b = nodes[i + 1]; const av = a.nodeValue, bv = b.nodeValue; if (!av || !bv) continue;
+      if (av.endsWith(' ') && /^\S/.test(bv) && SHORTEND.test(av)) a.nodeValue = av.slice(0, -1) + NB;
+      const ms = /^ ([=≤≥≈→←×±<>⇒+−/]) /.exec(b.nodeValue); if (ms && /\S$/.test(a.nodeValue)) b.nodeValue = NB + ms[1] + NB + b.nodeValue.slice(3);
+      const me = / ([=≤≥≈→←×±<>⇒+−/]) $/.exec(a.nodeValue); if (me && /^\S/.test(b.nodeValue)) a.nodeValue = a.nodeValue.slice(0, -3) + NB + me[1] + NB; }
+  }
   function bindPositions(full, cpl = 70) {
     const bind = new Set();
     const segMax = Math.max(14, Math.min(38, 0.42 * cpl)), parMax = Math.max(10, Math.min(24, 0.30 * cpl));
@@ -95,6 +103,7 @@ const GUARD = (() => {
     if (done.get(el) === cur) return;
     const nodes = textNodes(el);
     for (const n of nodes) { const v = textPass(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
+    crossPass(nodes);
     // blokk-szintű kötés
     const full = nodes.map(n => n.nodeValue).join('');
     // sorhossz karakterben: a doboz szélességéhez igazodó „rövid” határ
@@ -188,3 +197,23 @@ const GUARD = (() => {
 
 window.GUARD = GUARD;
 try { GUARD.start(); } catch (e) { console.error('Formázás-őr hiba', e); }
+
+/* Balra zárt tartalék: ha egy sorkizárt dobozban (keskeny kártya) feltűnő lyuk marad, a blokk balra zárt lesz. */
+const RAG = (() => {
+  const SEL = 'main p, main li, main dd, main figcaption, main .insight, main .expl, main .tf .fb, footer.foot p, .hero p.lead';
+  function check(el) {
+    el.classList.remove('rag'); const cs = getComputedStyle(el); if (cs.textAlign !== 'justify' || cs.display === 'none') return;
+    const fs = parseFloat(cs.fontSize); const all = document.createRange(); all.selectNodeContents(el); const rs = all.getClientRects(); if (rs.length < 2) return;
+    const lastTop = Math.max(...Array.from(rs).map(r => r.top)); let big = 0, mid = 0;
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+    while ((n = w.nextNode())) { const t = n.nodeValue; for (let i = 0; i < t.length; i++) { if (t[i] !== ' ') continue; const r = document.createRange(); r.setStart(n, i); r.setEnd(n, i + 1); const b = r.getBoundingClientRect(); if (!b.width || b.top >= lastTop - 2) continue; if (b.width > fs * 1.15) big++; else if (b.width > fs * 0.9) mid++; } }
+    if (big || mid >= 2) el.classList.add('rag');
+  }
+  const run = () => document.querySelectorAll(SEL).forEach(e => { if (e.offsetParent) check(e); });
+  let tm = 0; const later = (d) => { clearTimeout(tm); tm = setTimeout(run, d); };
+  addEventListener('resize', () => later(250)); document.addEventListener('click', () => later(150)); document.addEventListener('input', () => later(300));
+  return { run, later };
+})();
+window.RAG = RAG;
+setTimeout(() => RAG.run(), 600);
+if (window.Hyphenopoly && Hyphenopoly.hyphenators && Hyphenopoly.hyphenators.hu) Hyphenopoly.hyphenators.hu.then(() => setTimeout(() => RAG.run(), 300)).catch(() => {});

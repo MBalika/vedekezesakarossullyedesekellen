@@ -62,7 +62,7 @@ p{margin:0 0 .9em}
 .mono{font-family:var(--fm);font-variant-numeric:tabular-nums}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .kicker{font:700 12px/1.2 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
-.lead{font-size:18px;color:var(--ink2);max-width:72ch}
+.lead{font-size:18px;color:var(--ink2)}
 .muted{color:var(--mute)}
 b,strong{font-weight:650}
 mark{background:var(--cs);color:var(--ci);padding:0 .25em;border-radius:4px}
@@ -185,6 +185,7 @@ input[type=range]:focus-visible{outline:2px solid var(--c);outline-offset:2px;bo
 .panel .ph h4{font-size:16px}
 .panel .pb{padding:16px 18px}
 .res{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.res>.r:last-child:nth-child(odd){grid-column:1/-1}
 .res .r{border:1px solid var(--line2);background:var(--card2);border-radius:10px;padding:8px 10px}
 .res .r span{display:block;font-size:11.5px;color:var(--mute);font-weight:600}
 .res .r b{font:700 17px var(--fm)}
@@ -233,7 +234,7 @@ svg text{font-family:var(--fb)}
 .tabpane{display:none}
 .tabpane.on{display:block;animation:fade .3s}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center}
 .steps{counter-reset:st;list-style:none;padding:0;margin:8px 0}
 .steps li{counter-increment:st;position:relative;padding:0 0 12px 40px}
 .steps li::before{content:counter(st);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:8px;background:var(--cs);color:var(--ci);font:800 14px var(--fh);display:grid;place-items:center}
@@ -379,6 +380,30 @@ footer.foot li{margin:.35em 0}
   .brand small{display:none}
   .big b{font-size:38px}
   section.chap{padding-block:60px 20px}
+}
+main .rag, footer .rag{text-align:left!important}
+/* ---- elrendezés: kitöltött, kiegyensúlyozott blokkok (formázás skill 5.) ---- */
+.tw-ab{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
+.tw-k{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr)}
+.sim.wide{align-items:stretch}
+.ctl2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start}
+.ctl2>:not(.ctl){grid-column:1/-1}
+.pb-split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:center}
+.prose.two{columns:2;column-gap:32px}
+.prose.two>p:first-child{margin-top:0}
+.prose.two>ul{break-inside:avoid}
+.sel{grid-template-columns:1fr}
+.sel>.panel>.pb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 26px}
+.sel>.panel>.pb>.src{grid-column:1/-1}
+#selList{grid-template-columns:repeat(2,minmax(0,1fr))}
+#selList>:last-child:nth-child(odd){grid-column:1/-1}
+@media (max-width:980px){
+  .tw-ab,.tw-k,.pb-split{grid-template-columns:1fr}
+  .prose.two{columns:1}
+  .sel>.panel>.pb{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .ctl2,.sel>.panel>.pb,#selList{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
@@ -537,7 +562,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   <p>Az MSZ EN 1997-1 H melléklete szerint ellenőrizendő jellemzők: <b>s</b> süllyedés, <b>δs</b> süllyedéskülönbség, <b>θ</b> elfordulás, <b>ω</b> merev billenés (dőlés), <b>Δ</b> relatív lehajlás, <b>Δ/L</b> lehajlási viszonyszám és <b>β</b> relatív elfordulás (szögtorzulás), valamint a vízszintes eltolódás és a rezgésamplitúdó. A megengedett értékeket a felszerkezet tervezője adja meg.</p>
   <div class="sim wide">
     <div class="panel"><div class="ph"><h4>Négy alappont süllyedése (L = 12 m)</h4><div class="seg" id="movPre"><button data-v="egyenletes">Egyenletes</button><button data-v="billenes">Billenés</button><button data-v="behajlas" class="on">Behajlás</button><button data-v="felhajlas">Felhajlás</button><button data-v="egy">Egy pillér</button></div></div><div class="pb"><div id="movSvg"></div><div class="legend"><span><i style="background:var(--sky)"></i>billenés vonala (A–D)</span><span><i style="background:var(--violet)"></i>relatív lehajlás Δ</span><span><i style="background:var(--coral)"></i>süllyedés (torzított)</span></div></div></div>
-    <div class="panel"><div class="pb">
+    <div class="panel"><div class="pb ctl2">
       <div class="ctl"><label>A süllyedése <span class="v" data-for="movA"></span></label><input type="range" id="movA" min="0" max="60" value="10"></div>
       <div class="ctl"><label>B süllyedése <span class="v" data-for="movB"></span></label><input type="range" id="movB" min="0" max="60" value="34"></div>
       <div class="ctl"><label>C süllyedése <span class="v" data-for="movC"></span></label><input type="range" id="movC" min="0" max="60" value="34"></div>
@@ -667,7 +692,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   <p class="src" style="margin-top:10px">A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m₀ = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ₀ kritérium) → rétegenkénti összegzés: s = Σ Δσz·Δh / Eoed. A földkiemelés hatását a q₀ = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.</p>
 
   <div class="sub-h"><span class="lt">a</span><h3>Kisebb talpnyomás alkalmazása</h3></div>
-  <div class="twocol">
+  <div class="twocol tw-ab">
     <div>
       <p>A talaj teherbírása szempontjából szükségesnél <b>nagyobb felületű alapot</b> építünk. Szélesebb alapfelület alatt kisebb feszültségek keletkeznek. Sok esetben azonban nem csökkenti a süllyedést olyan mértékben, mint azt a tervező várja:</p>
       <ul><li>a szélesebb alaptest maga is <b>nagyobb súlyt</b> jelent,</li><li>főként pedig a szélesebb alap alatt <b>nagyobb mélységig</b> jutnak le az összenyomódást okozó feszültségek – <b>nagyobb lesz a határmélység</b>.</li></ul>
@@ -686,6 +711,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
       <ul><li>mélyebben fekvő teherbíró rétegre kerül(het) az alapsík;</li><li>nő a <b>kiemelt földtömeg súlya</b> – ez tehermentesíti az altalajt.</li></ul>
       <p>Ha a „pince” helyéről kiemelt talaj tömege nagyobb az oda kerülő építményénél, az altalajra hárított hatékony feszültségek eredője „negatív”, és az építmény (kellően merev vb. lemezalap esetén) gyakorlatilag mozdulatlan lesz – ez a <b>kompenzált alapozás</b> elve.</p>
       <div class="grid g2"><figure class="photo contain"><img src="img/pince-abra.jpg" alt="Mélyebb alapsík felvétele pincével" loading="lazy" style="height:170px;padding:8px"><figcaption>Mélyebb alapsík felvétele pincével</figcaption></figure><figure class="photo contain"><img src="img/foldkiemeles-abra.jpg" alt="A földkiemelés szerepe" loading="lazy" style="height:170px;padding:8px"><figcaption>A földkiemelés szerepe</figcaption></figure></div>
+      <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
     </div>
     <div class="panel"><div class="ph"><h4>Földkiemelés és kompenzáció</h4><button class="chip" id="bsPlay">▶ Építés</button></div><div class="pb">
       <div id="bsSvg"></div>
@@ -697,7 +723,6 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
       <p class="src" style="margin:8px 0 0">Szemléltetés: kb. 12 kPa/szint + 15 kPa alaplemez, γ = 19 kN/m³.</p>
     </div></div>
   </div>
-  <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
   <div class="vinline"><button class="vcard" data-video="tj1"></button></div>
   <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 3. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
@@ -706,16 +731,15 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 <section class="chap c-teal" id="talajcsere"><div class="wrap">
   <div class="chhead"><div class="chnum">4</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
   <div class="sim wide">
-    <div class="panel"><div class="ph"><h4>Teherterjedés a cserrétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div></div></div>
-    <div class="panel"><div class="pb">
+    <div class="panel"><div class="ph"><h4>Teherterjedés a cserrétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
+    <div class="panel"><div class="pb ctl2">
       <div class="ctl"><label>Teher P <span class="v" data-for="tcsP"></span></label><input type="range" id="tcsP" min="100" max="500" step="10" value="260"></div>
       <div class="ctl"><label>Alapszélesség B <span class="v" data-for="tcsB"></span></label><input type="range" id="tcsB" min="0.6" max="2.0" step="0.1" value="1.0"></div>
       <div class="ctl"><label>Csereréteg vastagsága v <span class="v" data-for="tcsV"></span></label><input type="range" id="tcsV" min="0.3" max="1.5" step="0.05" value="0.6"></div>
       <div class="ctl"><label>Teherterjedési szög ϑ <span class="v" data-for="tcsT"></span></label><input type="range" id="tcsT" min="20" max="45" step="1" value="35"></div>
-      <div class="ctl"><label>Alapréteg megengedett terhelése <span class="v" data-for="tcsQ"></span></label><input type="range" id="tcsQ" min="60" max="250" step="5" value="120"></div>
+      <div class="ctl" style="grid-column:1/-1"><label>Alapréteg megengedett terhelése <span class="v" data-for="tcsQ"></span></label><input type="range" id="tcsQ" min="60" max="250" step="5" value="120"></div>
       <label class="tgl" style="margin:8px 0 12px"><input type="checkbox" id="tcsGw">talajvíz a cserezónában</label>
       <div class="res" id="tcsOut"></div>
-      <p class="src" style="margin-top:8px">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p>
     </div></div>
   </div>
   <div class="grid g4" style="margin-top:20px">
@@ -765,6 +789,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
         <h3 style="margin-bottom:10px">Dinamikus tömörítés</h3>
         <p>A tömörítőhatást egy <b>15–40 tonnás ejtősúly</b> ejtegetésével, <b>H = 10–40 m</b> magasságból érik el. Meghatározandó: az ejtősúly nagysága, az ejtési magasság, a tömörítési raszter, a fázisonkénti ejtésszám és a pihentetés időtartama. <b>Max. 5–7 m mélységig</b> hatásos; nagyobb felületek tömörítésére, laza talajokon (pl. nagy terhelésű csarnokpadozatok alatt). Csak lazább-puhább talajokban alkalmazható.</p>
         <div class="panel"><div class="ph"><h4>Ejts te is!</h4><div class="btns"><button class="chip on" id="dynDrop" style="--c:var(--amber)">⬇ Ejtés</button><button class="chip" id="dynReset">↺</button></div></div><div class="pb"><div id="dynSvg"></div></div></div>
+        <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne-féle becslés: <b class="nw">d ≈ n·√(W·H)</b> (W tonnában, H méterben), n ≈ 0,5 a legtöbb talajra, 0,35–0,40 telített finomszemcsés talajra. Becslés – a tényleges hatásmélységet próbatömörítéssel igazolják; a gyakorlatban jellemzően <span class="nw">max. 5–7 m</span>.</p></div>
       </div>
       <div>
         <div class="panel"><div class="pb">
@@ -772,7 +797,6 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
           <div class="ctl"><label>Ejtési magasság H <span class="v" data-for="dynH"></span></label><input type="range" id="dynH" min="10" max="40" value="12"></div>
           <div class="ctl"><label>Talaj (empirikus n tényező)</label><div class="seg" id="dynSoil"><button data-v="0.55">tiszta homok</button><button data-v="0.5" class="on">vegyes, feltöltés</button><button data-v="0.38">telített finomszemcsés</button></div></div>
           <div class="res" id="dynOut"></div>
-          <div class="callout web" style="margin-bottom:0"><span class="ci">i</span><p>Ménard–Mayne-féle becslés: <b class="nw">d ≈ n·√(W·H)</b> (W tonnában, H méterben), n ≈ 0,5 a legtöbb talajra, 0,35–0,40 telített finomszemcsés talajra. Becslés – a tényleges hatásmélységet próbatömörítéssel igazolják; a gyakorlatban jellemzően <span class="nw">max. 5–7 m</span>.</p></div>
         </div></div>
         <figure class="photo" style="margin-top:14px"><img src="img/dinamikus-foto1.jpg" alt="Dinamikus tömörítés munkaterülete" loading="lazy"><figcaption>Dinamikus tömörítés: a raszterben ejtegetett pontok gödrei</figcaption></figure>
       </div>
@@ -781,20 +805,20 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m3">
-    <div class="twocol">
+    <div class="twocol tw-k">
       <div>
         <h3 style="margin-bottom:10px">Kőtömzs</h3>
         <p>A dinamikus tömörítéshez képest a különbség: az ejtegetés során a tömörítő súly alá fokozatosan <b>szemcsés anyagot</b> (homokos kavicsot, zúzottkövet) helyeznek, amit a döngölő „bedolgoz” a puhább altalajba. A hatása kettős:</p>
         <ul><li>a szemcsés anyag kiszorítása <b>jelentősen tömöríti</b> a puha altalajt;</li><li><b>nagy teherbírású, nagyobb átmérőjű</b> szemcsés „tömzsök” alakulnak ki.</li></ul>
         <p>Csak nagyon laza-puha talajokban alkalmazható.</p>
-        <figure class="photo contain"><img src="img/kotomzs-abra.jpg" alt="Kőtömzs munkafázisai" loading="lazy" style="height:150px;padding:6px"><figcaption>A kőtömzs munkafázisai</figcaption></figure>
       </div>
       <div>
         <div class="stepper" id="ktSteps"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
         <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
-        <div class="vinline"><p class="ytnote">A döngölésről szóló felvétel a kőtömzsök készítését is megmutatja.</p><button data-ytm="LtSalNj4ByQ" data-tech="Döngölés és kőtömzs"></button></div>
       </div>
     </div>
+    <figure class="photo contain" style="margin-top:18px"><img src="img/kotomzs-abra.jpg" alt="Kőtömzs munkafázisai" loading="lazy" style="height:300px;padding:6px"><figcaption>A kőtömzs munkafázisai</figcaption></figure>
+    <div class="vinline"><p class="ytnote">A döngölésről szóló felvétel a kőtömzsök készítését is megmutatja.</p><button data-ytm="LtSalNj4ByQ" data-tech="Döngölés és kőtömzs"></button></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m4">
@@ -804,7 +828,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
         <p>Elvét tekintve a kőtömzsökhöz hasonló módszer, csak <b>kisebb átmérőjű</b> szemcsés anyagú oszlopok – cölöpök – alakulnak ki. Csak lazább-puhább talajokban alkalmazható.</p>
         <div class="stepper" id="kcSteps"><button data-v="0" class="on">1 · előkészítés</button><button data-v="1">2 · töltés</button><button data-v="2">3 · lehajtás</button><button data-v="3">4 · tömörítés</button><button data-v="4">5 · lezárás</button></div>
         <p id="kcStepTxt"><b>Előkészítés:</b> a lánctalpas hordozógép a zsilipes (alsó adagolású) mélyvibrátort a kitűzött pont fölé állítja.</p>
-        <figure class="photo contain"><img src="img/kavicscolop-abra.jpg" alt="Kavicscölöp készítésének lépései" loading="lazy" style="height:260px;padding:6px"><figcaption>A kavicscölöp készítésének lépései</figcaption></figure>
+        <figure class="photo contain"><img src="img/kavicscolop-abra.jpg" alt="Kavicscölöp készítésének lépései" loading="lazy" style="height:400px;padding:6px"><figcaption>A kavicscölöp készítésének lépései</figcaption></figure>
       </div>
       <div>
         <div class="panel"><div class="ph"><h4>Raszter és hatás (felülnézet)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">háromszög</button><button data-v="sq">négyzet</button></div></div><div class="pb">
@@ -858,17 +882,17 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
         <div class="facts"><span class="fact">keverőfej <b>1,5 m × Ø 0,95 m</b></span><span class="fact">egy lépésben <b>≈ 1,2 m²</b></span><span class="fact">szár <b>3–5 m</b> + <b>2 m</b> toldás → <b>~7 m</b></span><span class="fact">teljesítmény <b>0,5–0,8 m³/perc</b></span><span class="fact">fej + szár <b>≈ 5 t</b></span><span class="fact">alapgép <b>25–40 t</b></span></div>
         <div class="callout warn"><span class="ci">!</span><p>A stabilizálást mindig <b>állékony területről</b> kell kezdeni – a géplánc maga előtt haladva stabilizálja a talajt. A stabilizált felület nem rögtön nyeri el végleges teherbírását: szükség esetén geotextília, georács és szemcsés anyag teherelosztó réteget készítenek.</p></div>
         <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Mélystabilizáció technológiája" loading="lazy" style="height:170px;padding:6px"><figcaption>A tömegstabilizáció technológiája</figcaption></figure>
+        <p class="src" style="margin-top:12px">Kitekintés: egy helsinki kísérleti projektben tőzegben 100 kg/m³ cementtel érték el a legjobb eredményt; a kötőanyag a teljes költség közel felét adta, a szilárdság 30 és 90 nap között akár megduplázódhat.</p>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Tervezd meg a munkát!</h4></div><div class="pb">
+        <div class="panel"><div class="ph"><h4>Tervezd meg a munkát!</h4></div><div class="pb ctl2">
           <div id="msSvg"></div>
           <div class="ctl"><label>Készültség <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
           <div class="ctl"><label>Terület <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
           <div class="ctl"><label>Mélység <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
           <div class="ctl"><label>Keverési teljesítmény <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
-          <div class="ctl"><label>Kötőanyag-adagolás <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
+          <div class="ctl" style="grid-column:1/-1"><label>Kötőanyag-adagolás <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
           <div class="res" id="msOut"></div>
-          <p class="src" style="margin-top:8px">Kitekintés: egy helsinki kísérleti projektben tőzegben 100 kg/m³ cementtel érték el a legjobb eredményt; a kötőanyag a teljes költség közel felét adta, a szilárdság 30 és 90 nap között akár megduplázódhat.</p>
         </div></div>
       </div>
     </div>
@@ -910,18 +934,16 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     <div>
       <p>Süllyedésre gyanús területen lehetőleg <b>statikailag határozott</b> szerkezetet tervezzünk: nincsenek merev kapcsolatok, jelentősebb süllyedéskülönbség esetén a pillérek, gerendák, födémek egymáshoz képest el tudnak fordulni (csuklós kapcsolatok), így nem alakulnak ki többlet-igénybevételek.</p>
       <div class="panel" style="margin-top:12px"><div class="ph"><h4>Süllyedési hézag</h4><label class="tgl"><input type="checkbox" id="jtTgl">hézag</label></div><div class="pb"><div id="jtSvg"></div><div class="ctl"><label>Konszolidáció előrehaladása <span class="v" data-for="jtS"></span></label><input type="range" id="jtS" min="0" max="100" value="80"></div><p class="src" style="margin:0">Hosszú, különbözőképpen terhelt épületrészeket célszerű süllyedési hézaggal elválasztani – a hődilatáció miatt eleve szükséges.</p></div></div>
-      <div class="callout tip"><span class="ci">⚙</span><p><b>Közművek:</b> a tervezetten nagy süllyedést szenvedő építményeknél gondoskodni kell az üzemi vezetékek, közművek megfelelő bekötéséről – <b>ovális nyílás, hajlékony vezeték + védőcső</b>.</p></div>
     </div>
   </div>
+  <div class="callout tip"><span class="ci">⚙</span><p><b>Közművek:</b> a tervezetten nagy süllyedést szenvedő építményeknél gondoskodni kell az üzemi vezetékek, közművek megfelelő bekötéséről – <b>ovális nyílás, hajlékony vezeték + védőcső</b>.</p></div>
   <div class="sub-h"><span class="lt">g</span><h3>Helyes építési sorrend</h3></div>
-  <div class="twocol">
-    <div>
+  <div class="prose two">
       <p>A süllyedésre <b>érzékeny szerkezeti részeket</b> lehetőleg <b>minél később</b> építjük meg. Ellentétes tendenciák:</p>
       <ul><li>gépesítés, eszközlekötés, előregyártás – az építés <b>gyorsítása</b> mellett szól;</li><li>pórusvíznyomás-növekedés (telített agyagon álló alapok esetén) – az ütem <b>lassítását</b> diktálja.</li></ul>
       <p>Nagy hasznos terhű építményeknél (silók, folyadéktároló tartályok) a <b>teherfelhordás szabályozható</b>; hídfők süllyedése a háttöltés építési idejével befolyásolható.</p>
-    </div>
-    <div class="panel"><div class="ph"><h4>Építési ütem telített agyagon</h4></div><div class="pb"><div id="paSvg"></div><div class="ctl"><label>A teherfelhordás időtartama <span class="v" data-for="paT"></span></label><input type="range" id="paT" min="1" max="24" value="4"></div><div class="insight" id="paMsg"></div></div></div>
   </div>
+  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Építési ütem telített agyagon</h4></div><div class="pb pb-split"><div id="paSvg"></div><div class="side"><div class="ctl"><label>A teherfelhordás időtartama <span class="v" data-for="paT"></span></label><input type="range" id="paT" min="1" max="24" value="4"></div><div class="insight" id="paMsg"></div></div></div></div>
   <div class="sub-h"><span class="lt">h</span><h3>Mélyalapozás tervezése</h3></div>
   <div class="grid g2">
     <div class="card top"><p>Ha a síkalapozás mellett a számítások meg nem engedhető süllyedéseket, süllyedéskülönbségeket jeleznek, a tervezők jelentős része áttér a <b>mélyalapozásra</b> (cölöp, résfal). Sok esetben ez a <b>legegyszerűbb, leggyorsabb és legolcsóbb</b> megoldás.</p></div>
@@ -1114,20 +1136,22 @@ window.SVpat = pat;
   const arrow = SV('g', {}, s); SV('line', { x1: X1 + 22, y1: Y0, x2: X1 + 22, y2: Y0, stroke: '#d4553a', 'stroke-width': 2.5 }, arrow);
   const lab = SV('text', { x: X1 + 30, y: Y0 + 14, 'font-size': 13, 'font-weight': 800, fill: '#d4553a' }, s);
   const r = $('#heroDs'), val = $('#heroVal'), pill = $('#heroPill'), beta = $('#heroBeta');
+  const setT = (e, t) => { if (e.textContent !== t) e.textContent = t; };   // csak valódi változáskor ír (nincs fölösleges DOM-mutáció)
+  let lastDs = null;
   const upd = () => {
-    const ds = +r.value; window.U.fillRange(r); const L = 10000; const b = ds / L; const drop = ds * 0.55; const ang = Math.atan2(drop, X1 - X0) * 180 / Math.PI;
+    const ds = +r.value; if (ds === lastDs) return; lastDs = ds; window.U.fillRange(r); const L = 10000; const b = ds / L; const drop = ds * 0.55; const ang = Math.atan2(drop, X1 - X0) * 180 / Math.PI;
     house.setAttribute('transform', `rotate(${ang} ${X0} ${Y0})`);
     const lv = b < 1 / 1000 ? 0 : b < 1 / 500 ? 1 : b < 1 / 300 ? 2 : b < 1 / 150 ? 3 : 4;
     cr.forEach((p, i) => { const on = i < [0, 1, 3, 5, 6][lv]; p.setAttribute('opacity', on ? 1 : 0); p.setAttribute('stroke-width', [1, 1.2, 1.8, 2.6, 3.6][lv]); p.setAttribute('stroke', lv >= 4 ? '#b5302a' : '#3b2f28'); });
-    arrow.firstChild.setAttribute('y2', Y0 + drop); lab.setAttribute('y', Y0 + drop + 16); lab.textContent = `Δs = ${ds} mm`;
-    val.textContent = ds + ' mm'; beta.textContent = ds ? `β ≈ 1/${Math.round(L / ds)}` : 'β = 0';
+    arrow.firstChild.setAttribute('y2', Y0 + drop); lab.setAttribute('y', Y0 + drop + 16); setT(lab, `Δs = ${ds} mm`);
+    setT(val, ds + ' mm'); setT(beta, ds ? `β ≈ 1/${Math.round(L / ds)}` : 'β = 0');
     const T = [['nincs károsodás', ''], ['hajszálrepedés (< 0,1 mm)', ''], ['látható repedések – szerkezetileg még elviselhető', 'w'], ['repedések, nyílászárók befeszülnek', 'w'], ['szerkezeti kár (≈ 1/150)', 'b']][lv];
-    pill.textContent = T[0]; pill.className = 'status' + (T[1] ? ' ' + T[1] : '');
+    setT(pill, T[0]); const pc = 'status' + (T[1] ? ' ' + T[1] : ''); if (pill.className !== pc) pill.className = pc;
   };
   r.addEventListener('input', upd); upd();
   // kis automatikus bemutató, amíg a felhasználó nem nyúl hozzá
-  let touched = false; r.addEventListener('pointerdown', () => touched = true); let t0 = performance.now();
-  const demo = (t) => { if (touched) return; if (document.hidden || scrollY > innerHeight * 1.2) { requestAnimationFrame(demo); return; } const u = ((t - t0) / 6000) % 1; const v = Math.round(40 * (1 - Math.cos(u * Math.PI * 2)) / 2 * 1.5); r.value = Math.min(60, v); upd(); requestAnimationFrame(demo); };
+  let touched = false; r.addEventListener('pointerdown', () => touched = true); let t0 = performance.now(); const v0 = +r.value;
+  const demo = (t) => { if (touched) return; if (document.hidden || scrollY > innerHeight * 1.2) { t0 += 16; requestAnimationFrame(demo); return; } if (t - t0 > 12000) { r.value = v0; upd(); return; } const u = ((t - t0) / 6000) % 1; const v = Math.round(40 * (1 - Math.cos(u * Math.PI * 2)) / 2 * 1.5); r.value = Math.min(60, v); upd(); requestAnimationFrame(demo); };
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(demo);
 })();
 
@@ -1845,6 +1869,14 @@ const GUARD = (() => {
     s = s.replace(/([\d°′″%)\]\p{Lu}\u2080-\u2089])-(\p{Ll}{1,6})(?=$|[\s.,;:!?)”\u00A0\u2060])/gu, '$1' + NBH + '$2');
     return s;
   }
+  // szövegcsomópontok határán: a névelő / rövid szó / szám ne maradjon a sor végén, ha a következő szó egy másik elemben (pl. <b>) kezdődik
+  const SHORTEND = new RegExp('(^|[\\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És|pl\\.|kb\\.|ill\\.|ún\\.|\\d+(?:[,.]\\d+)?\\.?%?) $');
+  function crossPass(nodes) {
+    for (let i = 0; i < nodes.length - 1; i++) { const a = nodes[i], b = nodes[i + 1]; const av = a.nodeValue, bv = b.nodeValue; if (!av || !bv) continue;
+      if (av.endsWith(' ') && /^\S/.test(bv) && SHORTEND.test(av)) a.nodeValue = av.slice(0, -1) + NB;
+      const ms = /^ ([=≤≥≈→←×±<>⇒+−/]) /.exec(b.nodeValue); if (ms && /\S$/.test(a.nodeValue)) b.nodeValue = NB + ms[1] + NB + b.nodeValue.slice(3);
+      const me = / ([=≤≥≈→←×±<>⇒+−/]) $/.exec(a.nodeValue); if (me && /^\S/.test(b.nodeValue)) a.nodeValue = a.nodeValue.slice(0, -3) + NB + me[1] + NB; }
+  }
   function bindPositions(full, cpl = 70) {
     const bind = new Set();
     const segMax = Math.max(14, Math.min(38, 0.42 * cpl)), parMax = Math.max(10, Math.min(24, 0.30 * cpl));
@@ -1896,6 +1928,7 @@ const GUARD = (() => {
     if (done.get(el) === cur) return;
     const nodes = textNodes(el);
     for (const n of nodes) { const v = textPass(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
+    crossPass(nodes);
     // blokk-szintű kötés
     const full = nodes.map(n => n.nodeValue).join('');
     // sorhossz karakterben: a doboz szélességéhez igazodó „rövid” határ
@@ -1989,6 +2022,26 @@ const GUARD = (() => {
 
 window.GUARD = GUARD;
 try { GUARD.start(); } catch (e) { console.error('Formázás-őr hiba', e); }
+
+/* Balra zárt tartalék: ha egy sorkizárt dobozban (keskeny kártya) feltűnő lyuk marad, a blokk balra zárt lesz. */
+const RAG = (() => {
+  const SEL = 'main p, main li, main dd, main figcaption, main .insight, main .expl, main .tf .fb, footer.foot p, .hero p.lead';
+  function check(el) {
+    el.classList.remove('rag'); const cs = getComputedStyle(el); if (cs.textAlign !== 'justify' || cs.display === 'none') return;
+    const fs = parseFloat(cs.fontSize); const all = document.createRange(); all.selectNodeContents(el); const rs = all.getClientRects(); if (rs.length < 2) return;
+    const lastTop = Math.max(...Array.from(rs).map(r => r.top)); let big = 0, mid = 0;
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+    while ((n = w.nextNode())) { const t = n.nodeValue; for (let i = 0; i < t.length; i++) { if (t[i] !== ' ') continue; const r = document.createRange(); r.setStart(n, i); r.setEnd(n, i + 1); const b = r.getBoundingClientRect(); if (!b.width || b.top >= lastTop - 2) continue; if (b.width > fs * 1.15) big++; else if (b.width > fs * 0.9) mid++; } }
+    if (big || mid >= 2) el.classList.add('rag');
+  }
+  const run = () => document.querySelectorAll(SEL).forEach(e => { if (e.offsetParent) check(e); });
+  let tm = 0; const later = (d) => { clearTimeout(tm); tm = setTimeout(run, d); };
+  addEventListener('resize', () => later(250)); document.addEventListener('click', () => later(150)); document.addEventListener('input', () => later(300));
+  return { run, later };
+})();
+window.RAG = RAG;
+setTimeout(() => RAG.run(), 600);
+if (window.Hyphenopoly && Hyphenopoly.hyphenators && Hyphenopoly.hyphenators.hu) Hyphenopoly.hyphenators.hu.then(() => setTimeout(() => RAG.run(), 300)).catch(() => {});
 
 </script>
 <script type="module">
