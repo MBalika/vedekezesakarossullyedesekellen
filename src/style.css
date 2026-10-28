@@ -367,7 +367,7 @@ footer.foot li{margin:.35em 0}
 main .rag, footer .rag{text-align:left!important}
 /* ---- elrendezés: kitöltött, kiegyensúlyozott blokkok (formázás skill 5.) ---- */
 .tw-ab{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
-.tw-k{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr)}
+.tw-k{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}   /* a lépésválasztó a szöveg alatt: minden lépésnél ≤ 5 % eltérés */
 .sim.wide{align-items:stretch}
 .ctl2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start}
 .ctl2>:not(.ctl){grid-column:1/-1}
