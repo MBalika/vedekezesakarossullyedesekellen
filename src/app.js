@@ -57,8 +57,8 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 
 // --- videók ---
 const VIDEOS = {
-  tj1: { t: 'Talajcsere', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '1:52', ch: 'a–c' },
-  tj7: { t: 'Előterhelés – Mexikóváros', s: 'kavicsterhelés, kivárás, ütemezett eltávolítás', d: '1:50', ch: 'e' },
+  tj1: { t: 'Talajcsere', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '2:16', ch: 'a–c' },
+  tj7: { t: 'Előterhelés – Mexikóváros', s: 'kavicsterhelés, kivárás, ütemezett eltávolítás', d: '2:14', ch: 'e' },
 };
 window.VIDEOS = VIDEOS;
 (function videos() {
