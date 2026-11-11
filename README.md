@@ -17,6 +17,11 @@ Interaktív tananyag a BME Építőmérnöki Kar *Alapozás* tárgyához – a *
 - `build.py` – a forrásokból összeállítja az egyfájlos `index.html`-t (`python3 build.py`)
 - `img/`, `img/yt/<id>/`, `video/` – képek, bélyegképek, YouTube-képkockák és QR-kódok, videólejátszók (a tj2–tj6 lejátszókra az oldal már nem hivatkozik)
 
+## Angol változat (/en)
+- `python3 build.py` a magyar `index.html` mellett az angol `en.html`-t is elkészíti (Vercel cleanUrls → `/en`; előfeltétel: `cd i18n && npm install`). Fordítás: `i18n/apply.mjs` + `i18n/en_*.tsv` (azonosító = a magyar szöveg sha1-ének első 7 jegye; brit angol, EC7-szakszavak). Ha a magyar szöveg változik és nincs hozzá fordítás, a build leáll (`i18n/missing.tsv`); munkalap: `python3 build.py catalog` → `i18n/ws.tsv`.
+- A magyar forrásba az angolhoz szükséges kapcsokat (EN jelző, nyelvfüggő számformátum, HU | EN nyelvváltó, angol tördelési szabályok, angol videók útvonala) az `i18n/prep_hu.py` teszi bele (idempotens).
+- Angol feliratú ábrák és videó-indexképek: `img/en/`; angol videók: `video/en/tj1.html`, `video/en/tj7.html` (a magyar videók szövegcseréjével).
+
 A `main` ágra történő push után a Vercel automatikusan frissíti az oldalt.
 
 

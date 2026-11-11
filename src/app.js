@@ -1,14 +1,15 @@
 /* ===== Védekezés a káros süllyedések ellen – alap UI ===== */
+const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');   // angol oldal (en.html)
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const lerp = (a, b, t) => a + (b - a) * t;
-const fmt = (v, d = 0) => (Math.round(v * 10 ** d) / 10 ** d).toLocaleString('hu-HU', { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmt = (v, d = 0) => { const s = (Math.round(v * 10 ** d) / 10 ** d).toLocaleString(EN ? 'en-GB' : 'hu-HU', { minimumFractionDigits: d, maximumFractionDigits: d }); return EN ? s.replace(/,/g, '\u202f') : s; };   // angolul: tizedespont, ezres tagolás keskeny szóközzel
 const NS = 'http://www.w3.org/2000/svg';
 function S(tag, attrs = {}, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
 function H(tag, attrs = {}, html) { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-window.U = { $, $$, clamp, lerp, fmt, S, H, css };
+window.U = { $, $$, clamp, lerp, fmt, S, H, css, EN };
 
 // --- csúszkák kitöltése + értékkijelzés ---
 function fillRange(r) { const p = (r.value - r.min) / (r.max - r.min) * 100; r.style.setProperty('--p', p + '%'); }
@@ -65,7 +66,7 @@ window.VIDEOS = VIDEOS;
   const modal = $('#vmodal'); if (!modal) return; const frame = $('.frame', modal), title = $('.mh span', modal);
   const open = (k) => {
     const v = VIDEOS[k]; if (!v) return; title.textContent = v.t; frame.innerHTML = '';
-    const f = H('iframe', { src: `video/${k}.html`, title: v.t, allow: 'autoplay; fullscreen' }); frame.appendChild(f);
+    const f = H('iframe', { src: `video/${EN ? 'en/' : ''}${k}.html`, title: v.t, allow: 'autoplay; fullscreen' }); frame.appendChild(f);
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
   };
   const close = () => { modal.classList.remove('on'); frame.innerHTML = ''; document.body.style.overflow = ''; };
@@ -114,3 +115,18 @@ function trueFalse(grid, items, scoreEl) {
   const r = $('#tfReset'); if (r) r.addEventListener('click', () => { grid.innerHTML = ''; trueFalse(grid, items, scoreEl); }, { once: true });
 }
 window.TF = trueFalse;
+
+// --- nyelvváltó: a választás megmarad (alap-lang), a másik nyelvű oldal ugyanott nyílik meg (alap-pos) ---
+(function langSwitch() {
+  const sw = $('#langSw'), KEY = 'alap-pos'; const hh = () => { const t = $('.topbar'); return t ? t.offsetHeight : 0; };
+  if (sw) sw.addEventListener('click', () => {
+    try { localStorage.setItem('alap-lang', EN ? 'hu' : 'en'); } catch (e) { }
+    const H0 = hh(); let best = null; document.querySelectorAll('main [id], section[id]').forEach((n) => { if (n.closest('svg')) return; const r = n.getBoundingClientRect(); if (r.height && r.top <= H0 + 1 && r.bottom > H0) best = n; });
+    try { sessionStorage.setItem(KEY, JSON.stringify({ id: best ? best.id : '', off: best ? H0 - best.getBoundingClientRect().top : 0, y: scrollY, t: Date.now() })); } catch (e) { }
+    sw.setAttribute('href', (EN ? './' : 'en') + (best ? '#' + best.id : ''));
+  });
+  let p = null; try { p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); sessionStorage.removeItem(KEY); } catch (e) { }
+  if (p && Date.now() - p.t < 20000) { if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+    const go = () => { const n = p.id && document.getElementById(p.id); const y = n ? n.getBoundingClientRect().top + scrollY - hh() + p.off : p.y; scrollTo({ top: Math.max(0, y), behavior: 'instant' }); };
+    requestAnimationFrame(go); addEventListener('load', () => { go(); setTimeout(go, 600); }, { once: true }); }
+})();

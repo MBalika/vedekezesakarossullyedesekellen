@@ -6,10 +6,10 @@ const GUARD = (() => {
   const BLOCK = 'main p, main li, main dd, main figcaption, main h2, main h3, main h4, main td, main th, main .insight, main .expl, main .qt, main .opt span, main .tf .st, main .tf .fb, main label, main .res, main .lead, main .card h4, .hero .lead, .hero .sub, footer p, footer li, .ytc-bar small';
   const HYPH = 'main p, main li, main dd, main figcaption, main .insight, main .expl, main .tf .fb, main .lead, .hero .lead, footer p';
   const NOHY = 'sub, sup, code, button, label, output, td, th, .nw, .mono, h1, h2, h3, h4, h5, .kicker, .stat, .chip, .seg, .fact, .val, .v, .k';
-  const TERMS = ['káros süllyedés', 'egyenlőtlen süllyedés', 'használhatósági határállapot', 'teherbírási határállapot', 'kisebb talpnyomás', 'mélyebb alapsík', 'mélytömörítés', 'dinamikus tömörítés', 'vibrált kőoszlop', 'kőoszlop-raszter', 'kétkomponensű injektálás', 'műanyag bázisú injektálás', 'utólagos alapmegerősítés', 'függőleges drén', 'konszolidációs idő', 'hatékony feszültség', 'normálisan konszolidált', 'süllyedési hézag', 'statikailag határozott', 'építési sorrend', 'teherterjedési szög', 'feszültségkoncentráció', 'rugalmas féltér', 'relatív elfordulás', 'szögtorzulás', 'finomszem-tartalom', 'ejtési magasság', 'Ménard–Mayne-féle becslés', 'Jáky-féle', 'e–log σ′', 'talajtörés', 'merev csomópontok', 'csuklós csomópontok', 'térszíni lemezalap', 'cement+homok habarcs', 'vízüveg alapú', 'Torre Latinoamericana'];
+  const TERMS = EN ? ['harmful settlement', 'differential settlement', 'serviceability limit state', 'ultimate limit state', 'contact pressure', 'foundation level', 'deep compaction', 'dynamic compaction', 'vibro stone column', 'stone column', 'two-component grouting', 'resin grouting', 'vertical drain', 'consolidation time', 'effective stress', 'normally consolidated', 'settlement joint', 'statically determinate', 'construction sequence', 'load spread angle', 'stress concentration', 'elastic half-space', 'relative rotation', 'angular distortion', 'fines content', 'drop height', 'Ménard–Mayne', 'e–log σ′', 'rigid joints', 'pinned joints', 'raft foundation', 'Torre Latinoamericana'] : ['káros süllyedés', 'egyenlőtlen süllyedés', 'használhatósági határállapot', 'teherbírási határállapot', 'kisebb talpnyomás', 'mélyebb alapsík', 'mélytömörítés', 'dinamikus tömörítés', 'vibrált kőoszlop', 'kőoszlop-raszter', 'kétkomponensű injektálás', 'műanyag bázisú injektálás', 'utólagos alapmegerősítés', 'függőleges drén', 'konszolidációs idő', 'hatékony feszültség', 'normálisan konszolidált', 'süllyedési hézag', 'statikailag határozott', 'építési sorrend', 'teherterjedési szög', 'feszültségkoncentráció', 'rugalmas féltér', 'relatív elfordulás', 'szögtorzulás', 'finomszem-tartalom', 'ejtési magasság', 'Ménard–Mayne-féle becslés', 'Jáky-féle', 'e–log σ′', 'talajtörés', 'merev csomópontok', 'csuklós csomópontok', 'térszíni lemezalap', 'cement+homok habarcs', 'vízüveg alapú', 'Torre Latinoamericana'];
   const termRx = new RegExp('(' + TERMS.sort((a, b) => b.length - a.length).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[ \\u00A0]')).join('|') + ')', 'giu');
   const MULT_SYM = /^(tg|ctg|sin|cos|tan|exp|ln|log)\b/;
-  const NUMW = /(^|[\s(\u00A0\u2060„])((?:[Kk]ét|[Hh]árom|[Nn]égy|[Öö]t|[Hh]at|[Hh]ét|[Nn]yolc|[Kk]ilenc|[Tt]íz|[Hh]úsz|[Ss]záz|[Ee]zer|[Ee]lső|[Mm]ásodik|[Hh]armadik|[Nn]egyedik|[Öö]tödik|[Hh]atodik|[Hh]etedik|[Nn]yolcadik|[Kk]ilencedik|[Tt]izedik|[Mm]indkét|[Mm]indhárom|[Nn]éhány|[Ee]gyik|[Kk]ettő|[Hh]armincnyolc|[Nn]egyven|[Hh]etven))(?=\s\S)\s/g;
+  const NUMW = EN ? /(^|[\s(\u00A0\u2060“])((?:[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en|[Ff]irst|[Ss]econd|[Tt]hird|[Ff]ourth|[Ff]ifth|[Bb]oth|[Aa]ll|[Ss]everal))(?=\s\S)\s/g : /(^|[\s(\u00A0\u2060„])((?:[Kk]ét|[Hh]árom|[Nn]égy|[Öö]t|[Hh]at|[Hh]ét|[Nn]yolc|[Kk]ilenc|[Tt]íz|[Hh]úsz|[Ss]záz|[Ee]zer|[Ee]lső|[Mm]ásodik|[Hh]armadik|[Nn]egyedik|[Öö]tödik|[Hh]atodik|[Hh]etedik|[Nn]yolcadik|[Kk]ilencedik|[Tt]izedik|[Mm]indkét|[Mm]indhárom|[Nn]éhány|[Ee]gyik|[Kk]ettő|[Hh]armincnyolc|[Nn]egyven|[Hh]etven))(?=\s\S)\s/g;
   function textPass(s) {
     if (!/[ \-–·]/.test(s)) return s;
     // ezres tagolás
@@ -32,12 +32,13 @@ const GUARD = (() => {
     // függvénynév + argumentum
     s = s.replace(/\b(tg|ctg|sin|cos|tan|ln|log|exp) /g, '$1' + NB);
     // rövidítések
-    s = s.replace(/(^|[\s(\u00A0])(pl\.|kb\.|ill\.|ún\.|max\.|min\.|ld\.|vö\.|cca\.|átl\.|ill|ún|kb) (?=\S)/g, '$1$2' + NB);
+    s = s.replace(/(\S) ([–—]) /g, '$1' + NB + '$2 ');   /* gondolatjel */
+    s = s.replace(/(^|[\s(\u00A0])(pl\.|kb\.|ill\.|ún\.|max\.|min\.|ld\.|vö\.|cca\.|átl\.|ill|ún|kb|e\.g\.|i\.e\.|approx\.|cf\.|No\.|Fig\.) (?=\S)/g, '$1$2' + NB);
     // szám + mértékegység / szó; magában álló szám
     s = s.replace(/(^|[\s(\u00A0\u2060~≈≤≥=<>−+])(\d+(?:[,.]\d+)?\.?%?) (?=\S)/g, '$1$2' + NB);
     s = s.replace(/(^|[\s(\u00A0\u2060~≈≤≥=<>−+])(\d+(?:[,.]\d+)?\.?%?) (?=\S)/g, '$1$2' + NB);
     // névelők, rövid kötőszavak
-    for (let i = 0; i < 2; i++) s = s.replace(/(^|[\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És) (?=\S)/g, '$1$2' + NB);
+    for (let i = 0; i < 2; i++) s = s.replace(EN ? /(^|[\s(\u00A0\u2060“‘])(a|an|the|A|An|The|&) (?=\S)/g : /(^|[\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És) (?=\S)/g, '$1$2' + NB);
     // betűvel írt számnév + amit számlál
     s = s.replace(NUMW, '$1$2' + NB);
     // utótagos kötőjel (30°-nál, RFA-n, 1173-ban)
@@ -45,10 +46,11 @@ const GUARD = (() => {
     return s;
   }
   // szövegcsomópontok határán: a névelő / rövid szó / szám ne maradjon a sor végén, ha a következő szó egy másik elemben (pl. <b>) kezdődik
-  const SHORTEND = new RegExp('(^|[\\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És|pl\\.|kb\\.|ill\\.|ún\\.|\\d+(?:[,.]\\d+)?\\.?%?) $');
+  const SHORTEND = EN ? new RegExp('(^|[\\s(\u00A0\u2060“‘])(a|an|the|A|An|The|e\\.g\\.|i\\.e\\.|approx\\.|\\d+(?:[,.]\\d+)?\\.?%?) $') : new RegExp('(^|[\\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És|pl\\.|kb\\.|ill\\.|ún\\.|\\d+(?:[,.]\\d+)?\\.?%?) $');
   function crossPass(nodes) {
     for (let i = 0; i < nodes.length - 1; i++) { const a = nodes[i], b = nodes[i + 1]; const av = a.nodeValue, bv = b.nodeValue; if (!av || !bv) continue;
       if (av.endsWith(' ') && /^\S/.test(bv) && SHORTEND.test(av)) a.nodeValue = av.slice(0, -1) + NB;
+      if (/^ [–—] /.test(b.nodeValue) && /\S$/.test(a.nodeValue)) b.nodeValue = NB + b.nodeValue.slice(1);   /* gondolatjel a csomóponthatáron */
       const ms = /^ ([=≤≥≈→←×±<>⇒+−/]) /.exec(b.nodeValue); if (ms && /\S$/.test(a.nodeValue)) b.nodeValue = NB + ms[1] + NB + b.nodeValue.slice(3);
       const me = / ([=≤≥≈→←×±<>⇒+−/]) $/.exec(a.nodeValue); if (me && /^\S/.test(b.nodeValue)) a.nodeValue = a.nodeValue.slice(0, -3) + NB + me[1] + NB; }
   }
@@ -181,8 +183,8 @@ const GUARD = (() => {
     observe();
     // Hyphenopoly
     const H = window.Hyphenopoly;
-    if (H && H.hyphenators && H.hyphenators.hu) {
-      H.hyphenators.hu.then(fn => { hyph = s => fn(s); const all = $$(HYPH); all.forEach(e => done.delete(e)); run(); }).catch(() => {});
+    if (H && H.hyphenators && H.hyphenators[EN ? 'en-gb' : 'hu']) {
+      H.hyphenators[EN ? 'en-gb' : 'hu'].then(fn => { hyph = s => fn(s); const all = $$(HYPH); all.forEach(e => done.delete(e)); run(); }).catch(() => {});
     }
   }
   // vászonra szánt szöveg őrzése
@@ -240,4 +242,4 @@ const RAG = (() => {
 })();
 window.RAG = RAG;
 setTimeout(() => RAG.run(), 600);
-if (window.Hyphenopoly && Hyphenopoly.hyphenators && Hyphenopoly.hyphenators.hu) Hyphenopoly.hyphenators.hu.then(() => setTimeout(() => RAG.run(), 300)).catch(() => {});
+if (window.Hyphenopoly && Hyphenopoly.hyphenators && Hyphenopoly.hyphenators[EN ? 'en-gb' : 'hu']) Hyphenopoly.hyphenators[EN ? 'en-gb' : 'hu'].then(() => setTimeout(() => RAG.run(), 300)).catch(() => {});

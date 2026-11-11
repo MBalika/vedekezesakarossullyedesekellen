@@ -6,6 +6,7 @@
       <span class="sp"></span>
       <a class="tbtn" href="#videok">▶ Videók</a>
       <button class="tbtn" id="themeBtn">☾ Sötét</button>
+      <a class="langbtn" id="langSw" href="en" hreflang="en" lang="en" aria-label="English version"><b>HU</b><span>EN</span></a>
     </div>
     <nav class="chapnav" aria-label="Fejezetek">
       <a href="#miert" style="--dot:#6db2e2"><i></i>1 · Miért?</a>
@@ -237,7 +238,7 @@
 <section class="chap c-teal" id="talajcsere"><div class="wrap">
   <div class="chhead"><div class="chnum">4</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
   <div class="sim wide">
-    <div class="panel"><div class="ph"><h4>Teherterjedés a cserrétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
+    <div class="panel"><div class="ph"><h4>Teherterjedés a csererétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
     <div class="panel"><div class="pb ctl2">
       <div class="ctl"><label>Teher P <span class="v" data-for="tcsP"></span></label><input type="range" id="tcsP" min="100" max="500" step="10" value="260"></div>
       <div class="ctl"><label>Alapszélesség B <span class="v" data-for="tcsB"></span></label><input type="range" id="tcsB" min="0.6" max="2.0" step="0.1" value="1.0"></div>

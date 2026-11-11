@@ -364,7 +364,7 @@ footer.foot li{margin:.35em 0}
   .big b{font-size:38px}
   section.chap{padding-block:60px 20px}
 }
-main .rag, footer .rag{text-align:left!important}
+main .rag, footer .rag, .hero .rag{text-align:left!important}
 /* ---- elrendezés: kitöltött, kiegyensúlyozott blokkok (formázás skill 5.) ---- */
 .tw-ab{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
 .tw-k{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}   /* a lépésválasztó a szöveg alatt: minden lépésnél ≤ 5 % eltérés */
@@ -471,3 +471,14 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .modal .mh a.mhb { border: 0; background: rgba(255,255,255,.12); color: #fff; border-radius: 8px; padding: 6px 12px; font: 700 13px var(--fb); text-decoration: none; }
 .modal .mh a.mhb:hover, .modal .mh button:hover { background: rgba(255,255,255,.2); }
 .modal .ytinfo { padding: 8px 14px 10px; font-size: 12.5px; color: #a9bbb5; }
+
+/* ---- nyelvváltó (HU | EN): a kitöltött az aktuális nyelv; mobilon csak a másik nyelv kódja ---- */
+.langbtn{flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:999px;text-decoration:none;color:var(--hero-ink);font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.04em}
+.langbtn b,.langbtn span{display:inline-grid;place-items:center;min-width:30px;padding:5px 8px;border-radius:999px}
+.langbtn b{background:var(--hero-ink);color:var(--hero1);font-weight:700}
+.langbtn span{opacity:.8}
+.langbtn:hover span{opacity:1;background:rgba(255,255,255,.14)}
+@media (max-width:560px){.langbtn b{display:none}.langbtn span{min-width:0;padding:6px 9px;opacity:1}}
+/* fejléc a nyelvváltóval */
+@media (max-width:560px){.topbar .row1>a.tbtn[href="#videok"]{display:none}}
+@media (max-width:860px){html[lang^=en] .brand small{display:none}}

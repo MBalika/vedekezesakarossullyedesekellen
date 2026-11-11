@@ -8,6 +8,10 @@
 <meta name="theme-color" content="#0b2420">
 <meta property="og:title" content="Védekezés a káros süllyedések ellen">
 <meta property="og:description" content="BME Alapozás · interaktív tananyag 3D süllyedés-szimulátorral, videókkal és kvízekkel.">
+<link rel="alternate" hreflang="hu" href="https://vedekezesakarossullyedesekellen.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://vedekezesakarossullyedesekellen.vercel.app/en">
+<link rel="alternate" hreflang="x-default" href="https://vedekezesakarossullyedesekellen.vercel.app/">
+<script>/*nyelv*/try{if(localStorage.getItem('alap-lang')==='en'&&!/[?&]hu\b/.test(location.search))location.replace('en'+location.hash)}catch(e){}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d7a68'/%3E%3Cpath d='M7 25h18M10 25V14l6-5 6 5v11' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -381,7 +385,7 @@ footer.foot li{margin:.35em 0}
   .big b{font-size:38px}
   section.chap{padding-block:60px 20px}
 }
-main .rag, footer .rag{text-align:left!important}
+main .rag, footer .rag, .hero .rag{text-align:left!important}
 /* ---- elrendezés: kitöltött, kiegyensúlyozott blokkok (formázás skill 5.) ---- */
 .tw-ab{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
 .tw-k{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}   /* a lépésválasztó a szöveg alatt: minden lépésnél ≤ 5 % eltérés */
@@ -489,6 +493,17 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .modal .mh a.mhb:hover, .modal .mh button:hover { background: rgba(255,255,255,.2); }
 .modal .ytinfo { padding: 8px 14px 10px; font-size: 12.5px; color: #a9bbb5; }
 
+/* ---- nyelvváltó (HU | EN): a kitöltött az aktuális nyelv; mobilon csak a másik nyelv kódja ---- */
+.langbtn{flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:999px;text-decoration:none;color:var(--hero-ink);font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.04em}
+.langbtn b,.langbtn span{display:inline-grid;place-items:center;min-width:30px;padding:5px 8px;border-radius:999px}
+.langbtn b{background:var(--hero-ink);color:var(--hero1);font-weight:700}
+.langbtn span{opacity:.8}
+.langbtn:hover span{opacity:1;background:rgba(255,255,255,.14)}
+@media (max-width:560px){.langbtn b{display:none}.langbtn span{min-width:0;padding:6px 9px;opacity:1}}
+/* fejléc a nyelvváltóval */
+@media (max-width:560px){.topbar .row1>a.tbtn[href="#videok"]{display:none}}
+@media (max-width:860px){html[lang^=en] .brand small{display:none}}
+
 </style>
 </head>
 <body>
@@ -500,6 +515,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
       <span class="sp"></span>
       <a class="tbtn" href="#videok">▶ Videók</a>
       <button class="tbtn" id="themeBtn">☾ Sötét</button>
+      <a class="langbtn" id="langSw" href="en" hreflang="en" lang="en" aria-label="English version"><b>HU</b><span>EN</span></a>
     </div>
     <nav class="chapnav" aria-label="Fejezetek">
       <a href="#miert" style="--dot:#6db2e2"><i></i>1 · Miért?</a>
@@ -731,7 +747,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 <section class="chap c-teal" id="talajcsere"><div class="wrap">
   <div class="chhead"><div class="chnum">4</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
   <div class="sim wide">
-    <div class="panel"><div class="ph"><h4>Teherterjedés a cserrétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
+    <div class="panel"><div class="ph"><h4>Teherterjedés a csererétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
     <div class="panel"><div class="pb ctl2">
       <div class="ctl"><label>Teher P <span class="v" data-for="tcsP"></span></label><input type="range" id="tcsP" min="100" max="500" step="10" value="260"></div>
       <div class="ctl"><label>Alapszélesség B <span class="v" data-for="tcsB"></span></label><input type="range" id="tcsB" min="0.6" max="2.0" step="0.1" value="1.0"></div>
@@ -984,16 +1000,17 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 <div class="modal" id="ytmodal" role="dialog" aria-modal="true" aria-label="YouTube-videó"><div class="box"><div class="mh"><span></span><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="mhb" id="ytopen" href="#" target="_blank" rel="noopener">Megnyitás a YouTube-on ↗</a><button id="ytclose">✕ Bezárás</button></div></div><div class="frame"></div><div class="ytinfo"></div></div></div>
 <script>
 /* ===== Védekezés a káros süllyedések ellen – alap UI ===== */
+const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');   // angol oldal (en.html)
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const lerp = (a, b, t) => a + (b - a) * t;
-const fmt = (v, d = 0) => (Math.round(v * 10 ** d) / 10 ** d).toLocaleString('hu-HU', { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmt = (v, d = 0) => { const s = (Math.round(v * 10 ** d) / 10 ** d).toLocaleString(EN ? 'en-GB' : 'hu-HU', { minimumFractionDigits: d, maximumFractionDigits: d }); return EN ? s.replace(/,/g, '\u202f') : s; };   // angolul: tizedespont, ezres tagolás keskeny szóközzel
 const NS = 'http://www.w3.org/2000/svg';
 function S(tag, attrs = {}, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
 function H(tag, attrs = {}, html) { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-window.U = { $, $$, clamp, lerp, fmt, S, H, css };
+window.U = { $, $$, clamp, lerp, fmt, S, H, css, EN };
 
 // --- csúszkák kitöltése + értékkijelzés ---
 function fillRange(r) { const p = (r.value - r.min) / (r.max - r.min) * 100; r.style.setProperty('--p', p + '%'); }
@@ -1050,7 +1067,7 @@ window.VIDEOS = VIDEOS;
   const modal = $('#vmodal'); if (!modal) return; const frame = $('.frame', modal), title = $('.mh span', modal);
   const open = (k) => {
     const v = VIDEOS[k]; if (!v) return; title.textContent = v.t; frame.innerHTML = '';
-    const f = H('iframe', { src: `video/${k}.html`, title: v.t, allow: 'autoplay; fullscreen' }); frame.appendChild(f);
+    const f = H('iframe', { src: `video/${EN ? 'en/' : ''}${k}.html`, title: v.t, allow: 'autoplay; fullscreen' }); frame.appendChild(f);
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
   };
   const close = () => { modal.classList.remove('on'); frame.innerHTML = ''; document.body.style.overflow = ''; };
@@ -1099,6 +1116,21 @@ function trueFalse(grid, items, scoreEl) {
   const r = $('#tfReset'); if (r) r.addEventListener('click', () => { grid.innerHTML = ''; trueFalse(grid, items, scoreEl); }, { once: true });
 }
 window.TF = trueFalse;
+
+// --- nyelvváltó: a választás megmarad (alap-lang), a másik nyelvű oldal ugyanott nyílik meg (alap-pos) ---
+(function langSwitch() {
+  const sw = $('#langSw'), KEY = 'alap-pos'; const hh = () => { const t = $('.topbar'); return t ? t.offsetHeight : 0; };
+  if (sw) sw.addEventListener('click', () => {
+    try { localStorage.setItem('alap-lang', EN ? 'hu' : 'en'); } catch (e) { }
+    const H0 = hh(); let best = null; document.querySelectorAll('main [id], section[id]').forEach((n) => { if (n.closest('svg')) return; const r = n.getBoundingClientRect(); if (r.height && r.top <= H0 + 1 && r.bottom > H0) best = n; });
+    try { sessionStorage.setItem(KEY, JSON.stringify({ id: best ? best.id : '', off: best ? H0 - best.getBoundingClientRect().top : 0, y: scrollY, t: Date.now() })); } catch (e) { }
+    sw.setAttribute('href', (EN ? './' : 'en') + (best ? '#' + best.id : ''));
+  });
+  let p = null; try { p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); sessionStorage.removeItem(KEY); } catch (e) { }
+  if (p && Date.now() - p.t < 20000) { if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+    const go = () => { const n = p.id && document.getElementById(p.id); const y = n ? n.getBoundingClientRect().top + scrollY - hh() + p.off : p.y; scrollTo({ top: Math.max(0, y), behavior: 'instant' }); };
+    requestAnimationFrame(go); addEventListener('load', () => { go(); setTimeout(go, 600); }, { once: true }); }
+})();
 
 </script>
 <script>
@@ -1264,7 +1296,7 @@ window.SVpat = pat;
       const bulb = `M${cx - w / 2},${Y + 8} C${cx - w * 0.95},${Y + depth * 0.35} ${cx - w * 0.55},${Y + depth} ${cx},${Y + 8 + depth} C${cx + w * 0.55},${Y + depth} ${cx + w * 0.95},${Y + depth * 0.35} ${cx + w / 2},${Y + 8} Z`;
       const reach = Y + 8 + depth > yB; SV('path', { d: bulb, fill: reach ? (good ? '#39c2a5' : '#d4553a') : '#e5ae47', opacity: .5, stroke: reach ? (good ? '#0d7a68' : '#a63a23') : '#c2830c', 'stroke-width': 2 }, g);
       SV('rect', { x: cx - w / 2, y: Y, width: w, height: 8, fill: '#c3c7ca', stroke: '#4b5458' }, g); SV('rect', { x: cx - 7, y: Y - 26, width: 14, height: 26, fill: '#c3c7ca', stroke: '#4b5458' }, g);
-      SV('text', { x: 0, y: 22, text: nm + ' eset', 'font-size': 17, 'font-weight': 800, fill: 'var(--ink)' }, g);
+      SV('text', { x: 0, y: 22, text: EN ? 'Case ' + nm : nm + ' eset', 'font-size': 17, 'font-weight': 800, fill: 'var(--ink)' }, g);
       SV('text', { x: 0, y: 44, text: reach ? (good ? '✓ a teher egy része a homokra jut' : '✗ a puha agyag is terhelést kap') : 'a bura még a felső rétegben van', 'font-size': 12.5, 'font-weight': 700, fill: reach ? (good ? 'var(--ok)' : 'var(--bad)') : 'var(--amber-ink)' }, g);
     });
   };
@@ -1276,7 +1308,7 @@ window.SVpat = pat;
   const host = $('#bsSvg'); if (!host) return; const rN = $('#bsN'), rP = $('#bsP'), rT = $('#bsT');
   const draw = () => {
     const n = +rN.value, p = +rP.value, prog = +rT.value / 100; [rN, rP, rT].forEach(window.U.fillRange);
-    $(`[data-for="bsN"]`).textContent = n + ' szint'; $(`[data-for="bsP"]`).textContent = p ? p + ' pinceszint' : 'nincs pince'; $(`[data-for="bsT"]`).textContent = Math.round(prog * 100) + '%';
+    $(`[data-for="bsN"]`).textContent = n + (EN ? (n === 1 ? ' storey' : ' storeys') : ' szint'); $(`[data-for="bsP"]`).textContent = p ? p + (EN ? (p === 1 ? ' basement level' : ' basement levels') : ' pinceszint') : 'nincs pince'; $(`[data-for="bsT"]`).textContent = Math.round(prog * 100) + '%';
     const g0 = 19, qf = 12, plate = 15; const D = p ? p * 3.2 + 0.6 : 0.8; const qB = qf * (n + p) + plate; const relief = g0 * D; const net = qB - relief; const ratio = relief / qB;
     const W = 640, Hh = 370, gy = 196, bw = 180, bx = 150; const fl = Math.min(13, (gy - 18) / (n * 2.88 + 0.5)); const s = svg(host, W, Hh); pat(s);
     SV('rect', { x: 0, y: 0, width: W, height: gy, fill: 'var(--card2)' }, s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pClay)' }, s);
@@ -1624,7 +1656,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 (function pace() {
   const host = $('#paSvg'); if (!host) return;
   const draw = () => {
-    const tb = rv('paT'); out('paT', tb + ' hónap'); const tau = 6; const W = 600, Hh = 260, L = 50, R = 16, T = 20, B = 40; const s = svg(host, W, Hh);
+    const tb = rv('paT'); out('paT', tb + (EN ? (tb === 1 ? ' month' : ' months') : ' hónap')); const tau = 6; const W = 600, Hh = 260, L = 50, R = 16, T = 20, B = 40; const s = svg(host, W, Hh);
     const tx = (m) => L + m / 30 * (W - L - R), uy = (v) => Hh - B - v * (Hh - T - B);
     for (let m = 0; m <= 30; m += 6) { SV('line', { x1: tx(m), x2: tx(m), y1: T, y2: Hh - B, stroke: 'var(--line2)' }, s); SV('text', { x: tx(m), y: Hh - B + 14, 'text-anchor': 'middle', 'font-size': 10, fill: 'var(--mute)', text: m }, s); }
     SV('text', { x: (W + L) / 2, y: Hh - 8, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)', text: 'idő [hónap]' }, s);
@@ -1774,7 +1806,7 @@ window.addEventListener('DOMContentLoaded', () => {
     $('.frame', modal).innerHTML = '';
     $('.frame', modal).appendChild(mk('iframe', { src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`, title: y.title, allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', referrerpolicy: 'strict-origin-when-cross-origin' }));
     $('#ytopen', modal).href = watch(id);
-    $('.ytinfo', modal).textContent = `BME Építőmérnöki Kar · YouTube · ${y.playlist} lejátszási lista · ${y.dur}`;
+    $('.ytinfo', modal).textContent = EN ? `BME Faculty of Civil Engineering · YouTube · ${y.playlist} playlist · ${y.dur} · in Hungarian` : `BME Építőmérnöki Kar · YouTube · ${y.playlist} lejátszási lista · ${y.dur}`;
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
     setTimeout(() => { const b = $('#ytclose', modal); if (b) b.focus(); }, 50);
   }
@@ -1831,10 +1863,10 @@ const GUARD = (() => {
   const BLOCK = 'main p, main li, main dd, main figcaption, main h2, main h3, main h4, main td, main th, main .insight, main .expl, main .qt, main .opt span, main .tf .st, main .tf .fb, main label, main .res, main .lead, main .card h4, .hero .lead, .hero .sub, footer p, footer li, .ytc-bar small';
   const HYPH = 'main p, main li, main dd, main figcaption, main .insight, main .expl, main .tf .fb, main .lead, .hero .lead, footer p';
   const NOHY = 'sub, sup, code, button, label, output, td, th, .nw, .mono, h1, h2, h3, h4, h5, .kicker, .stat, .chip, .seg, .fact, .val, .v, .k';
-  const TERMS = ['káros süllyedés', 'egyenlőtlen süllyedés', 'használhatósági határállapot', 'teherbírási határállapot', 'kisebb talpnyomás', 'mélyebb alapsík', 'mélytömörítés', 'dinamikus tömörítés', 'vibrált kőoszlop', 'kőoszlop-raszter', 'kétkomponensű injektálás', 'műanyag bázisú injektálás', 'utólagos alapmegerősítés', 'függőleges drén', 'konszolidációs idő', 'hatékony feszültség', 'normálisan konszolidált', 'süllyedési hézag', 'statikailag határozott', 'építési sorrend', 'teherterjedési szög', 'feszültségkoncentráció', 'rugalmas féltér', 'relatív elfordulás', 'szögtorzulás', 'finomszem-tartalom', 'ejtési magasság', 'Ménard–Mayne-féle becslés', 'Jáky-féle', 'e–log σ′', 'talajtörés', 'merev csomópontok', 'csuklós csomópontok', 'térszíni lemezalap', 'cement+homok habarcs', 'vízüveg alapú', 'Torre Latinoamericana'];
+  const TERMS = EN ? ['harmful settlement', 'differential settlement', 'serviceability limit state', 'ultimate limit state', 'contact pressure', 'foundation level', 'deep compaction', 'dynamic compaction', 'vibro stone column', 'stone column', 'two-component grouting', 'resin grouting', 'vertical drain', 'consolidation time', 'effective stress', 'normally consolidated', 'settlement joint', 'statically determinate', 'construction sequence', 'load spread angle', 'stress concentration', 'elastic half-space', 'relative rotation', 'angular distortion', 'fines content', 'drop height', 'Ménard–Mayne', 'e–log σ′', 'rigid joints', 'pinned joints', 'raft foundation', 'Torre Latinoamericana'] : ['káros süllyedés', 'egyenlőtlen süllyedés', 'használhatósági határállapot', 'teherbírási határállapot', 'kisebb talpnyomás', 'mélyebb alapsík', 'mélytömörítés', 'dinamikus tömörítés', 'vibrált kőoszlop', 'kőoszlop-raszter', 'kétkomponensű injektálás', 'műanyag bázisú injektálás', 'utólagos alapmegerősítés', 'függőleges drén', 'konszolidációs idő', 'hatékony feszültség', 'normálisan konszolidált', 'süllyedési hézag', 'statikailag határozott', 'építési sorrend', 'teherterjedési szög', 'feszültségkoncentráció', 'rugalmas féltér', 'relatív elfordulás', 'szögtorzulás', 'finomszem-tartalom', 'ejtési magasság', 'Ménard–Mayne-féle becslés', 'Jáky-féle', 'e–log σ′', 'talajtörés', 'merev csomópontok', 'csuklós csomópontok', 'térszíni lemezalap', 'cement+homok habarcs', 'vízüveg alapú', 'Torre Latinoamericana'];
   const termRx = new RegExp('(' + TERMS.sort((a, b) => b.length - a.length).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[ \\u00A0]')).join('|') + ')', 'giu');
   const MULT_SYM = /^(tg|ctg|sin|cos|tan|exp|ln|log)\b/;
-  const NUMW = /(^|[\s(\u00A0\u2060„])((?:[Kk]ét|[Hh]árom|[Nn]égy|[Öö]t|[Hh]at|[Hh]ét|[Nn]yolc|[Kk]ilenc|[Tt]íz|[Hh]úsz|[Ss]záz|[Ee]zer|[Ee]lső|[Mm]ásodik|[Hh]armadik|[Nn]egyedik|[Öö]tödik|[Hh]atodik|[Hh]etedik|[Nn]yolcadik|[Kk]ilencedik|[Tt]izedik|[Mm]indkét|[Mm]indhárom|[Nn]éhány|[Ee]gyik|[Kk]ettő|[Hh]armincnyolc|[Nn]egyven|[Hh]etven))(?=\s\S)\s/g;
+  const NUMW = EN ? /(^|[\s(\u00A0\u2060“])((?:[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en|[Ff]irst|[Ss]econd|[Tt]hird|[Ff]ourth|[Ff]ifth|[Bb]oth|[Aa]ll|[Ss]everal))(?=\s\S)\s/g : /(^|[\s(\u00A0\u2060„])((?:[Kk]ét|[Hh]árom|[Nn]égy|[Öö]t|[Hh]at|[Hh]ét|[Nn]yolc|[Kk]ilenc|[Tt]íz|[Hh]úsz|[Ss]záz|[Ee]zer|[Ee]lső|[Mm]ásodik|[Hh]armadik|[Nn]egyedik|[Öö]tödik|[Hh]atodik|[Hh]etedik|[Nn]yolcadik|[Kk]ilencedik|[Tt]izedik|[Mm]indkét|[Mm]indhárom|[Nn]éhány|[Ee]gyik|[Kk]ettő|[Hh]armincnyolc|[Nn]egyven|[Hh]etven))(?=\s\S)\s/g;
   function textPass(s) {
     if (!/[ \-–·]/.test(s)) return s;
     // ezres tagolás
@@ -1857,12 +1889,13 @@ const GUARD = (() => {
     // függvénynév + argumentum
     s = s.replace(/\b(tg|ctg|sin|cos|tan|ln|log|exp) /g, '$1' + NB);
     // rövidítések
-    s = s.replace(/(^|[\s(\u00A0])(pl\.|kb\.|ill\.|ún\.|max\.|min\.|ld\.|vö\.|cca\.|átl\.|ill|ún|kb) (?=\S)/g, '$1$2' + NB);
+    s = s.replace(/(\S) ([–—]) /g, '$1' + NB + '$2 ');   /* gondolatjel */
+    s = s.replace(/(^|[\s(\u00A0])(pl\.|kb\.|ill\.|ún\.|max\.|min\.|ld\.|vö\.|cca\.|átl\.|ill|ún|kb|e\.g\.|i\.e\.|approx\.|cf\.|No\.|Fig\.) (?=\S)/g, '$1$2' + NB);
     // szám + mértékegység / szó; magában álló szám
     s = s.replace(/(^|[\s(\u00A0\u2060~≈≤≥=<>−+])(\d+(?:[,.]\d+)?\.?%?) (?=\S)/g, '$1$2' + NB);
     s = s.replace(/(^|[\s(\u00A0\u2060~≈≤≥=<>−+])(\d+(?:[,.]\d+)?\.?%?) (?=\S)/g, '$1$2' + NB);
     // névelők, rövid kötőszavak
-    for (let i = 0; i < 2; i++) s = s.replace(/(^|[\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És) (?=\S)/g, '$1$2' + NB);
+    for (let i = 0; i < 2; i++) s = s.replace(EN ? /(^|[\s(\u00A0\u2060“‘])(a|an|the|A|An|The|&) (?=\S)/g : /(^|[\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És) (?=\S)/g, '$1$2' + NB);
     // betűvel írt számnév + amit számlál
     s = s.replace(NUMW, '$1$2' + NB);
     // utótagos kötőjel (30°-nál, RFA-n, 1173-ban)
@@ -1870,10 +1903,11 @@ const GUARD = (() => {
     return s;
   }
   // szövegcsomópontok határán: a névelő / rövid szó / szám ne maradjon a sor végén, ha a következő szó egy másik elemben (pl. <b>) kezdődik
-  const SHORTEND = new RegExp('(^|[\\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És|pl\\.|kb\\.|ill\\.|ún\\.|\\d+(?:[,.]\\d+)?\\.?%?) $');
+  const SHORTEND = EN ? new RegExp('(^|[\\s(\u00A0\u2060“‘])(a|an|the|A|An|The|e\\.g\\.|i\\.e\\.|approx\\.|\\d+(?:[,.]\\d+)?\\.?%?) $') : new RegExp('(^|[\\s(\u00A0\u2060„])(a|az|A|Az|s|e|egy|Egy|és|És|pl\\.|kb\\.|ill\\.|ún\\.|\\d+(?:[,.]\\d+)?\\.?%?) $');
   function crossPass(nodes) {
     for (let i = 0; i < nodes.length - 1; i++) { const a = nodes[i], b = nodes[i + 1]; const av = a.nodeValue, bv = b.nodeValue; if (!av || !bv) continue;
       if (av.endsWith(' ') && /^\S/.test(bv) && SHORTEND.test(av)) a.nodeValue = av.slice(0, -1) + NB;
+      if (/^ [–—] /.test(b.nodeValue) && /\S$/.test(a.nodeValue)) b.nodeValue = NB + b.nodeValue.slice(1);   /* gondolatjel a csomóponthatáron */
       const ms = /^ ([=≤≥≈→←×±<>⇒+−/]) /.exec(b.nodeValue); if (ms && /\S$/.test(a.nodeValue)) b.nodeValue = NB + ms[1] + NB + b.nodeValue.slice(3);
       const me = / ([=≤≥≈→←×±<>⇒+−/]) $/.exec(a.nodeValue); if (me && /^\S/.test(b.nodeValue)) a.nodeValue = a.nodeValue.slice(0, -3) + NB + me[1] + NB; }
   }
@@ -2006,8 +2040,8 @@ const GUARD = (() => {
     observe();
     // Hyphenopoly
     const H = window.Hyphenopoly;
-    if (H && H.hyphenators && H.hyphenators.hu) {
-      H.hyphenators.hu.then(fn => { hyph = s => fn(s); const all = $$(HYPH); all.forEach(e => done.delete(e)); run(); }).catch(() => {});
+    if (H && H.hyphenators && H.hyphenators[EN ? 'en-gb' : 'hu']) {
+      H.hyphenators[EN ? 'en-gb' : 'hu'].then(fn => { hyph = s => fn(s); const all = $$(HYPH); all.forEach(e => done.delete(e)); run(); }).catch(() => {});
     }
   }
   // vászonra szánt szöveg őrzése
@@ -2065,7 +2099,7 @@ const RAG = (() => {
 })();
 window.RAG = RAG;
 setTimeout(() => RAG.run(), 600);
-if (window.Hyphenopoly && Hyphenopoly.hyphenators && Hyphenopoly.hyphenators.hu) Hyphenopoly.hyphenators.hu.then(() => setTimeout(() => RAG.run(), 300)).catch(() => {});
+if (window.Hyphenopoly && Hyphenopoly.hyphenators && Hyphenopoly.hyphenators[EN ? 'en-gb' : 'hu']) Hyphenopoly.hyphenators[EN ? 'en-gb' : 'hu'].then(() => setTimeout(() => RAG.run(), 300)).catch(() => {});
 
 </script>
 <script type="module">

@@ -292,7 +292,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 (function pace() {
   const host = $('#paSvg'); if (!host) return;
   const draw = () => {
-    const tb = rv('paT'); out('paT', tb + ' hónap'); const tau = 6; const W = 600, Hh = 260, L = 50, R = 16, T = 20, B = 40; const s = svg(host, W, Hh);
+    const tb = rv('paT'); out('paT', tb + (EN ? (tb === 1 ? ' month' : ' months') : ' hónap')); const tau = 6; const W = 600, Hh = 260, L = 50, R = 16, T = 20, B = 40; const s = svg(host, W, Hh);
     const tx = (m) => L + m / 30 * (W - L - R), uy = (v) => Hh - B - v * (Hh - T - B);
     for (let m = 0; m <= 30; m += 6) { SV('line', { x1: tx(m), x2: tx(m), y1: T, y2: Hh - B, stroke: 'var(--line2)' }, s); SV('text', { x: tx(m), y: Hh - B + 14, 'text-anchor': 'middle', 'font-size': 10, fill: 'var(--mute)', text: m }, s); }
     SV('text', { x: (W + L) / 2, y: Hh - 8, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)', text: 'idő [hónap]' }, s);

@@ -1,0 +1,140 @@
+86b00eb	Harmful settlement
+ef27c1c	BME · Foundation Engineering · interactive module
+a88aaa6	▶ Videos
+b333e3d	☾ Dark
+a23fb86	=
+f7e4d5c	=
+6bec538	Chapters
+419d91e	<a href="#miert" style="--dot:#6db2e2"><i></i>1 · Why?</a>⏎      <a href="#attekintes" style="--dot:#e5ae47"><i></i>2 · Overview</a>⏎      <a href="#alapozas" style="--dot:#39c2a5"><i></i>3 · Contact pressure, foundation level (3D)</a>⏎      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>4 · Soil replacement</a>⏎      <a href="#tomorites" style="--dot:#e5ae47"><i></i>5 · Compaction</a>⏎      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>6 · Grouting, stabilisation</a>⏎      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>7 · Preloading</a>⏎      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>8 · Design measures</a>⏎      <a href="#videok" style="--dot:#fff"><i></i>Video library</a>⏎      <a href="#igazhamis" style="--dot:#fff"><i></i>True/false</a>
+a40227a	BME · Foundation Engineering · Settlement of shallow foundations
+d723196	Protection against <em>harmful settlement</em>
+d962048	If the calculated settlement or differential settlement is not acceptable, the design has to change. Eight tools are available – from reducing the contact pressure through ground improvement to deep foundations. Don’t just read about them: <b style="color:#fff">try them out!</b>
+6e78310	<b>8</b><span>remedial methods (a–h)</span>
+4eb1bdc	<b>3D</b><span>settlement simulator</span>
+c4b5528	<b>8</b><span>real BME videos</span>
+f332ea1	<b>2</b><span>animated videos</span>
+c3418be	<b>15+</b><span>interactive figures</span>
+36fe21a	<b>40</b><span>true/false statements</span>
+b6fcbfc	<a class="btn pri" href="#alapozas">Start the 3D simulator →</a>⏎        <a class="btn ghost" href="#videok">▶ Videos</a>⏎        <a class="btn ghost" href="#igazhamis">True/false test</a>
+46c18c8	Drag the slider
+bdbc44b	What happens if it settles unevenly?
+eff57eb	There is a soft clay lens under the right-hand corner of the building. L = 10 m.
+ef8551e	<span>Differential settlement Δs</span><span class="val" id="heroVal">0 mm</span>
+15f6522	Differential settlement
+5bbde8c	<span class="val" id="heroBeta">β = 0</span><span class="status" id="heroPill">no damage</span>
+d4f6fa7	Why do we need protection?
+a26e505	Settlement tolerance: how much can the building take?
+fd6668f	A foundation sized for bearing resistance is not finished yet: we also have to check whether settlements develop that would harm the structure. Under Hungarian ground conditions it is often not the ultimate but the <b>serviceability limit state</b> that governs.
+950e5ab	Absolute settlement
+9cec945	Vertical movement. It governs for sewer and other utility connections and for adjoining buildings. Generally <b>50 mm</b> is acceptable (also according to EN 1997-1).
+93b4ebf	Differential settlement
+fac0493	It causes tilting, bending and sagging; the additional internal forces (bending moment, shear force) damage the structure and cracks appear. <b>This is what damages the building</b> – not the absolute settlement.
+bddd031	Foundation movements – try it out!
+8d77e53	The quantities to check according to Annex H of EN 1997-1: <b>s</b> settlement, <b>δs</b> differential settlement, <b>θ</b> rotation, <b>ω</b> rigid-body tilt, <b>Δ</b> relative deflection, <b>Δ/L</b> deflection ratio and <b>β</b> relative rotation (angular distortion), as well as horizontal displacement and vibration amplitude. The limiting values are set by the structural designer.
+b119671	Settlement of four foundation points (L = 12 m)
+7b7ef6b	Uniform
+8c748bf	Tilt
+35ba07a	Sagging
+04ec6d5	Hogging
+b0ba555	One column
+aa4a2cf	<span><i style="background:var(--sky)"></i>tilt line (A–D)</span><span><i style="background:var(--violet)"></i>relative deflection Δ</span><span><i style="background:var(--coral)"></i>settlement (exaggerated)</span>
+a491ab3	Settlement of A <span class="v" data-for="movA"></span>
+3925117	Settlement of B <span class="v" data-for="movB"></span>
+c437922	Settlement of C <span class="v" data-for="movC"></span>
+27cd942	Settlement of D <span class="v" data-for="movD"></span>
+4049279	Recommended value
+e09a349	=
+eabb034	absolute settlement – generally acceptable
+12b17ac	=
+6f49768	differential settlement of adjacent columns – generally acceptable for ordinary structures; the δs/L ratio governs
+7f875bd	relative rotation – generally acceptable structurally; <b>1/150</b> can already cause failure
+ae249c3	<b>Outlook:</b> international experience shows that a tilt of about <b>1/300</b> is already noticeable to the eye, structural damage to frames begins at a relative rotation of 1/150–1/250, and cracking of walls and partitions may already appear at about 1/500.
+0e99d36	What does settlement tolerance depend on?
+a8e2ad1	By structure
+1b1c27d	Statically indeterminate structures (continuous beams, frames, arches) are sensitive – and so are precast panel and block buildings (because of the corrosion protection of the steel inserts in their connections).
+37156ce	By size
+df540e2	Structures with a high centre of gravity: water towers, factory chimneys, wind turbines. And <b>smaller, lower</b> buildings are more sensitive because of their lower stiffness – most damaged buildings in Hungary have 1–3 storeys.
+abfe845	By use and soil
+c758cce	Where freedom from cracks is a condition of safe operation (tanks, pools). On cohesive soil (clay) about <b>one and a half times</b> the differential settlement is acceptable compared with granular soil – the building materials cope better with the slow consolidation.
+b30bdd9	Six basic cases of differential settlement
+1257949	1 · Different compressibility
+4363e49	Same contact pressure, but a lower modulus → larger settlement on the soft side.
+e97f2cd	2 · Eccentric load
+f4b61f1	e ≠ 0: trapezoidal contact pressure; for a rigid foundation, linearly varying settlement.
+da1d4c1	3 · Different foundations and stiffness
+2e1a119	A differential settlement imposed between a pile and a shallow foundation.
+1a95589	4 · Stress superposition
+1ce96ce	The Δσ of the neighbouring building adds up → they tilt towards each other (e.g. the Canadian “kissing” silos).
+536c4d1	5 · Settlement trough
+ba8e8f6	Tunnel, cavity: a settlement trough imposed from outside.
+70c1138	6 · One-sided consolidation
+611f08f	Groundwater lowering (e.g. an excavation) → Δσ′ increases on one side only.
+c44a54e	Crack width
+833e08e	Category
+f54f7ac	Action
+1e748ae	&lt; 0.1 mm
+3390d17	hairline crack
+8459d51	aesthetic
+cd39798	0.1–1 mm
+362adf7	very slight
+49324a5	can be repaired when redecorating
+1bd07f1	=
+07f3bf6	slight, visible cracks
+db0ae04	painting, repair plaster
+b8ac9f5	=
+929b934	moderate
+15e0fca	can be repaired by replastering (with expanding cement)
+f69ef30	=
+435a4bb	severe – doors and windows stick
+a8f7236	partial rebuilding
+2ea1301	=
+c5e01b4	very severe
+d395077	structural strengthening; in worse cases partial or complete rebuilding
+c12082d	Cracks rise towards the point of larger settlement; the first cracks appear at the weakest points (between the corners of doors and windows).
+d1de344	Self-check · Chapter 1
+fda2ff1	Map of remedial measures
+3ed893a	Four directions – from the ground to the structure
+7130be2	If the calculated settlements are not acceptable, the original design has to be changed. The methods <b>can be combined</b> – the choice depends on the subsoil, the depth of the intervention and the cost.
+b4fa0fa	Changing the foundation
+f59b04d	<span>a</span>Lower contact pressure
+3331ea4	<span>b</span>Deeper foundation level
+870996b	<span>c</span>Soil replacement
+9962744	Mechanical compaction
+d356298	<span>d1</span>Deep compaction
+4ca16bc	<span>d2</span>Dynamic compaction
+970dd0f	<span>d3</span>Stone pillar
+81eebec	<span>d4</span>Gravel pile
+2884bc1	Grouting, stabilisation
+7dea0e0	<span>d5</span>Cement grouting
+6aa1c26	<span>d5</span>Two-component resin
+f7b4947	<span>d6</span>Mass stabilisation
+2c99023	Design measures
+50776c9	<span>e</span>Preloading
+bc4d71f	<span>f</span>Structural measures
+456ee9f	<span>g</span>Construction sequence
+76d3510	<span>h</span>Deep foundations
+7fb7ee1	Method selector – which ones are possible?
+1d41243	What is the problem soil?
+118e80c	=
+8b72cd5	loose granular
+42d00f0	soft cohesive (clay)
+45007a8	peat, organic
+75ab37c	fill
+d7681e8	Where is the groundwater?
+fc471ce	=
+494d662	below the treated zone
+27b1129	within the treated zone
+3b2e7f3	How deep is the problem?
+f82a8e8	=
+9229033	shallow (≤ 2 m)
+f6ac615	medium (2–7 m)
+041fd07	deep (> 7 m)
+3f6d737	Is there a better layer deeper down?
+a31e44e	=
+4435398	yes
+8553dc6	no
+6890246	Situation
+abdcde6	=
+d6976ef	new construction
+1d2b440	existing building (retrofit)
+dabb3e5	A simplified decision aid for teaching, based on the conditions of application of the methods – the real choice is always based on ground investigation and calculation.

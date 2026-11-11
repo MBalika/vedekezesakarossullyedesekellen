@@ -1,0 +1,160 @@
+8c2e886	3. Withdrawal + material feed
+16b572b	4. Finished compacted zone
+2000238	=
+ef2c9e4	<span class="status">compacts well – vibroflotation ✓</span>
+a5dd85c	<span class="status w">borderline – trial compaction, denser grid</span>
+53e70c5	<span class="status b">too many fines: the vibration is “absorbed” → gravel pile</span>
+ed35fc6	=
+ab3c01f	=
+316facd	depth of influence ≈ ${fmt(d, 1)} m
+61cca5b	<div class="r"><span>energy per drop W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>estimated depth of influence n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>drops at this point</span><b>${drops}</b></div><div class="r"><span>crater (illustration)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max.\u00a05\u2060–\u20607\u00a0m.</span></div>' : ''}
+f6f4a8b	<div class="r" style="grid-column:1/-1"><span class="status w">⚠ The formula overestimates at high energy; in practice max. 5⁠–⁠7 m.</span></div>
+b96fd35	=
+aa5df00	The pounder punches a crater into the soft soil.
+7cb45aa	The crater is filled with granular material (sandy gravel, crushed stone).
+7d8c2fa	Another drop: the weight “works” the gravel into the soft subsoil – displacing and compacting it.
+64805e4	Fill–drop cycles: the pillar grows downwards and sideways.
+45b2d58	Finished stone pillar: a large-diameter, high-capacity granular column + compacted surroundings.
+93a6678	Step ${step + 1}
+525ee7c	=
+ef08891	=
+74155f0	=
+d075145	unit cell De = ${fmt(De, 2)} m
+f18b797	<div class="r"><span>area replacement ratio aₛ</span><b>${fmt(as * 100, 1)}%</b></div><div class="r"><span>settlement after treatment</span><b style="color:var(--ok)">${fmt(ratio * 100, 0)}% (−${fmt((1 - ratio) * 100, 0)}%)</b></div>
+efc596d	=
+14ee22b	<b>Filling:</b> the skip (material hopper) fills the airlock at the top of the vibrator with gravel; the airlock is closed with compressed air.
+3f4f1eb	<b>Penetration:</b> the vibrator reaches the design depth by vibration and the pull-down force of the rig – pushing the soil aside.
+3845f6f	<b>Compaction:</b> raise approx. 1 m → the gravel flows out at the tip → push back down. The displaced gravel widens (Ø ≈ 0.6–1.0 m) and the surroundings are compacted.
+f7160a2	<b>Completion:</b> the cycles are repeated up to the surface; a load transfer layer is placed on the finished columns.
+bca7414	Gravel
+a6112d2	Coarse sand (> 1 mm)
+87a5622	Medium sand
+01ba6d5	Fine sand
+f68161e	Silty sand, silt
+936752f	Clay
+b9b3c6e	Fissured cohesive soil
+cffef43	${S0.n} · ⚪ cement particles
+4742f53	✗ not suitable
+e041118	◐ limited
+9456889	✓ suitable
+357b205	<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cement grouting</h5><p>only sand-gravel coarser than 0.8–1 mm, or cohesive soil with cavities and fissures</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Two-component resin</h5><p>sandy and silty soil – not effective in clay</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Chemicals (e.g. water glass based)</h5><p>low-viscosity solutions – they also penetrate finer sands</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>
+e7c9a85	=
+60511bd	1. Boreholes
+1d8c5e0	Drilling grout holes every 50–100 cm, on the outer and inner side of the wall to be strengthened.
+775202e	2. Grout pipes
+02b1d55	Placing perforated grout pipes (tubes) in the holes.
+4f7a7e3	3. Injection
+3461c6a	Grouting at a pressure of 7–10 bar; meanwhile the movement of the building is monitored with a laser level – injection stops if it rises.
+1c8f8e0	4. The effect
+f23bbf5	Blow counts of dynamic probing before and after grouting: the resistance of the soil increased considerably in the treated zone.
+f5a88b9	=
+34b9f67	=
+eeb11f7	=
+35c2d74	=
+77a6f7a	=
+a051a6d	 m³/min
+187b84a	=
+4a498ef	<div class="r"><span>volume to stabilise</span><b>${fmt(V)} m³</b></div><div class="r"><span>mixing time (net)</span><b>${fmt(hours, 0)} h ≈ ${fmt(days, 1)} shifts</b></div><div class="r"><span>binder</span><b>${fmt(binder, 0)} t</b></div><div class="r"><span>mixing head per step</span><b>≈ 1.2 m²</b></div>
+0ae52c0	stabilised block
+a633627	peat, soft clay
+01220d4	silo
+3986ec5	The plant train starts from stable (already stabilised) ground and mixes the soil ahead of itself
+b4244d8	=
+c1b70ff	=
+fd29ee3	effective stress σ' [kPa] (log)
+f085908	=
+0e90d78	void ratio e
+108b371	virgin curve
+1530fd0	time [months]
+c2ef8f4	=
+39b4e93	settlement [mm] ↓
+0cf421e	preloading, waiting
+f5f7eb4	design, preparation
+1a59dae	start of construction
+7cd8dd1	<div class="r"><span>settlement under the building without preloading</span><b style="color:var(--coral)">
+b2e6752	 mm</b></div><div class="r"><span>“forced out” under the preload</span><b style="color:var(--amber-ink)">
+daef4b8	 mm</b></div><div class="r" style="grid-column:1/-1"><span>settlement under the building after preloading</span><b style="color:var(--teal)">
+4222eff	=
+9a5b49c	=
+4a079f2	building
+2a793d2	Σ = constant
+1015166	Gravel surcharge = the weight of the finished building → most of the settlement takes place
+41e438f	Finished building – the gravel is gone, the load did not increase
+20c2ac8	Construction: the gravel is removed at the rate at which the weight of the building increases
+945b569	=
+d175e55	=
+01f91b9	<b>Rigid joints (indeterminate):</b> less distortion, but the support settlement causes <b>restraint forces</b> (M, V) – the load is redistributed. ${d > 20 ? '<span class="status b">jelentős többlet-igénybevétel</span>' : ''}
+3fa1306	<span class="status b">significant additional internal forces</span>
+3945320	<b>Pinned joints (determinate):</b> no restraint forces, the hinges rotate – but the <b>distortion</b> causes cracking and sticking in the infill walls. ${d > 20 ? '<span class="status b">falrepedések</span>' : ''}
+8945fa8	<span class="status b">wall cracks</span>
+54dffd4	=
+84c886b	=
+66d9894	settlement joint
+0fca6cf	crack at the junction
+d013452	tall, heavy building part
+2d03c2a	low, light part
+0c0c71d	=
+496f7b7	 months
+38b8ae3	risky range (stability!)
+4c6f461	peak excess pore pressure: ${Math.round(umax * 100)}% of the load
+11c33e1	<span class="status b">fast construction</span> In saturated clay the pore water cannot drain fast enough – the effective stress, and with it the shear strength, increases slowly: risk of bearing failure and large differential settlement.
+c1c0647	<span class="status w">medium rate</span> Part of the excess pressure dissipates during construction.
+130b203	<span class="status">slow, controlled rate</span> The soil consolidates in step with the load increase – safer, but it takes longer and costs more.
+6b3f23d	Under Hungarian ground conditions, what often governs the design of shallow foundations?
+f8f72b5	The ultimate limit state
+fb68080	The serviceability limit state (settlements)
+bf3dd15	The groundwater level
+9ab4913	The concrete grade of the footing
+7824e5e	In many cases it is not the ultimate but the <b>serviceability limit state</b> – settlement and differential settlement – that decides.
+0123cc9	What primarily damages the building?
+0bbcd22	Absolute settlement
+edce103	Differential settlement
+8ac44d8	The self-weight of the soil
+f51bf25	Thermal expansion
+e99acc6	“It is not the absolute settlement but the <b>differential settlement</b> that damages the building” – it causes tilting, sagging, additional internal forces and cracking.
+c5faf06	Approximately what relative rotation is very likely to cause an ultimate limit state (failure)?
+c5ec6ca	A relative rotation of <b>1/150</b> can already cause failure; 1/500 is generally acceptable structurally.
+e444d05	Which building is more sensitive to differential settlement?
+375a43a	The large, rigid office building
+ffd0092	The smaller house with 1–3 storeys and low stiffness
+e721c09	The bridge on piles
+a9d5180	All equally
+0cd8c65	Smaller, lower buildings have lower stiffness – most damaged buildings in Hungary have <b>1–3 storeys</b>.
+1445156	Which way do wall cracks rise?
+ddac588	Towards the part with smaller settlement
+c38a7a4	Towards the part with larger settlement (the part that ends up lower)
+ad056ce	Always horizontally
+b592b2e	Always vertically
+41f655e	Cracks rise <b>towards the point of larger settlement</b> (towards the part that is lower after the movement) – this helps to find the cause.
+91edc37	Why does reducing the contact pressure not reduce the settlement proportionally?
+b1f3662	Because the concrete compresses
+31a36da	Because the wider foundation is heavier, and the stress reaches deeper below it
+93ac342	Because the groundwater rises
+e8308a3	Because the influence depth decreases
+788b381	Two reasons: the wider footing means <b>greater weight</b>, and above all, under the wider foundation the stresses reach <b>greater depths</b> – the influence depth increases.
+ea81841	When is a wider foundation effective?
+e7c20d7	If there is a softer layer deeper down
+3b428ab	If there is a less compressible layer deeper down
+f4b755f	Always
+a3342ff	Never
+5140f17	It is effective if there are <b>less compressible layers deeper down</b> (case A) – part of the stress is “passed on” to the sand.
+5473242	Beyond what foundation depth is a strip footing no longer economical?
+55562aa	A strip footing deeper than <b>2–2.5 m</b> is not economical – then pad footings with ground beams or caisson foundations come into consideration.
+9957092	What is the twofold effect of a basement?
+b06bdfd	It insulates and waterproofs
+5c7c113	The foundation level may reach a bearing layer, and the weight of the excavated soil increases
+2f758e5	It increases the contact pressure and the influence depth
+62ff207	It lowers the groundwater level and the weight
+f52ac54	The foundation level reaches (or may reach) a deeper bearing layer, and <b>the weight of the excavated soil increases</b> – this unloads the subsoil.
+8cd412a	When does settlement start for a building with two basement levels?
+b9a71ca	When the first storey is built
+6266b20	When construction reaches the load corresponding to the unloading
+d0ba8cc	Only when the building is occupied
+c9ad490	At the moment of excavation
+e992bed	According to the consolidation curve, settlement only started when the <b>load corresponding to the unloading (the weight of the excavated soil)</b> was reached.
+33ddb02	Why can soil replacement generally be done only above the water table?
+dd5dabb	Because the water washes out the cement
+8a0305a	Because it cannot be compacted below the water table
+0c673d4	Because the geotextile gets wet
+1fd332d	Because the pump is too expensive
+e81097b	Below the water table the replacement soil <b>cannot be compacted properly</b>.

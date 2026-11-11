@@ -1,0 +1,140 @@
+8909f33	What is the usual thickness of soil replacement?
+af770d7	=
+e65fe19	=
+8349e0e	over 5 m
+ebe3702	Partial replacement is usually sufficient; its usual thickness is <b>50–80 cm</b>.
+9826da7	In what loose layer thickness must it be compacted?
+bd02403	=
+a0621f3	=
+e0e0bba	=
+413270d	in a single layer
+4fa9af5	Replacement soil must be compacted <b>in loose layers of max. 30 cm</b>.
+fa2438d	Where must the safety against bearing failure be verified?
+baaab54	Only below the foundation level
+44a186a	Both on the replacement soil below the foundation level and on the soil below the base of the replacement
+39b4853	Only at ground level
+3ded633	It need not be verified
+37bc567	It must be verified on the replacement soil below the foundation level and also on the soil <b>below the base of the replacement</b>.
+23ecb3e	What assists the descent of the vibroflotation deep vibrator?
+9880c28	A drill bit
+a8e8ad0	Water jetting (flushing)
+5fd48ad	Blasting
+8c5baab	Compressed cement
+25488b8	The vibrator descends under its own weight, assisted by <b>water jetting (flushing)</b>.
+75fae28	What pounder weight and drop height does dynamic compaction use?
+17b8352	=
+9e1577e	Pounder <b>15–40 t</b>, drop height <b>H = 10–40 m</b>; effective to a depth of max. 5–7 m.
+acd80c4	What is the twofold effect of a stone pillar?
+584f6ff	It insulates and waterproofs
+39cea06	It compacts the soft subsoil, and high-capacity pillars are formed
+0f001cf	It lowers the groundwater level and lifts the building
+2bd77d7	It speeds up consolidation and cools
+4cf5017	The displacement of the granular material <b>compacts the soft soil</b>, and <b>large-diameter, high-capacity pillars</b> are formed.
+7af9711	How does a gravel pile differ from a stone pillar?
+1d69175	Smaller-diameter granular columns
+7f6dc32	It is made of concrete
+e6c6842	Only in granular soil
+5ae6913	Larger diameter
+9060a5c	The principle is similar, but <b>smaller-diameter</b> columns – piles – of granular material are formed.
+4ea411c	Which soil can be grouted with cement grout?
+44e40f7	Sand-gravel coarser than 0.8–1 mm, fissured cohesive soil
+b848fb9	Silt
+2407fa1	The voids must be larger than the cement particles: sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures.
+3372f2b	In which direction is cement grout injected?
+b05b839	From the top downwards
+0f80be9	From the bottom upwards, as the pipe is withdrawn
+1fa709b	Horizontally
+701f1c6	It does not matter
+ca8cdf5	Grouting must proceed <b>from the bottom upwards</b>, as the pipe is withdrawn.
+cd39c6f	In which soil is two-component resin grouting NOT effective?
+3e73d08	Sand
+27dca9f	Silty sand
+7452ed3	Coarse sand
+98213f7	It is used in sandy and silty soil – <b>it cannot be used effectively in clay</b>.
+155a4d8	To what depth can mass stabilisation reach with an extension boom?
+cbc742a	approx. 7 m
+4f58044	The mixing boom is 3–5 m, plus another 2 m with an extension – so <b>up to 7 m</b> deep.
+ea178f0	What is the essence of preloading?
+1e0c2fc	The soil is mixed with cement
+fb661c1	Part of the compression is “forced out” by loading in advance
+776eec1	Compaction by blasting
+9c8dfbe	Piles are driven
+44de38d	With a surcharge placed in advance we <b>“force out” at least part of the compression of the subsoil</b> – the layer behaves like a geologically overconsolidated layer.
+5e08d58	In Mexico City, what mass of gravel is the base slab loaded with?
+cc1a0e3	Half the weight of the finished building
+b73b5f1	Equal to the weight of the finished building
+8aad374	Any amount
+e208b1c	Twice the excavated soil
+e5cfac8	The base slabs of RC frame buildings are loaded with a mass of gravel <b>equal to the weight of the finished building</b>.
+5e61c81	How is the gravel removed in Mexico City?
+75185de	All at once, before construction
+10fa3f6	At the rate at which the weight of the structure increases
+9d2b0d8	It is never removed
+279b01d	After construction is complete
+3b33ae6	The gravel is removed <b>at the rate</b> at which the weight of the structure increases – the load on the subsoil remains nearly constant.
+72cc2f0	In an area prone to settlement, what kind of structure should we design if possible?
+aa5244a	Statically indeterminate
+bec2ebb	Statically determinate
+d9e74db	An arch
+d447d8d	A rigid frame
+a2b2812	A <b>statically determinate</b> structure if possible – the pinned connections can rotate, and no additional internal forces develop.
+11b27bb	What should be done with long building parts carrying different loads?
+fb97938	Build them together
+9554426	Separate them with a settlement joint
+3be7b92	Put them all on piles
+2fba12a	Prestress them
+e8f80de	They are best separated by a <b>settlement joint</b> (it is needed anyway because of thermal expansion).
+d4210b3	When should the parts of the structure that are sensitive to settlement be built?
+ec9edca	As early as possible
+fb023f6	As late as possible
+7bd369c	Together with the foundations
+886dac7	The parts sensitive to settlement should be built <b>as late as possible</b>.
+f86c361	What justifies slowing down construction on saturated clay?
+8a7d6c3	The setting of the concrete
+6f88231	The increase in pore water pressure
+e642e66	The capacity of the crane
+b872223	Frost
+db1188a	On saturated clay the <b>increase in pore water pressure</b> dictates a slower rate.
+2fb29e6	Under Hungarian ground conditions the serviceability limit state (settlement) often governs.
+5520f62	Often it is not the bearing resistance but the (differential) settlement that “decides”.
+47b63b5	The building is damaged primarily by the absolute settlement.
+c20e89c	Differential settlement causes tilting, additional internal forces and cracking.
+1224324	For ordinary structures on separate footings, a differential settlement of about 20 mm between adjacent columns is generally acceptable.
+b19f9c4	This is the recommended value – but the relative rotation (δs/L) governs: with a small column spacing, 20 mm already means a rotation greater than 1/500.
+0487f5c	A smaller differential settlement is acceptable on cohesive soil than on granular soil.
+f9bfb12	The other way round: on clay about one and a half times more is acceptable – the building materials cope better with the slow consolidation.
+c7bdd33	A relative rotation of 1/150 can already cause failure.
+1da6f2f	1/500 is generally acceptable structurally; 1/150 is already critical.
+136a855	Reducing the contact pressure always reduces the settlement proportionally.
+121d55c	A wider foundation is heavier, and the stresses reach deeper below it – the influence depth increases.
+7aaad92	If there is sand below the soft clay, a wider foundation passes part of the stress on to the sand.
+08603c7	This is case A – here reducing the contact pressure is effective.
+cc3d16e	If there is soft clay below the sand, widening may even increase the settlement.
+4e6e688	Case B: the soft clay layer lower down receives more stress – “exactly the opposite of what we wanted”.
+ea102cc	The influence depth is smaller below a wider foundation.
+380b99f	Greater: the depth of the effect is set by the width of the foundation.
+cb61697	A strip footing deeper than 2–2.5 m is no longer economical.
+59a7abc	In that case pad footings with ground beams or caisson foundations are advisable.
+277ec36	Deepening the foundation level increases the embedment, and so the safety against bearing failure increases.
+e1d4ef7	So the foundation width can also be reduced.
+a332d8b	If the weight of the excavated soil is greater than that of the structure, with a rigid raft the structure can be practically immobile.
+d8627d3	The resultant of the effective stresses transferred to the subsoil is “negative” – this is the principle of the compensated foundation.
+1107088	Replacement soil can be compacted well below the water table.
+1f81bfa	Soil replacement can generally be done only above the water table.
+76f79a4	The usual thickness of soil replacement is 50–80 cm.
+b733513	Partial replacement is usually sufficient.
+a6e0328	Soil replacement need not be widened laterally.
+cee460c	It must be widened on both sides in proportion to the thickness of the replacement layer (v·tanϑ).
+0635287	For soil replacement it is enough to verify the safety against bearing failure below the foundation level.
+9e61cf5	It must also be verified on the soil below the base of the replacement.
+cf03d28	Soil replacement is a costly solution, today typically used for rafts at ground level.
+660926d	It requires a lot of earthworks and haulage.
+8786840	In vibroflotation, the descent is assisted by water jetting (flushing).
+e39f28f	A crane-mounted deep vibrator 25–40 cm in diameter.
+8c76a78	Deep compaction is most effective in cohesive, clayey soils.
+86eed77	It is for compacting loose granular soils and fills – in cohesive soil a gravel pile may be considered.
+1be6990	In dynamic compaction a 15–40 t pounder is dropped from a height of 10–40 m.
+c6a404b	The pounder weighs 15–40 t, the drop height is H = 10–40 m; the effect reaches a depth of max. 5–7 m.
+ef1840b	Dynamic compaction is effective to a depth of 20–30 m.
+cec0832	It is effective to a depth of max. 5–7 m.
+f840a73	In dynamic compaction, rest periods are used between the phases.

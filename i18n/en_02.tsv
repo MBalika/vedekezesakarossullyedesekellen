@@ -1,0 +1,149 @@
+cb3b64a	Summary table
+e2ed8a0	Method
+8e3ebf5	Suitable soil
+46a4e5f	Depth, typical data
+bb39150	Limitation, remark
+e8f0da9	<b>a) Lower contact pressure</b>
+acfe499	if there is a less compressible layer deeper down
+317e5cc	wider foundation, lower q
+5ce6c72	the weight and the influence depth increase; with reversed layering it can make things worse
+efd2477	<b>b) Deeper foundation level</b>
+fe7e9fd	a better bearing layer within a few metres
+10b7615	basement: the excavated soil unloads the ground
+fd535dd	a strip footing deeper than 2–2.5 m is not economical
+6534d2f	<b>c) Soil replacement</b>
+296e398	any poor soil, in a shallow zone
+3650e72	50–80 cm, compacted in layers ≤ 30 cm
+4025e11	only above the water table; widening: B + 2·v·tanϑ
+da793c7	<b>Deep compaction</b>
+b813c7d	loose granular soil, fill
+593a9aa	vibrator Ø 25–40 cm, with flushing
+cc8d6d9	fines content approx. &lt; 10–12%
+1ae476d	<b>Dynamic compaction</b>
+550e006	looser, softer soil, large area
+c5f13d3	15–40 t pounder, H = 10–40 m; max. 5–7 m
+ea50b7d	strong vibration – not next to buildings
+8d9fadf	<b>Stone pillar</b>
+8289980	granular material pounded in, large-diameter pillars
+b35e7d1	displacement compaction + load-bearing elements
+affdef6	<b>Gravel pile</b>
+feec665	looser, softer soil (cohesive too)
+bbcee04	bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m
+45d7553	also acts as a vertical drain
+49d207e	<b>Cement grouting</b>
+9696d55	granular soil coarser than 0.8–1 mm, fissured ground
+815ccf9	pipes every 50–100 cm, 7–10 atm
+4756fc3	from the bottom upwards; does not penetrate fine soil
+46fc73e	<b>Two-component grouting</b>
+cb3f0cc	sandy, silty soil
+0c4772c	expanding geocomposite
+390595c	not effective in clay; retrofit strengthening
+baf2af1	<b>Mass stabilisation</b>
+14324c5	peat, soft clay, organic soil
+7da3d99	mixing head 1.5 m × Ø 0.95 m; max. ~7 m
+0f43aa1	starts from stable ground; hardening takes time
+b5de7b0	<b>e) Preloading</b>
+70ca39e	saturated, compressible cohesive soil
+91ba57d	surcharge ≥ the later building load
+6dcad8a	long time – can be accelerated with drains
+6ab0233	<b>f–g) Structure, sequence</b>
+4747c64	rigid or flexible structure, settlement joint
+4470877	supplementary tool
+79d4a58	<b>h) Deep foundations</b>
+410737e	if the bearing layer is deep
+895ac60	pile, diaphragm wall
+2020939	often the simplest and fastest
+e833dd4	a) Lower contact pressure · b) Deeper foundation level
+22e42b6	3D settlement simulator
+d10799d	Larger foundation area → lower contact pressure. Deeper foundation level → a better bearing layer and more excavated soil. But does the settlement always decrease? <b>Rotate the 3D model, drag the sliders</b> and watch the stress bulb, the influence depth and the settlement!
+1732a20	2D section
+f187d3b	=
+094a66e	drag: rotate · wheel: zoom
+bd6dc05	<b>Challenge:</b> <span id="rChal"></span><br><span class="src">Cost index (concrete + earthworks, initial design = 100): <b class="mono" id="rCost"></b></span>
+53d2418	Soil profile
+a5eadac	Case A: soft clay on top, sand below
+571f434	Foundation width B (square pad footing) <span class="v" data-for="simB"></span>
+aba78ee	Depth of foundation level D <span class="v" data-for="simD"></span>
+6d9b92d	Column load N <span class="v" data-for="simN"></span>
+c34dd27	Influence depth / stress distribution
+966f3fd	Jáky: m₀ = B, linear
+aa72756	Elastic half-space + 0.2·σ₀
+c2e540c	stress bulb
+885223e	Settlement exaggeration <span class="v" data-for="simEx"></span>
+b9eafd3	<b id="rS">0</b><span>mm settlement</span><span class="status" id="rStatus"></span>
+2741182	=
+6bf4176	<span>contact pressure q</span><b id="rQ"></b>
+e630d3d	<span>net pressure q₀ = q − γ·D</span><b id="rQn"></b>
+91d5f6d	<span>influence depth m₀ (below foundation level)</span><b id="rM0"></b>
+6dbe1c4	<span>weight of footing + backfill</span><b id="rW"></b>
+e7b303c	Contribution by layer
+44ffb6c	📌 Set as baseline
+1930a86	▶ Widening
+1a2b4b3	▶ Deepening
+8ae73c8	Stress below the foundation level
+376a543	Settlement as a function of the variable
+8ae851f	The simulator follows the steps of the more accurate settlement calculation: permanent load → stress below the footing (below the centre of a rectangular loaded area, Steinbrenner; or Jáky’s linear approximation) → influence depth (Jáky: m₀ = B for a square footing; or the 0.2·σ₀ criterion of Hungarian practice) → summation by layer: s = Σ Δσz·Δh / Eoed. The effect of excavation is taken into account through the net pressure q₀ = q − γ·D; the weight of the footing and the backfill is added to the load. A teaching model, not design software.
+6484150	Using a lower contact pressure
+512bb95	We build a foundation with a <b>larger area</b> than bearing resistance alone would require. Lower stresses develop under a wider foundation. In many cases, however, it does not reduce the settlement as much as the designer expects:
+230bdde	the wider footing itself means a <b>greater weight</b>,
+684ba4e	and above all, under a wider foundation the stresses causing compression reach <b>greater depths</b> – <b>the influence depth increases</b>.
+b1d87b9	It is effective if there are <b>less compressible layers deeper down</b> (case A). In case B, widening puts more stress on the softer clay layer lower down – so the settlement may even <b>increase</b>: exactly the opposite of what we wanted!
+0e75d15	Cases A and B – how deep does the stress bulb reach?
+f2d42f4	Foundation width <span class="v" data-for="abB"></span>
+f8519dd	Effect of footing size and load on the stresses
+67bccdf	The depth of the effect is set by the <b>width</b> of the foundation, the magnitude of the stress by the <b>contact pressure</b>.
+c529c3b	Deeper foundation level – and the basement
+76f0fda	This comes into consideration if a foundation level in the compressible layer near the surface gives too much settlement and there is <b>less compressible, better bearing</b> soil not too deep down (a few metres). The embedment next to the foundations then increases, so the safety against bearing failure grows and the foundation width can be reduced.
+8026c0c	A <b>strip footing deeper than 2–2.5 m</b> is no longer economical – in that case pad foundations (or caisson foundations) are advisable, tied together at the top by a grid of ground beams.
+5254ea6	Under such ground conditions it is worth building a <b>basement</b> if the rooms below ground level can also be used. The basement has a twofold effect:
+4febf1b	the foundation level reaches (or may reach) a deeper bearing layer;
+edc350d	the <b>weight of the excavated soil</b> increases – this unloads the subsoil.
+747d336	If the mass of soil excavated for the “basement” is greater than that of the structure placed there, the resultant of the effective stresses transferred to the subsoil is “negative”, and the structure (with a sufficiently rigid RC raft) will be practically immobile – this is the principle of the <b>compensated foundation</b>.
+88d36a7	Deeper foundation level with a basement
+714d7b9	The role of excavation
+1685f50	<b>Did you know?</b> The 182 m high, 44-storey Torre Latinoamericana in Mexico City (1956) stands on extremely compressible volcanic clay: its base slab is 13.5 m deep, and the load is carried by 361 piles down to a dense sand layer 33 m deep. Its structural and foundation designer, Leonardo Zeevaert, also exploited the weight of the excavated soil – the tower “does not settle, it floats”, and it withstood the magnitude 7.9 earthquake of 1957.
+2c8a856	Excavation and compensation
+78ac2a8	▶ Construction
+c58155e	Storeys above ground <span class="v" data-for="bsN"></span>
+6d2d189	Basement levels <span class="v" data-for="bsP"></span>
+62e532e	Construction progress <span class="v" data-for="bsT"></span>
+caeb07f	Illustration: approx. 12 kPa/storey + 15 kPa base slab, γ = 19 kN/m³.
+f17a661	Self-check · Chapter 3
+f6a5554	c) Using soil replacement
+8ba3ecc	Out with the bad soil – in with the good
+fc66136	The highly compressible original soil below the foundation level is excavated over its full thickness (within the stressed zone) or only partly, and <b>replacement soil with better properties</b> – sandy gravel, crushed stone, crushed concrete – is placed in its stead, with adequate compaction.
+c4db44c	Load spread in the replacement layer (strip footing)
+5a01aa9	▶ Layer-by-layer construction
+23f2c7c	σ² = P / (B + 2·v·tanϑ) + γ₁·v, γ₁ = 20 kN/m³ – simplified illustration.
+a44ba24	Load P <span class="v" data-for="tcsP"></span>
+7ffda90	Foundation width B <span class="v" data-for="tcsB"></span>
+204d60e	Thickness of replacement layer v <span class="v" data-for="tcsV"></span>
+fe16105	Load spread angle ϑ <span class="v" data-for="tcsT"></span>
+d204dee	Allowable pressure on the underlying layer <span class="v" data-for="tcsQ"></span>
+175c7a3	groundwater in the replacement zone
+8b73aa9	💧 Above the water table
+dfda343	Soil replacement can generally be done only above the water table, because otherwise it cannot be compacted.
+f934d27	=
+27be4cd	Partial replacement is usually sufficient; the usual thickness is 50–80 cm.
+b34c7b3	🧱 Layers ≤ 30 cm
+00f1518	Compact in loose layers of max. 30 cm. A geogrid, geotextile or composite separation layer may be needed.
+55d7520	↔ Widening
+334b1c5	It has to be widened laterally in proportion to the thickness of the replacement layer – a lot of earthworks, and the excavated soil has to be carted away.
+3630971	Safety against bearing failure has to be verified both <b>on the replacement soil below the foundation level</b> and <b>on the soil below the base of the replacement</b> – and of course the settlements must also stay within the limits. A costly (lengthy) solution; today it is typically used for rafts at ground level.
+aaac949	Reducing settlement with soil replacement
+d5179e8	Watch it as an animation
+925d6ec	The video shows the principles of lower contact pressure, a deeper foundation level and soil replacement step by step – with layer-by-layer compaction and load spread.
+4cc9d16	Self-check · Chapter 4
+42ff00b	d) Ground improvement · mechanical methods
+661fcc5	Compaction: by vibration, dropping weights, stone columns
+4afdeaa	Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material, or by <b>compacting</b> the soil. Four mechanical methods are presented below – first, real footage of ground improvement as a whole.
+4e0ad1a	<span class="n">1</span>Deep compaction
+ceded5a	<span class="n">2</span>Dynamic compaction
+ad9c83e	<span class="n">3</span>Stone pillar
+6b9c9e8	<span class="n">4</span>Gravel pile
+cfe56b1	Deep compaction – vibroflotation
+14e1534	To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight, assisted by <b>water jetting (flushing)</b>. The soil around the hole is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator.
+4f52301	1 · Penetration
+ac5e02c	2 · Compaction
+a5f1f16	3 · Withdrawal + backfilling
+e8d439a	4 · Done

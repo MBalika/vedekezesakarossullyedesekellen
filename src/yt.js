@@ -33,7 +33,7 @@
     $('.frame', modal).innerHTML = '';
     $('.frame', modal).appendChild(mk('iframe', { src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`, title: y.title, allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', referrerpolicy: 'strict-origin-when-cross-origin' }));
     $('#ytopen', modal).href = watch(id);
-    $('.ytinfo', modal).textContent = `BME Építőmérnöki Kar · YouTube · ${y.playlist} lejátszási lista · ${y.dur}`;
+    $('.ytinfo', modal).textContent = EN ? `BME Faculty of Civil Engineering · YouTube · ${y.playlist} playlist · ${y.dur} · in Hungarian` : `BME Építőmérnöki Kar · YouTube · ${y.playlist} lejátszási lista · ${y.dur}`;
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
     setTimeout(() => { const b = $('#ytclose', modal); if (b) b.focus(); }, 50);
   }

@@ -1,0 +1,160 @@
+b72a0e7	Nice work! Review the questions you got wrong.
+595368f	It’s worth going through the chapter once more.
+8fa3d0e	=
+c137438	<div class="qn">Question ${i + 1} / ${items.length}</div><div class="qt">${it.q}</div>
+fb2f85c	=
+8e0007a	<button class="sec" data-a="prev" ${i === 0 ? 'disabled' : ''}>← Previous</button><button data-a="next" ${res[i] === null ? 'disabled' : ''}>${i === items.length - 1 ? 'Eredmény' : 'Következő →'}</button>
+269731d	Result
+3951bcb	Next →
+7f06a6d	=
+0f16ff0	Excellent! You are ready for the exam.
+fa50020	Good result!
+cc1e969	Not bad – review the ones you got wrong.
+a776ac8	It’s worth reviewing the chapters again.
+bac944d	Correct: <b>${ok}</b> / ${done} answered · ${items.length} in total${fin}<span class="tfprog"><i style="width:${done / items.length * 100}%"></i></span>
+27f27dc	<div class="st"><span class="no">${String(k + 1).padStart(2, '0')}</span>${it.s}</div><div class="bt"><button data-v="1">True</button><button data-v="0">False</button></div><div class="fb"></div>
+29b85a9	<b>${right ? '✓ Helyes.' : '✗ Nem egészen.'}</b> The statement is <b>${it.t ? 'igaz' : 'hamis'}</b>. ${it.e}
+dff034e	✓ Correct.
+2269c8c	✗ Not quite.
+eeae478	=
+114f0d7	=
+e5cbd40	=
+eb1879d	=
+4a420de	=
+15cb17a	=
+5c88d1f	=
+feecc87	=
+0942d49	dense sand
+c438bd7	soft clay
+cf46742	=
+9f03cfa	=
+4b4ab38	no damage
+ed42218	hairline cracks (< 0.1 mm)
+8bf776b	visible cracks – still structurally tolerable
+340ad87	cracks, doors and windows stick
+7fd46af	structural damage (≈ 1/150)
+af2ea5e	=
+ddac9a1	=
+1673fad	=
+e260720	=
+862bab2	=
+9e06ba2	original position
+edabc3b	⏎      <div class="r"><span>max. settlement s</span><b>${smax} mm</b> <span class="status${lvl(smax, 50, 75)}">${smax <= 50 ? '≤ 50 mm ✓' : 'nagy'}</span></div>⏎      <div class="r"><span>max. differential settlement δs (adjacent)</span><b>${dsmax} mm</b> <span class="status${lvl(dsmax, 20, 30)}">${dsmax <= 20 ? '≤ 20 mm ✓' : '> 20 mm'}</span></div>⏎      <div class="r"><span>rigid-body tilt ω (A–D)</span><b>${bl(Math.abs(omega))}</b> <span class="status${lvl(Math.abs(omega), 1 / 500, 1 / 300)}">${Math.abs(omega) <= 1 / 300 ? 'nem feltűnő' : 'szemmel látható (≈ 1/300)'}</span></div>⏎      <div class="r"><span>relative rotation β (max.)</span><b>${bl(bmax)}</b> <span class="status${lvl(bmax, 1 / 500, 1 / 150)}">${bmax <= 1 / 500 ? '≤ 1/500 ✓' : bmax <= 1 / 300 ? 'repedés lehet' : bmax <= 1 / 150 ? 'repedések' : 'tönkremenetel!'}</span></div>⏎      <div class="r" style="grid-column:1/-1"><span>relative deflection Δ and deflection ratio Δ/L</span><b>${fmt(Math.abs(Dmax), 1)} mm · ${ratio ? '1/' + Math.round(1 / ratio) : '0'}</b> <span class="muted" style="display:inline;font-size:12px">${Dmax > 0.5 ? 'homorú (sagging)' : Dmax < -0.5 ? 'domború (hogging)' : ''}</span></div>
+00c215c	=
+18a0311	=
+7d2b5c3	=
+b599a15	not noticeable
+c8f2be1	visible to the eye (≈ 1/300)
+c520fc6	cracking possible
+85e0bb9	cracks
+1df6943	failure!
+ec0e3fa	sagging
+214d553	hogging
+f4e2931	=
+9bc8922	=
+78c7d94	dense
+f78dfd1	pile
+39d6584	shallow foundation
+0d9d313	=
+4e5c576	tunnel
+b25c7fb	excavation
+b85caf9	a) Lower contact pressure
+a30a5eb	wider foundation – if there is a better layer lower down
+90c6848	b) Deeper foundation level
+692ac85	bearing layer within a few metres, basement
+8d5d359	c) Soil replacement
+fb11fd2	shallow problem, above the water table, 50–80 cm
+b1a7a70	Deep compaction (vibroflotation)
+79d4c61	large area, loose or soft soil, max. 5–7 m
+da0e159	Gravel pile
+e9f8daf	looser, softer soil, cohesive soil too
+f3baee3	coarse-grained (> 0.8–1 mm), fissured ground
+2e91b90	Two-component resin grouting
+4eb92fc	sandy, silty soil, retrofit strengthening
+6abdce7	Mass stabilisation
+9a042cf	peat, soft clay, max. ~7 m
+bfed951	e) Preloading
+bead649	saturated, compressible cohesive soil, time available
+71cd902	f–g) Structural measures, construction sequence
+3ed6a53	always a supplementary tool
+dd2cc52	h) Deep foundations
+08c92a7	the good bearing layer is deep
+cb325bd	there is a better layer deeper down
+1c6167c	worse layer deeper down → can make it worse
+f73656e	not for an existing building
+411b83f	better layer within a few metres
+5f74c51	shallow problem
+8563835	expensive for a deep layer
+b3a544b	cannot be compacted below the water table
+40b096d	loose granular soil
+e7049a8	ineffective in cohesive soil
+8dde1ee	vibration next to the existing building
+e4ac973	=
+1e6613e	strong vibration – not next to a building
+1514ed0	also for soft cohesive soil
+37ed348	for coarse grains
+b2d06e8	cement does not penetrate fine soil
+465e2d7	also as a retrofit measure
+8500aef	not effective in clay
+4757da4	sandy-silty soil
+6de7d5d	retrofit strengthening of an existing foundation
+390c52e	peat, organic soil
+a3fa69e	=
+aabcc1a	compressible cohesive soil
+5a06dbc	always worthwhile
+a77f912	the good layer is deep
+9fb8d95	=
+d98af95	=
+1191faf	✓ part of the load goes to the sand
+77ac7be	✗ the soft clay is loaded too
+fbd7bed	the bulb is still within the upper layer
+b136299	=
+31ebf35	=
+9d209d8	no basement
+9636c7b	excavated soil: γ·D = ${Math.round(relief)} kPa
+93f7fe2	building / soil
+ede701c	load and settlement during construction
+13aba03	unloading
+9f44056	total load
+91b97c2	settlement ↓
+a69718e	<div class="r"><span>building load (q)</span><b>${Math.round(qB)} kPa</b></div><div class="r"><span>excavated soil (γ·D)</span><b>${Math.round(relief)} kPa</b></div><div class="r"><span>net stress q − γ·D</span><b style="color:${net <= 0 ? 'var(--ok)' : 'var(--ink)'}">${Math.round(net)} kPa</b></div><div class="r"><span>degree of compensation</span><b>${pct}%</b></div>
+91307e9	<b>Fully compensated foundation:</b> the weight of the excavated soil is greater than that of the building, and the net stress transferred to the subsoil is “negative” – with a sufficiently rigid RC raft the structure is practically immobile. <span class="muted">(With overcompensation the soil may heave; below the water table uplift also has to be checked.)</span>
+49b51f0	<b>Partly compensated:</b> ${pct}% of the load is “counterbalanced” by the excavated soil – settlement arises only from the excess, and starts only when construction exceeds the unloading.
+000c7e8	<b>Weak compensation:</b> the excavated soil counterbalances only a small part of the load. Try more basement levels!
+88e71d5	Double load
+26a5e5b	stress doubled everywhere, same depth
+abcd148	Double width
+dc21640	same stress twice as deep
+82c93b2	Half the area
+18be8c5	high stress at the top, but a shallow effect
+b48c246	=
+6307cc1	=
+a62a0e9	=
+56c73b0	=
+d62897f	=
+1448798	=
+606e45d	=
+8ca5128	=
+9bc8b1b	cover layer (γ₀)
+c2813eb	underlying layer – compressible (γ₂)
+d8efba6	GWL
+138d9b7	=
+8d51f3b	=
+ba4fc8a	geotextile
+836ef40	=
+65cee2a	=
+cfd008b	=
+cc0eda3	B + 2·v·tanϑ = ${fmt(Bv, 2)} m
+abe5e58	<div class="r"><span>σ¹ at foundation level (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ² at the base of the replacement layer</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>widening per side (v·tanϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>layers to compact (≤ 30 cm)</span><b>${nl}</b></div>
+34474ff	✗ The pressure on the underlying layer exceeds the allowable value – a thicker replacement layer or a wider foundation is needed.
+9f20fd6	✓ The pressure on the layer below the replacement layer is acceptable.
+53b4a77	⚠ The groundwater is in the replacement zone – replacement soil cannot be compacted below the water table! (dewatering or another method)
+0b95a43	The usual replacement layer thickness is 50–80 cm.
+857d7d2	Thick replacement layer: a lot of earthworks and carting away – costly.
+a18c425	The crane-suspended deep vibrator (Ø 25–40 cm) penetrates <b>under its own weight and by vibration</b>; its descent is assisted by <b>water jetting (flushing)</b>.
+fbcbfbe	At the design depth the vibration shakes the loose grains into a <b>denser arrangement</b> – a compacted zone forms around the hole.
+e563caf	The vibrator is <b>gradually withdrawn</b> while gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator.
+cb7811f	The compacted column and its surroundings are finished. Because of the <b>volume reduction</b>, a crater forms at the surface, which is then filled. The points are repeated in a grid.
+6f4e28b	crater → filled
+1596b34	1. Penetration with flushing
+d3d6697	2. Compaction at the base
