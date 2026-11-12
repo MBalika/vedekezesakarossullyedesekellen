@@ -26,7 +26,7 @@ ALT = f'<link rel="alternate" hreflang="hu" href="{SITE}/">\n<link rel="alternat
 REDIR = "<script>/*nyelv*/try{if(localStorage.getItem('alap-lang')==='en'&&!/[?&]hu\\b/.test(location.search))location.replace('en'+location.hash)}catch(e){}</script>\n"
 # az angolul is elérhető tananyagok: az angol oldal ezek /en változatára mutat
 EN_SITES = ['bme-alapozas', 'talajfelderites', 'sikalapoktervezese', 'sikalapok-teherbirasszamitasa', 'sikalapokallekonysagvizsgalata',
-            'sikalapok-sullyedesszamitasa', 'kedvezotlen-altalaj']
+            'sikalapok-sullyedesszamitasa', 'kedvezotlen-altalaj', 'sikalapokaterohatasok', 'melyalapozasok']
 
 # POST: a fordítókészlet által nem kezelt helyek (egyedi data-* attribútum) az angol HTML-ben
 POST = [('data-tech="Döngölés és kőtömzs"', 'data-tech="Pounding and stone pillars"'),
