@@ -505,6 +505,20 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .hero .btns{justify-content:center}
 @media (max-width:980px){.hero .wrap{padding-block:48px 54px}.hero .stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:520px){.hero .stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* injektálás – öt módszer */
+.injsim .ph .btn{padding:7px 12px;font-size:13px;border-radius:10px;background:var(--cs);color:var(--ci);border-color:transparent}
+.injsim .ph .btn:hover{background:var(--c);color:#fff}
+.injinfo .kicker{margin-bottom:4px}
+.injinfo h4{font-size:18px;margin:2px 0 8px}
+.injinfo h5{font:700 13px var(--fb);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:14px 0 6px}
+.injrows{display:grid;gap:6px;margin-top:10px}
+.injrows>div{border:1px solid var(--line2);background:var(--card2);border-radius:10px;padding:7px 10px;font-size:13.5px}
+.injrows b{display:block;font:700 11px var(--fb);text-transform:uppercase;letter-spacing:.08em;color:var(--ci)}
+.injuse{margin:0;padding-left:18px;font-size:14px}
+.injuse li{margin:3px 0}
+.injt td:first-child{white-space:nowrap}
+.injcap{margin:8px 0 0;font:700 14px var(--fb);color:var(--ci);text-align:center}
+@media (max-width:600px){#injSvg .injl{font-size:19px}#injSvg .injl2{font-size:14px}}
 
 </style>
 <style id="bxt-css">
@@ -671,7 +685,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   <div class="dirs">
     <div class="dir c-teal"><span class="n">1</span><h4>Alapozás átalakítása</h4><a href="#alapozas"><span>a</span>Kisebb talpnyomás</a><a href="#alapozas"><span>b</span>Mélyebb alapsík</a><a href="#talajcsere"><span>c</span>Talajcsere</a></div>
     <div class="dir c-amber"><span class="n">2</span><h4>Mechanikai tömörítés</h4><a href="#tomorites"><span>d1</span>Mélytömörítés</a><a href="#tomorites"><span>d2</span>Dinamikus tömörítés</a><a href="#tomorites"><span>d3</span>Kőtömzs</a><a href="#tomorites"><span>d4</span>Kavicscölöp</a></div>
-    <div class="dir c-violet"><span class="n">3</span><h4>Injektálás, szilárdítás</h4><a href="#szilarditas"><span>d5</span>Cementbesajtolás</a><a href="#szilarditas"><span>d5</span>Kétkomponensű műanyag</a><a href="#szilarditas"><span>d6</span>Tömegstabilizáció</a></div>
+    <div class="dir c-violet"><span class="n">3</span><h4>Injektálás, szilárdítás</h4><a href="#szilarditas"><span>d5</span>Itatásos injektálás</a><a href="#szilarditas"><span>d5</span>Talajtömörítő injektálás</a><a href="#szilarditas"><span>d5</span>Kőzet hézagkitöltő injektálás</a><a href="#szilarditas"><span>d5</span>Repesztő/kompenzáló injektálás</a><a href="#szilarditas"><span>d5</span>Üregkitöltő injektálás</a><a href="#szilarditas"><span>d6</span>Tömegstabilizáció</a></div>
     <div class="dir c-coral"><span class="n">4</span><h4>Tervezői eszközök</h4><a href="#eloterheles"><span>e</span>Előterhelés</a><a href="#szerkezet"><span>f</span>Szerkezeti megoldás</a><a href="#szerkezet"><span>g</span>Építési sorrend</a><a href="#szerkezet"><span>h</span>Mélyalapozás</a></div>
   </div>
 
@@ -698,8 +712,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
       <tr><td><b>Dinamikus tömörítés</b></td><td>lazább-puhább talaj, nagy felület</td><td>15–40 t ejtősúly, H = 10–40 m; max. 5–7 m</td><td>erős rezgés – épületek mellett nem</td></tr>
       <tr><td><b>Kőtömzs</b></td><td>nagyon laza-puha talaj</td><td>szemcsés anyag bedöngölése, nagy átmérőjű tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
       <tr><td><b>Kavicscölöp</b></td><td>lazább-puhább talaj (kötött is)</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
-      <tr><td><b>Cementbesajtolás</b></td><td>0,8–1 mm-nél durvább szemcsés, repedezett talaj</td><td>csövek 50–100 cm-enként, 7–10 atm</td><td>alulról felfelé; finom talajba nem jut be</td></tr>
-      <tr><td><b>Kétkomponensű injektálás</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
+      <tr><td><b>Itatásos injektálás</b></td><td>szemcsés talaj, durva iszap; cementtel csak 0,8–1 mm-nél durvább</td><td>cementbesajtolás: csövek 50–100 cm-enként, 7–10 atm</td><td>a hézagokat tölti ki; alulról felfelé</td></tr>
+      <tr><td><b>Talajtömörítő injektálás</b></td><td>laza talaj, iszap és agyag is</td><td>sűrű habarcs, szakaszos gömbök</td><td>tömörít, teherviselő oszlopokat képez</td></tr>
+      <tr><td><b>Kőzet hézagkitöltő injektálás</b></td><td>repedezett kőzet</td><td>a repedéshálózat kitöltése</td><td>rézsű, alap alatti kőzet, vízzárás</td></tr>
+      <tr><td><b>Repesztő/kompenzáló injektálás</b></td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, épület visszaemelése</td></tr>
+      <tr><td><b>Üregkitöltő injektálás</b></td><td>üregek, pincék, bányajáratok</td><td>gravitációsan vagy kis nyomással</td><td>javított cementhabarcs, duzzadó PU hab</td></tr>
+      <tr><td><b>Kétkomponensű műgyanta</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
       <tr><td><b>Tömegstabilizáció</b></td><td>tőzeg, puha agyag, szerves talaj</td><td>keverőfej 1,5 m × Ø 0,95 m; max. ~7 m</td><td>állékony területről indul; idő kell a szilárduláshoz</td></tr>
       <tr><td><b>e) Előterhelés</b></td><td>telített, összenyomható kötött talaj</td><td>a teher ≥ a későbbi épületteher</td><td>hosszú idő – drénekkel gyorsítható</td></tr>
       <tr><td><b>f–g) Szerkezet, sorrend</b></td><td>–</td><td>merev vagy hajlékony szerkezet, süllyedési hézag</td><td>kiegészítő eszköz</td></tr>
@@ -911,20 +929,42 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 
 <!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
 <section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Idegen, szilárduló anyagokat juttatunk a talaj hézagaiba – nyomás alatt, fúrt vagy vert csöveken keresztül –, vagy a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
+  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Injektálásnál a talaj vagy a kőzet pórusaiba, repedéseibe, üregeibe kötőanyagot juttatunk be fúrt vagy vert csöveken keresztül. A hézagtérfogat csökkentésével javulnak a szilárdsági és alakváltozási tulajdonságok. Tömegstabilizációnál a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
   <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Injektálás</button><button data-tab="i2"><span class="n">6</span>Tömegstabilizáció</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
+    <div class="sub-h"><span class="lt">5</span><h3>Öt injektálási módszer – mit tesz az anyag a talajjal?</h3></div>
+    <p>Az injektálási módszerek abban különböznek, hogy a besajtolt anyag mit tesz a talajjal. Csak kitöltheti a meglévő hézagokat, kiszoríthatja és tömörítheti a talajt, megrepesztheti és megemelheti, vagy egy meglévő üreget tölthet ki. Válassz módszert, és indítsd el az animációt!</p>
+    <div class="sim wide injsim">
+      <div class="panel"><div class="ph"><h4 id="injH">Itatásos injektálás</h4><button class="btn sec" id="injPlay" type="button">▶ Lejátszás</button></div><div class="pb">
+        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">1 · itatásos</button><button data-v="1">2 · talajtömörítő</button><button data-v="2">3 · kőzet hézagkitöltő</button><button data-v="3">4 · repesztő/kompenzáló</button><button data-v="4">5 · üregkitöltő</button></div>
+        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
+        <p class="injcap" id="injCap">a szemcsék helyben maradnak, csak a hézagok telnek ki</p>
+        <div class="ctl" style="margin-top:10px"><label>Előrehaladás <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
+      </div></div>
+      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
+    </div>
+    <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
+      <thead><tr><th>Módszer</th><th>Mi történik a talajjal?</th><th>Talaj</th><th>Nyomás, anyag</th><th>Jellemző alkalmazás</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 · Itatásos</b></td><td>az anyag kitölti a hézagokat, a hézagtérfogat és a szerkezet nem változik</td><td>szemcsés talaj, durva iszap</td><td>kis nyomás, kis viszkozitású anyag</td><td>alapmegerősítés, tömítés, munkagödör</td></tr>
+        <tr><td><b>2 · Talajtömörítő</b></td><td>szakaszosan képzett üregek, a környező talaj tömörödik</td><td>laza talaj, iszap és agyag is</td><td>nagyobb nyomás, sűrű habarcs</td><td>teherviselő oszlopok, padozat visszaemelése</td></tr>
+        <tr><td><b>3 · Kőzet hézagkitöltő</b></td><td>a kőzet repedéshálózata telik ki</td><td>repedezett kőzet</td><td>itatásos jellegű, cementalapú</td><td>sziklarézsű, alap alatti kőzet, vízzárás</td></tr>
+        <tr><td><b>4 · Repesztő/kompenzáló</b></td><td>a talaj megreped, az anyaglemezek megemelik</td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, visszaemelés</td></tr>
+        <tr><td><b>5 · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással</td><td>pince, bányajárat, padozat alatti üreg</td></tr>
+      </tbody>
+    </table></div>
+    <div class="sub-h"><span class="lt">⚗</span><h3>Injektálóanyagok és a talaj szemcsézete</h3></div>
     <div class="twocol">
       <div>
-        <div class="facts"><span class="fact">cementtej</span><span class="fact">vízüveg (nátriumszilikát) alapú</span><span class="fact">akrilamid</span><span class="fact">lignoszulfit – lignoszulfát</span><span class="fact">fenoplast</span><span class="fact">aminoplast</span><span class="fact">egyéb</span></div>
-        <h4 style="margin:16px 0 6px">Cementbesajtolás</h4>
+        <div class="facts"><span class="fact">cementtej</span><span class="fact">mikrocement</span><span class="fact">cementhabarcs</span><span class="fact">vízüveg (nátriumszilikát) alapú</span><span class="fact">akrilamid</span><span class="fact">lignoszulfit – lignoszulfát</span><span class="fact">fenoplast</span><span class="fact">aminoplast</span><span class="fact">duzzadó poliuretán hab</span><span class="fact">egyéb</span></div>
+        <h4 style="margin:16px 0 6px">Cementbesajtolás (itatásos injektálás cementtel)</h4>
         <p>A perforált besajtoló csöveket egymástól <b>50–100 cm</b> távolságban helyezik el, és <b>7–10 atm</b> nyomáson juttatják le a cementtejet vagy cement+homok habarcsot. A hézagoknak nagyobbnak kell lenniük a cementszemcse átmérőjénél, ezért csak <b>0,8–1 mm-nél durvább</b> homok-kavics, illetve üreges, repedezett kötött talaj injektálható vele. Csőfelhúzás közben <b>alulról felfelé</b> kell injektálni.</p>
-        <h4 style="margin:16px 0 6px">Kétkomponensű, műanyag bázisú injektálás</h4>
+        <h4 style="margin:16px 0 6px">Kétkomponensű, duzzadó műgyanta</h4>
         <p>Homokos és iszapos talajban (agyagban nem hatékony). Folyékonyan, nagyobb nyomással jut a talajba, kitölti az üregeket, réseket, repedéseket és összeköti a szemcséket; pár perc múlva <b>duzzadni kezd</b>, és a talajjal nagyon kemény <b>geokompozitot</b> alkot – nő a kohézió, jelentősen csökken a pórustérfogat. Gyakori utólagos alapmegerősítésre.</p>
         <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cementbesajtolás" loading="lazy" style="height:230px;padding:6px"><figcaption>Cementbesajtolás</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Melyik injektálás? – válassz talajt</h4></div><div class="pb">
+        <div class="panel"><div class="ph"><h4>Melyik anyag jut be a hézagokba?</h4></div><div class="pb">
           <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">kavics</button><button data-v="durva" class="on">durva homok</button><button data-v="kozep">középhomok</button><button data-v="finom">finom homok</button><button data-v="iszap">iszap</button><button data-v="agyag">agyag</button><button data-v="repedt">repedezett</button></div>
           <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
           <div class="mlist" id="grOut" style="margin-top:12px"></div>
@@ -1255,8 +1295,9 @@ window.SVpat = pat;
     { id: 'd2', n: 'Dinamikus tömörítés', d: 'nagy felület, laza-puha talaj, max. 5–7 m', href: '#tomorites', c: 'var(--amber)' },
     { id: 'd3', n: 'Kőtömzs', d: 'nagyon laza-puha talaj', href: '#tomorites', c: 'var(--amber)' },
     { id: 'd4', n: 'Kavicscölöp', d: 'lazább-puhább talaj, kötött talaj is', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd5', n: 'Cementbesajtolás', d: 'durva szemcsés (> 0,8–1 mm), repedezett talaj', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd6', n: 'Kétkomponensű műanyag injektálás', d: 'homokos, iszapos talaj, utólagos megerősítés', href: '#szilarditas', c: 'var(--violet)' },
+    { id: 'd5', n: 'Itatásos injektálás', d: 'szemcsés talaj, durva iszap; cementtel csak > 0,8–1 mm', href: '#szilarditas', c: 'var(--violet)' },
+    { id: 'd6', n: 'Talajtömörítő injektálás', d: 'laza talaj, iszap és agyag is; meglévő épület alatt is', href: '#szilarditas', c: 'var(--violet)' },
+    { id: 'd8', n: 'Repesztő/kompenzáló injektálás', d: 'süllyedéskompenzálás, épület visszaemelése', href: '#szilarditas', c: 'var(--violet)' },
     { id: 'd7', n: 'Tömegstabilizáció', d: 'tőzeg, puha agyag, max. ~7 m', href: '#szilarditas', c: 'var(--violet)' },
     { id: 'e', n: 'e) Előterhelés', d: 'telített, összenyomható kötött talaj, van idő', href: '#eloterheles', c: 'var(--coral)' },
     { id: 'f', n: 'f–g) Szerkezeti megoldás, építési sorrend', d: 'mindig kiegészítő eszköz', href: '#szerkezet', c: 'var(--coral)' },
@@ -1274,8 +1315,9 @@ window.SVpat = pat;
       case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 5–7 m' : ''); if (sit === 'meglevo') add(-4, 'erős rezgés – épület mellett nem'); break;
       case 'd3': add(soil === 'kotott' || soil === 'feltoltes' ? 2 : 0); if (sit === 'meglevo') add(-4); break;
       case 'd4': add(soil === 'kotott' ? 3 : soil === 'szerves' ? -1 : 1, soil === 'kotott' ? 'puha kötött talajhoz is' : ''); if (sit === 'meglevo') add(-2); break;
-      case 'd5': add(soil === 'szemcses' ? 2 : soil === 'kotott' ? -1 : 0, soil === 'szemcses' ? 'durva szemcséknél' : 'finom talajba nem jut be a cement'); if (sit === 'meglevo') add(1, 'utólagos beavatkozás is'); break;
-      case 'd6': add(soil === 'szemcses' || soil === 'feltoltes' ? 2 : soil === 'kotott' ? -3 : -1, soil === 'kotott' ? 'agyagban nem hatékony' : 'homokos-iszapos talaj'); if (sit === 'meglevo') add(3, 'meglévő alap utólagos megerősítése'); break;
+      case 'd5': add(soil === 'szemcses' ? 3 : soil === 'feltoltes' ? 1 : -2, soil === 'szemcses' ? 'a hézagokat tölti ki' : soil === 'feltoltes' ? '' : 'finom talajba nem jut be'); if (sit === 'meglevo') add(1, 'utólagos beavatkozás is'); break;
+      case 'd6': add(soil === 'szerves' ? -2 : 1, soil === 'kotott' ? 'iszapban, agyagban is tömörít' : soil === 'szerves' ? '' : 'laza talajt tömörít'); if (sit === 'meglevo') add(3, 'meglévő épület alatt is'); break;
+      case 'd8': add(sit === 'meglevo' ? 3 : -2, sit === 'meglevo' ? 'süllyedéskompenzálás, visszaemelés' : 'új építésnél ritka'); if (soil === 'szerves') add(-2); break;
       case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'tőzeg, szerves talaj' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'max. ~7 m' : ''); if (sit === 'meglevo') add(-4); break;
       case 'e': add(soil === 'kotott' || soil === 'szerves' ? 3 : 0, soil === 'kotott' || soil === 'szerves' ? 'összenyomható kötött talaj' : ''); if (sit === 'meglevo') add(-4); break;
       case 'f': add(2, 'mindig érdemes'); break;
@@ -1524,6 +1566,119 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
   const sb = $('#kcSteps'); if (sb) sb.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', sb).forEach(x => x.classList.toggle('on', x === b)); $('#kcStepTxt').innerHTML = T[+b.dataset.v]; });
 })();
 
+/* ---------- injektálás: öt módszer egy metszeten ---------- */
+(function injMethods() {
+  const host = $('#injSvg'); if (!host) return;
+  const M = [
+    { n: 'Itatásos injektálás', e: 'Kis nyomással, a talaj szerkezetének megbontása nélkül töltjük ki a szemcsék közötti hézagokat. A hézagtérfogat közben nem változik meg, csak a hézagok kerülnek kitöltésre. Az injektálás csőfelhúzás közben, alulról felfelé, szakaszonként halad; a besajtolt mennyiséget és a nyomást folyamatosan mérik.',
+      soil: 'szemcsés talajok és durva iszapok', mat: 'kis viszkozitású anyag: cementtej, mikrocement, vízüveg alapú vagy műgyanta oldat', pr: 'kicsi – a talaj nem reped meg',
+      use: ['meglévő alapok utólagos megerősítése', 'tömítő függöny munkagödör vagy gát alatt', 'laza homok szilárdítása alagút- és munkagödör-építés előtt'],
+      lab: 'a szemcsék helyben maradnak, csak a hézagok telnek ki' },
+    { n: 'Talajtömörítő injektálás', e: 'Nagyobb nyomáson, szakaszosan kisebb üregeket képeznek, és ezeket a besajtolt, sűrű injektálóanyag tölti ki. Az anyag nem hatol be a pórusokba: kiszorítja és tömöríti a környező lazább talajt. Az egymás fölött kialakuló gömbökből teherviselő oszlopok jönnek létre.',
+      soil: 'laza szemcsés talajok, iszapok és agyagok is', mat: 'sűrű, kis roskadású cementhabarcs', pr: 'nagyobb, szakaszonként alulról felfelé',
+      use: ['laza talaj tömörítése meglévő épületek alatt', 'teherviselő oszlopok kialakítása', 'megsüllyedt kisebb építmények, padozatok visszaemelése'],
+      lab: 'a habarcsgömbök kiszorítják és tömörítik a talajt' },
+    { n: 'Kőzet hézagkitöltő injektálás', e: 'Olyan, mint az itatásos injektálás, csak a kőzettestek repedéshálózatát injektáljuk. Az anyag a fúrásból kiindulva a repedések mentén terjed, és kitölti azokat.',
+      soil: 'repedezett, mállott kőzet', mat: 'cementtej, cementhabarcs, szükség esetén műgyanta', pr: 'a repedések nyitottságához igazítva',
+      use: ['sziklarézsűk stabilizálása', 'alapok alatti lazább kőzetek stabilizálása', 'kőzettömegek vízzáróságának javítása'],
+      lab: 'csak a kőzet repedéshálózata telik ki' },
+    { n: 'Repesztő/kompenzáló injektálás', e: 'A talajok és kőzetek „kierőszakolt” repedésein keresztül, nagy nyomáson kis viszkozitású, gyorsan kötő injektálóanyagot sajtolnak be. A megnyíló repedésekben injektálóanyag-lemezek keletkeznek, és a talaj a felette lévő építménnyel együtt megemelkedik. A besajtolás szelepes csöveken keresztül többször megismételhető, így a mozgás pontosan adagolható.',
+      soil: 'talajok és kőzetek, finom szemcsés talaj is', mat: 'kis viszkozitású, gyorsan kötő injektálóanyag', pr: 'nagy – a talaj megreped',
+      use: ['süllyedéskompenzálás, például alagútépítés alatt', 'megsüllyedt építmények visszaemelése'],
+      lab: 'a repedésekben keletkező lemezek megemelik az épületet' },
+    { n: 'Üregkitöltő injektálás', e: 'Kisebb-nagyobb üregek kitöltésére használják, gravitációsan vagy kisebb nyomással. Az üreg alulról felfelé telik meg; a nehezen elérhető részeket duzzadó habbal zárják le.',
+      soil: 'természetes és mesterséges üregek', mat: 'döntően javított cementhabarcs, kiegészítve duzzadó poliuretán habokkal', pr: 'gravitációs vagy kicsi',
+      use: ['kőzetek természetes üregeinek feltöltése', 'padozatok alatti üregek kiinjektálása', 'felhagyott pincék, bányajáratok, aknák, közművezetékek kitöltése'],
+      lab: 'az üreg alulról felfelé telik meg' }];
+  const KK = ['1. módszer', '2. módszer', '3. módszer', '4. módszer', '5. módszer'];
+  const W = 560, Hh = 320, GY = 64, GROUT = '#e6eff3', GRS = '#7fa2b5';
+  let k = 0, u = 1, raf = 0, D = null;
+  const r = $('#injT');
+  const surface = (s) => { SV('rect', { x: 0, y: 0, width: W, height: GY, fill: '#e8efe9' }, s); };
+  const pump = (s, x) => { SV('rect', { x: x - 58, y: GY - 30, width: 48, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s); SV('circle', { cx: x - 48, cy: GY - 2, r: 5, fill: '#3b3b3b' }, s); SV('circle', { cx: x - 20, cy: GY - 2, r: 5, fill: '#3b3b3b' }, s); SV('path', { d: `M${x - 10},${GY - 16} Q${x},${GY - 26} ${x},${GY - 4}`, fill: 'none', stroke: '#3b3b3b', 'stroke-width': 3 }, s); };
+  function build() {
+    const s = svg(host, W, Hh); pat(s); D = { s }; surface(s);
+    if (k === 0) {
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: '#3e3027' }, s);
+      D.g = [290, 240, 190, 140].map(y => SV('ellipse', { cx: 300, cy: y, rx: 0, ry: 0, fill: GROUT, stroke: GRS, 'stroke-width': 1.5 }, s));
+      let seed = 11; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647; const gr = SV('g', {}, s);
+      for (let y = GY + 7; y < Hh + 8; y += 12.5) for (let x = ((y / 12.5) % 2) * 7; x < W + 8; x += 15) SV('circle', { cx: x + (rnd() - .5) * 3, cy: y + (rnd() - .5) * 2, r: 4.3 + rnd() * .9, fill: ['#c9a96b', '#b8955a', '#d6b97f'][Math.floor(rnd() * 3)], stroke: '#8a6d3e', 'stroke-width': .8 }, gr);
+      pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 290, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    if (k === 1) {
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: 'url(#pSoft)' }, s);
+      D.h = [], D.b = [];
+      [292, 246, 200, 154].forEach(y => { D.h.push(SV('circle', { cx: 300, cy: y, r: 0, fill: 'rgba(40,28,18,.32)' }, s)); });
+      [292, 246, 200, 154].forEach(y => { D.b.push(SV('circle', { cx: 300, cy: y, r: 0, fill: GROUT, stroke: GRS, 'stroke-width': 2 }, s)); });
+      D.ar = SV('g', { stroke: '#fff', 'stroke-width': 2, 'stroke-linecap': 'round' }, s);
+      pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 292, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    if (k === 2) {
+      SV('rect', { x: 0, y: GY, width: W, height: 26, fill: 'url(#pFill)' }, s);
+      SV('rect', { x: 0, y: GY + 26, width: W, height: Hh - GY - 26, fill: '#8d9196' }, s);
+      const F = ['M300,120 L250,132 L196,124 L130,140 L60,128', 'M300,120 L352,110 L420,124 L500,112', 'M300,170 L240,186 L170,176 L96,196', 'M300,170 L368,184 L440,172 L530,190', 'M300,224 L246,214 L180,232 L110,224', 'M300,224 L360,236 L436,222 L520,240', 'M300,276 L232,268 L150,284', 'M300,276 L374,288 L470,276', 'M250,132 L232,170 L240,186', 'M420,124 L432,160 L440,172', 'M180,232 L170,270 L150,284', 'M368,184 L380,215 L360,236'];
+      D.f = F.map((d, i) => { SV('path', { d, fill: 'none', stroke: '#3a3d40', 'stroke-width': 5, 'stroke-linejoin': 'round' }, s); return { el: SV('path', { d, fill: 'none', stroke: GROUT, 'stroke-width': 3.2, 'stroke-linejoin': 'round' }, s), del: i < 8 ? (i % 2 ? .04 : 0) + Math.floor(i / 2) * .08 : .45 + (i - 8) * .06 }; });
+      D.f.forEach(f => { f.L = f.el.getTotalLength ? f.el.getTotalLength() : 200; f.el.setAttribute('stroke-dasharray', f.L); f.el.setAttribute('stroke-dashoffset', f.L); });
+      pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 290, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    if (k === 3) {
+      const G = 150, PY = 238; D.G = G; D.PY = PY;
+      SV('rect', { x: 0, y: GY, width: W, height: G - GY, fill: '#e8efe9' }, s);
+      SV('rect', { x: 0, y: G, width: W, height: Hh - G, fill: 'url(#pClay)' }, s);
+      SV('rect', { x: 40, y: G, width: 70, height: PY - G + 8, fill: '#d9d4c7', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
+      SV('circle', { cx: 440, cy: 290, r: 22, fill: '#2f3337', stroke: '#1d2023', 'stroke-width': 2 }, s);
+      SV('text', { x: 440, y: 294, text: 'alagút', 'font-size': 11, class: 'injl2', fill: '#fff', 'text-anchor': 'middle', 'font-weight': 700 }, s);
+      SV('line', { x1: 110, x2: 540, y1: PY, y2: PY, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+      D.l = []; for (let i = 0; i < 9; i++) { const x = 150 + i * 44; SV('rect', { x: x - 3, y: PY - 5, width: 6, height: 10, fill: '#c76e3d' }, s); D.l.push(SV('path', { d: '', fill: GROUT, stroke: GRS, 'stroke-width': 1.2 }, s)); D.l[i].x = x; }
+      D.bd = SV('g', {}, s); const b = D.bd;
+      SV('rect', { x: 290, y: G - 104, width: 210, height: 104, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, b);
+      SV('path', { d: `M282,${G - 104} L395,${G - 134} L508,${G - 104} Z`, fill: '#b8553d', stroke: '#5b524a', 'stroke-width': 2 }, b);
+      for (let r2 = 0; r2 < 2; r2++) for (let i = 0; i < 5; i++) SV('rect', { x: 304 + i * 40, y: G - 90 + r2 * 44, width: 22, height: 24, fill: '#9fc3d6', stroke: '#5b524a', 'stroke-width': 1.2 }, b);
+      SV('rect', { x: 284, y: G, width: 222, height: 14, fill: '#bfc3c6', stroke: '#5b524a' }, b);
+      D.ref = SV('line', { x1: 270, x2: 520, y1: G + 14, y2: G + 14, stroke: '#17201e', 'stroke-width': 1.2, 'stroke-dasharray': '5 4' }, s);
+      D.st = SV('text', { x: 548, y: G + 36, class: 'injl', 'font-size': 13, 'font-weight': 800, fill: '#c0392b', 'text-anchor': 'end', stroke: '#fff', 'stroke-width': 3, 'paint-order': 'stroke' }, s);
+      SV('rect', { x: 52, y: G - 30, width: 46, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
+    }
+    if (k === 4) {
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: 'url(#pFill)' }, s);
+      SV('rect', { x: 120, y: GY, width: 340, height: 14, fill: '#bfc3c6', stroke: '#5b524a' }, s);
+      const cav = 'M160,150 C150,110 220,96 300,104 C380,100 450,112 446,160 C452,214 420,252 330,250 C250,256 168,246 160,206 Z';
+      const cp = SV('clipPath', { id: 'injCav' }, s.querySelector('defs') || SV('defs', {}, s)); SV('path', { d: cav }, cp);
+      SV('path', { d: cav, fill: '#2a2420', stroke: '#1b1714', 'stroke-width': 2 }, s);
+      D.m = SV('rect', { x: 140, y: 260, width: 320, height: 0, fill: GROUT, 'clip-path': 'url(#injCav)' }, s);
+      D.pu = SV('rect', { x: 140, y: 100, width: 320, height: 0, fill: '#f2d27a', 'clip-path': 'url(#injCav)' }, s);
+      SV('path', { d: cav, fill: 'none', stroke: '#1b1714', 'stroke-width': 2 }, s);
+      SV('text', { x: 548, y: 300, text: 'felhagyott pince, bányajárat', class: 'injl', 'font-size': 12, 'font-weight': 700, fill: '#fff', stroke: '#3b2f28', 'stroke-width': 3, 'paint-order': 'stroke', 'text-anchor': 'end' }, s);
+      pump(s, 300); SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 112, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    const cap = $('#injCap'); if (cap) cap.textContent = M[k].lab;
+    D.tt = SV('text', { x: W - 12, y: 22, class: 'injl', 'font-size': 12.5, 'font-weight': 700, fill: '#45307f', 'text-anchor': 'end' }, s);
+  }
+  const ease = x => x * x * (3 - 2 * x);
+  function frame() {
+    if (!D) return; const c = (a, b) => clamp((u - a) / (b - a), 0, 1);
+    if (k === 0) { D.g.forEach((e, i) => { const f = ease(c(i / 4, (i + 1) / 4)); e.setAttribute('rx', 74 * f); e.setAttribute('ry', 30 * f); }); const st = Math.min(3, Math.floor(u * 4 - 1e-6)); D.p.setAttribute('y2', [290, 240, 190, 140][Math.max(0, st)]); }
+    if (k === 1) { D.b.forEach((e, i) => { const f = ease(c(i / 4, (i + 1) / 4)); e.setAttribute('r', 21 * f); D.h[i].setAttribute('r', 44 * f); }); const st = Math.max(0, Math.min(3, Math.floor(u * 4 - 1e-6))); D.p.setAttribute('y2', [292, 246, 200, 154][st]);
+      D.ar.innerHTML = ''; const y = [292, 246, 200, 154][st], f = ease(c(st / 4, (st + 1) / 4)); if (f > .15 && u < 1) for (let a = 0; a < 8; a++) { const an = a * Math.PI / 4, r1 = 24 * f, r2 = 24 * f + 12; SV('line', { x1: 300 + Math.cos(an) * r1, y1: y + Math.sin(an) * r1, x2: 300 + Math.cos(an) * r2, y2: y + Math.sin(an) * r2 }, D.ar); } }
+    if (k === 2) D.f.forEach(f => { const v = c(f.del, f.del + .4); f.el.setAttribute('stroke-dashoffset', f.L * (1 - v)); });
+    if (k === 3) { D.l.forEach((e, i) => { const f = ease(c(i * .06, i * .06 + .45)); const L = 22 * f, t = 5 * f, x = e.x; const y = D.PY; e.setAttribute('d', f > 0 ? `M${x - L},${y} Q${x - L / 2},${y - t} ${x},${y - t * 1.3} Q${x + L / 2},${y - t} ${x + L},${y} Q${x + L / 2},${y + t * .6} ${x},${y + t * .8} Q${x - L / 2},${y + t * .6} ${x - L},${y} Z` : ''); });
+      const sett = 14 * (1 - ease(c(.25, 1))); D.bd.setAttribute('transform', `translate(0,${sett.toFixed(1)}) rotate(${(-sett * .12).toFixed(2)} 290 ${D.G})`); D.st.textContent = `süllyedés: ${Math.round(sett)} mm`; }
+    if (k === 4) { const f = c(0, .82), g = c(.82, 1); const top = 104, bot = 256, h = (bot - top); const hm = h * .86 * f; D.m.setAttribute('y', bot - hm); D.m.setAttribute('height', hm); const hp = h * .14 * g; D.pu.setAttribute('y', bot - hm - hp); D.pu.setAttribute('height', hp); }
+    const tt = `${Math.round(u * 100)} %`; if (D.tt.textContent !== tt) D.tt.textContent = tt;
+    if (r) { r.value = Math.round(u * 100); window.U.fillRange(r); const o = $('[data-for="injT"]'); if (o) { const v = Math.round(u * 100) + ' %'; if (o.textContent !== v) o.textContent = v; } }
+  }
+  function info() {
+    const m = M[k]; $('#injH').textContent = m.n;
+    $('#injInfo').innerHTML = `<div class="kicker">${KK[k]}</div><h4>${m.n}</h4><p>${m.e}</p><div class="injrows"><div><b>Talaj</b><span>${m.soil}</span></div><div><b>Anyag</b><span>${m.mat}</span></div><div><b>Nyomás</b><span>${m.pr}</span></div></div><h5>Jellemző alkalmazás</h5><ul class="injuse">${m.use.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  }
+  function play() { cancelAnimationFrame(raf); const t0 = performance.now(), dur = 5200; const st = (t) => { u = clamp((t - t0) / dur, 0, 1); frame(); if (u < 1) raf = requestAnimationFrame(st); }; u = 0; frame(); raf = requestAnimationFrame(st); }
+  window.U.seg('injM', v => { k = +v; build(); info(); play(); });
+  const pb = $('#injPlay'); if (pb) pb.addEventListener('click', play);
+  if (r) r.addEventListener('input', () => { cancelAnimationFrame(raf); u = +r.value / 100; frame(); });
+  build(); info(); u = 1; frame();
+  let seen = false; const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !seen) { seen = true; if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play(); } })); io.observe(host);
+})();
+
 /* ---------- injektálás: melyik anyag? ---------- */
 (function grout() {
   const host = $('#grSvg'); if (!host) return;
@@ -1539,7 +1694,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     if (!pass) SV('rect', { x: 0, y: 0, width: W, height: 10, fill: '#e8e8e8', opacity: .8 }, s);
     SV('rect', { x: 8, y: Hh - 34, width: 260, height: 26, rx: 6, fill: 'rgba(0,0,0,.55)' }, s); SV('text', { x: 18, y: Hh - 16, text: `${S0.n} · ⚪ cementszemcsék`, 'font-size': 12.5, 'font-weight': 700, fill: '#fff' }, s);
   };
-  const res = () => { const S0 = SOIL[key]; const L = ['✗ nem alkalmas', '◐ korlátozottan', '✓ alkalmas']; const C = ['b', 'w', '']; $('#grOut').innerHTML = `<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cementbesajtolás</h5><p>csak 0,8–1 mm-nél durvább homok-kavics, ill. üreges, repedezett kötött talaj</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Kétkomponensű műanyag</h5><p>homokos és iszapos talaj – agyagban nem hatékony</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Vegyi anyagok (pl. vízüveg alapú)</h5><p>kis viszkozitású oldatok – finomabb homokokba is bejutnak</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>`; };
+  const res = () => { const S0 = SOIL[key]; const L = ['✗ nem alkalmas', '◐ korlátozottan', '✓ alkalmas']; const C = ['b', 'w', '']; $('#grOut').innerHTML = `<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cementbesajtolás</h5><p>csak 0,8–1 mm-nél durvább homok-kavics, ill. üreges, repedezett kötött talaj</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Kétkomponensű műgyanta</h5><p>homokos és iszapos talaj – agyagban nem hatékony</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Vegyi anyagok (pl. vízüveg alapú)</h5><p>kis viszkozitású oldatok – finomabb homokokba is bejutnak</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>`; };
   window.U.seg('grSoil', v => { key = v; res(); });
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { const lp = () => { draw(); raf = requestAnimationFrame(lp); }; if (!raf) lp(); } else { cancelAnimationFrame(raf); raf = null; } })); io.observe(host);
   res(); draw();
@@ -1707,6 +1862,10 @@ const Q = {
     { q: 'Milyen talaj injektálható cementtejjel?', o: ['Agyag', 'Finom homok', '0,8–1 mm-nél durvább homok-kavics, repedezett kötött talaj', 'Iszap'], a: 2, e: 'A hézagoknak nagyobbnak kell lenniük a cementszemcsénél: <b>0,8–1 mm-nél durvább</b> homok-kavics, illetve üreges, repedezett kötött talaj.' },
     { q: 'Milyen irányban injektálnak cementbesajtolásnál?', o: ['Felülről lefelé', 'Alulról felfelé, csőfelhúzás közben', 'Vízszintesen', 'Mindegy'], a: 1, e: '<b>Alulról felfelé</b>, csőfelhúzás közben kell injektálni.' },
     { q: 'Melyik talajban NEM hatékony a kétkomponensű műanyag injektálás?', o: ['Homok', 'Iszapos homok', 'Agyag', 'Durva homok'], a: 2, e: 'Homokos és iszapos talajban alkalmazzák – <b>agyag esetén nem alkalmazható hatékonyan</b>.' },
+    { q: 'Melyik injektálásnál nem változik a talaj hézagtérfogata, csak a hézagok töltődnek ki?', o: ['Talajtömörítő', 'Itatásos', 'Repesztő/kompenzáló', 'Üregkitöltő'], a: 1, e: 'Az <b>itatásos</b> injektálás kis nyomással, a szerkezet megbontása nélkül tölti ki a szemcsék közötti hézagokat.' },
+    { q: 'Mi történik a talajjal talajtömörítő injektálásnál?', o: ['A habarcs behatol a pórusokba', 'A sűrű habarcsgömbök kiszorítják és tömörítik a környező talajt', 'A talaj megreped és felemelkedik', 'A talajt helyben átkeverik'], a: 1, e: 'Szakaszosan, nagyobb nyomáson kisebb üregeket képeznek; a sűrű anyag <b>kiszorítja és tömöríti</b> a lazább talajt, és teherviselő oszlopok jönnek létre.' },
+    { q: 'Melyik módszerrel kompenzálható például az alagútépítés okozta süllyedés?', o: ['Üregkitöltő injektálás', 'Itatásos injektálás', 'Repesztő/kompenzáló injektálás', 'Kőzet hézagkitöltő injektálás'], a: 2, e: 'A <b>repesztő/kompenzáló</b> injektálásnál a kierőszakolt repedésekben keletkező anyaglemezek megemelik a talajt és az építményt.' },
+    { q: 'Mivel töltik ki jellemzően a felhagyott pincéket, bányajáratokat?', o: ['Javított cementhabarccsal, duzzadó poliuretán habbal kiegészítve', 'Vízüveggel', 'Tiszta vízzel', 'Bentonitos zagyhabbal'], a: 0, e: 'Az <b>üregkitöltő</b> injektálásnál döntően javított cementhabarcsot használnak, gravitációsan vagy kis nyomással, duzzadó poliuretán habokkal kiegészítve.' },
     { q: 'Milyen mélységig érhető el a tömegstabilizáció toldószárral?', o: ['2 m', 'kb. 7 m', '20 m', '50 m'], a: 1, e: 'A keverőszár 3–5 m, toldószárral további 2 m – így <b>akár 7 m</b> mélységig.' },
   ],
   q7: [
@@ -1748,8 +1907,8 @@ const TFI = [
   { s: 'A kavicscölöp a kőtömzsnél nagyobb átmérőjű.', t: false, e: 'Kisebb átmérőjű szemcsés anyagú oszlopok alakulnak ki.' },
   { s: 'Cementbesajtolással a finom homok és az iszap is jól injektálható.', t: false, e: 'Csak 0,8–1 mm-nél durvább homok-kavics, illetve repedezett kötött talaj.' },
   { s: 'Cementbesajtolásnál a perforált csöveket 50–100 cm-enként helyezik el, 7–10 atm nyomással.', t: true, e: 'Ezeken át juttatják le a cementtejet vagy a cement+homok habarcsot, csőfelhúzás közben alulról felfelé.' },
-  { s: 'Cementbesajtolásnál felülről lefelé haladva injektálnak.', t: false, e: 'Csőfelhúzás közben alulról felfelé.' },
-  { s: 'A kétkomponensű műanyag injektálás agyagban is hatékony.', t: false, e: 'Homokos és iszapos talajban – agyagban nem alkalmazható hatékonyan.' },
+  { s: 'Itatásos injektálásnál a talaj hézagtérfogata nem változik, csak a hézagok telnek ki.', t: true, e: 'A szemcsék helyben maradnak; az anyag kis nyomással, a szerkezet megbontása nélkül tölti ki a hézagokat.' },
+  { s: 'Talajtömörítő injektálással iszapos és agyagos talaj is javítható.', t: true, e: 'A sűrű habarcsgömbök nem hatolnak be a pórusokba, hanem kiszorítják és tömörítik a környező talajt – ezért finom szemcsés talajban is alkalmazható.' },
   { s: 'A kétkomponensű injektálóanyag duzzad, és a talajjal kemény geokompozitot alkot.', t: true, e: 'Növeli a kohéziót és csökkenti a pórustérfogatot.' },
   { s: 'Utólagos injektálásnál az épület mozgását lézeres méréssel figyelik.', t: true, e: 'A 7–10 bar-os besajtolás közben lézeres szintezővel követik az épület mozgását – emelkedésnél leállnak.' },
   { s: 'A tömegstabilizáció keverőfeje egy lépésben kb. 1,2 m² felületet fog át.', t: true, e: 'Az 1,5 m széles, Ø 0,95 m-es keverőfej egy lépésben ~1,2 m²-t fog át.' },

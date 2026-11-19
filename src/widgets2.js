@@ -177,19 +177,19 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
       soil: 'természetes és mesterséges üregek', mat: 'döntően javított cementhabarcs, kiegészítve duzzadó poliuretán habokkal', pr: 'gravitációs vagy kicsi',
       use: ['kőzetek természetes üregeinek feltöltése', 'padozatok alatti üregek kiinjektálása', 'felhagyott pincék, bányajáratok, aknák, közművezetékek kitöltése'],
       lab: 'az üreg alulról felfelé telik meg' }];
-  const W = 560, Hh = 320, GY = 64, GROUT = '#dfe6ea', GRS = '#9fb2bd';
+  const KK = ['1. módszer', '2. módszer', '3. módszer', '4. módszer', '5. módszer'];
+  const W = 560, Hh = 320, GY = 64, GROUT = '#e6eff3', GRS = '#7fa2b5';
   let k = 0, u = 1, raf = 0, D = null;
   const r = $('#injT');
-  const lbl = (s, txt) => { const g = SV('g', {}, s); const t = SV('text', { x: 14, y: Hh - 14, text: txt, 'font-size': 13, 'font-weight': 700, fill: '#fff' }, g); let w = txt.length * 7; try { w = t.getComputedTextLength() || w; } catch (e) { } g.insertBefore(SV('rect', { x: 6, y: Hh - 32, width: w + 16, height: 26, rx: 7, fill: 'rgba(20,16,12,.72)' }), t); return g; };
   const surface = (s) => { SV('rect', { x: 0, y: 0, width: W, height: GY, fill: '#e8efe9' }, s); };
   const pump = (s, x) => { SV('rect', { x: x - 58, y: GY - 30, width: 48, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s); SV('circle', { cx: x - 48, cy: GY - 2, r: 5, fill: '#3b3b3b' }, s); SV('circle', { cx: x - 20, cy: GY - 2, r: 5, fill: '#3b3b3b' }, s); SV('path', { d: `M${x - 10},${GY - 16} Q${x},${GY - 26} ${x},${GY - 4}`, fill: 'none', stroke: '#3b3b3b', 'stroke-width': 3 }, s); };
   function build() {
     const s = svg(host, W, Hh); pat(s); D = { s }; surface(s);
     if (k === 0) {
-      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: '#5a4636' }, s);
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: '#3e3027' }, s);
       D.g = [290, 240, 190, 140].map(y => SV('ellipse', { cx: 300, cy: y, rx: 0, ry: 0, fill: GROUT, stroke: GRS, 'stroke-width': 1.5 }, s));
       let seed = 11; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647; const gr = SV('g', {}, s);
-      for (let y = GY + 7; y < Hh + 8; y += 12.5) for (let x = ((y / 12.5) % 2) * 7; x < W + 8; x += 15) SV('circle', { cx: x + (rnd() - .5) * 3, cy: y + (rnd() - .5) * 2, r: 5.6 + rnd() * 1.2, fill: ['#c9a96b', '#b8955a', '#d6b97f'][Math.floor(rnd() * 3)], stroke: '#8a6d3e', 'stroke-width': .8 }, gr);
+      for (let y = GY + 7; y < Hh + 8; y += 12.5) for (let x = ((y / 12.5) % 2) * 7; x < W + 8; x += 15) SV('circle', { cx: x + (rnd() - .5) * 3, cy: y + (rnd() - .5) * 2, r: 4.3 + rnd() * .9, fill: ['#c9a96b', '#b8955a', '#d6b97f'][Math.floor(rnd() * 3)], stroke: '#8a6d3e', 'stroke-width': .8 }, gr);
       pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 290, stroke: '#4a4f54', 'stroke-width': 5 }, s);
     }
     if (k === 1) {
@@ -209,19 +209,22 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
       pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 290, stroke: '#4a4f54', 'stroke-width': 5 }, s);
     }
     if (k === 3) {
-      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: 'url(#pClay)' }, s);
-      SV('rect', { x: 40, y: GY, width: 70, height: 150, fill: '#d9d4c7', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
-      SV('circle', { cx: 440, cy: 286, r: 26, fill: '#2f3337', stroke: '#1d2023', 'stroke-width': 2 }, s);
-      SV('text', { x: 440, y: 290, text: 'alagút', 'font-size': 11, fill: '#fff', 'text-anchor': 'middle', 'font-weight': 700 }, s);
-      SV('line', { x1: 110, x2: 540, y1: 206, y2: 206, stroke: '#4a4f54', 'stroke-width': 5 }, s);
-      D.l = []; for (let i = 0; i < 9; i++) { const x = 150 + i * 44; SV('rect', { x: x - 3, y: 201, width: 6, height: 10, fill: '#c76e3d' }, s); D.l.push(SV('path', { d: '', fill: GROUT, stroke: GRS, 'stroke-width': 1.2 }, s)); D.l[i].x = x; }
+      const G = 150, PY = 238; D.G = G; D.PY = PY;
+      SV('rect', { x: 0, y: GY, width: W, height: G - GY, fill: '#e8efe9' }, s);
+      SV('rect', { x: 0, y: G, width: W, height: Hh - G, fill: 'url(#pClay)' }, s);
+      SV('rect', { x: 40, y: G, width: 70, height: PY - G + 8, fill: '#d9d4c7', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
+      SV('circle', { cx: 440, cy: 290, r: 22, fill: '#2f3337', stroke: '#1d2023', 'stroke-width': 2 }, s);
+      SV('text', { x: 440, y: 294, text: 'alagút', 'font-size': 11, class: 'injl2', fill: '#fff', 'text-anchor': 'middle', 'font-weight': 700 }, s);
+      SV('line', { x1: 110, x2: 540, y1: PY, y2: PY, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+      D.l = []; for (let i = 0; i < 9; i++) { const x = 150 + i * 44; SV('rect', { x: x - 3, y: PY - 5, width: 6, height: 10, fill: '#c76e3d' }, s); D.l.push(SV('path', { d: '', fill: GROUT, stroke: GRS, 'stroke-width': 1.2 }, s)); D.l[i].x = x; }
       D.bd = SV('g', {}, s); const b = D.bd;
-      SV('rect', { x: 290, y: GY - 120, width: 210, height: 120, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, b);
-      for (let r2 = 0; r2 < 3; r2++) for (let i = 0; i < 5; i++) SV('rect', { x: 304 + i * 40, y: GY - 108 + r2 * 36, width: 22, height: 22, fill: '#9fc3d6', stroke: '#5b524a', 'stroke-width': 1.2 }, b);
-      SV('rect', { x: 284, y: GY, width: 222, height: 14, fill: '#bfc3c6', stroke: '#5b524a' }, b);
-      D.ref = SV('line', { x1: 270, x2: 520, y1: GY + 14, y2: GY + 14, stroke: '#17201e', 'stroke-width': 1.2, 'stroke-dasharray': '5 4' }, s);
-      D.st = SV('text', { x: 520, y: GY + 34, 'font-size': 13, 'font-weight': 800, fill: '#c0392b', 'text-anchor': 'end', stroke: '#fff', 'stroke-width': 3, 'paint-order': 'stroke' }, s);
-      SV('rect', { x: 52, y: GY - 34, width: 46, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
+      SV('rect', { x: 290, y: G - 104, width: 210, height: 104, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, b);
+      SV('path', { d: `M282,${G - 104} L395,${G - 134} L508,${G - 104} Z`, fill: '#b8553d', stroke: '#5b524a', 'stroke-width': 2 }, b);
+      for (let r2 = 0; r2 < 2; r2++) for (let i = 0; i < 5; i++) SV('rect', { x: 304 + i * 40, y: G - 90 + r2 * 44, width: 22, height: 24, fill: '#9fc3d6', stroke: '#5b524a', 'stroke-width': 1.2 }, b);
+      SV('rect', { x: 284, y: G, width: 222, height: 14, fill: '#bfc3c6', stroke: '#5b524a' }, b);
+      D.ref = SV('line', { x1: 270, x2: 520, y1: G + 14, y2: G + 14, stroke: '#17201e', 'stroke-width': 1.2, 'stroke-dasharray': '5 4' }, s);
+      D.st = SV('text', { x: 548, y: G + 36, class: 'injl', 'font-size': 13, 'font-weight': 800, fill: '#c0392b', 'text-anchor': 'end', stroke: '#fff', 'stroke-width': 3, 'paint-order': 'stroke' }, s);
+      SV('rect', { x: 52, y: G - 30, width: 46, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
     }
     if (k === 4) {
       SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: 'url(#pFill)' }, s);
@@ -232,11 +235,11 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
       D.m = SV('rect', { x: 140, y: 260, width: 320, height: 0, fill: GROUT, 'clip-path': 'url(#injCav)' }, s);
       D.pu = SV('rect', { x: 140, y: 100, width: 320, height: 0, fill: '#f2d27a', 'clip-path': 'url(#injCav)' }, s);
       SV('path', { d: cav, fill: 'none', stroke: '#1b1714', 'stroke-width': 2 }, s);
-      SV('text', { x: 360, y: 290, text: 'felhagyott pince, bányajárat', 'font-size': 12, 'font-weight': 700, fill: '#fff', stroke: '#3b2f28', 'stroke-width': 3, 'paint-order': 'stroke', 'text-anchor': 'middle' }, s);
+      SV('text', { x: 548, y: 300, text: 'felhagyott pince, bányajárat', class: 'injl', 'font-size': 12, 'font-weight': 700, fill: '#fff', stroke: '#3b2f28', 'stroke-width': 3, 'paint-order': 'stroke', 'text-anchor': 'end' }, s);
       pump(s, 300); SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 112, stroke: '#4a4f54', 'stroke-width': 5 }, s);
     }
-    lbl(s, M[k].lab);
-    D.tt = SV('text', { x: W - 12, y: 22, 'font-size': 12.5, 'font-weight': 700, fill: '#45307f', 'text-anchor': 'end' }, s);
+    const cap = $('#injCap'); if (cap) cap.textContent = M[k].lab;
+    D.tt = SV('text', { x: W - 12, y: 22, class: 'injl', 'font-size': 12.5, 'font-weight': 700, fill: '#45307f', 'text-anchor': 'end' }, s);
   }
   const ease = x => x * x * (3 - 2 * x);
   function frame() {
@@ -245,15 +248,15 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     if (k === 1) { D.b.forEach((e, i) => { const f = ease(c(i / 4, (i + 1) / 4)); e.setAttribute('r', 21 * f); D.h[i].setAttribute('r', 44 * f); }); const st = Math.max(0, Math.min(3, Math.floor(u * 4 - 1e-6))); D.p.setAttribute('y2', [292, 246, 200, 154][st]);
       D.ar.innerHTML = ''; const y = [292, 246, 200, 154][st], f = ease(c(st / 4, (st + 1) / 4)); if (f > .15 && u < 1) for (let a = 0; a < 8; a++) { const an = a * Math.PI / 4, r1 = 24 * f, r2 = 24 * f + 12; SV('line', { x1: 300 + Math.cos(an) * r1, y1: y + Math.sin(an) * r1, x2: 300 + Math.cos(an) * r2, y2: y + Math.sin(an) * r2 }, D.ar); } }
     if (k === 2) D.f.forEach(f => { const v = c(f.del, f.del + .4); f.el.setAttribute('stroke-dashoffset', f.L * (1 - v)); });
-    if (k === 3) { D.l.forEach((e, i) => { const f = ease(c(i * .06, i * .06 + .45)); const L = 22 * f, t = 5 * f, x = e.x; e.setAttribute('d', f > 0 ? `M${x - L},206 Q${x - L / 2},${206 - t} ${x},${206 - t * 1.3} Q${x + L / 2},${206 - t} ${x + L},206 Q${x + L / 2},${206 + t * .6} ${x},${206 + t * .8} Q${x - L / 2},${206 + t * .6} ${x - L},206 Z` : ''); });
-      const sett = 14 * (1 - ease(c(.25, 1))); D.bd.setAttribute('transform', `translate(0,${sett.toFixed(1)}) rotate(${(-sett * .12).toFixed(2)} 290 ${GY})`); D.st.textContent = `süllyedés: ${Math.round(sett)} mm`; }
+    if (k === 3) { D.l.forEach((e, i) => { const f = ease(c(i * .06, i * .06 + .45)); const L = 22 * f, t = 5 * f, x = e.x; const y = D.PY; e.setAttribute('d', f > 0 ? `M${x - L},${y} Q${x - L / 2},${y - t} ${x},${y - t * 1.3} Q${x + L / 2},${y - t} ${x + L},${y} Q${x + L / 2},${y + t * .6} ${x},${y + t * .8} Q${x - L / 2},${y + t * .6} ${x - L},${y} Z` : ''); });
+      const sett = 14 * (1 - ease(c(.25, 1))); D.bd.setAttribute('transform', `translate(0,${sett.toFixed(1)}) rotate(${(-sett * .12).toFixed(2)} 290 ${D.G})`); D.st.textContent = `süllyedés: ${Math.round(sett)} mm`; }
     if (k === 4) { const f = c(0, .82), g = c(.82, 1); const top = 104, bot = 256, h = (bot - top); const hm = h * .86 * f; D.m.setAttribute('y', bot - hm); D.m.setAttribute('height', hm); const hp = h * .14 * g; D.pu.setAttribute('y', bot - hm - hp); D.pu.setAttribute('height', hp); }
     const tt = `${Math.round(u * 100)} %`; if (D.tt.textContent !== tt) D.tt.textContent = tt;
     if (r) { r.value = Math.round(u * 100); window.U.fillRange(r); const o = $('[data-for="injT"]'); if (o) { const v = Math.round(u * 100) + ' %'; if (o.textContent !== v) o.textContent = v; } }
   }
   function info() {
     const m = M[k]; $('#injH').textContent = m.n;
-    $('#injInfo').innerHTML = `<div class="kicker">${k + 1}. módszer</div><h4>${m.n}</h4><p>${m.e}</p><div class="injrows"><div><b>Talaj</b><span>${m.soil}</span></div><div><b>Anyag</b><span>${m.mat}</span></div><div><b>Nyomás</b><span>${m.pr}</span></div></div><h5>Jellemző alkalmazás</h5><ul class="injuse">${m.use.map(x => `<li>${x}</li>`).join('')}</ul>`;
+    $('#injInfo').innerHTML = `<div class="kicker">${KK[k]}</div><h4>${m.n}</h4><p>${m.e}</p><div class="injrows"><div><b>Talaj</b><span>${m.soil}</span></div><div><b>Anyag</b><span>${m.mat}</span></div><div><b>Nyomás</b><span>${m.pr}</span></div></div><h5>Jellemző alkalmazás</h5><ul class="injuse">${m.use.map(x => `<li>${x}</li>`).join('')}</ul>`;
   }
   function play() { cancelAnimationFrame(raf); const t0 = performance.now(), dur = 5200; const st = (t) => { u = clamp((t - t0) / dur, 0, 1); frame(); if (u < 1) raf = requestAnimationFrame(st); }; u = 0; frame(); raf = requestAnimationFrame(st); }
   window.U.seg('injM', v => { k = +v; build(); info(); play(); });
@@ -278,7 +281,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     if (!pass) SV('rect', { x: 0, y: 0, width: W, height: 10, fill: '#e8e8e8', opacity: .8 }, s);
     SV('rect', { x: 8, y: Hh - 34, width: 260, height: 26, rx: 6, fill: 'rgba(0,0,0,.55)' }, s); SV('text', { x: 18, y: Hh - 16, text: `${S0.n} · ⚪ cementszemcsék`, 'font-size': 12.5, 'font-weight': 700, fill: '#fff' }, s);
   };
-  const res = () => { const S0 = SOIL[key]; const L = ['✗ nem alkalmas', '◐ korlátozottan', '✓ alkalmas']; const C = ['b', 'w', '']; $('#grOut').innerHTML = `<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cementbesajtolás</h5><p>csak 0,8–1 mm-nél durvább homok-kavics, ill. üreges, repedezett kötött talaj</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Kétkomponensű műanyag</h5><p>homokos és iszapos talaj – agyagban nem hatékony</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Vegyi anyagok (pl. vízüveg alapú)</h5><p>kis viszkozitású oldatok – finomabb homokokba is bejutnak</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>`; };
+  const res = () => { const S0 = SOIL[key]; const L = ['✗ nem alkalmas', '◐ korlátozottan', '✓ alkalmas']; const C = ['b', 'w', '']; $('#grOut').innerHTML = `<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cementbesajtolás</h5><p>csak 0,8–1 mm-nél durvább homok-kavics, ill. üreges, repedezett kötött talaj</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Kétkomponensű műgyanta</h5><p>homokos és iszapos talaj – agyagban nem hatékony</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Vegyi anyagok (pl. vízüveg alapú)</h5><p>kis viszkozitású oldatok – finomabb homokokba is bejutnak</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>`; };
   window.U.seg('grSoil', v => { key = v; res(); });
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { const lp = () => { draw(); raf = requestAnimationFrame(lp); }; if (!raf) lp(); } else { cancelAnimationFrame(raf); raf = null; } })); io.observe(host);
   res(); draw();

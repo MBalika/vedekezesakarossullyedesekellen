@@ -496,3 +496,5 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .injuse{margin:0;padding-left:18px;font-size:14px}
 .injuse li{margin:3px 0}
 .injt td:first-child{white-space:nowrap}
+.injcap{margin:8px 0 0;font:700 14px var(--fb);color:var(--ci);text-align:center}
+@media (max-width:600px){#injSvg .injl{font-size:19px}#injSvg .injl2{font-size:14px}}

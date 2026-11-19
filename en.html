@@ -504,6 +504,20 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .hero .btns{justify-content:center}
 @media (max-width:980px){.hero .wrap{padding-block:48px 54px}.hero .stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:520px){.hero .stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* injektálás – öt módszer */
+.injsim .ph .btn{padding:7px 12px;font-size:13px;border-radius:10px;background:var(--cs);color:var(--ci);border-color:transparent}
+.injsim .ph .btn:hover{background:var(--c);color:#fff}
+.injinfo .kicker{margin-bottom:4px}
+.injinfo h4{font-size:18px;margin:2px 0 8px}
+.injinfo h5{font:700 13px var(--fb);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:14px 0 6px}
+.injrows{display:grid;gap:6px;margin-top:10px}
+.injrows>div{border:1px solid var(--line2);background:var(--card2);border-radius:10px;padding:7px 10px;font-size:13.5px}
+.injrows b{display:block;font:700 11px var(--fb);text-transform:uppercase;letter-spacing:.08em;color:var(--ci)}
+.injuse{margin:0;padding-left:18px;font-size:14px}
+.injuse li{margin:3px 0}
+.injt td:first-child{white-space:nowrap}
+.injcap{margin:8px 0 0;font:700 14px var(--fb);color:var(--ci);text-align:center}
+@media (max-width:600px){#injSvg .injl{font-size:19px}#injSvg .injl2{font-size:14px}}
 
 </style>
 <style id="bxt-css">
@@ -670,7 +684,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   <div class="dirs">
     <div class="dir c-teal"><span class="n">1</span><h4>Changing the foundation</h4><a href="#alapozas"><span>a</span>Lower contact pressure</a><a href="#alapozas"><span>b</span>Deeper foundation level</a><a href="#talajcsere"><span>c</span>Soil replacement</a></div>
     <div class="dir c-amber"><span class="n">2</span><h4>Mechanical compaction</h4><a href="#tomorites"><span>d1</span>Deep compaction</a><a href="#tomorites"><span>d2</span>Dynamic compaction</a><a href="#tomorites"><span>d3</span>Stone pillar</a><a href="#tomorites"><span>d4</span>Gravel pile</a></div>
-    <div class="dir c-violet"><span class="n">3</span><h4>Grouting, stabilisation</h4><a href="#szilarditas"><span>d5</span>Cement grouting</a><a href="#szilarditas"><span>d5</span>Two-component resin</a><a href="#szilarditas"><span>d6</span>Mass stabilisation</a></div>
+    <div class="dir c-violet"><span class="n">3</span><h4>Grouting, stabilisation</h4><a href="#szilarditas"><span>d5</span>Permeation grouting</a><a href="#szilarditas"><span>d5</span>Compaction grouting</a><a href="#szilarditas"><span>d5</span>Rock fissure grouting</a><a href="#szilarditas"><span>d5</span>Fracture/compensation grouting</a><a href="#szilarditas"><span>d5</span>Void-filling grouting</a><a href="#szilarditas"><span>d6</span>Mass stabilisation</a></div>
     <div class="dir c-coral"><span class="n">4</span><h4>Design measures</h4><a href="#eloterheles"><span>e</span>Preloading</a><a href="#szerkezet"><span>f</span>Structural measures</a><a href="#szerkezet"><span>g</span>Construction sequence</a><a href="#szerkezet"><span>h</span>Deep foundations</a></div>
   </div>
 
@@ -697,8 +711,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
       <tr><td><b>Dynamic compaction</b></td><td>looser, softer soil, large area</td><td>15–40 t pounder, H = 10–40 m; max. 5–7 m</td><td>strong vibration – not next to buildings</td></tr>
       <tr><td><b>Stone pillar</b></td><td>very loose, soft soil</td><td>granular material pounded in, large-diameter pillars</td><td>displacement compaction + load-bearing elements</td></tr>
       <tr><td><b>Gravel pile</b></td><td>looser, softer soil (cohesive too)</td><td>bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m</td><td>also acts as a vertical drain</td></tr>
-      <tr><td><b>Cement grouting</b></td><td>granular soil coarser than 0.8–1 mm, fissured ground</td><td>pipes every 50–100 cm, 7–10 atm</td><td>from the bottom upwards; does not penetrate fine soil</td></tr>
-      <tr><td><b>Two-component grouting</b></td><td>sandy, silty soil</td><td>expanding geocomposite</td><td>not effective in clay; retrofit strengthening</td></tr>
+      <tr><td><b>Permeation grouting</b></td><td>granular soil, coarse silt; with cement only coarser than 0.8–1 mm</td><td>cement grouting: pipes every 50–100 cm, 7–10 atm</td><td>fills the voids; from the bottom upwards</td></tr>
+      <tr><td><b>Compaction grouting</b></td><td>loose soil, also silt and clay</td><td>stiff mortar, bulbs stage by stage</td><td>compacts, forms load-bearing columns</td></tr>
+      <tr><td><b>Rock fissure grouting</b></td><td>fissured rock</td><td>filling the fissure network</td><td>slope, rock under foundations, watertightness</td></tr>
+      <tr><td><b>Fracture/compensation grouting</b></td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling buildings</td></tr>
+      <tr><td><b>Void-filling grouting</b></td><td>voids, cellars, mine galleries</td><td>by gravity or at low pressure</td><td>improved cement mortar, expanding PU foam</td></tr>
+      <tr><td><b>Two-component resin</b></td><td>sandy, silty soil</td><td>expanding geocomposite</td><td>not effective in clay; retrofit strengthening</td></tr>
       <tr><td><b>Mass stabilisation</b></td><td>peat, soft clay, organic soil</td><td>mixing head 1.5 m × Ø 0.95 m; max. ~7 m</td><td>starts from stable ground; hardening takes time</td></tr>
       <tr><td><b>e) Preloading</b></td><td>saturated, compressible cohesive soil</td><td>surcharge ≥ the later building load</td><td>long time – can be accelerated with drains</td></tr>
       <tr><td><b>f–g) Structure, sequence</b></td><td>–</td><td>rigid or flexible structure, settlement joint</td><td>supplementary tool</td></tr>
@@ -910,20 +928,42 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 
 <!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
 <section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Ground improvement · grouting and mixing</div><h2>Grouting and mass stabilisation</h2><p class="lead">Foreign, hardening materials are introduced into the voids of the soil – under pressure, through drilled or driven pipes – or the soil is mixed in place with a binder.</p></div></div>
+  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Ground improvement · grouting and mixing</div><h2>Grouting and mass stabilisation</h2><p class="lead">In grouting, a binder is injected into the pores, fissures and voids of the soil or rock through drilled or driven pipes. Reducing the void volume improves the strength and deformation properties. In mass stabilisation, the soil is mixed in place with a binder.</p></div></div>
   <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Grouting</button><button data-tab="i2"><span class="n">6</span>Mass stabilisation</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
+    <div class="sub-h"><span class="lt">5</span><h3>Five grouting methods – what does the grout do to the soil?</h3></div>
+    <p>The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void. Choose a method and start the animation!</p>
+    <div class="sim wide injsim">
+      <div class="panel"><div class="ph"><h4 id="injH">Permeation grouting</h4><button class="btn sec" id="injPlay" type="button">▶ Play</button></div><div class="pb">
+        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">1 · permeation</button><button data-v="1">2 · compaction</button><button data-v="2">3 · rock fissure</button><button data-v="3">4 · fracture/compensation</button><button data-v="4">5 · void filling</button></div>
+        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
+        <p class="injcap" id="injCap">the grains stay in place, only the voids are filled</p>
+        <div class="ctl" style="margin-top:10px"><label>Progress <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
+      </div></div>
+      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
+    </div>
+    <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
+      <thead><tr><th>Method</th><th>What happens to the soil?</th><th>Soil</th><th>Pressure, material</th><th>Typical application</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 · Permeation</b></td><td>the grout fills the voids; the void volume and the soil structure do not change</td><td>granular soil, coarse silt</td><td>low pressure, low-viscosity material</td><td>underpinning, sealing, excavations</td></tr>
+        <tr><td><b>2 · Compaction</b></td><td>voids formed stage by stage, the surrounding soil is compacted</td><td>loose soil, also silt and clay</td><td>higher pressure, stiff mortar</td><td>load-bearing columns, re-levelling floor slabs</td></tr>
+        <tr><td><b>3 · Rock fissure</b></td><td>the fissure network of the rock is filled</td><td>fissured rock</td><td>permeation type, cement-based</td><td>rock slope, rock under foundations, watertightness</td></tr>
+        <tr><td><b>4 · Fracture/compensation</b></td><td>the ground fractures, the grout sheets lift it</td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling</td></tr>
+        <tr><td><b>5 · Void filling</b></td><td>an existing void is filled</td><td>voids, cellars, galleries</td><td>by gravity or at low pressure</td><td>cellar, mine gallery, void under a floor slab</td></tr>
+      </tbody>
+    </table></div>
+    <div class="sub-h"><span class="lt">⚗</span><h3>Grouting materials and soil grading</h3></div>
     <div class="twocol">
       <div>
-        <div class="facts"><span class="fact">cement grout</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">other</span></div>
-        <h4 style="margin:16px 0 6px">Cement grouting</h4>
+        <div class="facts"><span class="fact">cement grout</span><span class="fact">microfine cement</span><span class="fact">cement mortar</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">expanding polyurethane foam</span><span class="fact">other</span></div>
+        <h4 style="margin:16px 0 6px">Cement grouting (permeation grouting with cement)</h4>
         <p>The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.</p>
-        <h4 style="margin:16px 0 6px">Two-component, resin-based grouting</h4>
+        <h4 style="margin:16px 0 6px">Two-component, expanding resin</h4>
         <p>In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.</p>
         <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cement grouting" loading="lazy" style="height:230px;padding:6px"><figcaption>Cement grouting</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Which grouting? – choose a soil</h4></div><div class="pb">
+        <div class="panel"><div class="ph"><h4>Which material gets into the voids?</h4></div><div class="pb">
           <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">gravel</button><button data-v="durva" class="on">coarse sand</button><button data-v="kozep">medium sand</button><button data-v="finom">fine sand</button><button data-v="iszap">silt</button><button data-v="agyag">clay</button><button data-v="repedt">fissured</button></div>
           <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
           <div class="mlist" id="grOut" style="margin-top:12px"></div>
@@ -1254,8 +1294,9 @@ window.SVpat = pat;
     { id: 'd2', n: 'Dynamic compaction', d: 'large area, loose or soft soil, max. 5–7 m', href: '#tomorites', c: 'var(--amber)' },
     { id: 'd3', n: 'Stone pillar', d: 'very loose, soft soil', href: '#tomorites', c: 'var(--amber)' },
     { id: 'd4', n: 'Gravel pile', d: 'looser, softer soil, cohesive soil too', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd5', n: 'Cement grouting', d: 'coarse-grained (> 0.8–1 mm), fissured ground', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd6', n: 'Two-component resin grouting', d: 'sandy, silty soil, retrofit strengthening', href: '#szilarditas', c: 'var(--violet)' },
+    { id: 'd5', n: 'Permeation grouting', d: 'granular soil, coarse silt; with cement only > 0.8–1 mm', href: '#szilarditas', c: 'var(--violet)' },
+    { id: 'd6', n: 'Compaction grouting', d: 'loose soil, also silt and clay; also under existing buildings', href: '#szilarditas', c: 'var(--violet)' },
+    { id: 'd8', n: 'Fracture/compensation grouting', d: 'settlement compensation, re-levelling buildings', href: '#szilarditas', c: 'var(--violet)' },
     { id: 'd7', n: 'Mass stabilisation', d: 'peat, soft clay, max. ~7 m', href: '#szilarditas', c: 'var(--violet)' },
     { id: 'e', n: 'e) Preloading', d: 'saturated, compressible cohesive soil, time available', href: '#eloterheles', c: 'var(--coral)' },
     { id: 'f', n: 'f–g) Structural measures, construction sequence', d: 'always a supplementary tool', href: '#szerkezet', c: 'var(--coral)' },
@@ -1273,8 +1314,9 @@ window.SVpat = pat;
       case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 5–7 m' : ''); if (sit === 'meglevo') add(-4, 'strong vibration – not next to a building'); break;
       case 'd3': add(soil === 'kotott' || soil === 'feltoltes' ? 2 : 0); if (sit === 'meglevo') add(-4); break;
       case 'd4': add(soil === 'kotott' ? 3 : soil === 'szerves' ? -1 : 1, soil === 'kotott' ? 'also for soft cohesive soil' : ''); if (sit === 'meglevo') add(-2); break;
-      case 'd5': add(soil === 'szemcses' ? 2 : soil === 'kotott' ? -1 : 0, soil === 'szemcses' ? 'for coarse grains' : 'cement does not penetrate fine soil'); if (sit === 'meglevo') add(1, 'also as a retrofit measure'); break;
-      case 'd6': add(soil === 'szemcses' || soil === 'feltoltes' ? 2 : soil === 'kotott' ? -3 : -1, soil === 'kotott' ? 'not effective in clay' : 'sandy-silty soil'); if (sit === 'meglevo') add(3, 'retrofit strengthening of an existing foundation'); break;
+      case 'd5': add(soil === 'szemcses' ? 3 : soil === 'feltoltes' ? 1 : -2, soil === 'szemcses' ? 'fills the voids' : soil === 'feltoltes' ? '' : 'finom talajba nem jut be'); if (sit === 'meglevo') add(1, 'also as a retrofit measure'); break;
+      case 'd6': add(soil === 'szerves' ? -2 : 1, soil === 'kotott' ? 'compacts silt and clay too' : soil === 'szerves' ? '' : 'compacts loose soil'); if (sit === 'meglevo') add(3, 'also under existing buildings'); break;
+      case 'd8': add(sit === 'meglevo' ? 3 : -2, sit === 'meglevo' ? 'settlement compensation, re-levelling' : 'rare in new construction'); if (soil === 'szerves') add(-2); break;
       case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'peat, organic soil' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'max. ~7 m' : ''); if (sit === 'meglevo') add(-4); break;
       case 'e': add(soil === 'kotott' || soil === 'szerves' ? 3 : 0, soil === 'kotott' || soil === 'szerves' ? 'compressible cohesive soil' : ''); if (sit === 'meglevo') add(-4); break;
       case 'f': add(2, 'always worthwhile'); break;
@@ -1523,6 +1565,119 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
   const sb = $('#kcSteps'); if (sb) sb.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', sb).forEach(x => x.classList.toggle('on', x === b)); $('#kcStepTxt').innerHTML = T[+b.dataset.v]; });
 })();
 
+/* ---------- injektálás: öt módszer egy metszeten ---------- */
+(function injMethods() {
+  const host = $('#injSvg'); if (!host) return;
+  const M = [
+    { n: 'Permeation grouting', e: 'At low pressure, the voids between the grains are filled without disturbing the soil structure. The void volume does not change; only the voids are filled. Grouting proceeds in stages from the bottom upwards as the pipe is withdrawn; the injected volume and the pressure are monitored continuously.',
+      soil: 'granular soils and coarse silts', mat: 'low-viscosity material: cement grout, microfine cement, water-glass based or resin solution', pr: 'kicsi – a talaj nem reped meg',
+      use: ['underpinning existing foundations', 'cut-off curtain under an excavation or a dam', 'strengthening loose sand before tunnelling or excavation'],
+      lab: 'the grains stay in place, only the voids are filled' },
+    { n: 'Compaction grouting', e: 'At higher pressure, small voids are formed stage by stage and filled with the injected stiff grout. The grout does not penetrate the pores: it displaces and compacts the surrounding looser soil. The bulbs forming one above the other create load-bearing columns.',
+      soil: 'loose granular soils, also silts and clays', mat: 'stiff, low-slump cement mortar', pr: 'higher, stage by stage from the bottom upwards',
+      use: ['compacting loose soil under existing buildings', 'forming load-bearing columns', 're-levelling settled smaller structures and floor slabs'],
+      lab: 'the mortar bulbs displace and compact the soil' },
+    { n: 'Rock fissure grouting', e: 'Like permeation grouting, but the fissure network of the rock mass is grouted. The grout spreads from the borehole along the fissures and fills them.',
+      soil: 'fissured, weathered rock', mat: 'cement grout, cement mortar, resin where needed', pr: 'adjusted to the opening of the fissures',
+      use: ['stabilising rock slopes', 'stabilising weaker rock below foundations', 'improving the watertightness of rock masses'],
+      lab: 'only the fissure network of the rock is filled' },
+    { n: 'Fracture/compensation grouting', e: 'Low-viscosity, fast-setting grout is injected at high pressure through “forced” fractures in soils and rocks. Grout sheets form in the opening fractures, and the ground rises together with the structure above it. Injection through sleeved pipes can be repeated several times, so the movement can be controlled precisely.',
+      soil: 'soils and rocks, fine-grained soil too', mat: 'low-viscosity, fast-setting grout', pr: 'nagy – a talaj megreped',
+      use: ['settlement compensation, e.g. during tunnelling', 're-levelling settled structures'],
+      lab: 'the grout sheets forming in the fractures lift the building' },
+    { n: 'Void-filling grouting', e: 'Used to fill smaller and larger voids, by gravity or at lower pressure. The void fills from the bottom upwards; the parts that are hard to reach are sealed with expanding foam.',
+      soil: 'natural and man-made voids', mat: 'mainly improved cement mortar, supplemented with expanding polyurethane foams', pr: 'by gravity or low',
+      use: ['filling natural cavities in rock', 'grouting voids under floor slabs', 'filling abandoned cellars, mine galleries, shafts and utility pipes'],
+      lab: 'the void fills from the bottom upwards' }];
+  const KK = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5'];
+  const W = 560, Hh = 320, GY = 64, GROUT = '#e6eff3', GRS = '#7fa2b5';
+  let k = 0, u = 1, raf = 0, D = null;
+  const r = $('#injT');
+  const surface = (s) => { SV('rect', { x: 0, y: 0, width: W, height: GY, fill: '#e8efe9' }, s); };
+  const pump = (s, x) => { SV('rect', { x: x - 58, y: GY - 30, width: 48, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s); SV('circle', { cx: x - 48, cy: GY - 2, r: 5, fill: '#3b3b3b' }, s); SV('circle', { cx: x - 20, cy: GY - 2, r: 5, fill: '#3b3b3b' }, s); SV('path', { d: `M${x - 10},${GY - 16} Q${x},${GY - 26} ${x},${GY - 4}`, fill: 'none', stroke: '#3b3b3b', 'stroke-width': 3 }, s); };
+  function build() {
+    const s = svg(host, W, Hh); pat(s); D = { s }; surface(s);
+    if (k === 0) {
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: '#3e3027' }, s);
+      D.g = [290, 240, 190, 140].map(y => SV('ellipse', { cx: 300, cy: y, rx: 0, ry: 0, fill: GROUT, stroke: GRS, 'stroke-width': 1.5 }, s));
+      let seed = 11; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647; const gr = SV('g', {}, s);
+      for (let y = GY + 7; y < Hh + 8; y += 12.5) for (let x = ((y / 12.5) % 2) * 7; x < W + 8; x += 15) SV('circle', { cx: x + (rnd() - .5) * 3, cy: y + (rnd() - .5) * 2, r: 4.3 + rnd() * .9, fill: ['#c9a96b', '#b8955a', '#d6b97f'][Math.floor(rnd() * 3)], stroke: '#8a6d3e', 'stroke-width': .8 }, gr);
+      pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 290, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    if (k === 1) {
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: 'url(#pSoft)' }, s);
+      D.h = [], D.b = [];
+      [292, 246, 200, 154].forEach(y => { D.h.push(SV('circle', { cx: 300, cy: y, r: 0, fill: 'rgba(40,28,18,.32)' }, s)); });
+      [292, 246, 200, 154].forEach(y => { D.b.push(SV('circle', { cx: 300, cy: y, r: 0, fill: GROUT, stroke: GRS, 'stroke-width': 2 }, s)); });
+      D.ar = SV('g', { stroke: '#fff', 'stroke-width': 2, 'stroke-linecap': 'round' }, s);
+      pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 292, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    if (k === 2) {
+      SV('rect', { x: 0, y: GY, width: W, height: 26, fill: 'url(#pFill)' }, s);
+      SV('rect', { x: 0, y: GY + 26, width: W, height: Hh - GY - 26, fill: '#8d9196' }, s);
+      const F = ['M300,120 L250,132 L196,124 L130,140 L60,128', 'M300,120 L352,110 L420,124 L500,112', 'M300,170 L240,186 L170,176 L96,196', 'M300,170 L368,184 L440,172 L530,190', 'M300,224 L246,214 L180,232 L110,224', 'M300,224 L360,236 L436,222 L520,240', 'M300,276 L232,268 L150,284', 'M300,276 L374,288 L470,276', 'M250,132 L232,170 L240,186', 'M420,124 L432,160 L440,172', 'M180,232 L170,270 L150,284', 'M368,184 L380,215 L360,236'];
+      D.f = F.map((d, i) => { SV('path', { d, fill: 'none', stroke: '#3a3d40', 'stroke-width': 5, 'stroke-linejoin': 'round' }, s); return { el: SV('path', { d, fill: 'none', stroke: GROUT, 'stroke-width': 3.2, 'stroke-linejoin': 'round' }, s), del: i < 8 ? (i % 2 ? .04 : 0) + Math.floor(i / 2) * .08 : .45 + (i - 8) * .06 }; });
+      D.f.forEach(f => { f.L = f.el.getTotalLength ? f.el.getTotalLength() : 200; f.el.setAttribute('stroke-dasharray', f.L); f.el.setAttribute('stroke-dashoffset', f.L); });
+      pump(s, 300); D.p = SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 290, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    if (k === 3) {
+      const G = 150, PY = 238; D.G = G; D.PY = PY;
+      SV('rect', { x: 0, y: GY, width: W, height: G - GY, fill: '#e8efe9' }, s);
+      SV('rect', { x: 0, y: G, width: W, height: Hh - G, fill: 'url(#pClay)' }, s);
+      SV('rect', { x: 40, y: G, width: 70, height: PY - G + 8, fill: '#d9d4c7', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
+      SV('circle', { cx: 440, cy: 290, r: 22, fill: '#2f3337', stroke: '#1d2023', 'stroke-width': 2 }, s);
+      SV('text', { x: 440, y: 294, text: 'tunnel', 'font-size': 11, class: 'injl2', fill: '#fff', 'text-anchor': 'middle', 'font-weight': 700 }, s);
+      SV('line', { x1: 110, x2: 540, y1: PY, y2: PY, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+      D.l = []; for (let i = 0; i < 9; i++) { const x = 150 + i * 44; SV('rect', { x: x - 3, y: PY - 5, width: 6, height: 10, fill: '#c76e3d' }, s); D.l.push(SV('path', { d: '', fill: GROUT, stroke: GRS, 'stroke-width': 1.2 }, s)); D.l[i].x = x; }
+      D.bd = SV('g', {}, s); const b = D.bd;
+      SV('rect', { x: 290, y: G - 104, width: 210, height: 104, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, b);
+      SV('path', { d: `M282,${G - 104} L395,${G - 134} L508,${G - 104} Z`, fill: '#b8553d', stroke: '#5b524a', 'stroke-width': 2 }, b);
+      for (let r2 = 0; r2 < 2; r2++) for (let i = 0; i < 5; i++) SV('rect', { x: 304 + i * 40, y: G - 90 + r2 * 44, width: 22, height: 24, fill: '#9fc3d6', stroke: '#5b524a', 'stroke-width': 1.2 }, b);
+      SV('rect', { x: 284, y: G, width: 222, height: 14, fill: '#bfc3c6', stroke: '#5b524a' }, b);
+      D.ref = SV('line', { x1: 270, x2: 520, y1: G + 14, y2: G + 14, stroke: '#17201e', 'stroke-width': 1.2, 'stroke-dasharray': '5 4' }, s);
+      D.st = SV('text', { x: 548, y: G + 36, class: 'injl', 'font-size': 13, 'font-weight': 800, fill: '#c0392b', 'text-anchor': 'end', stroke: '#fff', 'stroke-width': 3, 'paint-order': 'stroke' }, s);
+      SV('rect', { x: 52, y: G - 30, width: 46, height: 30, rx: 4, fill: '#d9a441', stroke: '#5b524a', 'stroke-width': 1.5 }, s);
+    }
+    if (k === 4) {
+      SV('rect', { x: 0, y: GY, width: W, height: Hh - GY, fill: 'url(#pFill)' }, s);
+      SV('rect', { x: 120, y: GY, width: 340, height: 14, fill: '#bfc3c6', stroke: '#5b524a' }, s);
+      const cav = 'M160,150 C150,110 220,96 300,104 C380,100 450,112 446,160 C452,214 420,252 330,250 C250,256 168,246 160,206 Z';
+      const cp = SV('clipPath', { id: 'injCav' }, s.querySelector('defs') || SV('defs', {}, s)); SV('path', { d: cav }, cp);
+      SV('path', { d: cav, fill: '#2a2420', stroke: '#1b1714', 'stroke-width': 2 }, s);
+      D.m = SV('rect', { x: 140, y: 260, width: 320, height: 0, fill: GROUT, 'clip-path': 'url(#injCav)' }, s);
+      D.pu = SV('rect', { x: 140, y: 100, width: 320, height: 0, fill: '#f2d27a', 'clip-path': 'url(#injCav)' }, s);
+      SV('path', { d: cav, fill: 'none', stroke: '#1b1714', 'stroke-width': 2 }, s);
+      SV('text', { x: 548, y: 300, text: 'abandoned cellar, mine gallery', class: 'injl', 'font-size': 12, 'font-weight': 700, fill: '#fff', stroke: '#3b2f28', 'stroke-width': 3, 'paint-order': 'stroke', 'text-anchor': 'end' }, s);
+      pump(s, 300); SV('line', { x1: 300, x2: 300, y1: GY - 4, y2: 112, stroke: '#4a4f54', 'stroke-width': 5 }, s);
+    }
+    const cap = $('#injCap'); if (cap) cap.textContent = M[k].lab;
+    D.tt = SV('text', { x: W - 12, y: 22, class: 'injl', 'font-size': 12.5, 'font-weight': 700, fill: '#45307f', 'text-anchor': 'end' }, s);
+  }
+  const ease = x => x * x * (3 - 2 * x);
+  function frame() {
+    if (!D) return; const c = (a, b) => clamp((u - a) / (b - a), 0, 1);
+    if (k === 0) { D.g.forEach((e, i) => { const f = ease(c(i / 4, (i + 1) / 4)); e.setAttribute('rx', 74 * f); e.setAttribute('ry', 30 * f); }); const st = Math.min(3, Math.floor(u * 4 - 1e-6)); D.p.setAttribute('y2', [290, 240, 190, 140][Math.max(0, st)]); }
+    if (k === 1) { D.b.forEach((e, i) => { const f = ease(c(i / 4, (i + 1) / 4)); e.setAttribute('r', 21 * f); D.h[i].setAttribute('r', 44 * f); }); const st = Math.max(0, Math.min(3, Math.floor(u * 4 - 1e-6))); D.p.setAttribute('y2', [292, 246, 200, 154][st]);
+      D.ar.innerHTML = ''; const y = [292, 246, 200, 154][st], f = ease(c(st / 4, (st + 1) / 4)); if (f > .15 && u < 1) for (let a = 0; a < 8; a++) { const an = a * Math.PI / 4, r1 = 24 * f, r2 = 24 * f + 12; SV('line', { x1: 300 + Math.cos(an) * r1, y1: y + Math.sin(an) * r1, x2: 300 + Math.cos(an) * r2, y2: y + Math.sin(an) * r2 }, D.ar); } }
+    if (k === 2) D.f.forEach(f => { const v = c(f.del, f.del + .4); f.el.setAttribute('stroke-dashoffset', f.L * (1 - v)); });
+    if (k === 3) { D.l.forEach((e, i) => { const f = ease(c(i * .06, i * .06 + .45)); const L = 22 * f, t = 5 * f, x = e.x; const y = D.PY; e.setAttribute('d', f > 0 ? `M${x - L},${y} Q${x - L / 2},${y - t} ${x},${y - t * 1.3} Q${x + L / 2},${y - t} ${x + L},${y} Q${x + L / 2},${y + t * .6} ${x},${y + t * .8} Q${x - L / 2},${y + t * .6} ${x - L},${y} Z` : ''); });
+      const sett = 14 * (1 - ease(c(.25, 1))); D.bd.setAttribute('transform', `translate(0,${sett.toFixed(1)}) rotate(${(-sett * .12).toFixed(2)} 290 ${D.G})`); D.st.textContent = `settlement: ${Math.round(sett)} mm`; }
+    if (k === 4) { const f = c(0, .82), g = c(.82, 1); const top = 104, bot = 256, h = (bot - top); const hm = h * .86 * f; D.m.setAttribute('y', bot - hm); D.m.setAttribute('height', hm); const hp = h * .14 * g; D.pu.setAttribute('y', bot - hm - hp); D.pu.setAttribute('height', hp); }
+    const tt = `${Math.round(u * 100)} %`; if (D.tt.textContent !== tt) D.tt.textContent = tt;
+    if (r) { r.value = Math.round(u * 100); window.U.fillRange(r); const o = $('[data-for="injT"]'); if (o) { const v = Math.round(u * 100) + ' %'; if (o.textContent !== v) o.textContent = v; } }
+  }
+  function info() {
+    const m = M[k]; $('#injH').textContent = m.n;
+    $('#injInfo').innerHTML = `<div class="kicker">${KK[k]}</div><h4>${m.n}</h4><p>${m.e}</p><div class="injrows"><div><b>Soil</b><span>${m.soil}</span></div><div><b>Material</b><span>${m.mat}</span></div><div><b>Pressure</b><span>${m.pr}</span></div></div><h5>Typical application</h5><ul class="injuse">${m.use.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  }
+  function play() { cancelAnimationFrame(raf); const t0 = performance.now(), dur = 5200; const st = (t) => { u = clamp((t - t0) / dur, 0, 1); frame(); if (u < 1) raf = requestAnimationFrame(st); }; u = 0; frame(); raf = requestAnimationFrame(st); }
+  window.U.seg('injM', v => { k = +v; build(); info(); play(); });
+  const pb = $('#injPlay'); if (pb) pb.addEventListener('click', play);
+  if (r) r.addEventListener('input', () => { cancelAnimationFrame(raf); u = +r.value / 100; frame(); });
+  build(); info(); u = 1; frame();
+  let seen = false; const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !seen) { seen = true; if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play(); } })); io.observe(host);
+})();
+
 /* ---------- injektálás: melyik anyag? ---------- */
 (function grout() {
   const host = $('#grSvg'); if (!host) return;
@@ -1706,6 +1861,10 @@ const Q = {
     { q: 'Which soil can be grouted with cement grout?', o: ['Clay', 'Fine sand', 'Sand-gravel coarser than 0.8–1 mm, fissured cohesive soil', 'Silt'], a: 2, e: 'The voids must be larger than the cement particles: sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures.' },
     { q: 'In which direction is cement grout injected?', o: ['From the top downwards', 'From the bottom upwards, as the pipe is withdrawn', 'Horizontally', 'It does not matter'], a: 1, e: 'Grouting must proceed <b>from the bottom upwards</b>, as the pipe is withdrawn.' },
     { q: 'In which soil is two-component resin grouting NOT effective?', o: ['Sand', 'Silty sand', 'Clay', 'Coarse sand'], a: 2, e: 'It is used in sandy and silty soil – <b>it cannot be used effectively in clay</b>.' },
+    { q: 'In which grouting method does the void volume of the soil stay the same, with only the voids being filled?', o: ['Compaction', 'Permeation', 'Fracture/compensation', 'Void filling'], a: 1, e: '<b>Permeation</b> grouting fills the voids between the grains at low pressure, without disturbing the soil structure.' },
+    { q: 'What happens to the soil in compaction grouting?', o: ['The mortar penetrates the pores', 'The stiff mortar bulbs displace and compact the surrounding soil', 'The soil fractures and rises', 'The soil is mixed in place'], a: 1, e: 'At higher pressure, small voids are formed stage by stage; the stiff grout <b>displaces and compacts</b> the looser soil, and load-bearing columns are formed.' },
+    { q: 'Which method can compensate, for example, the settlement caused by tunnelling?', o: ['Void-filling grouting', 'Permeation grouting', 'Fracture/compensation grouting', 'Rock fissure grouting'], a: 2, e: 'In <b>fracture/compensation</b> grouting, the grout sheets forming in the forced fractures lift the ground and the structure.' },
+    { q: 'What are abandoned cellars and mine galleries typically filled with?', o: ['With improved cement mortar, supplemented with expanding polyurethane foam', 'With water glass', 'With clean water', 'Bentonitos zagyhabbal'], a: 0, e: 'In <b>void-filling</b> grouting, mainly improved cement mortar is used, by gravity or at low pressure, supplemented with expanding polyurethane foams.' },
     { q: 'To what depth can mass stabilisation reach with an extension boom?', o: ['2 m', 'approx. 7 m', '20 m', '50 m'], a: 1, e: 'The mixing boom is 3–5 m, plus another 2 m with an extension – so <b>up to 7 m</b> deep.' },
   ],
   q7: [
@@ -1747,8 +1906,8 @@ const TFI = [
   { s: 'A gravel pile has a larger diameter than a stone pillar.', t: false, e: 'Smaller-diameter columns of granular material are formed.' },
   { s: 'Fine sand and silt can also be grouted well with cement grout.', t: false, e: 'Only sand-gravel coarser than 0.8–1 mm, or fissured cohesive soil.' },
   { s: 'In cement grouting the perforated pipes are placed every 50–100 cm, at a pressure of 7–10 atm.', t: true, e: 'Through them the cement grout or cement-sand mortar is injected, from the bottom upwards as the pipe is withdrawn.' },
-  { s: 'In cement grouting, injection proceeds from the top downwards.', t: false, e: 'From the bottom upwards as the pipe is withdrawn.' },
-  { s: 'Two-component resin grouting is effective in clay as well.', t: false, e: 'In sandy and silty soil – it cannot be used effectively in clay.' },
+  { s: 'In permeation grouting the void volume of the soil does not change; only the voids are filled.', t: true, e: 'The grains stay in place; the grout fills the voids at low pressure without disturbing the soil structure.' },
+  { s: 'Silty and clayey soil can also be improved by compaction grouting.', t: true, e: 'The stiff mortar bulbs do not penetrate the pores but displace and compact the surrounding soil – so it can also be used in fine-grained soil.' },
   { s: 'The two-component grout expands and forms a hard geocomposite with the soil.', t: true, e: 'It increases the cohesion and reduces the pore volume.' },
   { s: 'During retrofit grouting the movement of the building is monitored by laser measurement.', t: true, e: 'During injection at 7–10 bar the movement of the building is followed with a laser level – injection stops if it rises.' },
   { s: 'The mixing head of mass stabilisation covers an area of about 1.2 m² per step.', t: true, e: 'The 1.5 m wide, Ø 0.95 m mixing head covers ~1.2 m² per step.' },

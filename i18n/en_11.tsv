@@ -1,0 +1,150 @@
+# 2026-11-19: öt injektálási módszer, áttekintés, kvíz
+7a31601	Which material gets into the voids?
+e077a5a	Two-component, expanding resin
+5270482	Cement grouting (permeation grouting with cement)
+6ebc126	<span class="fact">cement grout</span><span class="fact">microfine cement</span><span class="fact">cement mortar</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">expanding polyurethane foam</span><span class="fact">other</span>
+b820d87	Grouting materials and soil grading
+16389ea	cellar, mine gallery, void under a floor slab
+d5e7d48	by gravity or at low pressure
+e33737b	voids, cellars, galleries
+4281df2	an existing void is filled
+5fa47bd	<b>5 · Void filling</b>
+39bba72	settlement compensation, re-levelling
+aec7673	high pressure, fast-setting material
+80222ab	soil and rock
+26cec0c	the ground fractures, the grout sheets lift it
+07820fd	<b>4 · Fracture/compensation</b>
+ce11aa0	rock slope, rock under foundations, watertightness
+547d208	permeation type, cement-based
+6c478bd	fissured rock
+402368d	the fissure network of the rock is filled
+f253719	<b>3 · Rock fissure</b>
+2608271	load-bearing columns, re-levelling floor slabs
+d7e735e	higher pressure, stiff mortar
+ab1da70	loose soil, also silt and clay
+325171e	voids formed stage by stage, the surrounding soil is compacted
+7fe3108	<b>2 · Compaction</b>
+46c82ba	underpinning, sealing, excavations
+e90cbc1	low pressure, low-viscosity material
+1af6b51	granular soil, coarse silt
+b502823	the grout fills the voids; the void volume and the soil structure do not change
+5aa5826	<b>1 · Permeation</b>
+09d9c55	Typical application
+a9193e3	Pressure, material
+55125f8	Soil
+8466981	What happens to the soil?
+ea329ba	Progress <span class="v" data-for="injT"></span>
+c0f02d0	the grains stay in place, only the voids are filled
+e964439	5 · void filling
+fde0492	4 · fracture/compensation
+bb9eb8c	3 · rock fissure
+b05f3c1	2 · compaction
+3c03427	1 · permeation
+dca1c67	▶ Play
+5c1f0ac	Permeation grouting
+b907d3f	The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void. Choose a method and start the animation!
+9a5cff0	Five grouting methods – what does the grout do to the soil?
+8a3ea9b	In grouting, a binder is injected into the pores, fissures and voids of the soil or rock through drilled or driven pipes. Reducing the void volume improves the strength and deformation properties. In mass stabilisation, the soil is mixed in place with a binder.
+042aa2d	<b>Two-component resin</b>
+c0f690b	improved cement mortar, expanding PU foam
+62a25cb	voids, cellars, mine galleries
+f91f6ee	<b>Void-filling grouting</b>
+20a5ec2	settlement compensation, re-levelling buildings
+18a6554	<b>Fracture/compensation grouting</b>
+e03ca32	slope, rock under foundations, watertightness
+603e4a8	filling the fissure network
+4fb4dd6	<b>Rock fissure grouting</b>
+9964137	compacts, forms load-bearing columns
+9ff83c3	stiff mortar, bulbs stage by stage
+94d9eeb	<b>Compaction grouting</b>
+0ab4817	fills the voids; from the bottom upwards
+b69bcb1	cement grouting: pipes every 50–100 cm, 7–10 atm
+256f1c9	granular soil, coarse silt; with cement only coarser than 0.8–1 mm
+8667864	<b>Permeation grouting</b>
+f09ddc2	<span>d5</span>Void-filling grouting
+ed08b54	<span>d5</span>Fracture/compensation grouting
+c65724b	<span>d5</span>Rock fissure grouting
+1fd67f0	<span>d5</span>Compaction grouting
+af5590c	<span>d5</span>Permeation grouting
+be57364	rare in new construction
+4ea82a4	also under existing buildings
+b85f230	compacts loose soil
+8148fed	compacts silt and clay too
+29257de	fills the voids
+0a0a7af	Fracture/compensation grouting
+7160e96	loose soil, also silt and clay; also under existing buildings
+9cf00ff	Compaction grouting
+d185fb5	granular soil, coarse silt; with cement only > 0.8–1 mm
+ca24b57	<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cement grouting</h5><p>only sand-gravel coarser than 0.8–1 mm, or cohesive soil with cavities and fissures</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Two-component resin</h5><p>sandy and silty soil – not effective in clay</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Chemicals (e.g. water glass based)</h5><p>low-viscosity solutions – they also penetrate finer sands</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>
+e838742	</span></div></div><h5>Typical application</h5><ul class="injuse">
+3761048	</span></div><div><b>Pressure</b><span>
+5c3af4d	settlement: ${Math.round(sett)} mm
+87f9266	abandoned cellar, mine gallery
+b19cb87	the void fills from the bottom upwards
+b26bf98	filling abandoned cellars, mine galleries, shafts and utility pipes
+687fcd1	grouting voids under floor slabs
+f14b2d3	filling natural cavities in rock
+c7b882f	by gravity or low
+957a61c	mainly improved cement mortar, supplemented with expanding polyurethane foams
+19f140b	natural and man-made voids
+f5c305e	Used to fill smaller and larger voids, by gravity or at lower pressure. The void fills from the bottom upwards; the parts that are hard to reach are sealed with expanding foam.
+9026e07	Void-filling grouting
+5f63433	the grout sheets forming in the fractures lift the building
+0607c30	re-levelling settled structures
+4191f75	settlement compensation, e.g. during tunnelling
+b51cb53	low-viscosity, fast-setting grout
+553cc38	soils and rocks, fine-grained soil too
+f941043	Low-viscosity, fast-setting grout is injected at high pressure through “forced” fractures in soils and rocks. Grout sheets form in the opening fractures, and the ground rises together with the structure above it. Injection through sleeved pipes can be repeated several times, so the movement can be controlled precisely.
+a05c5d0	only the fissure network of the rock is filled
+01ed971	improving the watertightness of rock masses
+fb7ffb7	stabilising weaker rock below foundations
+e1ae502	stabilising rock slopes
+2301e97	adjusted to the opening of the fissures
+ac425de	cement grout, cement mortar, resin where needed
+99984b9	fissured, weathered rock
+265d7a0	Like permeation grouting, but the fissure network of the rock mass is grouted. The grout spreads from the borehole along the fissures and fills them.
+9b35dd9	Rock fissure grouting
+44c65e6	the mortar bulbs displace and compact the soil
+6199044	re-levelling settled smaller structures and floor slabs
+4e5a5bf	forming load-bearing columns
+03211a8	compacting loose soil under existing buildings
+5f0b59d	higher, stage by stage from the bottom upwards
+9a8a44c	stiff, low-slump cement mortar
+6927b85	loose granular soils, also silts and clays
+fe0fab2	At higher pressure, small voids are formed stage by stage and filled with the injected stiff grout. The grout does not penetrate the pores: it displaces and compacts the surrounding looser soil. The bulbs forming one above the other create load-bearing columns.
+47c13f9	strengthening loose sand before tunnelling or excavation
+0f7d32c	cut-off curtain under an excavation or a dam
+9bdc270	underpinning existing foundations
+8ea7444	low-viscosity material: cement grout, microfine cement, water-glass based or resin solution
+dd70897	granular soils and coarse silts
+f27311f	At low pressure, the voids between the grains are filled without disturbing the soil structure. The void volume does not change; only the voids are filled. Grouting proceeds in stages from the bottom upwards as the pipe is withdrawn; the injected volume and the pressure are monitored continuously.
+f0aa14f	The stiff mortar bulbs do not penetrate the pores but displace and compact the surrounding soil – so it can also be used in fine-grained soil.
+9e55fc7	Silty and clayey soil can also be improved by compaction grouting.
+92f4549	The grains stay in place; the grout fills the voids at low pressure without disturbing the soil structure.
+692f682	In permeation grouting the void volume of the soil does not change; only the voids are filled.
+284f5b4	In <b>void-filling</b> grouting, mainly improved cement mortar is used, by gravity or at low pressure, supplemented with expanding polyurethane foams.
+3f98123	With clean water
+41993fb	With water glass
+b8ed594	With improved cement mortar, supplemented with expanding polyurethane foam
+7f60c0e	What are abandoned cellars and mine galleries typically filled with?
+b0aa1fd	In <b>fracture/compensation</b> grouting, the grout sheets forming in the forced fractures lift the ground and the structure.
+9177929	Which method can compensate, for example, the settlement caused by tunnelling?
+6269f64	At higher pressure, small voids are formed stage by stage; the stiff grout <b>displaces and compacts</b> the looser soil, and load-bearing columns are formed.
+347da59	The soil is mixed in place
+66be350	The soil fractures and rises
+9019346	The stiff mortar bulbs displace and compact the surrounding soil
+87d82d8	The mortar penetrates the pores
+f44f7cf	What happens to the soil in compaction grouting?
+b1e3da1	<b>Permeation</b> grouting fills the voids between the grains at low pressure, without disturbing the soil structure.
+33f922f	Void filling
+b04a3a4	Fracture/compensation
+4ef398e	Permeation
+e8ced80	Compaction
+27988b0	In which grouting method does the void volume of the soil stay the same, with only the voids being filled?
+6b1e141	Method 1
+c534d77	Method 2
+9b83322	Method 3
+cf2f6e8	Method 4
+34cbfd0	Method 5
+2f9f6d1	</p><div class="injrows"><div><b>Soil</b><span>
+67591f7	</span></div><div><b>Material</b><span>
