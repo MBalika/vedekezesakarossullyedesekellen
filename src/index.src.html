@@ -44,13 +44,14 @@
       </div>
     </div>
     <div class="herocard">
-      <div class="kicker">Húzd a csúszkát</div>
-      <h3>Mi történik, ha egyenlőtlenül süllyed?</h3>
-      <div class="sub">Az épület jobb sarka alatt puha agyaglencse van. L = 10 m.</div>
+      <div class="kicker">Válassz módszert</div>
+      <h3>Mennyit segít a védekezés?</h3>
+      <div class="sub">Szemléltető példa: ház 4 m vastag puha agyagrétegen, a megengedett süllyedés 25 mm.</div>
+      <div class="seg hseg" id="heroM" style="--c:#0d7a68"><button data-v="0" class="on">nincs beavatkozás</button><button data-v="1">szélesebb alap</button><button data-v="2">talajcsere</button><button data-v="3">kavicscölöp</button><button data-v="4">előterhelés</button><button data-v="5">mélyalapozás</button></div>
       <div id="heroSvg"></div>
-      <div class="hc-read"><span>Süllyedéskülönbség Δs</span><span class="val" id="heroVal">0 mm</span></div>
-      <input type="range" id="heroDs" min="0" max="70" step="1" value="0" style="--c:#d4553a" aria-label="Süllyedéskülönbség">
-      <div class="hc-read"><span class="val" id="heroBeta">β = 0</span><span class="status" id="heroPill">nincs károsodás</span></div>
+      <div class="hc-read"><span>Várható süllyedés s</span><span class="val" id="heroVal">62 mm</span></div>
+      <div class="hbar" aria-hidden="true"><i id="heroBar"></i><b></b><span>25 mm</span></div>
+      <div class="hc-read hc-note"><span id="heroNote">A 4 m-es puha agyagréteg teljes vastagságában összenyomódik.</span><span class="status b" id="heroPill">nem felel meg</span></div>
     </div>
   </div>
 </section>

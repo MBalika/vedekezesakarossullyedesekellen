@@ -96,6 +96,16 @@ section.chap{scroll-margin-top:60px}
 .herocard svg{width:100%;height:auto;display:block;margin:8px 0}
 .hc-read{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
 .hc-read .val{font:700 15px var(--fm)}
+.hseg{margin:10px 0 0;gap:5px}
+.hseg button{font-size:12px;padding:5px 9px;border-radius:999px}
+.hbar{position:relative;height:10px;border-radius:6px;background:#e7e2d6;margin:4px 0 22px}
+.hbar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:#d4553a;transition:width .35s,background .35s}
+.hbar i.ok{background:#2f8f6b}
+.hbar b{position:absolute;top:-4px;left:31.25%;width:2px;height:18px;background:#17201e;border-radius:1px}
+.hbar span{position:absolute;top:15px;left:31.25%;transform:translateX(-50%);font:700 11px var(--fm);color:#17201e}
+.hc-note{align-items:flex-start}
+.hc-note #heroNote{color:#4b5653;line-height:1.4}
+.hc-note .status{flex:0 0 auto}
 .pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font:700 12px var(--fb)}
 
 /* ---- chapters ---- */
