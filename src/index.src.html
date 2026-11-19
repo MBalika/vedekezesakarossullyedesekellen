@@ -54,7 +54,7 @@
   <div class="dirs">
     <div class="dir c-teal"><span class="n">1</span><h4>Alapozás átalakítása</h4><a href="#alapozas"><span>a</span>Kisebb talpnyomás</a><a href="#alapozas"><span>b</span>Mélyebb alapsík</a><a href="#talajcsere"><span>c</span>Talajcsere</a></div>
     <div class="dir c-amber"><span class="n">2</span><h4>Mechanikai tömörítés</h4><a href="#tomorites"><span>d1</span>Mélytömörítés</a><a href="#tomorites"><span>d2</span>Dinamikus tömörítés</a><a href="#tomorites"><span>d3</span>Kőtömzs</a><a href="#tomorites"><span>d4</span>Kavicscölöp</a></div>
-    <div class="dir c-violet"><span class="n">3</span><h4>Injektálás, szilárdítás</h4><a href="#szilarditas"><span>d5</span>Cementbesajtolás</a><a href="#szilarditas"><span>d5</span>Kétkomponensű műanyag</a><a href="#szilarditas"><span>d6</span>Tömegstabilizáció</a></div>
+    <div class="dir c-violet"><span class="n">3</span><h4>Injektálás, szilárdítás</h4><a href="#szilarditas"><span>d5</span>Itatásos, talajtömörítő injektálás</a><a href="#szilarditas"><span>d5</span>Repesztő, üregkitöltő injektálás</a><a href="#szilarditas"><span>d6</span>Tömegstabilizáció</a></div>
     <div class="dir c-coral"><span class="n">4</span><h4>Tervezői eszközök</h4><a href="#eloterheles"><span>e</span>Előterhelés</a><a href="#szerkezet"><span>f</span>Szerkezeti megoldás</a><a href="#szerkezet"><span>g</span>Építési sorrend</a><a href="#szerkezet"><span>h</span>Mélyalapozás</a></div>
   </div>
 
@@ -81,8 +81,12 @@
       <tr><td><b>Dinamikus tömörítés</b></td><td>lazább-puhább talaj, nagy felület</td><td>15–40 t ejtősúly, H = 10–40 m; max. 5–7 m</td><td>erős rezgés – épületek mellett nem</td></tr>
       <tr><td><b>Kőtömzs</b></td><td>nagyon laza-puha talaj</td><td>szemcsés anyag bedöngölése, nagy átmérőjű tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
       <tr><td><b>Kavicscölöp</b></td><td>lazább-puhább talaj (kötött is)</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
-      <tr><td><b>Cementbesajtolás</b></td><td>0,8–1 mm-nél durvább szemcsés, repedezett talaj</td><td>csövek 50–100 cm-enként, 7–10 atm</td><td>alulról felfelé; finom talajba nem jut be</td></tr>
-      <tr><td><b>Kétkomponensű injektálás</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
+      <tr><td><b>Itatásos injektálás</b></td><td>szemcsés talaj, durva iszap; cementtel csak 0,8–1 mm-nél durvább</td><td>cementbesajtolás: csövek 50–100 cm-enként, 7–10 atm</td><td>a hézagokat tölti ki; alulról felfelé</td></tr>
+      <tr><td><b>Talajtömörítő injektálás</b></td><td>laza talaj, iszap és agyag is</td><td>sűrű habarcs, szakaszos gömbök</td><td>tömörít, teherviselő oszlopokat képez</td></tr>
+      <tr><td><b>Kőzet hézagkitöltő injektálás</b></td><td>repedezett kőzet</td><td>a repedéshálózat kitöltése</td><td>rézsű, alap alatti kőzet, vízzárás</td></tr>
+      <tr><td><b>Repesztő/kompenzáló injektálás</b></td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, épület visszaemelése</td></tr>
+      <tr><td><b>Üregkitöltő injektálás</b></td><td>üregek, pincék, bányajáratok</td><td>gravitációsan vagy kis nyomással</td><td>javított cementhabarcs, duzzadó PU hab</td></tr>
+      <tr><td><b>Kétkomponensű műgyanta</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
       <tr><td><b>Tömegstabilizáció</b></td><td>tőzeg, puha agyag, szerves talaj</td><td>keverőfej 1,5 m × Ø 0,95 m; max. ~7 m</td><td>állékony területről indul; idő kell a szilárduláshoz</td></tr>
       <tr><td><b>e) Előterhelés</b></td><td>telített, összenyomható kötött talaj</td><td>a teher ≥ a későbbi épületteher</td><td>hosszú idő – drénekkel gyorsítható</td></tr>
       <tr><td><b>f–g) Szerkezet, sorrend</b></td><td>–</td><td>merev vagy hajlékony szerkezet, süllyedési hézag</td><td>kiegészítő eszköz</td></tr>
@@ -294,20 +298,41 @@
 
 <!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
 <section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Idegen, szilárduló anyagokat juttatunk a talaj hézagaiba – nyomás alatt, fúrt vagy vert csöveken keresztül –, vagy a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
+  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Injektálásnál a talaj vagy a kőzet pórusaiba, repedéseibe, üregeibe kötőanyagot juttatunk be fúrt vagy vert csöveken keresztül. A hézagtérfogat csökkentésével javulnak a szilárdsági és alakváltozási tulajdonságok. Tömegstabilizációnál a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
   <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Injektálás</button><button data-tab="i2"><span class="n">6</span>Tömegstabilizáció</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
+    <div class="sub-h"><span class="lt">5</span><h3>Öt injektálási módszer – mit tesz az anyag a talajjal?</h3></div>
+    <p>Az injektálási módszerek abban különböznek, hogy a besajtolt anyag mit tesz a talajjal. Csak kitöltheti a meglévő hézagokat, kiszoríthatja és tömörítheti a talajt, megrepesztheti és megemelheti, vagy egy meglévő üreget tölthet ki. Válassz módszert, és indítsd el az animációt!</p>
+    <div class="sim wide injsim">
+      <div class="panel"><div class="ph"><h4 id="injH">Itatásos injektálás</h4><button class="btn sec" id="injPlay" type="button">▶ Lejátszás</button></div><div class="pb">
+        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">1 · itatásos</button><button data-v="1">2 · talajtömörítő</button><button data-v="2">3 · kőzet hézagkitöltő</button><button data-v="3">4 · repesztő/kompenzáló</button><button data-v="4">5 · üregkitöltő</button></div>
+        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
+        <div class="ctl" style="margin-top:10px"><label>Előrehaladás <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
+      </div></div>
+      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
+    </div>
+    <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
+      <thead><tr><th>Módszer</th><th>Mi történik a talajjal?</th><th>Talaj</th><th>Nyomás, anyag</th><th>Jellemző alkalmazás</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 · Itatásos</b></td><td>az anyag kitölti a hézagokat, a hézagtérfogat és a szerkezet nem változik</td><td>szemcsés talaj, durva iszap</td><td>kis nyomás, kis viszkozitású anyag</td><td>alapmegerősítés, tömítés, munkagödör</td></tr>
+        <tr><td><b>2 · Talajtömörítő</b></td><td>szakaszosan képzett üregek, a környező talaj tömörödik</td><td>laza talaj, iszap és agyag is</td><td>nagyobb nyomás, sűrű habarcs</td><td>teherviselő oszlopok, padozat visszaemelése</td></tr>
+        <tr><td><b>3 · Kőzet hézagkitöltő</b></td><td>a kőzet repedéshálózata telik ki</td><td>repedezett kőzet</td><td>itatásos jellegű, cementalapú</td><td>sziklarézsű, alap alatti kőzet, vízzárás</td></tr>
+        <tr><td><b>4 · Repesztő/kompenzáló</b></td><td>a talaj megreped, az anyaglemezek megemelik</td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, visszaemelés</td></tr>
+        <tr><td><b>5 · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással</td><td>pince, bányajárat, padozat alatti üreg</td></tr>
+      </tbody>
+    </table></div>
+    <div class="sub-h"><span class="lt">⚗</span><h3>Injektálóanyagok és a talaj szemcsézete</h3></div>
     <div class="twocol">
       <div>
         <div class="facts"><span class="fact">cementtej</span><span class="fact">vízüveg (nátriumszilikát) alapú</span><span class="fact">akrilamid</span><span class="fact">lignoszulfit – lignoszulfát</span><span class="fact">fenoplast</span><span class="fact">aminoplast</span><span class="fact">egyéb</span></div>
-        <h4 style="margin:16px 0 6px">Cementbesajtolás</h4>
+        <h4 style="margin:16px 0 6px">Cementbesajtolás (itatásos injektálás cementtel)</h4>
         <p>A perforált besajtoló csöveket egymástól <b>50–100 cm</b> távolságban helyezik el, és <b>7–10 atm</b> nyomáson juttatják le a cementtejet vagy cement+homok habarcsot. A hézagoknak nagyobbnak kell lenniük a cementszemcse átmérőjénél, ezért csak <b>0,8–1 mm-nél durvább</b> homok-kavics, illetve üreges, repedezett kötött talaj injektálható vele. Csőfelhúzás közben <b>alulról felfelé</b> kell injektálni.</p>
-        <h4 style="margin:16px 0 6px">Kétkomponensű, műanyag bázisú injektálás</h4>
+        <h4 style="margin:16px 0 6px">Kétkomponensű, duzzadó műgyanta</h4>
         <p>Homokos és iszapos talajban (agyagban nem hatékony). Folyékonyan, nagyobb nyomással jut a talajba, kitölti az üregeket, réseket, repedéseket és összeköti a szemcséket; pár perc múlva <b>duzzadni kezd</b>, és a talajjal nagyon kemény <b>geokompozitot</b> alkot – nő a kohézió, jelentősen csökken a pórustérfogat. Gyakori utólagos alapmegerősítésre.</p>
         <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cementbesajtolás" loading="lazy" style="height:230px;padding:6px"><figcaption>Cementbesajtolás</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Melyik injektálás? – válassz talajt</h4></div><div class="pb">
+        <div class="panel"><div class="ph"><h4>Melyik anyag jut be a hézagokba?</h4></div><div class="pb">
           <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">kavics</button><button data-v="durva" class="on">durva homok</button><button data-v="kozep">középhomok</button><button data-v="finom">finom homok</button><button data-v="iszap">iszap</button><button data-v="agyag">agyag</button><button data-v="repedt">repedezett</button></div>
           <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
           <div class="mlist" id="grOut" style="margin-top:12px"></div>

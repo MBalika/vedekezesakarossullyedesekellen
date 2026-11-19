@@ -484,3 +484,15 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .hero .btns{justify-content:center}
 @media (max-width:980px){.hero .wrap{padding-block:48px 54px}.hero .stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:520px){.hero .stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* injektálás – öt módszer */
+.injsim .ph .btn{padding:7px 12px;font-size:13px;border-radius:10px;background:var(--cs);color:var(--ci);border-color:transparent}
+.injsim .ph .btn:hover{background:var(--c);color:#fff}
+.injinfo .kicker{margin-bottom:4px}
+.injinfo h4{font-size:18px;margin:2px 0 8px}
+.injinfo h5{font:700 13px var(--fb);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:14px 0 6px}
+.injrows{display:grid;gap:6px;margin-top:10px}
+.injrows>div{border:1px solid var(--line2);background:var(--card2);border-radius:10px;padding:7px 10px;font-size:13.5px}
+.injrows b{display:block;font:700 11px var(--fb);text-transform:uppercase;letter-spacing:.08em;color:var(--ci)}
+.injuse{margin:0;padding-left:18px;font-size:14px}
+.injuse li{margin:3px 0}
+.injt td:first-child{white-space:nowrap}
