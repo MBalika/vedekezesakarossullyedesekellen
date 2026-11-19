@@ -527,6 +527,9 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   .chapnav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}
 }
 
+/* horgonyok: a görgetési eltolást a JS állítja a fejléc magasságára (scroll-padding-top) */
+section.chap{scroll-margin-top:0}
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -1131,13 +1134,31 @@ window.U.seg = seg;
 // --- fejezet-navigáció, haladás ---
 (function nav() {
   const links = $$('.chapnav a'); const secs = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  const prog = $('.progress'); const top = $('.totop');
+  const prog = $('.progress'); const top = $('.totop'); const nav = $('.chapnav'); const bar = $('.topbar');
+  /* az aktív menüpontot csak a menüsávon belül görgetjük középre – az oldal görgetését nem szakítja meg
+     (a korábbi scrollIntoView megállította a menüre kattintva induló görgetést) */
+  const centerTab = (a) => { if (!nav || nav.scrollWidth <= nav.clientWidth + 1) return; nav.scrollTo({ left: Math.max(0, a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2), behavior: 'smooth' }); };
+  /* a horgonyok a ragadós fejléc alá érkeznek, a fejléc tényleges magasságával számolva */
+  const pad = () => { if (bar) document.documentElement.style.scrollPaddingTop = (bar.offsetHeight + 10) + 'px'; };
+  pad(); addEventListener('resize', pad); addEventListener('load', pad);
+  /* menükattintás: görgetés a fejezetre, a végén ellenőrzés – ha közben feljebb valami magasabb lett (képek, ábrák), utánaigazít */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]'); if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const h = a.getAttribute('href'); if (h.length < 2) return; let t = null; try { t = document.querySelector(h); } catch (er) { } if (!t) return; e.preventDefault();
+    const goal = () => Math.max(0, t.getBoundingClientRect().top + scrollY - (bar ? bar.offsetHeight : 0) - 10);
+    history.replaceState(null, '', h);
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollTo({ top: goal(), behavior: reduce ? 'auto' : 'smooth' });
+    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'auto' }); setTimeout(fix, 250); } };
+    const done = () => { removeEventListener('scrollend', done); clearTimeout(tm); fix(); };
+    addEventListener('scrollend', done, { once: true }); const tm = setTimeout(done, 1600);
+  });
   const onScroll = () => {
     const y = scrollY + 140; let cur = null; secs.forEach(s => { if (s.offsetTop <= y) cur = s; });
     links.forEach(a => a.classList.toggle('on', cur && a.getAttribute('href') === '#' + cur.id));
     const h = document.documentElement.scrollHeight - innerHeight; if (prog) prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
     if (top) top.classList.toggle('on', scrollY > 900);
-    const on = links.find(a => a.classList.contains('on')); if (on && on.dataset.lastOn !== '1') { links.forEach(a => a.dataset.lastOn = ''); on.dataset.lastOn = '1'; on.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); }
+    const on = links.find(a => a.classList.contains('on')); if (on && on.dataset.lastOn !== '1') { links.forEach(a => a.dataset.lastOn = ''); on.dataset.lastOn = '1'; centerTab(on); }
   };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   if (top) top.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));

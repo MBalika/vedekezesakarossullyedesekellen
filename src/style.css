@@ -506,3 +506,6 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 @media (max-width:699.98px){
   .chapnav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}
 }
+
+/* horgonyok: a görgetési eltolást a JS állítja a fejléc magasságára (scroll-padding-top) */
+section.chap{scroll-margin-top:0}
