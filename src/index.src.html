@@ -9,14 +9,13 @@
       <a class="langbtn" id="langSw" href="en" hreflang="en" lang="en" aria-label="English version"><b>HU</b><span>EN</span></a>
     </div>
     <nav class="chapnav" aria-label="Fejezetek">
-      <a href="#miert" style="--dot:#6db2e2"><i></i>1 · Miért?</a>
-      <a href="#attekintes" style="--dot:#e5ae47"><i></i>2 · Áttekintés</a>
-      <a href="#alapozas" style="--dot:#39c2a5"><i></i>3 · Talpnyomás, alapsík (3D)</a>
-      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>4 · Talajcsere</a>
-      <a href="#tomorites" style="--dot:#e5ae47"><i></i>5 · Tömörítés</a>
-      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>6 · Injektálás, stabilizáció</a>
-      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>7 · Előterhelés</a>
-      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>8 · Tervezői eszközök</a>
+      <a href="#attekintes" style="--dot:#e5ae47"><i></i>1 · Áttekintés</a>
+      <a href="#alapozas" style="--dot:#39c2a5"><i></i>2 · Talpnyomás, alapsík (3D)</a>
+      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>3 · Talajcsere</a>
+      <a href="#tomorites" style="--dot:#e5ae47"><i></i>4 · Tömörítés</a>
+      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>5 · Injektálás, stabilizáció</a>
+      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>6 · Előterhelés</a>
+      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>7 · Tervezői eszközök</a>
       <a href="#videok" style="--dot:#fff"><i></i>Videótár</a>
       <a href="#igazhamis" style="--dot:#fff"><i></i>Igaz/hamis</a>
     </nav>
@@ -57,62 +56,10 @@
 </section>
 
 <main>
-<!-- 1. MIÉRT -->
-<section class="chap c-sky" id="miert"><div class="wrap">
-  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">Miért kell védekezni?</div><h2>Süllyedéstűrés: mennyit bír az épület?</h2><p class="lead">A teherbírásra méretezett alap még nem kész: meg kell nézni, hogy kialakulnak-e olyan süllyedések, amelyek az építményre károsan hatnak vissza. Hazai talajviszonyok mellett gyakran nem a teherbírási, hanem a <b>használhatósági határállapot</b> a mértékadó.</p></div></div>
-  <div class="grid g2">
-    <div class="card top"><div class="ico">↓</div><h4>Abszolút süllyedés</h4><p>Magassági értelemben vett mozgás. A csatorna- és egyéb közműcsatlakozások, a csatlakozó épületek szempontjából mértékadó. Általában <b>50 mm</b> megengedhető (MSZ EN 1997-1 szerint is).</p></div>
-    <div class="card top"><div class="ico">⤡</div><h4>Egyenlőtlen süllyedés</h4><p>Elferdülést, meggörbülést, áthajlást okoz; a többlet-igénybevételek (nyomaték, nyíróerő) károsítják a szerkezetet, repedések keletkeznek. <b>Ez károsítja az épületet</b> – nem az abszolút süllyedés.</p></div>
-  </div>
-
-  <div class="sub-h"><span class="lt">H</span><h3>Az alapmozgások jellemzői – próbáld ki!</h3></div>
-  <p>Az MSZ EN 1997-1 H melléklete szerint ellenőrizendő jellemzők: <b>s</b> süllyedés, <b>δs</b> süllyedéskülönbség, <b>θ</b> elfordulás, <b>ω</b> merev billenés (dőlés), <b>Δ</b> relatív lehajlás, <b>Δ/L</b> lehajlási viszonyszám és <b>β</b> relatív elfordulás (szögtorzulás), valamint a vízszintes eltolódás és a rezgésamplitúdó. A megengedett értékeket a felszerkezet tervezője adja meg.</p>
-  <div class="sim wide">
-    <div class="panel"><div class="ph"><h4>Négy alappont süllyedése (L = 12 m)</h4><div class="seg" id="movPre"><button data-v="egyenletes">Egyenletes</button><button data-v="billenes">Billenés</button><button data-v="behajlas" class="on">Behajlás</button><button data-v="felhajlas">Felhajlás</button><button data-v="egy">Egy pillér</button></div></div><div class="pb"><div id="movSvg"></div><div class="legend"><span><i style="background:var(--sky)"></i>billenés vonala (A–D)</span><span><i style="background:var(--violet)"></i>relatív lehajlás Δ</span><span><i style="background:var(--coral)"></i>süllyedés (torzított)</span></div></div></div>
-    <div class="panel"><div class="pb ctl2">
-      <div class="ctl"><label>A süllyedése <span class="v" data-for="movA"></span></label><input type="range" id="movA" min="0" max="60" value="10"></div>
-      <div class="ctl"><label>B süllyedése <span class="v" data-for="movB"></span></label><input type="range" id="movB" min="0" max="60" value="34"></div>
-      <div class="ctl"><label>C süllyedése <span class="v" data-for="movC"></span></label><input type="range" id="movC" min="0" max="60" value="34"></div>
-      <div class="ctl"><label>D süllyedése <span class="v" data-for="movD"></span></label><input type="range" id="movD" min="0" max="60" value="10"></div>
-      <div class="res" id="movRes"></div>
-    </div></div>
-  </div>
-
-  <div class="grid g3" style="margin-top:22px">
-    <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">50 mm</h4><p>abszolút süllyedés – általában megengedhető</p></div>
-    <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">20 mm</h4><p>szomszédos oszlopok süllyedéskülönbsége – szokványos szerkezeteknél általában megengedhető; a mértékadó a δs/L arány</p></div>
-    <div class="card"><div class="kicker">Ajánlott érték</div><h4 class="mono" style="font-size:28px">1/500</h4><p>relatív elfordulás – szerkezetileg általában megengedhető; <b>1/150</b> már tönkremenetelt okoz(hat)</p></div>
-  </div>
-  <div class="callout web"><span class="ci">i</span><p><b>Kitekintés:</b> nemzetközi tapasztalat szerint az <b>1/300</b> körüli billenés szemmel már feltűnő, a keretszerkezetek szerkezeti kára 1/150–1/250 relatív elfordulásnál kezdődik, a falak és válaszfalak repedése már 1/500 körül megjelenhet.</p></div>
-
-  <div class="sub-h"><span class="lt">?</span><h3>Mitől függ a süllyedéstűrés?</h3></div>
-  <div class="grid g3">
-    <div class="card"><h4>Szerkezet szerint</h4><p>A statikailag határozatlan szerkezetek (többtámaszú tartók, keretek, ívtartók) érzékenyek – és az előregyártott paneles, blokkos épületek is (a kapcsolatok acélbetéteinek korrózióvédelme miatt).</p></div>
-    <div class="card"><h4>Méretek szerint</h4><p>A magas súlypontú építmények: víztornyok, gyárkémények, szélkerekek. A <b>kisebb, alacsonyabb</b> épületek pedig kisebb merevségük miatt érzékenyebbek – a károsodott hazai épületek nagy része 1–3 szintes.</p></div>
-    <div class="card"><h4>Rendeltetés és talaj szerint</h4><p>Ahol a repedésmentesség a biztonságos üzem feltétele (tartályok, medencék). Kötött talajon (agyagon) kb. <b>másfélszer nagyobb</b> süllyedéskülönbség engedhető meg, mint szemcsésen – a lassú konszolidációt jobban bírja az építőanyag.</p></div>
-  </div>
-
-  <div class="sub-h"><span class="lt">6</span><h3>Az egyenlőtlen süllyedés hat alapesete</h3></div>
-  <div class="grid g3">
-    <figure class="card"><div data-cause="1"></div><h4>1 · Eltérő összenyomhatóság</h4><p>Azonos talpnyomás, de kisebb modulus → nagyobb süllyedés a lágy oldalon.</p></figure>
-    <figure class="card"><div data-cause="2"></div><h4>2 · Excentrikus teher</h4><p>e ≠ 0: trapéz alakú talpnyomás, merev alapnál lineárisan változó süllyedés.</p></figure>
-    <figure class="card"><div data-cause="3"></div><h4>3 · Eltérő alap és merevség</h4><p>Cölöp és síkalap között kényszerített süllyedéskülönbség.</p></figure>
-    <figure class="card"><div data-cause="4"></div><h4>4 · Feszültség-szuperpozíció</h4><p>A szomszéd épület Δσ-je összegződik → egymás felé billennek (pl. a kanadai „kissing” silók).</p></figure>
-    <figure class="card"><div data-cause="5"></div><h4>5 · Süllyedési teknő</h4><p>Alagút, üreg: kívülről rákényszerített süllyedési teknő.</p></figure>
-    <figure class="card"><div data-cause="6"></div><h4>6 · Egyoldali konszolidáció</h4><p>Talajvíz-leszívás (pl. munkagödör) → Δσ′ növekedés csak az egyik oldalon.</p></figure>
-  </div>
-  <div class="tscroll" style="margin-top:22px"><table class="t">
-    <thead><tr><th>Repedéstágasság</th><th>Jelleg</th><th>Teendő</th></tr></thead>
-    <tbody><tr><td class="n">&lt; 0,1 mm</td><td>hajszálrepedés</td><td>esztétikai</td></tr><tr><td class="n">0,1–1 mm</td><td>nagyon enyhe</td><td>festéskor javítható</td></tr><tr><td class="n">1–5 mm</td><td>enyhe, látható repedések</td><td>festés, javítóvakolat</td></tr><tr><td class="n">5–15 mm</td><td>mérsékelt</td><td>vakolással rendbe hozható (duzzadó cementtel)</td></tr><tr><td class="n">15–25 mm</td><td>súlyos – nyílászárók befeszülnek</td><td>részleges átépítés</td></tr><tr><td class="n">&gt; 25 mm</td><td>nagyon súlyos</td><td>szerkezeti megerősítés, durvább esetben részleges vagy teljes újraépítés</td></tr></tbody>
-  </table></div>
-  <p class="src" style="margin-top:6px">A repedések a nagyobb süllyedésű hely felé emelkednek; az első repedések a leggyengébb helyeken (ajtók, ablakok sarkai között) jelennek meg.</p>
-
-  <div class="quiz" id="q1"><div class="qh"><h4>Önellenőrzés · 1. fejezet</h4><div class="dots"></div></div></div>
-</div></section>
-
-<!-- 2. ÁTTEKINTÉS -->
+<!-- 1. ÁTTEKINTÉS -->
 <section class="chap c-amber" id="attekintes"><div class="wrap">
-  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">A beavatkozások térképe</div><h2>Négy irány – a talajtól a szerkezetig</h2><p class="lead">Ha a számított süllyedések nem engedhetők meg, az eredeti terveken változtatni kell. A módszerek <b>kombinálhatók</b> – a választás az altalajtól, a beavatkozás mélységétől és a költségtől függ.</p></div></div>
+  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">A beavatkozások térképe</div><h2>Négy irány – a talajtól a szerkezetig</h2><p class="lead">Ha a számított süllyedések nem engedhetők meg, az eredeti terveken változtatni kell. A módszerek <b>kombinálhatók</b> – a választás az altalajtól, a beavatkozás mélységétől és a költségtől függ.</p></div></div>
+  <div class="callout web"><span class="ci">i</span><p>Hogy mekkora süllyedés engedhető meg, és hogyan károsítja az épületet az egyenlőtlen süllyedés, azt a <a href="https://sikalapok-sullyedesszamitasa.vercel.app" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása</b></a> tananyag Süllyedéstűrés fejezete mutatja be. Ez az oldal a védekezés módszereivel foglalkozik.</p></div>
   <div class="dirs">
     <div class="dir c-teal"><span class="n">1</span><h4>Alapozás átalakítása</h4><a href="#alapozas"><span>a</span>Kisebb talpnyomás</a><a href="#alapozas"><span>b</span>Mélyebb alapsík</a><a href="#talajcsere"><span>c</span>Talajcsere</a></div>
     <div class="dir c-amber"><span class="n">2</span><h4>Mechanikai tömörítés</h4><a href="#tomorites"><span>d1</span>Mélytömörítés</a><a href="#tomorites"><span>d2</span>Dinamikus tömörítés</a><a href="#tomorites"><span>d3</span>Kőtömzs</a><a href="#tomorites"><span>d4</span>Kavicscölöp</a></div>
@@ -153,9 +100,9 @@
   </table></div>
 </div></section>
 
-<!-- 3. ALAPOZÁS ÁTALAKÍTÁSA -->
+<!-- 2. ALAPOZÁS ÁTALAKÍTÁSA -->
 <section class="chap c-teal" id="alapozas"><div class="wrap">
-  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">a) Kisebb talpnyomás · b) Alapsík mélyebbre vitele</div><h2>3D süllyedés-szimulátor</h2><p class="lead">Nagyobb alapfelület → kisebb talpnyomás. Mélyebb alapsík → jobb teherbíró réteg, több kiemelt föld. De vajon mindig csökken a süllyedés? <b>Forgasd a 3D modellt, húzd a csúszkákat</b>, és figyeld a feszültségburát, a határmélységet és a süllyedést!</p></div></div>
+  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">a) Kisebb talpnyomás · b) Alapsík mélyebbre vitele</div><h2>3D süllyedés-szimulátor</h2><p class="lead">Nagyobb alapfelület → kisebb talpnyomás. Mélyebb alapsík → jobb teherbíró réteg, több kiemelt föld. De vajon mindig csökken a süllyedés? <b>Forgasd a 3D modellt, húzd a csúszkákat</b>, és figyeld a feszültségburát, a határmélységet és a süllyedést!</p></div></div>
 
   <div class="sim simmain">
     <div class="lcol">
@@ -231,12 +178,12 @@
     </div></div>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj1"></button></div>
-  <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 3. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 2. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 4. TALAJCSERE -->
+<!-- 3. TALAJCSERE -->
 <section class="chap c-teal" id="talajcsere"><div class="wrap">
-  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
+  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
   <div class="sim wide">
     <div class="panel"><div class="ph"><h4>Teherterjedés a csererétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
     <div class="panel"><div class="pb ctl2">
@@ -260,12 +207,12 @@
     <figure class="photo contain"><img src="img/talajcsere-abra.jpg" alt="Süllyedéscsökkentés talajcserével" loading="lazy" style="height:250px;padding:8px"><figcaption>Süllyedéscsökkentés talajcserével</figcaption></figure>
     <div><h4 style="margin:0 0 8px">Nézd meg animációban</h4><p style="margin:0 0 12px;color:var(--ink2)">A videó lépésről lépésre mutatja be a kisebb talpnyomás, a mélyebb alapsík és a talajcsere elvét – a rétegenkénti tömörítéssel és a teherterjedéssel.</p><button class="vcard" data-video="tj1"></button></div>
   </div>
-  <div class="quiz" id="q4"><div class="qh"><h4>Önellenőrzés · 4. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q4"><div class="qh"><h4>Önellenőrzés · 3. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 5. MECHANIKAI TÖMÖRÍTÉS -->
+<!-- 4. MECHANIKAI TÖMÖRÍTÉS -->
 <section class="chap c-amber" id="tomorites"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · mechanikai eljárások</div><h2>Tömörítés: rázással, ejtéssel, kőoszlopokkal</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be – előbb egy valós felvétel a talajjavítások egészéről.</p></div></div>
+  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">d) Talajszilárdítás · mechanikai eljárások</div><h2>Tömörítés: rázással, ejtéssel, kőoszlopokkal</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be – előbb egy valós felvétel a talajjavítások egészéről.</p></div></div>
   <div data-ytc="8Zcv7ktWD68"></div>
   <div class="tabs" data-group="mech"><button data-tab="m1" class="on"><span class="n">1</span>Mélytömörítés</button><button data-tab="m2"><span class="n">2</span>Dinamikus tömörítés</button><button data-tab="m3"><span class="n">3</span>Kőtömzs</button><button data-tab="m4"><span class="n">4</span>Kavicscölöp</button></div>
 
@@ -351,12 +298,12 @@
     </div>
     <div data-ytc="cNkNZV6kgqk"></div>
   </div>
-  <div class="quiz" id="q5"><div class="qh"><h4>Önellenőrzés · 5. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q5"><div class="qh"><h4>Önellenőrzés · 4. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 6. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
+<!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
 <section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">6</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Idegen, szilárduló anyagokat juttatunk a talaj hézagaiba – nyomás alatt, fúrt vagy vert csöveken keresztül –, vagy a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
+  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Idegen, szilárduló anyagokat juttatunk a talaj hézagaiba – nyomás alatt, fúrt vagy vert csöveken keresztül –, vagy a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
   <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Injektálás</button><button data-tab="i2"><span class="n">6</span>Tömegstabilizáció</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
     <div class="twocol">
@@ -405,12 +352,12 @@
     </div>
     <div data-ytc="wh31VB1fY_8"></div>
   </div>
-  <div class="quiz" id="q6"><div class="qh"><h4>Önellenőrzés · 6. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q6"><div class="qh"><h4>Önellenőrzés · 5. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 7. ELŐTERHELÉS -->
+<!-- 6. ELŐTERHELÉS -->
 <section class="chap c-coral" id="eloterheles"><div class="wrap">
-  <div class="chhead"><div class="chnum">7</div><div><div class="kicker">e) Előterhelés alkalmazása</div><h2>Süllyedjen előbb – az épület nélkül</h2><p class="lead">Az építmény süllyedését úgy mérsékeljük, hogy előzetesen felhordott terheléssel <b>„kikényszerítjük”</b> az altalaj összenyomódásának legalább egy részét. A réteg ezután úgy viselkedik, mint egy geológiailag előterhelt réteg: az alapra kerülő teher alatt már jóval kisebb fajlagos összenyomódással kell számolni.</p></div></div>
+  <div class="chhead"><div class="chnum">6</div><div><div class="kicker">e) Előterhelés alkalmazása</div><h2>Süllyedjen előbb – az épület nélkül</h2><p class="lead">Az építmény süllyedését úgy mérsékeljük, hogy előzetesen felhordott terheléssel <b>„kikényszerítjük”</b> az altalaj összenyomódásának legalább egy részét. A réteg ezután úgy viselkedik, mint egy geológiailag előterhelt réteg: az alapra kerülő teher alatt már jóval kisebb fajlagos összenyomódással kell számolni.</p></div></div>
   <div class="charts" style="margin-top:0">
     <div class="panel"><div class="ph"><h4>Hézagtényező – hatékony feszültség</h4></div><div class="pb"><div id="plSvg"></div></div></div>
     <div class="panel"><div class="ph"><h4>Süllyedés az idő függvényében</h4></div><div class="pb"><div id="plTime"></div></div></div>
@@ -430,12 +377,12 @@
     <div class="panel"><div class="ph"><h4>Kavics + épület = állandó teher</h4></div><div class="pb"><div id="mxSvg"></div><div class="ctl"><label>Építés előrehaladása <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
-  <div class="quiz" id="q7"><div class="qh"><h4>Önellenőrzés · 7. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q7"><div class="qh"><h4>Önellenőrzés · 6. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 8. TERVEZŐI ESZKÖZÖK -->
+<!-- 7. TERVEZŐI ESZKÖZÖK -->
 <section class="chap c-coral" id="szerkezet"><div class="wrap">
-  <div class="chhead"><div class="chnum">8</div><div><div class="kicker">f) Szerkezeti megoldás · g) Építési sorrend · h) Mélyalapozás</div><h2>Ha a talajt nem, a szerkezetet alakítjuk</h2><p class="lead">A szerkezet merevségének helyes megválasztása: <b>vagy olyan merev</b> legyen, hogy a süllyedéskülönbségekből származó feszültségeket károsodás nélkül elbírja, <b>vagy olyan hajlékony</b>, hogy a süllyedésből származó alakváltozásokat károsodás nélkül kövesse (természetesen az előírt határértékeken belül).</p></div></div>
+  <div class="chhead"><div class="chnum">7</div><div><div class="kicker">f) Szerkezeti megoldás · g) Építési sorrend · h) Mélyalapozás</div><h2>Ha a talajt nem, a szerkezetet alakítjuk</h2><p class="lead">A szerkezet merevségének helyes megválasztása: <b>vagy olyan merev</b> legyen, hogy a süllyedéskülönbségekből származó feszültségeket károsodás nélkül elbírja, <b>vagy olyan hajlékony</b>, hogy a süllyedésből származó alakváltozásokat károsodás nélkül kövesse (természetesen az előírt határértékeken belül).</p></div></div>
   <div class="twocol">
     <div class="panel"><div class="ph"><h4>Támaszsüllyedés a keretben</h4><div class="seg" id="frType"><button data-v="rigid" class="on">merev csomópontok</button><button data-v="hinge">csuklós csomópontok</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>A jobb pillér süllyedése δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
     <div>
@@ -457,7 +404,7 @@
     <div class="card top"><h4>Mélyalapozás részletesen</h4><p>CFA-cölöp, csavart, fúrt és előregyártott cölöpök, mikrocölöp, jet-grouting, mélykeverés, résfal, kút- és szekrényalapozás – a <a href="https://melyalapozasok.vercel.app" target="_blank" rel="noopener">Mélyalapozások</a> interaktív tananyagban, 3D cölöpépítővel. Valós felvételen:</p></div>
   </div>
   <div class="ytgrid" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
-  <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 8. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 7. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
 <!-- VIDEÓTÁR -->

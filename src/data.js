@@ -1,13 +1,6 @@
 /* ===== Kvízek és igaz/hamis állítások ===== */
 (function () {
 const Q = {
-  q1: [
-    { q: 'Hazai talajviszonyok mellett a síkalapok tervezésében gyakran mi a mértékadó?', o: ['A teherbírási határállapot', 'A használhatósági határállapot (süllyedések)', 'A talajvízszint', 'Az alaptest betonminősége'], a: 1, e: 'Sok esetben nem a teherbírási, hanem a <b>használhatósági határállapot</b> – a süllyedés és a süllyedéskülönbség – dönt.' },
-    { q: 'Mi károsítja elsősorban az épületet?', o: ['Az abszolút süllyedés', 'Az egyenlőtlen süllyedés', 'A talaj önsúlya', 'A hőtágulás'], a: 1, e: '„Nem az abszolút süllyedés, hanem az <b>egyenlőtlen süllyedés</b> károsítja az épületet” – elferdülést, áthajlást, többlet-igénybevételt és repedést okoz.' },
-    { q: 'Kb. mekkora az a relatív elfordulás, amely már nagy valószínűséggel teherbírási határállapotot (tönkremenetelt) okoz?', o: ['1/1000', '1/500', '1/300', '1/150'], a: 3, e: 'Az <b>1/150</b> relatív elfordulás már tönkremenetelt okoz(hat); az 1/500 szerkezetileg általában megengedhető.' },
-    { q: 'Melyik épület érzékenyebb a süllyedéskülönbségekre?', o: ['A nagy, merev irodaház', 'A kisebb, 1–3 szintes, kis merevségű ház', 'A cölöpökön álló híd', 'Mindegyik egyformán'], a: 1, e: 'A kisebb, alacsonyabb épületek merevsége kisebb – a károsodott hazai épületek nagy része <b>1–3 szintes</b>.' },
-    { q: 'Merre emelkednek a falrepedések?', o: ['A kisebb süllyedésű rész felé', 'A nagyobb süllyedésű (lejjebb kerülő) rész felé', 'Mindig vízszintesen', 'Mindig függőlegesen'], a: 1, e: 'A repedések a <b>nagyobb süllyedésű hely felé</b> (a mozgás után lejjebb lévő rész felé) emelkednek – ez segít kideríteni az okot.' },
-  ],
   q3: [
     { q: 'Miért nem csökkenti a talpnyomás csökkentése arányosan a süllyedést?', o: ['Mert a beton összenyomódik', 'Mert a szélesebb alap nehezebb, és alatta mélyebbre jut a feszültség', 'Mert a talajvíz megemelkedik', 'Mert a határmélység csökken'], a: 1, e: 'Két ok: a szélesebb alaptest <b>nagyobb súly</b>, főként pedig a szélesebb alap alatt <b>nagyobb mélységig</b> jutnak le a feszültségek – nő a határmélység.' },
     { q: 'Mikor hatásos a szélesebb alap?', o: ['Ha mélyebben puhább réteg van', 'Ha mélyebben kevésbé összenyomódó réteg van', 'Mindig', 'Soha'], a: 1, e: 'Akkor hatásos, ha <b>mélyebben kevésbé összenyomódó rétegek</b> vannak (A eset) – a feszültség egy részét a homokra „közvetítjük”.' },
@@ -46,11 +39,11 @@ const Q = {
   ],
 };
 const TFI = [
-  { s: 'Hazai talajviszonyok mellett gyakran a használhatósági határállapot (süllyedés) a mértékadó.', t: true, e: 'Sokszor nem a teherbírás, hanem a süllyedés(különbség) „dönt”.' },
-  { s: 'Az épületet elsősorban az abszolút süllyedés károsítja.', t: false, e: 'Az egyenlőtlen süllyedés okoz elferdülést, többlet-igénybevételt és repedést.' },
-  { s: 'Szokványos, különálló alapokon álló szerkezeteknél a szomszédos oszlopok közötti kb. 20 mm-es süllyedéskülönbség általában megengedhető.', t: true, e: 'Ez az ajánlott érték – de a mértékadó a relatív elfordulás (δs/L): kis oszloptávolságnál 20 mm már 1/500-nál nagyobb elfordulást jelent.' },
-  { s: 'Kötött talajon kisebb süllyedéskülönbség engedhető meg, mint szemcsés talajon.', t: false, e: 'Fordítva: agyagon kb. másfélszer nagyobb engedhető meg – a lassú konszolidációt jobban bírja az építőanyag.' },
-  { s: 'Az 1/150 relatív elfordulás már tönkremenetelt okozhat.', t: true, e: 'Az 1/500 szerkezetileg általában megengedhető, az 1/150 már kritikus.' },
+  { s: 'A védekezés módszerei egymással kombinálhatók.', t: true, e: 'Például talajcsere és kisebb talpnyomás együtt, vagy előterhelés függőleges drénekkel.' },
+  { s: 'A kavicscölöp függőleges drénként is működik.', t: true, e: 'A szemcsés oszlopok lerövidítik a pórusvíz útját, így gyorsul a konszolidáció.' },
+  { s: 'Az előterhelés ideje függőleges drénekkel rövidíthető.', t: true, e: 'A drének lerövidítik a víz útját, így a konszolidáció gyorsabban lezajlik.' },
+  { s: 'A dinamikus tömörítés meglévő épületek közvetlen közelében is gond nélkül alkalmazható.', t: false, e: 'Erős rezgéssel jár, ezért épületek mellett nem alkalmazható.' },
+  { s: 'A tömegstabilizációt a puha, állékonytalan terület közepéről indítják.', t: false, e: 'Állékony területről indul, és onnan halad előre.' },
   { s: 'A talpnyomás csökkentése mindig arányosan csökkenti a süllyedést.', t: false, e: 'A szélesebb alap nehezebb, és alatta mélyebbre jutnak a feszültségek – nő a határmélység.' },
   { s: 'Ha a puha agyag alatt homok van, a szélesebb alap a feszültség egy részét a homokra közvetíti.', t: true, e: 'Ez az A eset – itt a talpnyomás csökkentése hatásos.' },
   { s: 'Ha a homok alatt puha agyag van, a szélesítés akár növelheti is a süllyedést.', t: true, e: 'B eset: a lejjebb fekvő puha agyagréteg kap nagyobb feszültséget – „pont ellenkező hatást érünk el”.' },

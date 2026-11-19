@@ -6,7 +6,7 @@ Interaktív tananyag a BME Építőmérnöki Kar *Alapozás* tárgyához – a *
 
 ## Tartalom
 - 3D süllyedés-szimulátor (three.js): kisebb talpnyomás, mélyebb alapsík, 4 talajprofil, Jáky- és rugalmas féltér-módszer, határmélység, feszültségbura, deformálódó talaj
-- interaktív ábrák: alapmozgások (EN 1997-1 H melléklet), módszerválasztó, A/B rétegződés, pince és kompenzáció, talajcsere-kalkulátor, vibroflotáció, dinamikus tömörítés, kőtömzs, kavicscölöp-raszter, injektálhatóság, tömegstabilizáció, előterhelés (e–log σ′), Mexikóváros, keretek, süllyedési hézag, építési ütem
+- interaktív ábrák: módszerválasztó, A/B rétegződés, pince és kompenzáció, talajcsere-kalkulátor, vibroflotáció, dinamikus tömörítés, kőtömzs, kavicscölöp-raszter, injektálhatóság, tömegstabilizáció, előterhelés (e–log σ′), Mexikóváros, keretek, süllyedési hézag, építési ütem
 - 2 animációs videó (`video/tj1.html` talajcsere, `video/tj7.html` előterhelés – önálló HTML-lejátszók)
 - 8 valós felvétel a BME Építőmérnöki Kar YouTube-csatornájáról „Nézd meg élőben is!” kártyákon (talajjavítások áttekintése, vibroflotáció, döngölés/kőtömzs, vibrált kőoszlop, injektálás, mélykeverés/tömegstabilizáció, jet-grouting, cölöpalapozások); lejátszás youtube-nocookie beágyazással
 - formázás: sorkizárás, magyar elválasztás (Hyphenopoly, `vendor/hyphenopoly/`), nem törő egységek (`src/guard.js`)

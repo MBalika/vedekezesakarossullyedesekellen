@@ -623,14 +623,13 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
       <a class="langbtn" id="langSw" href="./" hreflang="hu" lang="hu" aria-label="Magyar változat"><span>HU</span><b>EN</b></a>
     </div>
     <nav class="chapnav" aria-label="Chapters">
-      <a href="#miert" style="--dot:#6db2e2"><i></i>1 · Why?</a>
-      <a href="#attekintes" style="--dot:#e5ae47"><i></i>2 · Overview</a>
-      <a href="#alapozas" style="--dot:#39c2a5"><i></i>3 · Contact pressure, foundation level (3D)</a>
-      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>4 · Soil replacement</a>
-      <a href="#tomorites" style="--dot:#e5ae47"><i></i>5 · Compaction</a>
-      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>6 · Grouting, stabilisation</a>
-      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>7 · Preloading</a>
-      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>8 · Design measures</a>
+      <a href="#attekintes" style="--dot:#e5ae47"><i></i>1 · Overview</a>
+      <a href="#alapozas" style="--dot:#39c2a5"><i></i>2 · Contact pressure, foundation level (3D)</a>
+      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>3 · Soil replacement</a>
+      <a href="#tomorites" style="--dot:#e5ae47"><i></i>4 · Compaction</a>
+      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>5 · Grouting, stabilisation</a>
+      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>6 · Preloading</a>
+      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>7 · Design measures</a>
       <a href="#videok" style="--dot:#fff"><i></i>Video library</a>
       <a href="#igazhamis" style="--dot:#fff"><i></i>True/false</a>
     </nav>
@@ -671,62 +670,10 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 </section>
 
 <main>
-<!-- 1. MIÉRT -->
-<section class="chap c-sky" id="miert"><div class="wrap">
-  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">Why do we need protection?</div><h2>Settlement tolerance: how much can the building take?</h2><p class="lead">A foundation sized for bearing resistance is not finished yet: we also have to check whether settlements develop that would harm the structure. Under Hungarian ground conditions it is often not the ultimate but the <b>serviceability limit state</b> that governs.</p></div></div>
-  <div class="grid g2">
-    <div class="card top"><div class="ico">↓</div><h4>Absolute settlement</h4><p>Vertical movement. It governs for sewer and other utility connections and for adjoining buildings. Generally <b>50 mm</b> is acceptable (also according to EN 1997-1).</p></div>
-    <div class="card top"><div class="ico">⤡</div><h4>Differential settlement</h4><p>It causes tilting, bending and sagging; the additional internal forces (bending moment, shear force) damage the structure and cracks appear. <b>This is what damages the building</b> – not the absolute settlement.</p></div>
-  </div>
-
-  <div class="sub-h"><span class="lt">H</span><h3>Foundation movements – try it out!</h3></div>
-  <p>The quantities to check according to Annex H of EN 1997-1: <b>s</b> settlement, <b>δs</b> differential settlement, <b>θ</b> rotation, <b>ω</b> rigid-body tilt, <b>Δ</b> relative deflection, <b>Δ/L</b> deflection ratio and <b>β</b> relative rotation (angular distortion), as well as horizontal displacement and vibration amplitude. The limiting values are set by the structural designer.</p>
-  <div class="sim wide">
-    <div class="panel"><div class="ph"><h4>Settlement of four foundation points (L = 12 m)</h4><div class="seg" id="movPre"><button data-v="egyenletes">Uniform</button><button data-v="billenes">Tilt</button><button data-v="behajlas" class="on">Sagging</button><button data-v="felhajlas">Hogging</button><button data-v="egy">One column</button></div></div><div class="pb"><div id="movSvg"></div><div class="legend"><span><i style="background:var(--sky)"></i>tilt line (A–D)</span><span><i style="background:var(--violet)"></i>relative deflection Δ</span><span><i style="background:var(--coral)"></i>settlement (exaggerated)</span></div></div></div>
-    <div class="panel"><div class="pb ctl2">
-      <div class="ctl"><label>Settlement of A <span class="v" data-for="movA"></span></label><input type="range" id="movA" min="0" max="60" value="10"></div>
-      <div class="ctl"><label>Settlement of B <span class="v" data-for="movB"></span></label><input type="range" id="movB" min="0" max="60" value="34"></div>
-      <div class="ctl"><label>Settlement of C <span class="v" data-for="movC"></span></label><input type="range" id="movC" min="0" max="60" value="34"></div>
-      <div class="ctl"><label>Settlement of D <span class="v" data-for="movD"></span></label><input type="range" id="movD" min="0" max="60" value="10"></div>
-      <div class="res" id="movRes"></div>
-    </div></div>
-  </div>
-
-  <div class="grid g3" style="margin-top:22px">
-    <div class="card"><div class="kicker">Recommended value</div><h4 class="mono" style="font-size:28px">50 mm</h4><p>absolute settlement – generally acceptable</p></div>
-    <div class="card"><div class="kicker">Recommended value</div><h4 class="mono" style="font-size:28px">20 mm</h4><p>differential settlement of adjacent columns – generally acceptable for ordinary structures; the δs/L ratio governs</p></div>
-    <div class="card"><div class="kicker">Recommended value</div><h4 class="mono" style="font-size:28px">1/500</h4><p>relative rotation – generally acceptable structurally; <b>1/150</b> can already cause failure</p></div>
-  </div>
-  <div class="callout web"><span class="ci">i</span><p><b>Outlook:</b> international experience shows that a tilt of about <b>1/300</b> is already noticeable to the eye, structural damage to frames begins at a relative rotation of 1/150–1/250, and cracking of walls and partitions may already appear at about 1/500.</p></div>
-
-  <div class="sub-h"><span class="lt">?</span><h3>What does settlement tolerance depend on?</h3></div>
-  <div class="grid g3">
-    <div class="card"><h4>By structure</h4><p>Statically indeterminate structures (continuous beams, frames, arches) are sensitive – and so are precast panel and block buildings (because of the corrosion protection of the steel inserts in their connections).</p></div>
-    <div class="card"><h4>By size</h4><p>Structures with a high centre of gravity: water towers, factory chimneys, wind turbines. And <b>smaller, lower</b> buildings are more sensitive because of their lower stiffness – most damaged buildings in Hungary have 1–3 storeys.</p></div>
-    <div class="card"><h4>By use and soil</h4><p>Where freedom from cracks is a condition of safe operation (tanks, pools). On cohesive soil (clay) about <b>one and a half times</b> the differential settlement is acceptable compared with granular soil – the building materials cope better with the slow consolidation.</p></div>
-  </div>
-
-  <div class="sub-h"><span class="lt">6</span><h3>Six basic cases of differential settlement</h3></div>
-  <div class="grid g3">
-    <figure class="card"><div data-cause="1"></div><h4>1 · Different compressibility</h4><p>Same contact pressure, but a lower modulus → larger settlement on the soft side.</p></figure>
-    <figure class="card"><div data-cause="2"></div><h4>2 · Eccentric load</h4><p>e ≠ 0: trapezoidal contact pressure; for a rigid foundation, linearly varying settlement.</p></figure>
-    <figure class="card"><div data-cause="3"></div><h4>3 · Different foundations and stiffness</h4><p>A differential settlement imposed between a pile and a shallow foundation.</p></figure>
-    <figure class="card"><div data-cause="4"></div><h4>4 · Stress superposition</h4><p>The Δσ of the neighbouring building adds up → they tilt towards each other (e.g. the Canadian “kissing” silos).</p></figure>
-    <figure class="card"><div data-cause="5"></div><h4>5 · Settlement trough</h4><p>Tunnel, cavity: a settlement trough imposed from outside.</p></figure>
-    <figure class="card"><div data-cause="6"></div><h4>6 · One-sided consolidation</h4><p>Groundwater lowering (e.g. an excavation) → Δσ′ increases on one side only.</p></figure>
-  </div>
-  <div class="tscroll" style="margin-top:22px"><table class="t">
-    <thead><tr><th>Crack width</th><th>Category</th><th>Action</th></tr></thead>
-    <tbody><tr><td class="n">&lt; 0.1 mm</td><td>hairline crack</td><td>aesthetic</td></tr><tr><td class="n">0.1–1 mm</td><td>very slight</td><td>can be repaired when redecorating</td></tr><tr><td class="n">1–5 mm</td><td>slight, visible cracks</td><td>painting, repair plaster</td></tr><tr><td class="n">5–15 mm</td><td>moderate</td><td>can be repaired by replastering (with expanding cement)</td></tr><tr><td class="n">15–25 mm</td><td>severe – doors and windows stick</td><td>partial rebuilding</td></tr><tr><td class="n">&gt; 25 mm</td><td>very severe</td><td>structural strengthening; in worse cases partial or complete rebuilding</td></tr></tbody>
-  </table></div>
-  <p class="src" style="margin-top:6px">Cracks rise towards the point of larger settlement; the first cracks appear at the weakest points (between the corners of doors and windows).</p>
-
-  <div class="quiz" id="q1"><div class="qh"><h4>Self-check · Chapter 1</h4><div class="dots"></div></div></div>
-</div></section>
-
-<!-- 2. ÁTTEKINTÉS -->
+<!-- 1. ÁTTEKINTÉS -->
 <section class="chap c-amber" id="attekintes"><div class="wrap">
-  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">Map of remedial measures</div><h2>Four directions – from the ground to the structure</h2><p class="lead">If the calculated settlements are not acceptable, the original design has to be changed. The methods <b>can be combined</b> – the choice depends on the subsoil, the depth of the intervention and the cost.</p></div></div>
+  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">Map of remedial measures</div><h2>Four directions – from the ground to the structure</h2><p class="lead">If the calculated settlements are not acceptable, the original design has to be changed. The methods <b>can be combined</b> – the choice depends on the subsoil, the depth of the intervention and the cost.</p></div></div>
+  <div class="callout web"><span class="ci">i</span><p>How much settlement is acceptable, and how differential settlement damages a building, is covered in the Settlement tolerance chapter of the <a href="https://sikalapok-sullyedesszamitasa.vercel.app/en" target="_blank" rel="noopener"><b>Settlement of shallow foundations</b></a> module. This page deals with the methods of protection.</p></div>
   <div class="dirs">
     <div class="dir c-teal"><span class="n">1</span><h4>Changing the foundation</h4><a href="#alapozas"><span>a</span>Lower contact pressure</a><a href="#alapozas"><span>b</span>Deeper foundation level</a><a href="#talajcsere"><span>c</span>Soil replacement</a></div>
     <div class="dir c-amber"><span class="n">2</span><h4>Mechanical compaction</h4><a href="#tomorites"><span>d1</span>Deep compaction</a><a href="#tomorites"><span>d2</span>Dynamic compaction</a><a href="#tomorites"><span>d3</span>Stone pillar</a><a href="#tomorites"><span>d4</span>Gravel pile</a></div>
@@ -767,9 +714,9 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
   </table></div>
 </div></section>
 
-<!-- 3. ALAPOZÁS ÁTALAKÍTÁSA -->
+<!-- 2. ALAPOZÁS ÁTALAKÍTÁSA -->
 <section class="chap c-teal" id="alapozas"><div class="wrap">
-  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">a) Lower contact pressure · b) Deeper foundation level</div><h2>3D settlement simulator</h2><p class="lead">Larger foundation area → lower contact pressure. Deeper foundation level → a better bearing layer and more excavated soil. But does the settlement always decrease? <b>Rotate the 3D model, drag the sliders</b> and watch the stress bulb, the influence depth and the settlement!</p></div></div>
+  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">a) Lower contact pressure · b) Deeper foundation level</div><h2>3D settlement simulator</h2><p class="lead">Larger foundation area → lower contact pressure. Deeper foundation level → a better bearing layer and more excavated soil. But does the settlement always decrease? <b>Rotate the 3D model, drag the sliders</b> and watch the stress bulb, the influence depth and the settlement!</p></div></div>
 
   <div class="sim simmain">
     <div class="lcol">
@@ -845,12 +792,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     </div></div>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj1"></button></div>
-  <div class="quiz" id="q3"><div class="qh"><h4>Self-check · Chapter 3</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q3"><div class="qh"><h4>Self-check · Chapter 2</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 4. TALAJCSERE -->
+<!-- 3. TALAJCSERE -->
 <section class="chap c-teal" id="talajcsere"><div class="wrap">
-  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">c) Using soil replacement</div><h2>Out with the bad soil – in with the good</h2><p class="lead">The highly compressible original soil below the foundation level is excavated over its full thickness (within the stressed zone) or only partly, and <b>replacement soil with better properties</b> – sandy gravel, crushed stone, crushed concrete – is placed in its stead, with adequate compaction.</p></div></div>
+  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">c) Using soil replacement</div><h2>Out with the bad soil – in with the good</h2><p class="lead">The highly compressible original soil below the foundation level is excavated over its full thickness (within the stressed zone) or only partly, and <b>replacement soil with better properties</b> – sandy gravel, crushed stone, crushed concrete – is placed in its stead, with adequate compaction.</p></div></div>
   <div class="sim wide">
     <div class="panel"><div class="ph"><h4>Load spread in the replacement layer (strip footing)</h4><button class="chip" id="tcsPlay">▶ Layer-by-layer construction</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tanϑ) + γ₁·v, γ₁ = 20 kN/m³ – simplified illustration.</p></div></div>
     <div class="panel"><div class="pb ctl2">
@@ -874,12 +821,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     <figure class="photo contain"><img src="img/en/talajcsere-abra.jpg" alt="Reducing settlement with soil replacement" loading="lazy" style="height:250px;padding:8px"><figcaption>Reducing settlement with soil replacement</figcaption></figure>
     <div><h4 style="margin:0 0 8px">Watch it as an animation</h4><p style="margin:0 0 12px;color:var(--ink2)">The video shows the principles of lower contact pressure, a deeper foundation level and soil replacement step by step – with layer-by-layer compaction and load spread.</p><button class="vcard" data-video="tj1"></button></div>
   </div>
-  <div class="quiz" id="q4"><div class="qh"><h4>Self-check · Chapter 4</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q4"><div class="qh"><h4>Self-check · Chapter 3</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 5. MECHANIKAI TÖMÖRÍTÉS -->
+<!-- 4. MECHANIKAI TÖMÖRÍTÉS -->
 <section class="chap c-amber" id="tomorites"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Ground improvement · mechanical methods</div><h2>Compaction: by vibration, dropping weights, stone columns</h2><p class="lead">Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material, or by <b>compacting</b> the soil. Four mechanical methods are presented below – first, real footage of ground improvement as a whole.</p></div></div>
+  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">d) Ground improvement · mechanical methods</div><h2>Compaction: by vibration, dropping weights, stone columns</h2><p class="lead">Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material, or by <b>compacting</b> the soil. Four mechanical methods are presented below – first, real footage of ground improvement as a whole.</p></div></div>
   <div data-ytc="8Zcv7ktWD68"></div>
   <div class="tabs" data-group="mech"><button data-tab="m1" class="on"><span class="n">1</span>Deep compaction</button><button data-tab="m2"><span class="n">2</span>Dynamic compaction</button><button data-tab="m3"><span class="n">3</span>Stone pillar</button><button data-tab="m4"><span class="n">4</span>Gravel pile</button></div>
 
@@ -965,12 +912,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     </div>
     <div data-ytc="cNkNZV6kgqk"></div>
   </div>
-  <div class="quiz" id="q5"><div class="qh"><h4>Self-check · Chapter 5</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q5"><div class="qh"><h4>Self-check · Chapter 4</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 6. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
+<!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
 <section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">6</div><div><div class="kicker">d) Ground improvement · grouting and mixing</div><h2>Grouting and mass stabilisation</h2><p class="lead">Foreign, hardening materials are introduced into the voids of the soil – under pressure, through drilled or driven pipes – or the soil is mixed in place with a binder.</p></div></div>
+  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Ground improvement · grouting and mixing</div><h2>Grouting and mass stabilisation</h2><p class="lead">Foreign, hardening materials are introduced into the voids of the soil – under pressure, through drilled or driven pipes – or the soil is mixed in place with a binder.</p></div></div>
   <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Grouting</button><button data-tab="i2"><span class="n">6</span>Mass stabilisation</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
     <div class="twocol">
@@ -1019,12 +966,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     </div>
     <div data-ytc="wh31VB1fY_8"></div>
   </div>
-  <div class="quiz" id="q6"><div class="qh"><h4>Self-check · Chapter 6</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q6"><div class="qh"><h4>Self-check · Chapter 5</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 7. ELŐTERHELÉS -->
+<!-- 6. ELŐTERHELÉS -->
 <section class="chap c-coral" id="eloterheles"><div class="wrap">
-  <div class="chhead"><div class="chnum">7</div><div><div class="kicker">e) Using preloading</div><h2>Let it settle first – without the building</h2><p class="lead">The settlement of the structure is reduced by <b>“forcing out”</b> at least part of the compression of the subsoil with a surcharge placed in advance. The layer then behaves like a geologically overconsolidated layer: under the load placed on the foundation, a much smaller specific compression has to be expected.</p></div></div>
+  <div class="chhead"><div class="chnum">6</div><div><div class="kicker">e) Using preloading</div><h2>Let it settle first – without the building</h2><p class="lead">The settlement of the structure is reduced by <b>“forcing out”</b> at least part of the compression of the subsoil with a surcharge placed in advance. The layer then behaves like a geologically overconsolidated layer: under the load placed on the foundation, a much smaller specific compression has to be expected.</p></div></div>
   <div class="charts" style="margin-top:0">
     <div class="panel"><div class="ph"><h4>Void ratio – effective stress</h4></div><div class="pb"><div id="plSvg"></div></div></div>
     <div class="panel"><div class="ph"><h4>Settlement versus time</h4></div><div class="pb"><div id="plTime"></div></div></div>
@@ -1044,12 +991,12 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     <div class="panel"><div class="ph"><h4>Gravel + building = constant load</h4></div><div class="pb"><div id="mxSvg"></div><div class="ctl"><label>Construction progress <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
-  <div class="quiz" id="q7"><div class="qh"><h4>Self-check · Chapter 7</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q7"><div class="qh"><h4>Self-check · Chapter 6</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 8. TERVEZŐI ESZKÖZÖK -->
+<!-- 7. TERVEZŐI ESZKÖZÖK -->
 <section class="chap c-coral" id="szerkezet"><div class="wrap">
-  <div class="chhead"><div class="chnum">8</div><div><div class="kicker">f) Structural measures · g) Construction sequence · h) Deep foundations</div><h2>If we cannot shape the ground, we shape the structure</h2><p class="lead">Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).</p></div></div>
+  <div class="chhead"><div class="chnum">7</div><div><div class="kicker">f) Structural measures · g) Construction sequence · h) Deep foundations</div><h2>If we cannot shape the ground, we shape the structure</h2><p class="lead">Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).</p></div></div>
   <div class="twocol">
     <div class="panel"><div class="ph"><h4>Support settlement in a frame</h4><div class="seg" id="frType"><button data-v="rigid" class="on">rigid joints</button><button data-v="hinge">pinned joints</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>Settlement of the right-hand column δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
     <div>
@@ -1071,7 +1018,7 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
     <div class="card top"><h4>Deep foundations in detail</h4><p>CFA piles, screw, bored and precast piles, micropiles, jet grouting, deep mixing, diaphragm walls, caisson and box foundations – in the <a href="https://melyalapozasok.vercel.app/en" target="_blank" rel="noopener">Deep foundations</a> interactive module, with a 3D pile builder. In real footage:</p></div>
   </div>
   <div class="ytgrid" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
-  <div class="quiz" id="q8"><div class="qh"><h4>Self-check · Chapter 8</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q8"><div class="qh"><h4>Self-check · Chapter 7</h4><div class="dots"></div></div></div>
 </div></section>
 
 <!-- VIDEÓTÁR -->
@@ -1782,13 +1729,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 /* ===== Kvízek és igaz/hamis állítások ===== */
 (function () {
 const Q = {
-  q1: [
-    { q: 'Under Hungarian ground conditions, what often governs the design of shallow foundations?', o: ['The ultimate limit state', 'The serviceability limit state (settlements)', 'The groundwater level', 'The concrete grade of the footing'], a: 1, e: 'In many cases it is not the ultimate but the <b>serviceability limit state</b> – settlement and differential settlement – that decides.' },
-    { q: 'What primarily damages the building?', o: ['Absolute settlement', 'Differential settlement', 'The self-weight of the soil', 'Thermal expansion'], a: 1, e: '“It is not the absolute settlement but the <b>differential settlement</b> that damages the building” – it causes tilting, sagging, additional internal forces and cracking.' },
-    { q: 'Approximately what relative rotation is very likely to cause an ultimate limit state (failure)?', o: ['1/1000', '1/500', '1/300', '1/150'], a: 3, e: 'A relative rotation of <b>1/150</b> can already cause failure; 1/500 is generally acceptable structurally.' },
-    { q: 'Which building is more sensitive to differential settlement?', o: ['The large, rigid office building', 'The smaller house with 1–3 storeys and low stiffness', 'The bridge on piles', 'All equally'], a: 1, e: 'Smaller, lower buildings have lower stiffness – most damaged buildings in Hungary have <b>1–3 storeys</b>.' },
-    { q: 'Which way do wall cracks rise?', o: ['Towards the part with smaller settlement', 'Towards the part with larger settlement (the part that ends up lower)', 'Always horizontally', 'Always vertically'], a: 1, e: 'Cracks rise <b>towards the point of larger settlement</b> (towards the part that is lower after the movement) – this helps to find the cause.' },
-  ],
   q3: [
     { q: 'Why does reducing the contact pressure not reduce the settlement proportionally?', o: ['Because the concrete compresses', 'Because the wider foundation is heavier, and the stress reaches deeper below it', 'Because the groundwater rises', 'Because the influence depth decreases'], a: 1, e: 'Two reasons: the wider footing means <b>greater weight</b>, and above all, under the wider foundation the stresses reach <b>greater depths</b> – the influence depth increases.' },
     { q: 'When is a wider foundation effective?', o: ['If there is a softer layer deeper down', 'If there is a less compressible layer deeper down', 'Always', 'Never'], a: 1, e: 'It is effective if there are <b>less compressible layers deeper down</b> (case A) – part of the stress is “passed on” to the sand.' },
@@ -1827,11 +1767,11 @@ const Q = {
   ],
 };
 const TFI = [
-  { s: 'Under Hungarian ground conditions the serviceability limit state (settlement) often governs.', t: true, e: 'Often it is not the bearing resistance but the (differential) settlement that “decides”.' },
-  { s: 'The building is damaged primarily by the absolute settlement.', t: false, e: 'Differential settlement causes tilting, additional internal forces and cracking.' },
-  { s: 'For ordinary structures on separate footings, a differential settlement of about 20 mm between adjacent columns is generally acceptable.', t: true, e: 'This is the recommended value – but the relative rotation (δs/L) governs: with a small column spacing, 20 mm already means a rotation greater than 1/500.' },
-  { s: 'A smaller differential settlement is acceptable on cohesive soil than on granular soil.', t: false, e: 'The other way round: on clay about one and a half times more is acceptable – the building materials cope better with the slow consolidation.' },
-  { s: 'A relative rotation of 1/150 can already cause failure.', t: true, e: '1/500 is generally acceptable structurally; 1/150 is already critical.' },
+  { s: 'The methods of protection can be combined with each other.', t: true, e: 'For example, soil replacement together with a lower contact pressure, or preloading with vertical drains.' },
+  { s: 'Stone columns also act as vertical drains.', t: true, e: 'The granular columns shorten the drainage path of the pore water, which speeds up consolidation.' },
+  { s: 'The duration of preloading can be shortened with vertical drains.', t: true, e: 'The drains shorten the drainage path, so consolidation is completed sooner.' },
+  { s: 'Dynamic compaction can be used without problems right next to existing buildings.', t: false, e: 'It causes strong vibrations, so it cannot be used next to buildings.' },
+  { s: 'Mass stabilisation is started from the middle of the soft, unstable area.', t: false, e: 'It starts from a stable area and advances from there.' },
   { s: 'Reducing the contact pressure always reduces the settlement proportionally.', t: false, e: 'A wider foundation is heavier, and the stresses reach deeper below it – the influence depth increases.' },
   { s: 'If there is sand below the soft clay, a wider foundation passes part of the stress on to the sand.', t: true, e: 'This is case A – here reducing the contact pressure is effective.' },
   { s: 'If there is soft clay below the sand, widening may even increase the settlement.', t: true, e: 'Case B: the soft clay layer lower down receives more stress – “exactly the opposite of what we wanted”.' },

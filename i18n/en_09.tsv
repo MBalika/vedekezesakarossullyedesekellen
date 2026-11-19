@@ -1,0 +1,14 @@
+# 2026-11-19: az 1. fejezet (süllyedéstűrés) törlése után
+448da04	Self-check · Chapter 2
+409bd52	How much settlement is acceptable, and how differential settlement damages a building, is covered in the Settlement tolerance chapter of the <a href="https://sikalapok-sullyedesszamitasa.vercel.app" target="_blank" rel="noopener"><b>Settlement of shallow foundations</b></a> module. This page deals with the methods of protection.
+29b1305	<a href="#attekintes" style="--dot:#e5ae47"><i></i>1 · Overview</a>⏎      <a href="#alapozas" style="--dot:#39c2a5"><i></i>2 · Contact pressure, foundation level (3D)</a>⏎      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>3 · Soil replacement</a>⏎      <a href="#tomorites" style="--dot:#e5ae47"><i></i>4 · Compaction</a>⏎      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>5 · Grouting, stabilisation</a>⏎      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>6 · Preloading</a>⏎      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>7 · Design measures</a>⏎      <a href="#videok" style="--dot:#fff"><i></i>Video library</a>⏎      <a href="#igazhamis" style="--dot:#fff"><i></i>True/false</a>
+528cc5f	It starts from a stable area and advances from there.
+6f0d003	Mass stabilisation is started from the middle of the soft, unstable area.
+9580461	It causes strong vibrations, so it cannot be used next to buildings.
+237a4da	Dynamic compaction can be used without problems right next to existing buildings.
+ce5d5df	The drains shorten the drainage path, so consolidation is completed sooner.
+fe26b68	The duration of preloading can be shortened with vertical drains.
+0e28e48	The granular columns shorten the drainage path of the pore water, which speeds up consolidation.
+2420e82	Stone columns also act as vertical drains.
+ff87e34	For example, soil replacement together with a lower contact pressure, or preloading with vertical drains.
+d0fbaae	The methods of protection can be combined with each other.
