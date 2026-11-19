@@ -498,3 +498,11 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 .injt td:first-child{white-space:nowrap}
 .injcap{margin:8px 0 0;font:700 14px var(--fb);color:var(--ci);text-align:center}
 @media (max-width:600px){#injSvg .injl{font-size:19px}#injSvg .injl2{font-size:14px}}
+/* fejezetmenü: semmi ne lógjon ki (a levágott utolsó elemből csak a pontja látszott) */
+@media (min-width:700px){
+  .chapnav{flex-wrap:wrap;justify-content:center;overflow:visible;gap:2px 1px}
+  .chapnav a{padding:6px 6px;gap:5px}
+}
+@media (max-width:699.98px){
+  .chapnav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}
+}
