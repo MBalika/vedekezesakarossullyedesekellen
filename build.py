@@ -8,7 +8,7 @@ JS-karakterláncok) az i18n/en_*.tsv párjai szerint cseréli (i18n/.en/), és a
 változik és nincs hozzá fordítás, az angol build leáll (a hiányzók: i18n/missing.tsv). A magyar forrásba az angolhoz
 szükséges kapcsokat (EN jelző, nyelvváltó, angol tördelési szabályok) az i18n/prep_hu.py teszi bele.
 """
-import os, re, sys, glob, shutil, subprocess, pathlib
+import json, os, re, sys, glob, shutil, subprocess, pathlib
 
 def _bxt(h):  # dobozcímek középre (formázás skill) – boxtitle.inc.html a build.py mellett
     import pathlib as _p
@@ -122,4 +122,20 @@ if r.returncode: print(r.stderr); sys.exit(1)
 for f in FILES:
     if f.endswith('.js'):
         p = EN / f; t = p.read_text(); t = re.sub(r'\btg(?=[  ][αδφ$\d(]|²)', 'tan', t); t = re.sub(r'\bctg(?=[  ][αδφ$\d(]|²)', 'cot', t); p.write_text(t)
+# az angol oldalon a BME-videók helyett azok eredeti angol változatai (Geotech Project csatorna) – i18n/yt_en.json;
+# amelyiknek nincs angol változata, az marad, „in Hungarian” jelzéssel
+YE = json.loads((I18N / 'yt_en.json').read_text(encoding='utf-8'))
+p = EN / 'yt.js'; t = p.read_text(encoding='utf-8'); a = '  window.YT = YT;'; assert t.count(a) == 1
+used = {k: v for k, v in YE['videos'].items() if re.search(r"^ +'?" + re.escape(k) + r"'?: \{", t, flags=re.M)}
+inj = ('  // angol oldal: az eredeti angol felvételek (Geotech Project); a csak magyarul meglévők „in Hungarian” jelzéssel\n'
+       f'  const YT_EN = {json.dumps({k: {f: v[f] for f in ('id', 'title', 'dur', 'playlist', 'list', 'caps')} for k, v in used.items()}, ensure_ascii=False)};\n'
+       f"  for (const [hu, e] of Object.entries(YT_EN)) if (YT[hu]) {{ YT[e.id] = {{ ...YT[hu], ...e, ch: '{YE['channel']}' }}; delete YT[hu]; }}\n"
+       "  for (const y of Object.values(YT)) if (!y.ch) y.note = 'in Hungarian';\n")
+p.write_text(t.replace(a, inj + a), encoding='utf-8')
+SWAP = {**{hu: e['id'] for hu, e in YE['videos'].items()}, **YE['lists']}
+rx = re.compile('|'.join(map(re.escape, SWAP))); nsw = 0
+for p in [EN / 'index.src.html']:
+    t = p.read_text(encoding='utf-8'); t2, k = rx.subn(lambda m: SWAP[m.group(0)], t)
+    if k: p.write_text(t2, encoding='utf-8'); nsw += k
+print('angol YouTube-videók:', len(used), '· cserélt hivatkozás:', nsw)
 build(EN, 'en.html', 'en-GB')
