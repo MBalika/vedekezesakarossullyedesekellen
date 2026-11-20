@@ -4,3 +4,5 @@ node_modules/
 .tmp/
 missing.tsv
 ws.tsv
+carry_todo.txt
+unused.txt

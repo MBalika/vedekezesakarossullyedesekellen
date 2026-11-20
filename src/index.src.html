@@ -34,7 +34,7 @@
         <div class="stat"><b>3D</b><span>süllyedés-szimulátor</span></div>
         <div class="stat"><b>8</b><span>valós BME-felvétel</span></div>
         <div class="stat"><b>2</b><span>animációs videó</span></div>
-        <div class="stat"><b>15+</b><span>interaktív ábra</span></div>
+        <div class="stat"><b>20</b><span>interaktív ábra</span></div>
         <div class="stat"><b>40</b><span>igaz/hamis állítás</span></div>
       </div>
       <div class="btns">
@@ -77,7 +77,7 @@
       <tr><td><b>a) Kisebb talpnyomás</b></td><td>ha mélyebben kevésbé összenyomódó réteg van</td><td>szélesebb alap, kisebb q</td><td>nő a súly és a határmélység; fordított rétegződésnél ronthat</td></tr>
       <tr><td><b>b) Mélyebb alapsík</b></td><td>pár méteren belül jobb teherbíró réteg</td><td>pince: kiemelt föld tehermentesít</td><td>2–2,5 m-nél mélyebb sávalap nem gazdaságos</td></tr>
       <tr><td><b>c) Talajcsere</b></td><td>bármely rossz talaj, sekély zónában</td><td>50–80 cm, ≤ 30 cm-es rétegekben tömörítve</td><td>csak talajvíz felett; kiszélesítés: B + 2·v·tgϑ</td></tr>
-      <tr><td><b>Mélytömörítés</b></td><td>laza szemcsés talaj, feltöltés</td><td>vibrátor Ø 25–40 cm, öblítéssel</td><td>finomszem-tartalom kb. &lt; 10–12%</td></tr>
+      <tr><td><b>Mélytömörítés</b></td><td>laza szemcsés talaj, feltöltés</td><td>vibrátor Ø 25–40 cm, öblítéssel</td><td>finomszem-tartalom kb. &lt; 10–12 %</td></tr>
       <tr><td><b>Dinamikus tömörítés</b></td><td>lazább-puhább talaj, nagy felület</td><td>15–40 t ejtősúly, H = 10–40 m; max. 5–7 m</td><td>erős rezgés – épületek mellett nem</td></tr>
       <tr><td><b>Kőtömzs</b></td><td>nagyon laza-puha talaj</td><td>szemcsés anyag bedöngölése, nagy átmérőjű tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
       <tr><td><b>Kavicscölöp</b></td><td>lazább-puhább talaj (kötött is)</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
@@ -105,7 +105,7 @@
         <canvas id="sim2d" style="display:none"></canvas>
         <div class="ov" id="simOv"></div>
         <div class="vtools" id="simViewSel"><button data-v="3d" class="on">3D</button><button data-v="2d">2D metszet</button></div>
-        <div class="scale"><span>Δσz/q₀</span><i></i><span>0 → 1</span></div>
+        <div class="scale"><span>Δσ<sub>z</sub>/q<sub>0</sub></span><i></i><span>0 → 1</span></div>
         <div class="hint" id="simHint">húzd: forgatás · görgő: nagyítás</div>
       </div>
       <div class="insight" id="simInsight"></div>
@@ -116,15 +116,15 @@
       <div class="ctl"><label>Alapszélesség B (négyzetes pilléralap) <span class="v" data-for="simB"></span></label><input type="range" id="simB" min="1.2" max="4.5" step="0.1" value="2.0"></div>
       <div class="ctl"><label>Alapsík mélysége D <span class="v" data-for="simD"></span></label><input type="range" id="simD" min="0.8" max="4.0" step="0.1" value="1.0"></div>
       <div class="ctl"><label>Oszlopteher N <span class="v" data-for="simN"></span></label><input type="range" id="simN" min="600" max="2000" step="50" value="1200"></div>
-      <div class="ctl"><label>Határmélység / feszültségeloszlás</label><div class="seg" id="simMeth"><button data-v="J" class="on">Jáky: m₀ = B, lineáris</button><button data-v="E">Rugalmas féltér + 0,2·σ₀</button></div></div>
+      <div class="ctl"><label>Határmélység / feszültségeloszlás</label><div class="seg" id="simMeth"><button data-v="J" class="on">Jáky: m<sub>0</sub> = B, lineáris</button><button data-v="E">Rugalmas féltér + 0,2·σ<sub>0</sub></button></div></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:6px 0 10px"><label class="tgl"><input type="checkbox" id="simBulb" checked>feszültségbura</label><div class="ctl" style="flex:1;min-width:140px;margin:0"><label>Süllyedés torzítása <span class="v" data-for="simEx"></span></label><input type="range" id="simEx" min="1" max="40" step="1" value="10"></div></div>
-      <div class="big"><b id="rS">0</b><span>mm süllyedés</span><span class="status" id="rStatus"></span></div>
+      <div class="big"><b id="rS">0</b><span class="u">mm süllyedés</span><span class="status" id="rStatus"></span></div>
       <div class="meter"><i id="rBar"></i><span class="lim" style="left:25%"></span><span class="lim" style="left:50%"></span></div>
       <div class="legend"><span>0</span><span style="margin-left:auto">25 mm</span><span>50 mm</span><span>100 mm</span></div>
       <div class="res" style="margin-top:12px">
         <div class="r"><span>talpfeszültség q</span><b id="rQ"></b></div>
-        <div class="r"><span>többletfeszültség q₀ = q − γ·D</span><b id="rQn"></b></div>
-        <div class="r"><span>határmélység m₀ (alapsík alatt)</span><b id="rM0"></b></div>
+        <div class="r"><span>többletfeszültség q<sub>0</sub> = q − γ·D</span><b id="rQn"></b></div>
+        <div class="r"><span>határmélység m<sub>0</sub> (alapsík alatt)</span><b id="rM0"></b></div>
         <div class="r"><span>alaptest + visszatöltés súlya</span><b id="rW"></b></div>
       </div>
       <div style="margin-top:12px;font-size:12.5px;color:var(--mute);font-weight:600">Rétegenkénti hozzájárulás</div>
@@ -138,7 +138,7 @@
     <div class="panel"><div class="ph"><h4>Feszültség az alapsík alatt</h4></div><div class="pb"><svg class="svgbox" id="simDepth"></svg></div></div>
     <div class="panel"><div class="ph"><h4>Süllyedés a változó függvényében</h4><div class="seg" id="simCurveSel"><button data-v="B" class="on">s(B)</button><button data-v="D">s(D)</button></div></div><div class="pb"><svg class="svgbox" id="simCurve"></svg></div></div>
   </div>
-  <p class="src" style="margin-top:10px">A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m₀ = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ₀ kritérium) → rétegenkénti összegzés: s = Σ Δσz·Δh / Eoed. A földkiemelés hatását a q₀ = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.</p>
+  <p class="src" style="margin-top:10px">A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m<sub>0</sub> = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ<sub>0</sub> kritérium) → rétegenkénti összegzés: s = Σ Δσ<sub>z</sub>·Δh / E<sub>oed</sub>. A földkiemelés hatását a q<sub>0</sub> = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.</p>
 
   <div class="sub-h"><span class="lt">a</span><h3>Kisebb talpnyomás alkalmazása</h3></div>
   <div class="twocol tw-ab">
@@ -149,18 +149,18 @@
     </div>
     <div class="panel"><div class="ph"><h4>A és B eset – meddig ér a feszültségbura?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Alapszélesség <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
   </div>
-  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
+  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">A szaggatott vonal az eredeti (b szélességű, q talpfeszültségű) alap feszültségburája. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
 
   <div class="sub-h"><span class="lt">b</span><h3>Alapsík mélyebbre vitele – és a pince</h3></div>
   <div class="twocol">
     <div>
       <p>Akkor jön számításba, ha a térszínközeli kompresszibilis rétegben felvett alapsík esetén túl nagy süllyedés adódik, és nem túl nagy mélységben (pár méterre) <b>kevésbé összenyomódó, jobb teherbíró</b> talaj van. Ekkor az alapok melletti takarás megnő, így a talajtöréssel szembeni biztonság növekszik, az alapszélesség csökkenthető.</p>
-      <div class="callout warn"><span class="ci">!</span><p><b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pontalapozás (vagy kútalapozás) célszerű, melyet felül gerendaráccsal kötnek össze.</p></div>
+      <div class="callout warn"><span class="ci">!</span><p><b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pilléralapozás (vagy kútalapozás) célszerű, amelyet felül gerendarács köt össze.</p></div>
       <p>Ilyen talajviszonyok mellett érdemes <b>pincét</b> készíteni, ha a terepszint alatti helyiségek is hasznosíthatók. A pince hatása kettős:</p>
       <ul><li>mélyebben fekvő teherbíró rétegre kerül(het) az alapsík;</li><li>nő a <b>kiemelt földtömeg súlya</b> – ez tehermentesíti az altalajt.</li></ul>
       <p>Ha a „pince” helyéről kiemelt talaj tömege nagyobb az oda kerülő építményénél, az altalajra hárított hatékony feszültségek eredője „negatív”, és az építmény (kellően merev vb. lemezalap esetén) gyakorlatilag mozdulatlan lesz – ez a <b>kompenzált alapozás</b> elve.</p>
       <div class="grid g2"><figure class="photo contain"><img src="img/pince-abra.jpg" alt="Mélyebb alapsík felvétele pincével" loading="lazy" style="height:170px;padding:8px"><figcaption>Mélyebb alapsík felvétele pincével</figcaption></figure><figure class="photo contain"><img src="img/foldkiemeles-abra.jpg" alt="A földkiemelés szerepe" loading="lazy" style="height:170px;padding:8px"><figcaption>A földkiemelés szerepe</figcaption></figure></div>
-      <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
+      <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros antennával együtt 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
     </div>
     <div class="panel"><div class="ph"><h4>Földkiemelés és kompenzáció</h4><button class="chip" id="bsPlay">▶ Építés</button></div><div class="pb">
       <div id="bsSvg"></div>
@@ -180,7 +180,7 @@
 <section class="chap c-teal" id="talajcsere"><div class="wrap">
   <div class="chhead"><div class="chnum">3</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
   <div class="sim wide">
-    <div class="panel"><div class="ph"><h4>Teherterjedés a csererétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.</p></div></div>
+    <div class="panel"><div class="ph"><h4>Teherterjedés a csererétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ<sub>2</sub> = P / (B + 2·v·tgϑ) + γ<sub>1</sub>·v, ahol γ<sub>1</sub> = 20 kN/m³ a cseretalaj térfogatsúlya – egyszerűsített szemléltetés.</p></div></div>
     <div class="panel"><div class="pb ctl2">
       <div class="ctl"><label>Teher P <span class="v" data-for="tcsP"></span></label><input type="range" id="tcsP" min="100" max="500" step="10" value="260"></div>
       <div class="ctl"><label>Alapszélesség B <span class="v" data-for="tcsB"></span></label><input type="range" id="tcsB" min="0.6" max="2.0" step="0.1" value="1.0"></div>
@@ -224,7 +224,7 @@
           <div class="ctl"><label>Finom szemcsék (iszap + agyag) aránya <span class="v" data-for="vibFines"></span></label><input type="range" id="vibFines" min="0" max="40" value="6"></div>
           <div style="position:relative;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--ok) 0 25%,var(--amber) 25% 37.5%,var(--coral) 37.5%)"><span id="vibPtr" style="position:absolute;top:-4px;width:4px;height:22px;background:var(--ink);border-radius:2px"></span></div>
           <div style="margin-top:10px" id="vibFinesMsg"></div>
-          <p class="src" style="margin-top:10px">Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12% alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.</p>
+          <p class="src" style="margin-top:10px">Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12 % alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.</p>
         </div></div>
         <div class="grid g2" style="margin-top:14px"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Mélyvibrátor öblítéssel" loading="lazy"><figcaption>Mélyvibrátor öblítés közben</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Daruval függesztett mélyvibrátorok" loading="lazy"><figcaption>Daruval függesztett vibrátorok</figcaption></figure></div>
       </div>
@@ -287,7 +287,7 @@
           <div class="ctl"><label>Feszültségkoncentráció n (oszlop/talaj) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
           <div class="res" id="kcOut"></div>
           <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
-          <p class="src" style="margin-top:8px">Egységcella-modell: aₛ = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s₀ = 1 / [1 + aₛ(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.</p>
+          <p class="src" style="margin-top:8px">Egységcella-modell: a<sub>s</sub> = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.</p>
         </div></div>
       </div>
     </div>
@@ -337,7 +337,7 @@
           <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">kavics</button><button data-v="durva" class="on">durva homok</button><button data-v="kozep">középhomok</button><button data-v="finom">finom homok</button><button data-v="iszap">iszap</button><button data-v="agyag">agyag</button><button data-v="repedt">repedezett</button></div>
           <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
           <div class="mlist" id="grOut" style="margin-top:12px"></div>
-          <p class="src" style="margin-top:8px">Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D₁₅(talaj)/D₈₅(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 6–10 µm.</p>
+          <p class="src" style="margin-top:8px">Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D<sub>15</sub>(talaj)/D<sub>85</sub>(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 3–4 µm (szemcséinek 95 %-a 20 µm-nél finomabb).</p>
         </div></div>
       </div>
     </div>
@@ -357,6 +357,7 @@
       </div>
       <div>
         <div class="panel"><div class="ph"><h4>Tervezd meg a munkát!</h4></div><div class="pb ctl2">
+          <p class="figcap" style="grid-column:1/-1">A géplánc állékony (már stabilizált) területről indul, és maga előtt keveri a talajt</p>
           <div id="msSvg"></div>
           <div class="ctl"><label>Készültség <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
           <div class="ctl"><label>Terület <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
@@ -380,10 +381,10 @@
     <div class="panel"><div class="ph"><h4>Süllyedés az idő függvényében</h4></div><div class="pb"><div id="plTime"></div></div></div>
   </div>
   <div class="panel" style="margin-top:16px"><div class="pb">
-    <div class="grid g2"><div class="ctl"><label>Épület okozta többletfeszültség Δσ <span class="v" data-for="plB"></span></label><input type="range" id="plB" min="20" max="160" step="5" value="80"></div><div class="ctl"><label>Előterhelés Δσₚ <span class="v" data-for="plP"></span></label><input type="range" id="plP" min="0" max="200" step="5" value="100"></div></div>
+    <div class="grid g2"><div class="ctl"><label>Épület okozta többletfeszültség Δσ <span class="v" data-for="plB"></span></label><input type="range" id="plB" min="20" max="160" step="5" value="80"></div><div class="ctl"><label>Előterhelés Δσ<sub>p</sub> <span class="v" data-for="plP"></span></label><input type="range" id="plP" min="0" max="200" step="5" value="100"></div></div>
     <div class="res" id="plOut"></div>
     <div class="legend"><span><i style="background:var(--coral)"></i>előterhelés nélkül</span><span><i style="background:var(--amber)"></i>előterhelés + tehermentesítés</span><span><i style="background:var(--teal)"></i>újraterhelés (épület) előterhelés után</span></div>
-    <p class="src" style="margin-top:8px">Szemléltető modell: 6 m vastag normálisan konszolidált agyag, σ′₀ = 60 kPa, Cc = 0,45, Cr = 0,06, e₀ = 1,2. Ha Δσ ≤ Δσₚ, az épület alatt csak az újraterhelési (kis meredekségű) ágon nyomódik össze a talaj.</p>
+    <p class="src" style="margin-top:8px">Szemléltető modell: 6 m vastag normálisan konszolidált agyag, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0,45, C<sub>r</sub> = 0,06, e<sub>0</sub> = 1,2. Ha Δσ ≤ Δσ<sub>p</sub>, az épület alatt csak az újraterhelési (kis meredekségű) ágon nyomódik össze a talaj.</p>
   </div></div>
   <div class="twocol" style="margin-top:26px">
     <div>
@@ -391,7 +392,7 @@
       <p>A főváros egy régi vulkáni tó helyén épült, amelyet igen vastag, nagymértékben összenyomható, finom vulkáni hamu töltött fel. Az egész város süllyed – helyenként méteres nagyságrendben. Az alkalmazott módszer: a vb. vázas épületek alaplemezeit <b>a kész épület súlyának megfelelő kavicstömeggel</b> terhelik meg. Lezajlik a süllyedés nagy része – ezt kivárják –, majd folytatják az építkezést, és a kavicsot <b>olyan ütemben távolítják el, ahogyan az építmény súlya nő</b>.</p>
       <div class="callout web"><span class="ci">i</span><p><b>Kitekintés – függőleges drének:</b> vastag agyagrétegben a konszolidáció évekig tarthat (a konszolidációs idő a szivárgási úthossz négyzetével arányos). Előregyártott függőleges drénekkel (PVD) a víz vízszintesen, rövid úton jut a drénbe – így az előterhelés ideje hónapokra rövidülhet.</p></div>
     </div>
-    <div class="panel"><div class="ph"><h4>Kavics + épület = állandó teher</h4></div><div class="pb"><div id="mxSvg"></div><div class="ctl"><label>Építés előrehaladása <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
+    <div class="panel"><div class="ph"><h4>Kavics + épület = állandó teher</h4></div><div class="pb"><p class="figcap" id="mxCap"></p><div id="mxSvg"></div><div class="ctl"><label>Építés előrehaladása <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
   <div class="quiz" id="q7"><div class="qh"><h4>Önellenőrzés · 6. fejezet</h4><div class="dots"></div></div></div>
@@ -401,7 +402,7 @@
 <section class="chap c-coral" id="szerkezet"><div class="wrap">
   <div class="chhead"><div class="chnum">7</div><div><div class="kicker">f) Szerkezeti megoldás · g) Építési sorrend · h) Mélyalapozás</div><h2>Ha a talajt nem, a szerkezetet alakítjuk</h2><p class="lead">A szerkezet merevségének helyes megválasztása: <b>vagy olyan merev</b> legyen, hogy a süllyedéskülönbségekből származó feszültségeket károsodás nélkül elbírja, <b>vagy olyan hajlékony</b>, hogy a süllyedésből származó alakváltozásokat károsodás nélkül kövesse (természetesen az előírt határértékeken belül).</p></div></div>
   <div class="twocol">
-    <div class="panel"><div class="ph"><h4>Támaszsüllyedés a keretben</h4><div class="seg" id="frType"><button data-v="rigid" class="on">merev csomópontok</button><button data-v="hinge">csuklós csomópontok</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>A jobb pillér süllyedése δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
+    <div class="panel"><div class="ph phcol"><h4>Támaszsüllyedés a keretben</h4><div class="seg" id="frType"><button data-v="rigid" class="on">merev csomópontok</button><button data-v="hinge">csuklós csomópontok</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>A jobb pillér süllyedése δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
     <div>
       <p>Süllyedésre gyanús területen lehetőleg <b>statikailag határozott</b> szerkezetet tervezzünk: nincsenek merev kapcsolatok, jelentősebb süllyedéskülönbség esetén a pillérek, gerendák, födémek egymáshoz képest el tudnak fordulni (csuklós kapcsolatok), így nem alakulnak ki többlet-igénybevételek.</p>
       <div class="panel" style="margin-top:12px"><div class="ph"><h4>Süllyedési hézag</h4><label class="tgl"><input type="checkbox" id="jtTgl">hézag</label></div><div class="pb"><div id="jtSvg"></div><div class="ctl"><label>Konszolidáció előrehaladása <span class="v" data-for="jtS"></span></label><input type="range" id="jtS" min="0" max="100" value="80"></div><p class="src" style="margin:0">Hosszú, különbözőképpen terhelt épületrészeket célszerű süllyedési hézaggal elválasztani – a hődilatáció miatt eleve szükséges.</p></div></div>
@@ -420,14 +421,14 @@
     <div class="card top"><p>Ha a síkalapozás mellett a számítások meg nem engedhető süllyedéseket, süllyedéskülönbségeket jeleznek, a tervezők jelentős része áttér a <b>mélyalapozásra</b> (cölöp, résfal). Sok esetben ez a <b>legegyszerűbb, leggyorsabb és legolcsóbb</b> megoldás.</p></div>
     <div class="card top"><h4>Mélyalapozás részletesen</h4><p>CFA-cölöp, csavart, fúrt és előregyártott cölöpök, mikrocölöp, jet-grouting, mélykeverés, résfal, kút- és szekrényalapozás – a <a href="https://melyalapozasok.vercel.app" target="_blank" rel="noopener">Mélyalapozások</a> interaktív tananyagban, 3D cölöpépítővel. Valós felvételen:</p></div>
   </div>
-  <div class="ytgrid" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
+  <div class="ytgrid ytpair" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
   <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 7. fejezet</h4><div class="dots"></div></div></div>
 </div></section>
 
 <!-- VIDEÓTÁR -->
 <section class="chap c-teal" id="videok"><div class="wrap">
   <div class="chhead"><div class="chnum">▶</div><div><div class="kicker">Videótár</div><h2>Animációk és valós felvételek</h2><p class="lead">Két 3D animáció az elvekről – zenével és feliratokkal –, és a BME Építőmérnöki Kar felvételei arról, hogyan készülnek a talajjavítások egy valódi munkaterületen. Kattints egy kártyára a lejátszáshoz; a lejátszóban teljes képernyő is elérhető.</p></div></div>
-  <div class="grid g3 vgrid">
+  <div class="vgrid">
     <button class="vcard" data-video="tj1"></button><button class="vcard" data-video="tj7"></button>
   </div>
   <div class="sub-h"><span class="lt">▶</span><h3>A BME Építőmérnöki Kar felvételei</h3></div>
@@ -442,13 +443,28 @@
   <div class="tfbar"><div class="tfscore" id="tfScore"></div><button class="chip" id="tfReset">↺ Újrakezdés</button></div>
   <div class="tfgrid" id="tfGrid"></div>
 </div></section>
+<section class="chap c-teal" id="tovabb"><div class="wrap">
+  <div class="chhead"><div class="chnum">↗</div><div><div class="kicker">A sorozat többi része</div><h2>Az Alapozás tananyagai</h2><p class="lead">A káros süllyedések elleni védekezés a tárgy egyik állomása. A többi interaktív tananyag ugyanebben a rendszerben mutatja be az alapozás tervezésének lépéseit.</p></div></div>
+  <div class="series">
+    <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése</b><small>Alapsík, alaptípus, törési mechanizmus – a tervezés lépései</small></a>
+    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok teherbírásszámítása</b><small>Az alapfelület méretezése teherbírási határállapotban</small></a>
+    <a href="https://bme-alapozas.vercel.app/" target="_blank" rel="noopener"><b>Alapozás – nyitóoldal</b><small>A tárgy útja kilenc állomáson és minden tananyag egy helyen</small></a>
+    <a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener"><b>Talajfelderítés</b><small>Fúrás, szondázás, geofizika, mintavétel – mit tudunk meg a talajról</small></a>
+    <a href="https://sikalapokallekonysagvizsgalata.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok állékonyságvizsgálata</b><small>Elcsúszás, felborulás, felúszás, általános állékonyság</small></a>
+    <a href="https://sikalapok-sullyedesszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása</b><small>Feszültségek az altalajban, süllyedés, süllyedéstűrés, mérés</small></a>
+    <a href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Alapozás kedvezőtlen altalajon</b><small>Térfogatváltozó agyag, roskadékony lösz, feltöltés, szerves talaj</small></a>
+    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>A síkalapokat érő hatások</b><small>Rezgés, földrengés, üreg, kimosás és fagy az alap alatt</small></a>
+    <a href="https://melyalapozasok.vercel.app/" target="_blank" rel="noopener"><b>Mélyalapozások</b><small>Cölöpök, résfalak, kutak – ha a teherbíró réteg mélyen van</small></a>
+    <a href="https://munkaterhatarolasok.vercel.app/" target="_blank" rel="noopener"><b>Munkatérhatárolások</b><small>Dúcolás, falak, horgonyzás – a mélyebb alapsík munkagödre</small></a>
+    <a href="https://bme-alapozas.vercel.app/telek/" target="_blank" rel="noopener"><b>Egy telek, egy félév</b><small>Kilenc feladat egyetlen telken – te vagy a geotechnikus</small></a>
+    <a href="https://bme-alapozas.vercel.app/ar-labor/" target="_blank" rel="noopener"><b>Alapozás AR labor</b><small>Talajtörés, feszültséghagyma, CFA cölöp és munkagödör a saját asztalodon</small></a>
+  </div>
+</div></section>
 </main>
 
 <footer class="foot"><div class="wrap">
-  <div class="grid g2">
-    <div><h4>Védekezés a káros süllyedések ellen</h4><p>Interaktív tananyag a BME Építőmérnöki Kar Alapozás tárgyához (Geotechnika és Mérnökgeológia Tanszék).</p></div>
-    <div><h4>Kapcsolódó tananyag</h4><ul><li><a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener">Talajfelderítés – interaktív tananyag</a></li></ul><p style="margin-top:12px">A számpéldák és szimulátorok oktatási célú, egyszerűsített modellek.</p></div>
-  </div>
+  <h4>Védekezés a káros süllyedések ellen</h4>
+  <p>Interaktív tananyag a BME Építőmérnöki Kar Alapozás tárgyához (Geotechnika és Mérnökgeológia Tanszék). A számpéldák és a szimulátorok oktatási célú, egyszerűsített modellek.</p>
 </div></footer>
 <button class="totop" aria-label="Vissza a tetejére">↑</button>
 <div class="modal" id="vmodal" role="dialog" aria-modal="true"><div class="box"><div class="mh"><span></span><div style="display:flex;gap:8px"><button id="vfs">⛶ Teljes képernyő</button><button id="vclose">✕ Bezárás</button></div></div><div class="frame"></div></div></div>

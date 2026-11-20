@@ -7,10 +7,6 @@ a325afb	Fine sand and silt can also be grouted well with cement grout.
 44c69ab	Only sand-gravel coarser than 0.8–1 mm, or fissured cohesive soil.
 519fd0b	In cement grouting the perforated pipes are placed every 50–100 cm, at a pressure of 7–10 atm.
 f65c120	Through them the cement grout or cement-sand mortar is injected, from the bottom upwards as the pipe is withdrawn.
-5da0f4e	In cement grouting, injection proceeds from the top downwards.
-3d66fef	From the bottom upwards as the pipe is withdrawn.
-381138d	Two-component resin grouting is effective in clay as well.
-b09274e	In sandy and silty soil – it cannot be used effectively in clay.
 a5fe0a5	The two-component grout expands and forms a hard geocomposite with the soil.
 4263b73	It increases the cohesion and reduces the pore volume.
 a265388	During retrofit grouting the movement of the building is monitored by laser measurement.
@@ -182,35 +178,20 @@ ff4defd	deeper foundation level case
 68ede0b	=
 0939c93	=
 378f4b9	=
-ad6565c	=
-9fe5407	influence depth m₀ = ${fmt(R.m0, 1)} m
 3bcbfc6	=
-3272402	=
 fde8796	=
 5e0fde1	stress [kPa]
 6802f44	=
 dcd5cf8	depth below foundation level [m]
 216f1cf	=
-7b8de5e	Δσz – Jáky (linear)
-7bc0e82	Δσz – elastic half-space
-a85d13a	0.2 · σ₀ (20% of self-weight stress)
 93d8512	50 mm – general limit
 799c5ff	foundation width B [m]
 ab5588c	depth of foundation level D [m]
 019e50c	settlement s [mm]
-ef63028	elastic half-space + 0.2·σ₀
-7a0a3e0	<b>Case A:</b> the wider foundation “passes on” part of the stress to the less compressible sand deeper down – reducing the contact pressure is <b>effective</b> here. Widening by +0.5 m: <b>${pct(dB)}</b>.
-e18960b	<b>Case B:</b> widening now <b>increases</b> the settlement (+0.5 m: <b>${pct(dB)}</b>): because of the greater influence depth, the soft clay lower down is stressed too – exactly the opposite of what we wanted!
-7670159	<b>Case B:</b> widening hardly helps (+0.5 m: <b>${pct(dB)}</b>), because under the wider foundation the stresses reach deeper, and the soft clay lower down takes the load. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}
 334a2af	Switch to Jáky’s method: there the settlement even increases!
-c63771f	<b>Homogeneous soil:</b> widening reduces the settlement, but <b>not proportionally</b> – the wider foundation is heavier, and the stress reaches deeper below it. Widening by +0.5 m: <b>${pct(dB)}</b>; deepening by +0.5 m: <b>${pct(dD)}</b>.
-2d078bb	<b>Deeper foundation level:</b> below the soft layer there is gravel from 2.6 m. Take the foundation level down! Deepening by +0.5 m: <b>${pct(dD)}</b>. When the foundation level reaches the gravel, the settlement drops to a fraction.
-540a5a3	<b>The foundation level is on the gravel</b> – the settlement is a fraction of the initial value. Remember: a strip footing deeper than 2–2.5 m is no longer economical → pad footings with ground beams, caisson foundations, or a basement.
-d63a177	 <br>⚠ <b>D > 2.5 m:</b> a strip footing this deep is no longer economical – pad footings + ground beams, caisson foundations or a basement may be considered.
 66ff248	small settlement
 ddee28a	generally acceptable (≤ 50 mm)
 1cfafd5	too large – action needed
-fed1d08	Initial design: <b class="mono">${fmt(base.s, 0)} mm</b> → now <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${fmt(d, 0)}%</b>
 170c9b6	Set an initial design for comparison.
 ea9c5d0	★ Done! Cost: <b class="mono">
 07f6b3d	 · best: <b class="mono">${fmt(best[k], 0)}</b>

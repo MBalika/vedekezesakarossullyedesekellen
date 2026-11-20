@@ -9,7 +9,10 @@ const NS = 'http://www.w3.org/2000/svg';
 function S(tag, attrs = {}, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
 function H(tag, attrs = {}, html) { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-window.U = { $, $$, clamp, lerp, fmt, S, H, css, EN };
+/* SVG-szöveg valódi alsó indexszel: a „σ_{1} = 260 kPa” jelölésből tspan-ek készülnek (dy-nal, hogy minden böngészőben működjön) */
+function rich(e, str, fs) { const parts = String(str).split(/_\{([^}]*)\}/); e.textContent = ''; if (parts.length === 1) { e.textContent = str; return e; } const d = +(fs || e.getAttribute('font-size') || 12) * .24; let pend = 0; parts.forEach((s, i) => { if (!s) return; const ts = document.createElementNS(NS, 'tspan'); if (i % 2) { ts.setAttribute('dy', d.toFixed(2)); ts.setAttribute('font-size', '72%'); pend = -d; } else if (pend) { ts.setAttribute('dy', pend.toFixed(2)); pend = 0; } ts.textContent = s; e.appendChild(ts); }); return e; }
+const pct = (v, d = 0) => fmt(v, d) + (EN ? '%' : '\u00a0%');   // százalék: magyarul nem törő szóközzel, angolul tapadva
+window.U = { $, $$, clamp, lerp, fmt, S, H, css, EN, rich, pct };
 
 // --- csúszkák kitöltése + értékkijelzés ---
 function fillRange(r) { const p = (r.value - r.min) / (r.max - r.min) * 100; r.style.setProperty('--p', p + '%'); }
@@ -51,8 +54,10 @@ window.U.seg = seg;
     const goal = () => Math.max(0, t.getBoundingClientRect().top + scrollY - (bar ? bar.offsetHeight : 0) - 10);
     history.replaceState(null, '', h);
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    scrollTo({ top: goal(), behavior: reduce ? 'auto' : 'smooth' });
-    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'auto' }); setTimeout(fix, 250); } };
+    /* nagy távolságnál előbb a cél közelébe ugrunk, és csak az utolsó szakasz sima – a hosszú oldalon így is gyorsan és pontosan érkezik */
+    const y0 = scrollY, g0 = goal(); if (!reduce && Math.abs(g0 - y0) > 4000) scrollTo({ top: g0 + (g0 > y0 ? -1200 : 1200), behavior: 'instant' });
+    scrollTo({ top: goal(), behavior: reduce ? 'instant' : 'smooth' });
+    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'instant' }); setTimeout(fix, 250); } };
     const done = () => { removeEventListener('scrollend', done); clearTimeout(tm); fix(); };
     addEventListener('scrollend', done, { once: true }); const tm = setTimeout(done, 1600);
   });
@@ -123,7 +128,7 @@ window.QUIZ = quiz;
 // --- igaz / hamis ---
 function trueFalse(grid, items, scoreEl) {
   if (!grid) return; let done = 0, ok = 0;
-  const upd = () => { const pct = done ? Math.round(ok / done * 100) : 0; const fin = done === items.length ? ` · <span class="status${pct >= 80 ? '' : pct >= 50 ? ' w' : ' b'}">${pct >= 90 ? 'Kiváló! Mehetsz vizsgázni.' : pct >= 75 ? 'Jó eredmény!' : pct >= 50 ? 'Nem rossz – nézd át a hibásakat.' : 'Érdemes újra átnézni a fejezeteket.'} (${pct}%)</span>` : ''; scoreEl.innerHTML = `Helyes: <b>${ok}</b> / ${done} megválaszolt · összesen ${items.length}${fin}<span class="tfprog"><i style="width:${done / items.length * 100}%"></i></span>`; };
+  const upd = () => { const pct = done ? Math.round(ok / done * 100) : 0; const fin = done === items.length ? ` · <span class="status${pct >= 80 ? '' : pct >= 50 ? ' w' : ' b'}">${pct >= 90 ? 'Kiváló! Mehetsz vizsgázni.' : pct >= 75 ? 'Jó eredmény!' : pct >= 50 ? 'Nem rossz – nézd át a hibásakat.' : 'Érdemes újra átnézni a fejezeteket.'} (${pct}${EN ? '' : '\u00a0'}%)</span>` : ''; scoreEl.innerHTML = `Helyes: <b>${ok}</b> / ${done} megválaszolt · összesen ${items.length}${fin}<span class="tfprog"><i style="width:${done / items.length * 100}%"></i></span>`; };
   items.forEach((it, k) => {
     const c = H('div', { class: 'tf' }, `<div class="st"><span class="no">${String(k + 1).padStart(2, '0')}</span>${it.s}</div><div class="bt"><button data-v="1">Igaz</button><button data-v="0">Hamis</button></div><div class="fb"></div>`);
     c.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b || c.dataset.done) return; c.dataset.done = 1; done++; const right = (b.dataset.v === '1') === it.t; if (right) ok++; c.classList.add(right ? 'ok' : 'no'); $$('button', c).forEach(x => { if ((x.dataset.v === '1') === it.t) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); }); $('.fb', c).innerHTML = `<b>${right ? '✓ Helyes.' : '✗ Nem egészen.'}</b> Az állítás <b>${it.t ? 'igaz' : 'hamis'}</b>. ${it.e}`; $$('button', c).forEach(x => x.disabled = true); upd(); });

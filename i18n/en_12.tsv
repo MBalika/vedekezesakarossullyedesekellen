@@ -1,0 +1,70 @@
+# 2026-11-20 átnézés: valódi alsó indexek, százalék-írásmód, új ábrafeliratok, a sorozat kártyái
+fbab74a	Interactive module for the Foundation Engineering course at the BME Faculty of Civil Engineering (Department of Engineering Geology and Geotechnics). The numerical examples and simulators are simplified models for teaching purposes.
+9f45f9d	<a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Design of shallow foundations</b><small>Foundation level, foundation type, failure mechanism – the steps of design</small></a>⏎    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Bearing resistance of shallow foundations</b><small>Sizing the foundation area in the ultimate limit state</small></a>⏎    <a href="https://bme-alapozas.vercel.app/" target="_blank" rel="noopener"><b>Foundation Engineering – home page</b><small>The course in nine stages, with every module in one place</small></a>⏎    <a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener"><b>Ground investigation</b><small>Drilling, probing, geophysics, sampling – what we learn about the ground</small></a>⏎    <a href="https://sikalapokallekonysagvizsgalata.vercel.app/" target="_blank" rel="noopener"><b>Stability of shallow foundations</b><small>Sliding, overturning, uplift, overall stability</small></a>⏎    <a href="https://sikalapok-sullyedesszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Settlement of shallow foundations</b><small>Stresses in the ground, settlement, settlement tolerance, monitoring</small></a>⏎    <a href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Foundations on difficult ground</b><small>Expansive clay, collapsible loess, fill, organic soil</small></a>⏎    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>Actions on shallow foundations</b><small>Vibration, earthquake, cavities, scour and frost below the foundation</small></a>⏎    <a href="https://melyalapozasok.vercel.app/" target="_blank" rel="noopener"><b>Deep foundations</b><small>Piles, diaphragm walls, caissons – when the bearing stratum is deep</small></a>⏎    <a href="https://munkaterhatarolasok.vercel.app/" target="_blank" rel="noopener"><b>Excavation support</b><small>Bracing, walls, anchors – the excavation for a deeper foundation level</small></a>⏎    <a href="https://bme-alapozas.vercel.app/telek/" target="_blank" rel="noopener"><b>One site, one semester</b><small>Nine tasks on a single site – you are the geotechnical engineer</small></a>⏎    <a href="https://bme-alapozas.vercel.app/ar-labor/" target="_blank" rel="noopener"><b>Foundation Engineering AR lab</b><small>Bearing failure, pressure bulb, CFA pile and excavation on your own desk</small></a>
+c9d2e95	Protection against harmful settlement is one stage of the course. The other interactive modules present the steps of foundation design in the same system.
+d1f50c5	The Foundation Engineering modules
+afae6cd	The rest of the series
+cb22e69	Illustrative model: 6 m thick normally consolidated clay, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0.45, C<sub>r</sub> = 0.06, e<sub>0</sub> = 1.2. If Δσ ≤ Δσ<sub>p</sub>, the soil below the building compresses only along the reloading branch (with a small slope).
+46dc2e8	Preload Δσ<sub>p</sub> <span class="v" data-for="plP"></span>
+ac5f075	Outlook: according to a widely used rule of thumb, cement-based grouting is possible if N = D<sub>15</sub>(soil)/D<sub>85</sub>(grout) &gt; 24, and not possible if N &lt; 11. The mean particle size of Portland cement is about 15 µm, that of microfine cement 3–4 µm (95% of its particles are finer than 20 µm).
+def443d	Unit cell model: a<sub>s</sub> = C·(d/s)², C = 0.907 (triangular) / 0.785 (square); settlement reduction s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. The columns also speed up consolidation as vertical drains.
+faddf90	Outlook: vibratory compaction is effective if the fines content stays below about 10–12% – the fine particles “absorb” the vibration energy.
+8bff9e5	σ<sub>2</sub> = P / (B + 2·v·tanϑ) + γ<sub>1</sub>·v, where γ<sub>1</sub> = 20 kN/m³ is the unit weight of the replacement soil – simplified illustration.
+15b08dc	<b>Did you know?</b> The 44-storey Torre Latinoamericana in Mexico City (1956), 182 m high including its antenna, stands on extremely compressible volcanic clay: its base slab is 13.5 m deep, and the load is carried by 361 piles down to a dense sand layer 33 m deep. Its structural and foundation designer, Leonardo Zeevaert, also exploited the weight of the excavated soil – the tower “does not settle, it floats”, and it withstood the magnitude 7.9 earthquake of 1957.
+72376df	A <b>strip footing deeper than 2–2.5 m</b> is no longer economical – in that case pad foundations (or caisson foundations) are advisable, tied together at the top by a grid of ground beams.
+e1ef6e0	The dashed outline is the pressure bulb of the original footing (width b, contact pressure q). The depth of the effect is set by the <b>width</b> of the foundation, the magnitude of the stress by the <b>contact pressure</b>.
+1abb432	The simulator follows the steps of the more accurate settlement calculation: permanent load → stress below the footing (below the centre of a rectangular loaded area, Steinbrenner; or Jáky’s linear approximation) → influence depth (Jáky: m<sub>0</sub> = B for a square footing; or the 0.2·σ<sub>0</sub> criterion of Hungarian practice) → summation by layer: s = Σ Δσ<sub>z</sub>·Δh / E<sub>oed</sub>. The effect of excavation is taken into account through the net pressure q<sub>0</sub> = q − γ·D; the weight of the footing and the backfill is added to the load. A teaching model, not design software.
+415f9ec	<span>influence depth m<sub>0</sub> (below foundation level)</span><b id="rM0"></b>
+d16ebfe	<span>net pressure q<sub>0</sub> = q − γ·D</span><b id="rQn"></b>
+d0c6f1a	<b id="rS">0</b><span class="u">mm settlement</span><span class="status" id="rStatus"></span>
+937cc5d	Elastic half-space + 0.2·σ<sub>0</sub>
+fdccd0a	Jáky: m<sub>0</sub> = B, linear
+8ce6d13	=
+00fd228	fines content approx. &lt; 10–12%
+3392ae9	<b>20</b><span>interactive figures</span>
+9dd6ab3	<b>Partly compensated:</b> ${pct(pc)} of the load is “counterbalanced” by the excavated soil – settlement arises only from the excess, and starts only when construction exceeds the unloading.
+f0a2fba	<div class="r"><span>building load (q)</span><b>${Math.round(qB)} kPa</b></div><div class="r"><span>excavated soil (γ·D)</span><b>${Math.round(relief)} kPa</b></div><div class="r"><span>net stress q − γ·D</span><b style="color:${net <= 0 ? 'var(--ok)' : 'var(--ink)'}">${Math.round(net)} kPa</b></div><div class="r"><span>degree of compensation</span><b>${pc > 100 ? '> ' + pct(100) : pct(pc)}</b></div>
+d98e70b	construction →
+c991739	unloading (γ·D)
+10cd8b3	excess pore pressure – peak: ${pct(umax * 100)} of the load
+e68ccf5	fraction of the final load
+457aa47	compressible clay
+5346469	soft volcanic clay
+b015943	construction and use
+54a335f	effective stress σ′ [kPa] (log)
+04bec15	<div class="r"><span>area replacement ratio a<sub>s</sub></span><b>${pct(as * 100, 1)}</b></div><div class="r"><span>settlement after treatment (s/s<sub>0</sub>)</span><b style="color:var(--ok)">${pct(ratio * 100)} (−${pct((1 - ratio) * 100)})</b></div>
+8ac76b8	unit cell: D_{e} = ${fmt(De, 2)} m
+9ed25ef	compacted zone
+1cdfbd1	large-diameter pillar
+29590b5	sandy gravel, crushed stone
+72f2dfd	<div class="r" style="grid-column:1/-1"><span class="status w">⚠ The formula overestimates at high energy; in practice max. 5⁠–⁠7 m.</span></div>
+474a4e8	<div class="r"><span>energy per drop W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>estimated depth of influence n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>drops at this point</span><b>${drops}</b></div><div class="r"><span>crater (illustration)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max. 5⁠–⁠7 m.</span></div>' : ''}
+9e972b7	loose, mixed fill
+b9e36fe	saturated fine-grained soil
+248d7e1	typically 5–7 m
+dfd9f82	<div class="r"><span>σ<sub>1</sub> at foundation level (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ<sub>2</sub> at the base of the replacement layer</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>widening per side (v·tanϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>layers to compact (≤ 30 cm)</span><b>${nl}</b></div>
+3f75bcb	groundwater
+2bd914b	underlying layer – compressible (γ_{2})
+0e525ca	cover layer (γ_{0})
+cf23377	In that case pad footings with ground beams or caisson foundations are advisable.
+46f1ef4	A strip footing deeper than <b>2–2.5 m</b> is not economical – then pad footings with ground beams or caisson foundations come into consideration.
+a867aed	Initial design: <b class="mono">${fmt(base.s, 0)} mm</b> → now <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${pct(d)}</b>
+d926b9b	 <br>⚠ <b>D > 2.5 m:</b> a strip footing this deep is no longer economical – pad footings with ground beams, caisson foundations or a basement may be considered.
+c26f420	<b>The foundation level is on the gravel</b> – the settlement is a fraction of the initial value. Remember: a strip footing deeper than 2–2.5 m is no longer economical → pad footings with ground beams, caisson foundations or a basement.
+3982511	<b>Deeper foundation level:</b> below the soft layer there is gravel from 2.6 m. Take the foundation level down! Deepening by +0.5 m: <b>${pc(dD)}</b>. When the foundation level reaches the gravel, the settlement drops to a fraction.
+96d8834	<b>Homogeneous soil:</b> widening reduces the settlement, but <b>not proportionally</b> – the wider foundation is heavier, and the stress reaches deeper below it. Widening by +0.5 m: <b>${pc(dB)}</b>; deepening by +0.5 m: <b>${pc(dD)}</b>.
+84a33fa	<b>Case B:</b> widening hardly helps (+0.5 m: <b>${pc(dB)}</b>), because under the wider foundation the stresses reach deeper, and the soft clay lower down takes the load. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}
+5392195	<b>Case B:</b> widening now <b>increases</b> the settlement (+0.5 m: <b>${pc(dB)}</b>): because of the greater influence depth, the soft clay lower down is stressed too – exactly the opposite of what we wanted!
+8e2636d	<b>Case A:</b> the wider foundation “passes on” part of the stress to the less compressible sand deeper down – reducing the contact pressure is <b>effective</b> here. Widening by +0.5 m: <b>${pc(dB)}</b>.
+9ab9baf	elastic half-space + 0.2·σ_{0}
+621c143	Jáky: m_{0} = B, linear
+e159ac9	0.2 · σ_{0} (one fifth of the self-weight stress)
+1769c08	Δσ_{z} – elastic half-space
+b9313cb	Δσ_{z} – Jáky (linear)
+eed2992	influence depth m_{0} = ${fmt(R.m0, 1)} m
+0f485cb	does not penetrate fine soil
+9e6042d	loose sand
+29fe387	low – the ground does not fracture
+611b827	high – the ground fractures
+c2720ea	Bentonite slurry foam
+d8a14ca	The crane-suspended deep vibrator <span class="nw">(Ø 25–40 cm)</span> penetrates <b>under its own weight and by vibration</b>; its descent is assisted by <b>water jetting (flushing)</b>.

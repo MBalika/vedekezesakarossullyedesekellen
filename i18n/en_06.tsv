@@ -95,16 +95,6 @@ f86c361	What justifies slowing down construction on saturated clay?
 e642e66	The capacity of the crane
 b872223	Frost
 db1188a	On saturated clay the <b>increase in pore water pressure</b> dictates a slower rate.
-2fb29e6	Under Hungarian ground conditions the serviceability limit state (settlement) often governs.
-5520f62	Often it is not the bearing resistance but the (differential) settlement that “decides”.
-47b63b5	The building is damaged primarily by the absolute settlement.
-c20e89c	Differential settlement causes tilting, additional internal forces and cracking.
-1224324	For ordinary structures on separate footings, a differential settlement of about 20 mm between adjacent columns is generally acceptable.
-b19f9c4	This is the recommended value – but the relative rotation (δs/L) governs: with a small column spacing, 20 mm already means a rotation greater than 1/500.
-0487f5c	A smaller differential settlement is acceptable on cohesive soil than on granular soil.
-f9bfb12	The other way round: on clay about one and a half times more is acceptable – the building materials cope better with the slow consolidation.
-c7bdd33	A relative rotation of 1/150 can already cause failure.
-1da6f2f	1/500 is generally acceptable structurally; 1/150 is already critical.
 136a855	Reducing the contact pressure always reduces the settlement proportionally.
 121d55c	A wider foundation is heavier, and the stresses reach deeper below it – the influence depth increases.
 7aaad92	If there is sand below the soft clay, a wider foundation passes part of the stress on to the sand.
@@ -114,7 +104,6 @@ cc3d16e	If there is soft clay below the sand, widening may even increase the set
 ea102cc	The influence depth is smaller below a wider foundation.
 380b99f	Greater: the depth of the effect is set by the width of the foundation.
 cb61697	A strip footing deeper than 2–2.5 m is no longer economical.
-59a7abc	In that case pad footings with ground beams or caisson foundations are advisable.
 277ec36	Deepening the foundation level increases the embedment, and so the safety against bearing failure increases.
 e1d4ef7	So the foundation width can also be reduced.
 a332d8b	If the weight of the excavated soil is greater than that of the structure, with a rigid raft the structure can be practically immobile.
