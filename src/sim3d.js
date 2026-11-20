@@ -1,7 +1,7 @@
 /* ===== 3D süllyedés-szimulátor: kisebb talpnyomás, mélyebb alapsík ===== */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-const U = window.U; const { $, $$, clamp, lerp, fmt, S, H, css } = U;
+const U = window.U; const { $, $$, clamp, lerp, fmt, S, H, css, rich, pct } = U;
 
 // ---------------- talajprofilok ----------------
 export const PROFILES = {
@@ -61,6 +61,13 @@ function noiseTex(kind) {
   g.globalAlpha = 1; const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace; t.userData = { canvas: c }; return t;
 }
 
+function grassTex() { // füves térszín: zöld alap apró, világosabb-sötétebb fűszálakkal
+  const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); g.fillStyle = '#7f9a5a'; g.fillRect(0, 0, 256, 256);
+  let seed = 4242; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < 5200; i++) { const x = rnd() * 256, y = rnd() * 256, l = 2 + rnd() * 4; g.strokeStyle = ['#6f8b4c', '#8fab68', '#9bb573', '#637f43'][Math.floor(rnd() * 4)]; g.globalAlpha = .55; g.lineWidth = 1; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (rnd() - .5) * 2, y - l); g.stroke(); }
+  g.globalAlpha = 1; const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(6, 3); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+
 // ---------------- hőtérkép (metszet) ----------------
 const HX0 = -7, HX1 = 7, HD = 10, HW = 224, HH = 160;
 const CMAP = [[0, [43, 109, 143]], [.25, [57, 194, 165]], [.5, [229, 174, 71]], [.75, [240, 122, 92]], [1, [181, 48, 42]]];
@@ -96,14 +103,14 @@ function isoProfile(level) { // [r, depth-alatt-alapsík] pontok a forgatott bur
 let three = null;
 const SEG = { x: 56, z: 28 };
 function init3D(host) {
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.outputColorSpace = THREE.SRGBColorSpace;
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   host.prepend(renderer.domElement);
   const scene = new THREE.Scene(); const cam = new THREE.PerspectiveCamera(36, 1.4, 0.1, 200); cam.position.set(4.6, 2.5, 13.4);
-  const ctl = new OrbitControls(cam, renderer.domElement); ctl.target.set(0, -2.4, 0); ctl.enableDamping = true; ctl.dampingFactor = 0.09; ctl.minDistance = 7; ctl.maxDistance = 30; ctl.maxPolarAngle = Math.PI * 0.6; ctl.minAzimuthAngle = -Math.PI * 0.42; ctl.maxAzimuthAngle = Math.PI * 0.42; ctl.enablePan = false; ctl.update();
-  scene.add(new THREE.HemisphereLight(0xf7f3ea, 0x5a4c40, 1.25)); const sun = new THREE.DirectionalLight(0xffffff, 1.35); sun.position.set(5, 12, 10); scene.add(sun);
+  const ctl = new OrbitControls(cam, renderer.domElement); ctl.target.set(0, -2.4, 0); ctl.enableDamping = true; ctl.dampingFactor = 0.09; ctl.minDistance = 7; ctl.maxDistance = 30; ctl.maxPolarAngle = Math.PI * 0.6; ctl.minAzimuthAngle = -Math.PI * 0.42; ctl.maxAzimuthAngle = Math.PI * 0.42; ctl.enablePan = false; ctl.update(); renderer.domElement.style.touchAction = 'pan-y';   // telefonon a függőleges húzás a lapot görgeti
+  scene.add(new THREE.HemisphereLight(0xf7f3ea, 0x5a4c40, 1.25)); const sun = new THREE.DirectionalLight(0xffffff, 1.35); sun.position.set(5, 12, 10); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.radius = 5; sun.shadow.bias = -0.0006; Object.assign(sun.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9, near: 1, far: 40 }); scene.add(sun);
   const grp = { soil: new THREE.Group(), ghost: new THREE.Group(), fnd: new THREE.Group(), bulb: new THREE.Group() }; Object.values(grp).forEach(g => scene.add(g));
   const texs = {}; ['clay', 'clay2', 'sand', 'silt', 'grav'].forEach(k => texs[k] = noiseTex(k));
-  const grass = new THREE.MeshStandardMaterial({ color: 0x86a062, roughness: 1 });
+  const grass = new THREE.MeshStandardMaterial({ map: grassTex(), roughness: 1 });
   // hőtérkép a metszetsíkon (deformálódik a talajjal)
   const hc = document.createElement('canvas'); hc.width = HW * 4; hc.height = HH * 4; const htex = new THREE.CanvasTexture(hc); htex.colorSpace = THREE.SRGBColorSpace; htex.minFilter = THREE.LinearFilter;
   const hgeo = new THREE.PlaneGeometry(HX1 - HX0, HD, 70, 50); hgeo.translate(0, -HD / 2, 0.015); hgeo.userData.base = hgeo.attributes.position.array.slice();
@@ -113,7 +120,7 @@ function init3D(host) {
   const foot = new THREE.Mesh(new THREE.BoxGeometry(1, HF, 1), conc); const col = new THREE.Mesh(new THREE.BoxGeometry(.45, 1, .45), conc);
   const back = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: 0xb8ab98, transparent: true, opacity: .55, depthWrite: false })); back.renderOrder = 3;
   const arrowM = new THREE.MeshStandardMaterial({ color: 0xd4553a, roughness: .5 }); const shaft = new THREE.Mesh(new THREE.CylinderGeometry(.07, .07, 1, 12), arrowM); const head = new THREE.Mesh(new THREE.ConeGeometry(.22, .5, 18), arrowM); head.rotation.x = Math.PI;
-  grp.fnd.add(foot, col, back, shaft, head);
+  [foot, col, shaft, head].forEach(m => { m.castShadow = true; }); grp.fnd.add(foot, col, back, shaft, head);
   const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: .28 });
   // a kivágott elülső tömb körvonala
   // határmélység: piros csík a metszetsíkon és az oldallapon + halvány sík elöl
@@ -133,7 +140,7 @@ function buildSoil3D() {
     const tex = T.texs[l.tex].clone(); tex.needsUpdate = true; tex.repeat.set(2.4, Math.max(.6, h / 3)); const mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 1 });
     const geo = new THREE.BoxGeometry(14, h, 7, SEG.x, Math.max(2, Math.ceil(h * 3)), SEG.z); geo.translate(0, -(top + bot) / 2, -3.5); geo.userData.base = geo.attributes.position.array.slice();
     const mats = [mat, mat, i === 0 ? T.grass : mat, mat, mat, mat];
-    const b = new THREE.Mesh(geo, mats); T.grp.soil.add(b); });
+    const b = new THREE.Mesh(geo, mats); b.receiveShadow = true; T.grp.soil.add(b); });
   applySettle(); T.need = true;
 }
 function buildBulbs() {
@@ -168,14 +175,14 @@ function applySettle() {
 const LBL = {};
 function labels3D() {
   const T = three, ov = $('#simOv'); if (!ov) return; const w = T.host.clientWidth, h = T.host.clientHeight; const v = new THREE.Vector3();
-  const put = (key, x, y, z, text, cls = '') => { let e = LBL[key]; if (!e) { e = H('div', { class: 'lbl ' + cls }); ov.appendChild(e); LBL[key] = e; } v.set(x, y, z).project(T.cam); const px = (v.x + 1) / 2 * w, py = (1 - v.y) / 2 * h; const vis = v.z < 1 && px > -40 && px < w + 40 && py > 24 && py < h - 24; e.style.display = vis ? 'block' : 'none'; e.textContent = text; const hw = (e.offsetWidth || 0) / 2 + 6; e.style.left = clamp(px, hw, w - hw) + 'px'; e.style.top = py + 'px'; };
+  const put = (key, x, y, z, text, cls = '') => { let e = LBL[key]; if (!e) { e = H('div', { class: 'lbl ' + cls }); ov.appendChild(e); LBL[key] = e; } v.set(x, y, z).project(T.cam); const px = (v.x + 1) / 2 * w, py = (1 - v.y) / 2 * h; const vis = v.z < 1 && px > -40 && px < w + 40 && py > 24 && py < h - 24; e.style.display = vis ? 'block' : 'none'; if (e.dataset.t !== text) { e.dataset.t = text; e.innerHTML = text; } const hw = (e.offsetWidth || 0) / 2 + 6; e.style.left = clamp(px, hw, w - hw) + 'px'; e.style.top = py + 'px'; };
   const s = -T.grp.fnd.position.y;
   put('N', 1.2, 1.75, 0, `N = ${fmt(st.N)} kN`, 'c');
   put('B', 0, -st.D - s - 0.32, st.B / 2 + 0.1, `B × B = ${fmt(st.B, 1)} × ${fmt(st.B, 1)} m`, 't');
   put('D', 1.0, -Math.max(0.3, (st.D - HF) / 2) - s, 0.25, `D = ${fmt(st.D, 1)} m`);
-  put('m0', st.B / 2 + 1.9, -(st.D + R.m0) + 0.05, 0.1, `m₀ = ${fmt(R.m0, 1)} m`, 'c');
+  put('m0', st.B / 2 + 1.9, -(st.D + R.m0) + 0.05, 0.1, `m<sub>0</sub> = ${fmt(R.m0, 1)} m`, 'c');
   put('s', st.B / 2 + 2.3, 0.35, 0.2, `s = ${fmt(R.s, 0)} mm  (×${st.ex})`, 't');
-  P().layers.forEach((l, i) => { const bot = Math.min(l.bot, HD); put('L' + i, -st.B / 2 - 2.4, -(l.top + Math.min(bot, l.top + 3)) / 2 - (i === 0 ? 0.35 : 0), 0.06, `${l.n} · Eoed = ${fmt(l.E, 1)} MPa`); });
+  P().layers.forEach((l, i) => { const bot = Math.min(l.bot, HD); put('L' + i, -st.B / 2 - 2.4, -(l.top + Math.min(bot, l.top + 3)) / 2 - (i === 0 ? 0.35 : 0), 0.06, `${l.n} · E<sub>oed</sub> = ${fmt(l.E, 1)} MPa`); });
   for (let i = P().layers.length; i < 3; i++) if (LBL['L' + i]) LBL['L' + i].style.display = 'none';
 }
 
@@ -193,21 +200,23 @@ function draw2D() {
   g.fillStyle = '#c3c7ca'; g.strokeStyle = '#4b5458'; g.lineWidth = 1.5; g.fillRect(xs(-st.B / 2), ys(st.D - HF) + s * sc, st.B * sc, HF * sc); g.strokeRect(xs(-st.B / 2), ys(st.D - HF) + s * sc, st.B * sc, HF * sc);
   g.fillRect(xs(-.22), ys(-0.9), .44 * sc, (st.D - HF + 0.9) * sc + s * sc);
   g.strokeStyle = '#d4553a'; g.setLineDash([8, 6]); g.lineWidth = 2; g.beginPath(); g.moveTo(0, ys(st.D + R.m0)); g.lineTo(w, ys(st.D + R.m0)); g.stroke(); g.setLineDash([]);
-  g.font = '700 12px Inter, sans-serif'; const tag = (x, y, t, bg) => { const tw = g.measureText(t).width + 12; g.fillStyle = bg; g.beginPath(); g.roundRect(x, y - 10, tw, 20, 5); g.fill(); g.fillStyle = '#fff'; g.fillText(t, x + 6, y + 4); };
-  tag(w - 210, ys(st.D + R.m0) - 14, `határmélység m₀ = ${fmt(R.m0, 1)} m`, 'rgba(196,72,46,.92)');
+  g.font = '700 12px Inter, sans-serif'; const F = '700 12px Inter, sans-serif', FS = '700 9px Inter, sans-serif'; const seg = (t) => String(t).split(/_\{([^}]*)\}/);
+  const tagW = (t) => seg(t).reduce((w, s, i) => { g.font = i % 2 ? FS : F; return w + g.measureText(s).width; }, 0);
+  const tag = (x, y, t, bg) => { const tw = tagW(t) + 12; x = Math.max(4, Math.min(x, w - tw - 4)); g.fillStyle = bg; g.beginPath(); g.roundRect(x, y - 10, tw, 20, 5); g.fill(); g.fillStyle = '#fff'; let cx = x + 6; seg(t).forEach((s, i) => { g.font = i % 2 ? FS : F; g.fillText(s, cx, y + 4 + (i % 2 ? 3 : 0)); cx += g.measureText(s).width; }); g.font = F; };
+  tag(w - 210, ys(st.D + R.m0) - 14, `határmélység m_{0} = ${fmt(R.m0, 1)} m`, 'rgba(196,72,46,.92)');
   tag(xs(st.B / 2) + 10, ys(st.D) + s * sc - 4, `s = ${fmt(R.s, 0)} mm (×${st.ex})`, 'rgba(13,122,104,.95)');
   tag(xs(0.22) + 10, ys(Math.max(0.35, (st.D - HF) / 2)), `D = ${fmt(st.D, 1)} m`, 'rgba(10,24,21,.8)');
   tag(w / 2 - 36, top - 30, `N = ${fmt(st.N)} kN`, 'rgba(196,72,46,.92)');
-  P().layers.forEach(l => tag(8, ys((l.top + Math.min(l.bot, HD)) / 2), `${l.n} · Eoed ${fmt(l.E, 1)} MPa`, 'rgba(10,24,21,.72)'));
+  P().layers.forEach(l => tag(8, ys((l.top + Math.min(l.bot, HD)) / 2), `${l.n} · E_{oed} = ${fmt(l.E, 1)} MPa`, 'rgba(10,24,21,.72)'));
   g.fillStyle = 'rgba(10,24,21,.7)'; g.font = '600 10px Inter, sans-serif'; for (let d = 0; d <= HD; d += 2) { g.fillRect(w - 26, ys(d), 10, 1.5); g.fillText(d + ' m', w - 52, ys(d) + 4); }
 }
 
 // ---------------- grafikonok ----------------
 function chartDepth() {
   const svg = $('#simDepth'); if (!svg) return; svg.innerHTML = ''; const W = 420, Hh = 310, L = 46, Rr = 12, T = 40, Bm = 34; svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
-  const zmax = Math.max(R.m0 * 1.25, st.B * 2.2, 3); const smax = Math.max(R.qn, 20) * 1.05; const xs = (v) => L + v / smax * (W - L - Rr), ys = (z) => T + z / zmax * (Hh - T - Bm);
+  const zmax = Math.max(R.m0 * 1.25, st.B * 2.2, 3); const sraw = Math.max(R.qn, 20) * 1.02; const sstep = [5, 10, 20, 25, 50, 100, 200, 250, 500].find(v => sraw / v <= 5) || 500; const smax = Math.ceil(sraw / sstep) * sstep; const xs = (v) => L + v / smax * (W - L - Rr), ys = (z) => T + z / zmax * (Hh - T - Bm);
   P().layers.forEach(l => { const a = clamp(l.top - st.D, 0, zmax), b = clamp(l.bot - st.D, 0, zmax); if (b > a) { S('rect', { x: L, y: ys(a), width: W - L - Rr, height: ys(b) - ys(a), fill: l.c, opacity: .16 }, svg); S('text', { x: W - Rr - 4, y: ys(b) - 6, 'text-anchor': 'end', 'font-size': 10.5, fill: css('--mute'), 'font-weight': 600 }, svg).textContent = l.n; } });
-  for (let k = 0; k <= 4; k++) { const v = smax * k / 4; S('line', { x1: xs(v), x2: xs(v), y1: T, y2: Hh - Bm, stroke: css('--line2') }, svg); S('text', { x: xs(v), y: Hh - Bm + 14, 'text-anchor': 'middle', 'font-size': 10, fill: css('--mute') }, svg).textContent = Math.round(v); }
+  for (let v = 0; v <= smax + 1e-6; v += sstep) { S('line', { x1: xs(v), x2: xs(v), y1: T, y2: Hh - Bm, stroke: css('--line2') }, svg); S('text', { x: xs(v), y: Hh - Bm + 14, 'text-anchor': 'middle', 'font-size': 10, fill: css('--mute') }, svg).textContent = Math.round(v); }
   for (let z = 0; z <= zmax; z += zmax > 8 ? 2 : 1) S('text', { x: L - 6, y: ys(z) + 3, 'text-anchor': 'end', 'font-size': 10, fill: css('--mute') }, svg).textContent = z;
   S('text', { x: (L + W) / 2, y: Hh - 4, 'text-anchor': 'middle', 'font-size': 11, fill: css('--ink2'), 'font-weight': 600 }, svg).textContent = 'feszültség [kPa]';
   S('text', { x: 12, y: (T + Hh) / 2, 'text-anchor': 'middle', 'font-size': 11, fill: css('--ink2'), 'font-weight': 600, transform: `rotate(-90 12 ${(T + Hh) / 2})` }, svg).textContent = 'mélység az alapsík alatt [m]';
@@ -216,9 +225,9 @@ function chartDepth() {
   S('polyline', { points: [...pin, ...pout].map(p => `${xs(Math.max(0, p.ds))},${ys(p.z)}`).join(' '), fill: 'none', stroke: css('--teal'), 'stroke-width': 2.6 }, svg);
   S('polyline', { points: R.prof.filter(p => p.z <= zmax).map(p => `${xs(p.crit)},${ys(p.z)}`).join(' '), fill: 'none', stroke: css('--coral'), 'stroke-width': 2, 'stroke-dasharray': '6 5' }, svg);
   S('line', { x1: L, x2: W - Rr, y1: ys(R.m0), y2: ys(R.m0), stroke: css('--coral'), 'stroke-width': 1.5 }, svg);
-  S('text', { x: xs(smax * .45), y: ys(R.m0) - 6, 'font-size': 11, fill: css('--coral-ink'), 'font-weight': 700 }, svg).textContent = `m₀ = ${fmt(R.m0, 2)} m`;
-  const lg = S('g', { transform: `translate(${L},6)` }, svg); S('line', { x1: 0, x2: 20, y1: 10, y2: 10, stroke: css('--teal'), 'stroke-width': 2.6 }, lg); S('text', { x: 26, y: 14, 'font-size': 10.5, fill: css('--ink2') }, lg).textContent = st.method === 'J' ? 'Δσz – Jáky (lineáris)' : 'Δσz – rugalmas féltér';
-  S('line', { x1: 170, x2: 190, y1: 10, y2: 10, stroke: css('--coral'), 'stroke-width': 2, 'stroke-dasharray': '6 5' }, lg); S('text', { x: 196, y: 14, 'font-size': 10.5, fill: css('--ink2') }, lg).textContent = '0,2 · σ₀ (önsúly 20%-a)';
+  rich(S('text', { x: xs(smax * .45), y: ys(R.m0) - 6, 'font-size': 11.5, fill: css('--coral-ink'), 'font-weight': 700 }, svg), `m_{0} = ${fmt(R.m0, 2)} m`);
+  const lg = S('g', { transform: `translate(${L},6)` }, svg); S('line', { x1: 0, x2: 20, y1: 10, y2: 10, stroke: css('--teal'), 'stroke-width': 2.6 }, lg); rich(S('text', { x: 26, y: 14, 'font-size': 11, fill: css('--ink2') }, lg), st.method === 'J' ? 'Δσ_{z} – Jáky (lineáris)' : 'Δσ_{z} – rugalmas féltér');
+  S('line', { x1: 170, x2: 190, y1: 10, y2: 10, stroke: css('--coral'), 'stroke-width': 2, 'stroke-dasharray': '6 5' }, lg); rich(S('text', { x: 196, y: 14, 'font-size': 11, fill: css('--ink2') }, lg), '0,2 · σ_{0} (az önsúly ötöde)');
 }
 let CURVE = null;
 function curveData() {
@@ -241,21 +250,21 @@ function chartCurve() {
   S('text', { x: (L + W) / 2, y: Hh - 4, 'text-anchor': 'middle', 'font-size': 11, fill: css('--ink2'), 'font-weight': 600 }, svg).textContent = st.curve === 'B' ? 'alapszélesség B [m]' : 'alapsík mélysége D [m]';
   S('text', { x: 12, y: (T + Hh) / 2, 'text-anchor': 'middle', 'font-size': 11, fill: css('--ink2'), 'font-weight': 600, transform: `rotate(-90 12 ${(T + Hh) / 2})` }, svg).textContent = 'süllyedés s [mm]';
   const lg = S('g', { transform: `translate(${L},6)` }, svg);
-  S('line', { x1: 0, x2: 20, y1: 10, y2: 10, stroke: css('--teal'), 'stroke-width': 3 }, lg); S('text', { x: 26, y: 14, 'font-size': 10.5, fill: css('--ink2') }, lg).textContent = 'Jáky: m₀ = B, lineáris';
-  S('line', { x1: 170, x2: 190, y1: 10, y2: 10, stroke: css('--violet'), 'stroke-width': 3 }, lg); S('text', { x: 196, y: 14, 'font-size': 10.5, fill: css('--ink2') }, lg).textContent = 'rugalmas féltér + 0,2·σ₀';
+  S('line', { x1: 0, x2: 20, y1: 10, y2: 10, stroke: css('--teal'), 'stroke-width': 3 }, lg); rich(S('text', { x: 26, y: 14, 'font-size': 11, fill: css('--ink2') }, lg), 'Jáky: m_{0} = B, lineáris');
+  S('line', { x1: 170, x2: 190, y1: 10, y2: 10, stroke: css('--violet'), 'stroke-width': 3 }, lg); rich(S('text', { x: 196, y: 14, 'font-size': 11, fill: css('--ink2') }, lg), 'rugalmas féltér + 0,2·σ_{0}');
 }
 
 // ---------------- eredmények, szöveges értékelés ----------------
 function insight() {
   const pk = st.pk; const r = (o) => calc({ P: P(), N: st.N, B: st.B, D: st.D, method: st.method, ...o }, false).s;
   const dB = r({ B: Math.min(4.5, st.B + 0.5) }) - R.s, dD = r({ D: Math.min(4, st.D + 0.5) }) - R.s;
-  const pct = (d) => (d > 0 ? '+' : '') + fmt(d / R.s * 100, 0) + '%';
+  const pc = (d) => (d > 0 ? '+' : '') + pct(d / R.s * 100);
   let t = '';
-  if (pk === 'A') t = `<b>A eset:</b> a szélesebb alap a feszültség egy részét a mélyebben lévő, kevésbé összenyomódó homokra „közvetíti” – a talpnyomás csökkentése itt <b>hatásos</b>. +0,5 m szélesítés: <b>${pct(dB)}</b>.`;
-  if (pk === 'B') t = dB > 0 ? `<b>B eset:</b> a szélesítés most <b>növeli</b> a süllyedést (+0,5 m: <b>${pct(dB)}</b>): a nagyobb határmélység miatt a lejjebb fekvő puha agyag is feszültséget kap – pont az ellenkező hatást érjük el!` : `<b>B eset:</b> a szélesítés alig segít (+0,5 m: <b>${pct(dB)}</b>), mert a szélesebb alap alatt mélyebbre jutnak a feszültségek, és a lejjebb fekvő puha agyag kapja a terhet. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}`;
-  if (pk === 'C') t = `<b>Homogén talaj:</b> a szélesítés csökkenti a süllyedést, de <b>nem arányosan</b> – a szélesebb alap nehezebb, és alatta mélyebbre jut a feszültség. +0,5 m szélesítés: <b>${pct(dB)}</b>; +0,5 m mélyítés: <b>${pct(dD)}</b>.`;
-  if (pk === 'D') t = st.D + 0.001 < 2.6 ? `<b>Mélyebb alapsík:</b> a puha réteg alatt 2,6 m-től kavics van. Vidd lejjebb az alapsíkot! +0,5 m mélyítés: <b>${pct(dD)}</b>. Ha az alapsík eléri a kavicsot, a süllyedés töredékére csökken.` : `<b>Az alapsík a kavicson van</b> – a süllyedés töredéke a kiindulónak. Ne feledd: 2–2,5 m-nél mélyebb sávalap már nem gazdaságos → pontalap gerendaráccsal, kútalapozás, vagy pince.`;
-  if (st.D > 2.5 && pk !== 'D') t += ` <br>⚠ <b>D > 2,5 m:</b> ilyen mély sávalap már nem gazdaságos – pontalap + gerendarács, kútalapozás vagy pince jöhet szóba.`;
+  if (pk === 'A') t = `<b>A eset:</b> a szélesebb alap a feszültség egy részét a mélyebben lévő, kevésbé összenyomódó homokra „közvetíti” – a talpnyomás csökkentése itt <b>hatásos</b>. +0,5 m szélesítés: <b>${pc(dB)}</b>.`;
+  if (pk === 'B') t = dB > 0 ? `<b>B eset:</b> a szélesítés most <b>növeli</b> a süllyedést (+0,5 m: <b>${pc(dB)}</b>): a nagyobb határmélység miatt a lejjebb fekvő puha agyag is feszültséget kap – pont az ellenkező hatást érjük el!` : `<b>B eset:</b> a szélesítés alig segít (+0,5 m: <b>${pc(dB)}</b>), mert a szélesebb alap alatt mélyebbre jutnak a feszültségek, és a lejjebb fekvő puha agyag kapja a terhet. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}`;
+  if (pk === 'C') t = `<b>Homogén talaj:</b> a szélesítés csökkenti a süllyedést, de <b>nem arányosan</b> – a szélesebb alap nehezebb, és alatta mélyebbre jut a feszültség. +0,5 m szélesítés: <b>${pc(dB)}</b>; +0,5 m mélyítés: <b>${pc(dD)}</b>.`;
+  if (pk === 'D') t = st.D + 0.001 < 2.6 ? `<b>Mélyebb alapsík:</b> a puha réteg alatt 2,6 m-től kavics van. Vidd lejjebb az alapsíkot! +0,5 m mélyítés: <b>${pc(dD)}</b>. Ha az alapsík eléri a kavicsot, a süllyedés töredékére csökken.` : `<b>Az alapsík a kavicson van</b> – a süllyedés töredéke a kiindulónak. Ne feledd: 2–2,5 m-nél mélyebb sávalap már nem gazdaságos → pilléralap gerendaráccsal, kútalapozás vagy pince.`;
+  if (st.D > 2.5 && pk !== 'D') t += ` <br>⚠ <b>D > 2,5 m:</b> ilyen mély sávalap már nem gazdaságos – pilléralap gerendaráccsal, kútalapozás vagy pince jöhet szóba.`;
   $('#simInsight').innerHTML = t;
 }
 function results() {
@@ -263,7 +272,7 @@ function results() {
   const bar = $('#rBar'); bar.style.width = clamp(s / 100 * 100, 2, 100) + '%'; bar.style.background = col;
   $('#rQ').textContent = fmt(R.q, 0) + ' kPa'; $('#rQn').textContent = fmt(R.qn, 0) + ' kPa'; $('#rM0').textContent = fmt(R.m0, 2) + ' m'; $('#rW').textContent = fmt(R.W, 0) + ' kN';
   const st0 = $('#rStatus'); st0.className = 'status' + (s <= 25 ? '' : s <= 50 ? ' w' : ' b'); st0.textContent = s <= 25 ? 'kis süllyedés' : s <= 50 ? 'általában megengedhető (≤ 50 mm)' : 'túl nagy – beavatkozás kell';
-  const cmp = $('#rCmp'); if (base && base.pk === st.pk) { const d = (s - base.s) / base.s * 100; cmp.innerHTML = `Kiinduló terv: <b class="mono">${fmt(base.s, 0)} mm</b> → most <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${fmt(d, 0)}%</b>`; } else cmp.innerHTML = 'Rögzíts egy kiinduló tervet az összevetéshez.';
+  const cmp = $('#rCmp'); if (base && base.pk === st.pk) { const d = (s - base.s) / base.s * 100; cmp.innerHTML = `Kiinduló terv: <b class="mono">${fmt(base.s, 0)} mm</b> → most <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${pct(d)}</b>`; } else cmp.innerHTML = 'Rögzíts egy kiinduló tervet az összevetéshez.';
   const c = cost(st.B, st.D); $('#rCost').textContent = fmt(c, 0);
   const ch = $('#rChal'); const k = st.pk + st.N; if (s <= 25 && (!best[k] || c < best[k])) best[k] = c; ch.innerHTML = s <= 25 ? `★ Teljesítve! Ráfordítás: <b class="mono">${fmt(c, 0)}</b>${best[k] ? ` · legjobb: <b class="mono">${fmt(best[k], 0)}</b>` : ''}` : `Cél: s ≤ 25 mm a lehető legkisebb ráfordítással${best[k] ? ` · legjobb: <b class="mono">${fmt(best[k], 0)}</b>` : ''}`;
   const cb = $('#rContrib'); cb.innerHTML = ''; const tot = Math.max(s, 1e-6); P().layers.forEach(l => { const v = R.contrib[l.n] || 0; if (v <= 0.01) return; cb.appendChild(H('div', { style: `flex:${v / tot};background:${l.c};min-width:2px`, title: `${l.n}: ${fmt(v, 1)} mm` })); });

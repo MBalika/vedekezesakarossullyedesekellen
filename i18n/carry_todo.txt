@@ -1,0 +1,302 @@
+### fbab74a sim 0.74
+ÚJ : Interaktív tananyag a BME Építőmérnöki Kar Alapozás tárgyához (Geotechnika és Mérnökgeológia Tanszék). A számpéldák és a szimulátorok oktatási célú, egyszerűsített modellek.
+RÉGI: Interaktív tananyag a BME Építőmérnöki Kar Alapozás tárgyához (Geotechnika és Mérnökgeológia Tanszék).
+EN  : Interactive module for the Foundation Engineering course at the BME Faculty of Civil Engineering (Department of Engineering Geology and Geotechnics).
+
+### 0b7b4bc sim 0.14
+ÚJ : <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése ↗</b><small>Alapsík, alaptípus, törési mechanizmus – a tervezés lépései</small></a>⏎    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok teherbírásszámítása ↗</b><small>Az alapfelület méretezése teherbírási határállapotban</small></a>⏎    <a href="https://bme-alapozas.vercel.app/" target="_blank" rel="noopener"><b>Alapozás – nyitóoldal ↗</b><small>A tárgy útja kilenc állomáson és minden tananyag egy helyen</small></a>⏎    <a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener"><b>Talajfelderítés ↗</b><small>Fúrás, szondázás, geofizika, mintavétel – mit tudunk meg a talajról</small></a>⏎    <a href="https://sikalapokallekonysagvizsgalata.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok állékonyságvizsgálata ↗</b><small>Elcsúszás, felborulás, felúszás, általános állékonyság</small></a>⏎    <a href="https://sikalapok-sullyedesszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása ↗</b><small>Feszültségek az altalajban, süllyedés, süllyedéstűrés, mérés</small></a>⏎    <a href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Alapozás kedvezőtlen altalajon ↗</b><small>Térfogatváltozó agyag, roskadékony lösz, feltöltés, szerves talaj</small></a>⏎    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>A síkalapokat érő hatások ↗</b><small>Rezgés, földrengés, üreg, kimosás és fagy az alap alatt</small></a>⏎    <a href="https://melyalapozasok.vercel.app/" target="_blank" rel="noopener"><b>Mélyalapozások ↗</b><small>Cölöpök, résfalak, kutak – ha a teherbíró réteg mélyen van</small></a>⏎    <a href="https://munkaterhatarolasok.vercel.app/" target="_blank" rel="noopener"><b>Munkatérhatárolások ↗</b><small>Dúcolás, falak, horgonyzás – a mélyebb alapsík munkagödre</small></a>⏎    <a href="https://bme-alapozas.vercel.app/telek/" target="_blank" rel="noopener"><b>Egy telek, egy félév ↗</b><small>Kilenc feladat egyetlen telken – te vagy a geotechnikus</small></a>⏎    <a href="https://bme-alapozas.vercel.app/ar-labor/" target="_blank" rel="noopener"><b>Alapozás AR labor ↗</b><small>Talajtörés, feszültséghagyma, CFA cölöp és munkagödör a saját asztalodon</small></a>
+
+### c9d2e95 sim 0.37
+ÚJ : A káros süllyedések elleni védekezés a tárgy egyik állomása. A többi interaktív tananyag ugyanebben a rendszerben mutatja be az alapozás tervezésének lépéseit.
+
+### d1f50c5 sim 0.62
+ÚJ : Az Alapozás tananyagai
+RÉGI: BME · Alapozás · interaktív tananyag
+EN  : BME · Foundation Engineering · interactive module
+
+### afae6cd sim 0.47
+ÚJ : A sorozat többi része
+
+### cb22e69 sim 0.87
+ÚJ : Szemléltető modell: 6 m vastag normálisan konszolidált agyag, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0,45, C<sub>r</sub> = 0,06, e<sub>0</sub> = 1,2. Ha Δσ ≤ Δσ<sub>p</sub>, az épület alatt csak az újraterhelési (kis meredekségű) ágon nyomódik össze a talaj.
+RÉGI: Szemléltető modell: 6 m vastag normálisan konszolidált agyag, σ′₀ = 60 kPa, Cc = 0,45, Cr = 0,06, e₀ = 1,2. Ha Δσ ≤ Δσₚ, az épület alatt csak az újraterhelési (kis meredekségű) ágon nyomódik össze a talaj.
+EN  : Illustrative model: 6 m thick normally consolidated clay, σ′₀ = 60 kPa, Cc = 0.45, Cr = 0.06, e₀ = 1.2. If Δσ ≤ Δσₚ, the soil below the building compresses only along the reloading branch (with a small slope).
+
+### 46dc2e8 sim 0.89
+ÚJ : Előterhelés Δσ<sub>p</sub> <span class="v" data-for="plP"></span>
+RÉGI: Előterhelés Δσₚ <span class="v" data-for="plP"></span>
+EN  : Preload Δσₚ <span class="v" data-for="plP"></span>
+
+### ac5f075 sim 0.87
+ÚJ : Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D<sub>15</sub>(talaj)/D<sub>85</sub>(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 3–4 µm (szemcséinek 95 %-a 20 µm-nél finomabb).
+RÉGI: Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D₁₅(talaj)/D₈₅(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 6–10 µm.
+EN  : Outlook: according to a widely used rule of thumb, cement-based grouting is possible if N = D₁₅(soil)/D₈₅(grout) &gt; 24, and not possible if N &lt; 11. The mean particle size of Portland cement is about 15 µm, that of microcement 6–10 µm.
+
+### def443d sim 0.90
+ÚJ : Egységcella-modell: a<sub>s</sub> = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.
+RÉGI: Egységcella-modell: aₛ = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s₀ = 1 / [1 + aₛ(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.
+EN  : Unit cell model: aₛ = C·(d/s)², C = 0.907 (triangular) / 0.785 (square); settlement reduction s/s₀ = 1 / [1 + aₛ(n − 1)]. The columns also speed up consolidation as vertical drains.
+
+### faddf90 sim 1.00
+ÚJ : Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12 % alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.
+RÉGI: Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12% alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.
+EN  : Outlook: vibratory compaction is effective if the fines content stays below about 10–12% – the fine particles “absorb” the vibration energy.
+
+### 8bff9e5 sim 0.67
+ÚJ : σ<sub>2</sub> = P / (B + 2·v·tgϑ) + γ<sub>1</sub>·v, ahol γ<sub>1</sub> = 20 kN/m³ a cseretalaj térfogatsúlya – egyszerűsített szemléltetés.
+RÉGI: σ² = P / (B + 2·v·tgϑ) + γ₁·v, γ₁ = 20 kN/m³ – egyszerűsített szemléltetés.
+EN  : σ² = P / (B + 2·v·tanϑ) + γ₁·v, γ₁ = 20 kN/m³ – simplified illustration.
+
+### 15b08dc sim 0.98
+ÚJ : <b>Tudtad?</b> Mexikóváros antennával együtt 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.
+RÉGI: <b>Tudtad?</b> Mexikóváros 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.
+EN  : <b>Did you know?</b> The 182 m high, 44-storey Torre Latinoamericana in Mexico City (1956) stands on extremely compressible volcanic clay: its base slab is 13.5 m deep, and the load is carried by 361 piles down to a dense sand layer 33 m deep. Its structural and foundation designer, Leonardo Zeevaert, also exploited the weight of the excavated soil – the tower “does not settle, it floats”, and it withstood the magnitude 7.9 earthquake of 1957.
+
+### 72376df sim 0.95
+ÚJ : <b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pilléralapozás (vagy kútalapozás) célszerű, amelyet felül gerendarács köt össze.
+RÉGI: <b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pontalapozás (vagy kútalapozás) célszerű, melyet felül gerendaráccsal kötnek össze.
+EN  : A <b>strip footing deeper than 2–2.5 m</b> is no longer economical – in that case pad foundations (or caisson foundations) are advisable, tied together at the top by a grid of ground beams.
+
+### e1ef6e0 sim 0.70
+ÚJ : A szaggatott vonal az eredeti (b szélességű, q talpfeszültségű) alap feszültségburája. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.
+RÉGI: A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.
+EN  : The depth of the effect is set by the <b>width</b> of the foundation, the magnitude of the stress by the <b>contact pressure</b>.
+
+### 1abb432 sim 0.94
+ÚJ : A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m<sub>0</sub> = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ<sub>0</sub> kritérium) → rétegenkénti összegzés: s = Σ Δσ<sub>z</sub>·Δh / E<sub>oed</sub>. A földkiemelés hatását a q<sub>0</sub> = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.
+RÉGI: A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m₀ = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ₀ kritérium) → rétegenkénti összegzés: s = Σ Δσz·Δh / Eoed. A földkiemelés hatását a q₀ = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.
+EN  : The simulator follows the steps of the more accurate settlement calculation: permanent load → stress below the footing (below the centre of a rectangular loaded area, Steinbrenner; or Jáky’s linear approximation) → influence depth (Jáky: m₀ = B for a square footing; or the 0.2·σ₀ criterion of Hungarian practice) → summation by layer: s = Σ Δσz·Δh / Eoed. The effect of excavation is taken into account through the net pressure q₀ = q − γ·D; the weight of the footing and the backfill is added to the load. A teaching model, not design software.
+
+### 415f9ec sim 0.90
+ÚJ : <span>határmélység m<sub>0</sub> (alapsík alatt)</span><b id="rM0"></b>
+RÉGI: <span>határmélység m₀ (alapsík alatt)</span><b id="rM0"></b>
+EN  : <span>influence depth m₀ (below foundation level)</span><b id="rM0"></b>
+
+### d16ebfe sim 0.90
+ÚJ : <span>többletfeszültség q<sub>0</sub> = q − γ·D</span><b id="rQn"></b>
+RÉGI: <span>többletfeszültség q₀ = q − γ·D</span><b id="rQn"></b>
+EN  : <span>net pressure q₀ = q − γ·D</span><b id="rQn"></b>
+
+### d0c6f1a sim 0.94
+ÚJ : <b id="rS">0</b><span class="u">mm süllyedés</span><span class="status" id="rStatus"></span>
+RÉGI: <b id="rS">0</b><span>mm süllyedés</span><span class="status" id="rStatus"></span>
+EN  : <b id="rS">0</b><span>mm settlement</span><span class="status" id="rStatus"></span>
+
+### 937cc5d sim 0.78
+ÚJ : Rugalmas féltér + 0,2·σ<sub>0</sub>
+RÉGI: Rugalmas féltér + 0,2·σ₀
+EN  : Elastic half-space + 0.2·σ₀
+
+### fdccd0a sim 0.76
+ÚJ : Jáky: m<sub>0</sub> = B, lineáris
+RÉGI: Jáky: m₀ = B, lineáris
+EN  : Jáky: m₀ = B, linear
+
+### 8ce6d13 sim 0.78
+ÚJ : <span>Δσ<sub>z</sub>/q<sub>0</sub></span><i></i><span>0 → 1</span>
+RÉGI: <span>Δσz/q₀</span><i></i><span>0 → 1</span>
+EN  : =
+
+### 00fd228 sim 0.99
+ÚJ : finomszem-tartalom kb. &lt; 10–12 %
+RÉGI: finomszem-tartalom kb. &lt; 10–12%
+EN  : fines content approx. &lt; 10–12%
+
+### 3392ae9 sim 0.93
+ÚJ : <b>20</b><span>interaktív ábra</span>
+RÉGI: <b>15+</b><span>interaktív ábra</span>
+EN  : <b>15+</b><span>interactive figures</span>
+
+### 9dd6ab3 sim 0.99
+ÚJ : <b>Részben kompenzált:</b> a terhelés ${pct(pc)}-át a kiemelt föld „ellensúlyozza” – a süllyedés csak a többletből keletkezik, és csak akkor indul meg, amikor az építés túllépi a tehermentesítést.
+RÉGI: <b>Részben kompenzált:</b> a terhelés ${pct}%-át a kiemelt föld „ellensúlyozza” – a süllyedés csak a többletből keletkezik, és csak akkor indul meg, amikor az építés túllépi a tehermentesítést.
+EN  : <b>Partly compensated:</b> ${pct}% of the load is “counterbalanced” by the excavated soil – settlement arises only from the excess, and starts only when construction exceeds the unloading.
+
+### f0a2fba sim 0.96
+ÚJ : <div class="r"><span>épületteher (q)</span><b>${Math.round(qB)} kPa</b></div><div class="r"><span>kiemelt föld (γ·D)</span><b>${Math.round(relief)} kPa</b></div><div class="r"><span>többletfeszültség q − γ·D</span><b style="color:${net <= 0 ? 'var(--ok)' : 'var(--ink)'}">${Math.round(net)} kPa</b></div><div class="r"><span>kompenzáltság</span><b>${pc > 100 ? '> ' + pct(100) : pct(pc)}</b></div>
+RÉGI: <div class="r"><span>épületteher (q)</span><b>${Math.round(qB)} kPa</b></div><div class="r"><span>kiemelt föld (γ·D)</span><b>${Math.round(relief)} kPa</b></div><div class="r"><span>többletfeszültség q − γ·D</span><b style="color:${net <= 0 ? 'var(--ok)' : 'var(--ink)'}">${Math.round(net)} kPa</b></div><div class="r"><span>kompenzáltság</span><b>${pct}%</b></div>
+EN  : <div class="r"><span>building load (q)</span><b>${Math.round(qB)} kPa</b></div><div class="r"><span>excavated soil (γ·D)</span><b>${Math.round(relief)} kPa</b></div><div class="r"><span>net stress q − γ·D</span><b style="color:${net <= 0 ? 'var(--ok)' : 'var(--ink)'}">${Math.round(net)} kPa</b></div><div class="r"><span>degree of compensation</span><b>${pct}%</b></div>
+
+### d98e70b sim 0.71
+ÚJ : építés →
+RÉGI: új építés
+EN  : new construction
+
+### c991739 sim 0.83
+ÚJ : tehermentesítés (γ·D)
+RÉGI: tehermentesítés
+EN  : unloading
+
+### 10cd8b3 sim 0.72
+ÚJ : pórusvíz-túlnyomás – csúcsa a teher ${pct(umax * 100)}-a
+RÉGI: pórusvíz-túlnyomás csúcsa: ${Math.round(umax * 100)}% a teherből
+EN  : peak excess pore pressure: ${Math.round(umax * 100)}% of the load
+
+### e68ccf5 sim 0.47
+ÚJ : a végső teher arányában
+
+### 457aa47 sim 0.71
+ÚJ : összenyomható agyag
+RÉGI: összenyomható kötött talaj
+EN  : compressible cohesive soil
+
+### 5346469 sim 0.71
+ÚJ : puha vulkáni agyag
+RÉGI: puha agyag
+EN  : soft clay
+
+### b015943 sim 0.55
+ÚJ : építés és használat
+
+### 54a335f sim 0.97
+ÚJ : hatékony feszültség σ′ [kPa] (log)
+RÉGI: hatékony feszültség σ' [kPa] (log)
+EN  : effective stress σ' [kPa] (log)
+
+### 04bec15 sim 0.89
+ÚJ : <div class="r"><span>területi helyettesítési arány a<sub>s</sub></span><b>${pct(as * 100, 1)}</b></div><div class="r"><span>süllyedés a kezelés után (s/s<sub>0</sub>)</span><b style="color:var(--ok)">${pct(ratio * 100)} (−${pct((1 - ratio) * 100)})</b></div>
+RÉGI: <div class="r"><span>területi helyettesítési arány aₛ</span><b>${fmt(as * 100, 1)}%</b></div><div class="r"><span>süllyedés javult kezelés után</span><b style="color:var(--ok)">${fmt(ratio * 100, 0)}% (−${fmt((1 - ratio) * 100, 0)}%)</b></div>
+EN  : <div class="r"><span>area replacement ratio aₛ</span><b>${fmt(as * 100, 1)}%</b></div><div class="r"><span>settlement after treatment</span><b style="color:var(--ok)">${fmt(ratio * 100, 0)}% (−${fmt((1 - ratio) * 100, 0)}%)</b></div>
+
+### 8ac76b8 sim 0.94
+ÚJ : egységcella: D_{e} = ${fmt(De, 2)} m
+RÉGI: egységcella De = ${fmt(De, 2)} m
+EN  : unit cell De = ${fmt(De, 2)} m
+
+### 9ed25ef sim 0.63
+ÚJ : tömörödött zóna
+RÉGI: 4. Kész tömörített zóna
+EN  : 4. Finished compacted zone
+
+### 1cdfbd1 sim 0.72
+ÚJ : nagy átmérőjű tömzs
+RÉGI: Nagyátmérőjű fúrt
+EN  : Large-diameter bored
+
+### 29590b5 sim 0.68
+ÚJ : homokos kavics, zúzottkő
+RÉGI: Homokos kavics
+EN  : Sandy gravel
+
+### 72f2dfd sim 0.91
+ÚJ : <div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max. 5⁠–⁠7 m.</span></div>
+RÉGI: <div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max.\u00a05\u2060–\u20607\u00a0m.</span></div>
+EN  : <div class="r" style="grid-column:1/-1"><span class="status w">⚠ The formula overestimates at high energy; in practice max. 5⁠–⁠7 m.</span></div>
+
+### 474a4e8 sim 0.97
+ÚJ : <div class="r"><span>ejtésenkénti energia W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>becsült hatásmélység n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>ejtések ezen a ponton</span><b>${drops}</b></div><div class="r"><span>gödör (szemléltetés)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max. 5⁠–⁠7 m.</span></div>' : ''}
+RÉGI: <div class="r"><span>ejtésenkénti energia W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>becsült hatásmélység n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>ejtések ezen a ponton</span><b>${drops}</b></div><div class="r"><span>gödör (szemléltetés)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max.\u00a05\u2060–\u20607\u00a0m.</span></div>' : ''}
+EN  : <div class="r"><span>energy per drop W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>estimated depth of influence n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>drops at this point</span><b>${drops}</b></div><div class="r"><span>crater (illustration)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max.\u00a05\u2060–\u20607\u00a0m.</span></div>' : ''}
+
+### 9e972b7 sim 0.82
+ÚJ : laza, vegyes feltöltés
+RÉGI: vegyes, feltöltés
+EN  : mixed, fill
+
+### b9e36fe sim 0.88
+ÚJ : telített finomszemcsés talaj
+RÉGI: telített finomszemcsés
+EN  : saturated fine-grained
+
+### 248d7e1 sim 0.54
+ÚJ : jellemzően 5–7 m
+
+### dfd9f82 sim 0.97
+ÚJ : <div class="r"><span>σ<sub>1</sub> az alapsíkon (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ<sub>2</sub> a csereréteg alján</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>kiszélesítés oldalanként (v·tgϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>tömörítendő rétegek (≤ 30 cm)</span><b>${nl} db</b></div>
+RÉGI: <div class="r"><span>σ¹ az alapsíkon (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ² a csereréteg alján</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>kiszélesítés oldalanként (v·tgϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>tömörítendő rétegek (≤ 30 cm)</span><b>${nl} db</b></div>
+EN  : <div class="r"><span>σ¹ at foundation level (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ² at the base of the replacement layer</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>widening per side (v·tanϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>layers to compact (≤ 30 cm)</span><b>${nl}</b></div>
+
+### 3f75bcb sim 0.62
+ÚJ : talajvíz
+RÉGI: Talaj
+EN  : Soil
+
+### 2bd914b sim 0.92
+ÚJ : alapréteg – összenyomható (γ_{2})
+RÉGI: alapréteg – összenyomható (γ₂)
+EN  : underlying layer – compressible (γ₂)
+
+### 0e525ca sim 0.86
+ÚJ : takaróréteg (γ_{0})
+RÉGI: takaróréteg (γ₀)
+EN  : cover layer (γ₀)
+
+### cf23377 sim 0.93
+ÚJ : Ilyenkor pilléralap gerendaráccsal vagy kútalapozás célszerű.
+RÉGI: Ilyenkor pontalap gerendaráccsal vagy kútalapozás célszerű.
+EN  : In that case pad footings with ground beams or caisson foundations are advisable.
+
+### 46f1ef4 sim 0.96
+ÚJ : <b>2–2,5 m</b>-nél mélyebb sávalap nem gazdaságos – ilyenkor pilléralap gerendaráccsal vagy kútalapozás jön szóba.
+RÉGI: <b>2–2,5 m</b>-nél mélyebb sávalap nem gazdaságos – ilyenkor pontalap gerendaráccsal vagy kútalapozás jön szóba.
+EN  : A strip footing deeper than <b>2–2.5 m</b> is not economical – then pad footings with ground beams or caisson foundations come into consideration.
+
+### a867aed sim 0.98
+ÚJ : Kiinduló terv: <b class="mono">${fmt(base.s, 0)} mm</b> → most <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${pct(d)}</b>
+RÉGI: Kiinduló terv: <b class="mono">${fmt(base.s, 0)} mm</b> → most <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${fmt(d, 0)}%</b>
+EN  : Initial design: <b class="mono">${fmt(base.s, 0)} mm</b> → now <b class="mono" style="color:${d <= 0 ? css('--ok') : css('--coral')}">${d > 0 ? '+' : ''}${fmt(d, 0)}%</b>
+
+### d926b9b sim 0.95
+ÚJ :  <br>⚠ <b>D > 2,5 m:</b> ilyen mély sávalap már nem gazdaságos – pilléralap gerendaráccsal, kútalapozás vagy pince jöhet szóba.
+RÉGI:  <br>⚠ <b>D > 2,5 m:</b> ilyen mély sávalap már nem gazdaságos – pontalap + gerendarács, kútalapozás vagy pince jöhet szóba.
+EN  :  <br>⚠ <b>D > 2.5 m:</b> a strip footing this deep is no longer economical – pad footings + ground beams, caisson foundations or a basement may be considered.
+
+### c26f420 sim 0.98
+ÚJ : <b>Az alapsík a kavicson van</b> – a süllyedés töredéke a kiindulónak. Ne feledd: 2–2,5 m-nél mélyebb sávalap már nem gazdaságos → pilléralap gerendaráccsal, kútalapozás vagy pince.
+RÉGI: <b>Az alapsík a kavicson van</b> – a süllyedés töredéke a kiindulónak. Ne feledd: 2–2,5 m-nél mélyebb sávalap már nem gazdaságos → pontalap gerendaráccsal, kútalapozás, vagy pince.
+EN  : <b>The foundation level is on the gravel</b> – the settlement is a fraction of the initial value. Remember: a strip footing deeper than 2–2.5 m is no longer economical → pad footings with ground beams, caisson foundations, or a basement.
+
+### 3982511 sim 1.00
+ÚJ : <b>Mélyebb alapsík:</b> a puha réteg alatt 2,6 m-től kavics van. Vidd lejjebb az alapsíkot! +0,5 m mélyítés: <b>${pc(dD)}</b>. Ha az alapsík eléri a kavicsot, a süllyedés töredékére csökken.
+RÉGI: <b>Mélyebb alapsík:</b> a puha réteg alatt 2,6 m-től kavics van. Vidd lejjebb az alapsíkot! +0,5 m mélyítés: <b>${pct(dD)}</b>. Ha az alapsík eléri a kavicsot, a süllyedés töredékére csökken.
+EN  : <b>Deeper foundation level:</b> below the soft layer there is gravel from 2.6 m. Take the foundation level down! Deepening by +0.5 m: <b>${pct(dD)}</b>. When the foundation level reaches the gravel, the settlement drops to a fraction.
+
+### 96d8834 sim 1.00
+ÚJ : <b>Homogén talaj:</b> a szélesítés csökkenti a süllyedést, de <b>nem arányosan</b> – a szélesebb alap nehezebb, és alatta mélyebbre jut a feszültség. +0,5 m szélesítés: <b>${pc(dB)}</b>; +0,5 m mélyítés: <b>${pc(dD)}</b>.
+RÉGI: <b>Homogén talaj:</b> a szélesítés csökkenti a süllyedést, de <b>nem arányosan</b> – a szélesebb alap nehezebb, és alatta mélyebbre jut a feszültség. +0,5 m szélesítés: <b>${pct(dB)}</b>; +0,5 m mélyítés: <b>${pct(dD)}</b>.
+EN  : <b>Homogeneous soil:</b> widening reduces the settlement, but <b>not proportionally</b> – the wider foundation is heavier, and the stress reaches deeper below it. Widening by +0.5 m: <b>${pct(dB)}</b>; deepening by +0.5 m: <b>${pct(dD)}</b>.
+
+### 84a33fa sim 1.00
+ÚJ : <b>B eset:</b> a szélesítés alig segít (+0,5 m: <b>${pc(dB)}</b>), mert a szélesebb alap alatt mélyebbre jutnak a feszültségek, és a lejjebb fekvő puha agyag kapja a terhet. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}
+RÉGI: <b>B eset:</b> a szélesítés alig segít (+0,5 m: <b>${pct(dB)}</b>), mert a szélesebb alap alatt mélyebbre jutnak a feszültségek, és a lejjebb fekvő puha agyag kapja a terhet. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}
+EN  : <b>Case B:</b> widening hardly helps (+0.5 m: <b>${pct(dB)}</b>), because under the wider foundation the stresses reach deeper, and the soft clay lower down takes the load. ${st.method === 'E' ? 'Válts Jáky-módszerre: ott a süllyedés még nő is!' : ''}
+
+### 5392195 sim 1.00
+ÚJ : <b>B eset:</b> a szélesítés most <b>növeli</b> a süllyedést (+0,5 m: <b>${pc(dB)}</b>): a nagyobb határmélység miatt a lejjebb fekvő puha agyag is feszültséget kap – pont az ellenkező hatást érjük el!
+RÉGI: <b>B eset:</b> a szélesítés most <b>növeli</b> a süllyedést (+0,5 m: <b>${pct(dB)}</b>): a nagyobb határmélység miatt a lejjebb fekvő puha agyag is feszültséget kap – pont az ellenkező hatást érjük el!
+EN  : <b>Case B:</b> widening now <b>increases</b> the settlement (+0.5 m: <b>${pct(dB)}</b>): because of the greater influence depth, the soft clay lower down is stressed too – exactly the opposite of what we wanted!
+
+### 8e2636d sim 1.00
+ÚJ : <b>A eset:</b> a szélesebb alap a feszültség egy részét a mélyebben lévő, kevésbé összenyomódó homokra „közvetíti” – a talpnyomás csökkentése itt <b>hatásos</b>. +0,5 m szélesítés: <b>${pc(dB)}</b>.
+RÉGI: <b>A eset:</b> a szélesebb alap a feszültség egy részét a mélyebben lévő, kevésbé összenyomódó homokra „közvetíti” – a talpnyomás csökkentése itt <b>hatásos</b>. +0,5 m szélesítés: <b>${pct(dB)}</b>.
+EN  : <b>Case A:</b> the wider foundation “passes on” part of the stress to the less compressible sand deeper down – reducing the contact pressure is <b>effective</b> here. Widening by +0.5 m: <b>${pct(dB)}</b>.
+
+### 9ab9baf sim 0.90
+ÚJ : rugalmas féltér + 0,2·σ_{0}
+RÉGI: rugalmas féltér + 0,2·σ₀
+EN  : elastic half-space + 0.2·σ₀
+
+### 621c143 sim 0.89
+ÚJ : Jáky: m_{0} = B, lineáris
+RÉGI: Jáky: m₀ = B, lineáris
+EN  : Jáky: m₀ = B, linear
+
+### e159ac9 sim 0.65
+ÚJ : 0,2 · σ_{0} (az önsúly ötöde)
+RÉGI: 0,2 · σ₀ (önsúly 20%-a)
+EN  : 0.2 · σ₀ (20% of self-weight stress)
+
+### 1769c08 sim 0.93
+ÚJ : Δσ_{z} – rugalmas féltér
+RÉGI: Δσz – rugalmas féltér
+EN  : Δσz – elastic half-space
+
+### b9313cb sim 0.93
+ÚJ : Δσ_{z} – Jáky (lineáris)
+RÉGI: Δσz – Jáky (lineáris)
+EN  : Δσz – Jáky (linear)
+
+### eed2992 sim 0.93
+ÚJ : határmélység m_{0} = ${fmt(R.m0, 1)} m
+RÉGI: határmélység m₀ = ${fmt(R.m0, 1)} m
+EN  : influence depth m₀ = ${fmt(R.m0, 1)} m

@@ -509,3 +509,41 @@ main h1, main h2, main h3, main h4 { hyphens: none; }
 
 /* horgonyok: a görgetési eltolást a JS állítja a fejléc magasságára (scroll-padding-top) */
 section.chap{scroll-margin-top:0}
+
+/* ===== 2026-11-20 átnézés ===== */
+/* mintázatra írt SVG-felirat: tinta színű betű a kártya színével rajzolt glóriával (sötét témában megfordul) */
+svg text.hl{fill:var(--ink);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+sub,sup{font-size:.72em;line-height:0}
+/* videókártyák középen: a kevés kártya nem marad balra zárva */
+.vgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.vgrid .vcard{flex:0 1 340px}
+.vinline{display:flex;flex-direction:column;align-items:center}
+.vinline .vcard{width:min(100%,600px)}
+.vcard>div:last-child{text-align:center}
+.vgrid .vcard>div:last-child{text-align:center}
+.ytgrid.ytpair{grid-template-columns:repeat(2,minmax(0,280px));justify-content:center}
+@media (max-width:560px){.ytgrid.ytpair{grid-template-columns:minmax(0,320px)}}
+/* a süllyedés-kijelző minősítése külön sorba törhet, a mértékegység nem */
+.big{flex-wrap:wrap;row-gap:6px}
+.big .u{white-space:nowrap}
+.big .status{white-space:nowrap}
+/* panel-fejléc: cím felül, alatta a választó (keskeny panelben) */
+.panel .ph.phcol{flex-direction:column;align-items:center;gap:8px}
+.panel .ph.phcol .seg{justify-content:center}
+/* injektálás: az öt módszer gombja egy sorban, keskenyen középre zárt teli sorokban */
+#injM{justify-content:center;gap:5px}
+#injM button{padding:7px 8px;font-size:12.5px}
+#grSoil,#dynSoil,#selector .seg{justify-content:flex-start}
+#grSoil{justify-content:center}
+.figcap{margin:0 0 8px;font:700 13.5px var(--fb);color:var(--ink2);text-align:center;min-height:2.6em;display:flex;align-items:center;justify-content:center}
+/* az Alapozás tananyagai: 12 kártya teli sorokban (4 × 3, 3 × 4, 2 × 6) */
+.series{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.series a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s;text-align:center}
+.series a:hover{transform:translateY(-2px);border-color:var(--teal)}
+.series a b{display:block;font:700 15.5px/1.25 var(--fh);margin-bottom:4px}
+.series a small{display:block;color:var(--mute);font-size:12.5px;line-height:1.4}
+@media (max-width:1040px){.series{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.series{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.series{grid-template-columns:minmax(0,1fr)}}
+footer.foot{text-align:center;margin-top:60px}
+footer.foot p{max-width:760px;margin-inline:auto;text-align:center;text-align-last:center}

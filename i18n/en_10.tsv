@@ -1,25 +1,2 @@
 # 2026-11-19: új hős-ábra (mennyit segít a védekezés?)
-d0ecf8c	<span id="heroNote">The whole 4 m thick soft clay layer is compressed.</span><span class="status b" id="heroPill">not satisfied</span>
-0b7987f	<i id="heroBar"></i><b></b><span>25 mm</span>
-8c7f1be	<span>Expected settlement s</span><span class="val" id="heroVal">62 mm</span>
-135a9e2	deep foundation
-5dd255e	preloading
-9b9ef44	stone columns
-d6839d1	soil replacement
-427cdff	wider footing
-feccb9c	no measure
-e60c133	Illustrative example: a house on a 4 m thick soft clay layer, allowable settlement 25 mm.
-6e0ca99	How much does protection help?
-bcf5f44	Choose a method
-1b96a90	earlier preload
-b38cd9d	bearing stratum
-106c5fd	The piles transfer the load to the bearing stratum.
-8feaaa8	Most of the settlement took place before construction, under the preload.
-80e4a2b	The stone columns stiffen the layer and, acting as drains, speed up consolidation.
-df3d5fe	The top 1 m is replaced with good material; the deeper clay still settles.
-38bd245	The contact pressure is lower, but the effect reaches deeper: on its own it is not enough.
-f869919	The whole 4 m thick soft clay layer is compressed.
-4da9739	soft clay, 4 m
-7f54348	satisfied
-2018a83	not satisfied
 ca6aa4b	If the calculated settlement or differential settlement is not acceptable with the chosen type of foundation, the design must be changed. Eight tools are available – from reducing the contact pressure through ground improvement to deep foundations.

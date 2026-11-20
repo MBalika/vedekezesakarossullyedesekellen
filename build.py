@@ -31,7 +31,20 @@ ALT = f'<link rel="alternate" hreflang="hu" href="{SITE}/">\n<link rel="alternat
 REDIR = "<script>/*nyelv*/try{if(localStorage.getItem('alap-lang')==='en'&&!/[?&]hu\\b/.test(location.search))location.replace('en'+location.hash)}catch(e){}</script>\n"
 # az angolul is elérhető tananyagok: az angol oldal ezek /en változatára mutat
 EN_SITES = ['bme-alapozas', 'talajfelderites', 'sikalapoktervezese', 'sikalapok-teherbirasszamitasa', 'sikalapokallekonysagvizsgalata',
-            'sikalapok-sullyedesszamitasa', 'kedvezotlen-altalaj', 'sikalapokaterohatasok', 'melyalapozasok']
+            'sikalapok-sullyedesszamitasa', 'kedvezotlen-altalaj', 'sikalapokaterohatasok', 'melyalapozasok', 'munkaterhatarolasok']
+
+# betűk helyből (fonts/), külső betűszolgáltató nélkül – @fontsource változó betűk, a Google Fonts unicode-range felosztásával
+_LAT = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'
+_EXT = 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF'
+_GRK = 'U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF'
+def _ff(fam, wght, file, rng, extra=''):
+    return f"@font-face{{font-family:'{fam}';font-style:normal;font-weight:{wght};{extra}font-display:swap;src:url(fonts/{file}.woff2) format('woff2-variations');unicode-range:{rng}}}"
+FONTS = '<style id="fonts-css">' + ''.join([
+    _ff('Bricolage Grotesque', '200 800', 'bricolage-grotesque-latin-opsz-normal', _LAT),
+    _ff('Bricolage Grotesque', '200 800', 'bricolage-grotesque-latin-ext-opsz-normal', _EXT),
+    _ff('Inter', '100 900', 'inter-latin-wght-normal', _LAT), _ff('Inter', '100 900', 'inter-latin-ext-wght-normal', _EXT), _ff('Inter', '100 900', 'inter-greek-wght-normal', _GRK),
+    _ff('JetBrains Mono', '100 800', 'jetbrains-mono-latin-wght-normal', _LAT), _ff('JetBrains Mono', '100 800', 'jetbrains-mono-latin-ext-wght-normal', _EXT), _ff('JetBrains Mono', '100 800', 'jetbrains-mono-greek-wght-normal', _GRK),
+]) + '</style>\n'
 
 # POST: a fordítókészlet által nem kezelt helyek (egyedi data-* attribútum) az angol HTML-ben
 POST = [('data-tech="Döngölés és kőtömzs"', 'data-tech="Pounding and stone pillars"'),
@@ -56,11 +69,9 @@ def build(src, out, lang):
 <meta property="og:title" content="{TITLE}">
 <meta property="og:description" content="{OGD}">
 {ALT}{REDIR if lang == 'hu' else ''}<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d7a68'/%3E%3Cpath d='M7 25h18M10 25V14l6-5 6 5v11' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
-<script src="vendor/hyphenopoly/Hyphenopoly_Loader.js"></script>
+{FONTS}<script src="vendor/hyphenopoly/Hyphenopoly_Loader.js"></script>
 <script>Hyphenopoly.config({{ require: {{ "{HY}": "FORCEHYPHENOPOLY" }}, setup: {{ hide: "none", selectors: {{ ".hyphenate": {{ minWordLength: 6, compound: "auto" }} }} }} }});</script>
-<script type="importmap">{{"imports":{{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}}}</script>
+<script type="importmap">{{"imports":{{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}}}</script>
 """
     full_body = body.replace('<!--HEAD-->', '').replace('<!--SCRIPTS-->', classic + module)
     html = f"""<!doctype html>
@@ -79,6 +90,7 @@ def build(src, out, lang):
 """
     if lang != 'hu':
         for x, y in POST: assert html.count(x) == 1, x; html = html.replace(x, y)
+        html = re.sub(r'https://bme-alapozas\.vercel\.app/((?:telek|ar-labor)/)(?=["\'])', lambda m: 'https://bme-alapozas.vercel.app/' + m.group(1) + 'en', html)   # Egy telek – egy félév, AR labor
         for s in EN_SITES: html = re.sub(rf'https://{s}\.vercel\.app/?(#[\w-]+)?(?=["\'])', lambda m, s=s: f'https://{s}.vercel.app/en' + (m.group(1) or ''), html)
     (R / out).write_text(_bxt(html))
     print(out, len(html) // 1024, 'KB')

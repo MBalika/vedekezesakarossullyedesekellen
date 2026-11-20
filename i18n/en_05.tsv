@@ -7,8 +7,6 @@ a5dd85c	<span class="status w">borderline – trial compaction, denser grid</spa
 ed35fc6	=
 ab3c01f	=
 316facd	depth of influence ≈ ${fmt(d, 1)} m
-61cca5b	<div class="r"><span>energy per drop W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>estimated depth of influence n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>drops at this point</span><b>${drops}</b></div><div class="r"><span>crater (illustration)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max.\u00a05\u2060–\u20607\u00a0m.</span></div>' : ''}
-f6f4a8b	<div class="r" style="grid-column:1/-1"><span class="status w">⚠ The formula overestimates at high energy; in practice max. 5⁠–⁠7 m.</span></div>
 b96fd35	=
 aa5df00	The pounder punches a crater into the soft soil.
 7cb45aa	The crater is filled with granular material (sandy gravel, crushed stone).
@@ -19,8 +17,6 @@ aa5df00	The pounder punches a crater into the soft soil.
 525ee7c	=
 ef08891	=
 74155f0	=
-d075145	unit cell De = ${fmt(De, 2)} m
-f18b797	<div class="r"><span>area replacement ratio aₛ</span><b>${fmt(as * 100, 1)}%</b></div><div class="r"><span>settlement after treatment</span><b style="color:var(--ok)">${fmt(ratio * 100, 0)}% (−${fmt((1 - ratio) * 100, 0)}%)</b></div>
 efc596d	=
 14ee22b	<b>Filling:</b> the skip (material hopper) fills the airlock at the top of the vibrator with gravel; the airlock is closed with compressed air.
 3f4f1eb	<b>Penetration:</b> the vibrator reaches the design depth by vibration and the pull-down force of the rig – pushing the soil aside.
@@ -37,7 +33,6 @@ cffef43	${S0.n} · ⚪ cement particles
 4742f53	✗ not suitable
 e041118	◐ limited
 9456889	✓ suitable
-357b205	<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cement grouting</h5><p>only sand-gravel coarser than 0.8–1 mm, or cohesive soil with cavities and fissures</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Two-component resin</h5><p>sandy and silty soil – not effective in clay</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Chemicals (e.g. water glass based)</h5><p>low-viscosity solutions – they also penetrate finer sands</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>
 e7c9a85	=
 60511bd	1. Boreholes
 1d8c5e0	Drilling grout holes every 50–100 cm, on the outer and inner side of the wall to be strengthened.
@@ -61,7 +56,6 @@ a633627	peat, soft clay
 3986ec5	The plant train starts from stable (already stabilised) ground and mixes the soil ahead of itself
 b4244d8	=
 c1b70ff	=
-fd29ee3	effective stress σ' [kPa] (log)
 f085908	=
 0e90d78	void ratio e
 108b371	virgin curve
@@ -70,12 +64,10 @@ c2ef8f4	=
 39b4e93	settlement [mm] ↓
 0cf421e	preloading, waiting
 f5f7eb4	design, preparation
-1a59dae	start of construction
 7cd8dd1	<div class="r"><span>settlement under the building without preloading</span><b style="color:var(--coral)">
 b2e6752	 mm</b></div><div class="r"><span>“forced out” under the preload</span><b style="color:var(--amber-ink)">
 daef4b8	 mm</b></div><div class="r" style="grid-column:1/-1"><span>settlement under the building after preloading</span><b style="color:var(--teal)">
 4222eff	=
-9a5b49c	=
 4a079f2	building
 2a793d2	Σ = constant
 1015166	Gravel surcharge = the weight of the finished building → most of the settlement takes place
@@ -96,36 +88,9 @@ d013452	tall, heavy building part
 0c0c71d	=
 496f7b7	 months
 38b8ae3	risky range (stability!)
-4c6f461	peak excess pore pressure: ${Math.round(umax * 100)}% of the load
 11c33e1	<span class="status b">fast construction</span> In saturated clay the pore water cannot drain fast enough – the effective stress, and with it the shear strength, increases slowly: risk of bearing failure and large differential settlement.
 c1c0647	<span class="status w">medium rate</span> Part of the excess pressure dissipates during construction.
 130b203	<span class="status">slow, controlled rate</span> The soil consolidates in step with the load increase – safer, but it takes longer and costs more.
-6b3f23d	Under Hungarian ground conditions, what often governs the design of shallow foundations?
-f8f72b5	The ultimate limit state
-fb68080	The serviceability limit state (settlements)
-bf3dd15	The groundwater level
-9ab4913	The concrete grade of the footing
-7824e5e	In many cases it is not the ultimate but the <b>serviceability limit state</b> – settlement and differential settlement – that decides.
-0123cc9	What primarily damages the building?
-0bbcd22	Absolute settlement
-edce103	Differential settlement
-8ac44d8	The self-weight of the soil
-f51bf25	Thermal expansion
-e99acc6	“It is not the absolute settlement but the <b>differential settlement</b> that damages the building” – it causes tilting, sagging, additional internal forces and cracking.
-c5faf06	Approximately what relative rotation is very likely to cause an ultimate limit state (failure)?
-c5ec6ca	A relative rotation of <b>1/150</b> can already cause failure; 1/500 is generally acceptable structurally.
-e444d05	Which building is more sensitive to differential settlement?
-375a43a	The large, rigid office building
-ffd0092	The smaller house with 1–3 storeys and low stiffness
-e721c09	The bridge on piles
-a9d5180	All equally
-0cd8c65	Smaller, lower buildings have lower stiffness – most damaged buildings in Hungary have <b>1–3 storeys</b>.
-1445156	Which way do wall cracks rise?
-ddac588	Towards the part with smaller settlement
-c38a7a4	Towards the part with larger settlement (the part that ends up lower)
-ad056ce	Always horizontally
-b592b2e	Always vertically
-41f655e	Cracks rise <b>towards the point of larger settlement</b> (towards the part that is lower after the movement) – this helps to find the cause.
 91edc37	Why does reducing the contact pressure not reduce the settlement proportionally?
 b1f3662	Because the concrete compresses
 31a36da	Because the wider foundation is heavier, and the stress reaches deeper below it
@@ -139,7 +104,6 @@ f4b755f	Always
 a3342ff	Never
 5140f17	It is effective if there are <b>less compressible layers deeper down</b> (case A) – part of the stress is “passed on” to the sand.
 5473242	Beyond what foundation depth is a strip footing no longer economical?
-55562aa	A strip footing deeper than <b>2–2.5 m</b> is not economical – then pad footings with ground beams or caisson foundations come into consideration.
 9957092	What is the twofold effect of a basement?
 b06bdfd	It insulates and waterproofs
 5c7c113	The foundation level may reach a bearing layer, and the weight of the excavated soil increases

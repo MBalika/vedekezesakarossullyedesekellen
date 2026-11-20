@@ -1,6 +1,5 @@
 37bd4b4	When does it work? – fines content
 bdba07f	Proportion of fines (silt + clay) <span class="v" data-for="vibFines"></span>
-1c1103f	Outlook: vibratory compaction is effective if the fines content stays below about 10–12% – the fine particles “absorb” the vibration energy.
 f041603	Deep vibrator with flushing
 4f0ba98	Deep vibrator during flushing
 b1bcd0a	Crane-suspended deep vibrators
@@ -42,19 +41,14 @@ b652603	triangular
 2faaa2d	Column diameter d <span class="v" data-for="kcD"></span>
 a499141	Spacing s <span class="v" data-for="kcS"></span>
 bdd7cc3	Stress concentration n (column/soil) <span class="v" data-for="kcN"></span>
-f1d0819	Unit cell model: aₛ = C·(d/s)², C = 0.907 (triangular) / 0.785 (square); settlement reduction s/s₀ = 1 / [1 + aₛ(n − 1)]. The columns also speed up consolidation as vertical drains.
 f8ef645	Self-check · Chapter 5
 54f02f4	d) Ground improvement · grouting and mixing
 042bedb	Grouting and mass stabilisation
-2086e08	Foreign, hardening materials are introduced into the voids of the soil – under pressure, through drilled or driven pipes – or the soil is mixed in place with a binder.
 7a8b5a2	<span class="n">5</span>Grouting
 145e45a	<span class="n">6</span>Mass stabilisation
-6c04cbc	<span class="fact">cement grout</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">other</span>
 39bf93f	Cement grouting
 fef1e7a	The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.
-eb878e5	Two-component, resin-based grouting
 f3b2e11	In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.
-dcfe1ae	Which grouting? – choose a soil
 1832c1d	gravel
 5490e16	coarse sand
 737d6fc	medium sand
@@ -62,7 +56,6 @@ dcfe1ae	Which grouting? – choose a soil
 eb6970c	silt
 d1591f7	clay
 0957bbb	fissured
-bfc0d7a	Outlook: according to a widely used rule of thumb, cement-based grouting is possible if N = D₁₅(soil)/D₈₅(grout) &gt; 24, and not possible if N &lt; 11. The mean particle size of Portland cement is about 15 µm, that of microcement 6–10 µm.
 65b39c9	Retrofit strengthening of a foundation by grouting – step by step
 37b4377	The soil and the binder are mixed with a special mixing head. The mixing boom is mounted on a hydraulic excavator with a slewing superstructure; at its lower end is a mixing head rotating about its axes, to which mixing paddles developed for the soil can be fitted. The binder arrives under pressure from self-propelled silos connected to the excavator; the operator controls the quantity from the cab.
 ed9161c	<span class="fact">mixing head <b>1.5 m × Ø 0.95 m</b></span><span class="fact">per step <b>≈ 1.2 m²</b></span><span class="fact">boom <b>3–5 m</b> + <b>2 m</b> extension → <b>~7 m</b></span><span class="fact">output <b>0.5–0.8 m³/min</b></span><span class="fact">head + boom <b>≈ 5 t</b></span><span class="fact">base machine <b>25–40 t</b></span>
@@ -83,9 +76,7 @@ a8f3f32	Let it settle first – without the building
 5a6f35c	Void ratio – effective stress
 da0ac5a	Settlement versus time
 cd3c9b1	Additional stress from the building Δσ <span class="v" data-for="plB"></span>
-b2397d1	Preload Δσₚ <span class="v" data-for="plP"></span>
 62c05bc	<span><i style="background:var(--coral)"></i>without preloading</span><span><i style="background:var(--amber)"></i>preloading + unloading</span><span><i style="background:var(--teal)"></i>reloading (building) after preloading</span>
-9c618a7	Illustrative model: 6 m thick normally consolidated clay, σ′₀ = 60 kPa, Cc = 0.45, Cr = 0.06, e₀ = 1.2. If Δσ ≤ Δσₚ, the soil below the building compresses only along the reloading branch (with a small slope).
 2656171	Mexico City
 82d694a	The capital was built on the site of an old volcanic lake, which was filled with very thick, highly compressible fine volcanic ash. The whole city is settling – in places by metres. The method used: the base slabs of reinforced concrete frame buildings are loaded with <b>a mass of gravel equal to the weight of the finished building</b>. Most of the settlement takes place – this is waited out – then construction continues, and the gravel is <b>removed at the rate at which the weight of the structure increases</b>.
 1ec8f09	<b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.
@@ -116,7 +107,6 @@ f8ad1a2	Duration of loading <span class="v" data-for="paT"></span>
 804c017	If the calculations show unacceptable settlements or differential settlements for a shallow foundation, many designers switch to <b>deep foundations</b> (piles, diaphragm walls). In many cases this is the <b>simplest, fastest and cheapest</b> solution.
 ef2821a	Deep foundations in detail
 9bbb64e	CFA piles, screw, bored and precast piles, micropiles, jet grouting, deep mixing, diaphragm walls, caisson and box foundations – in the <a href="https://melyalapozasok.vercel.app" target="_blank" rel="noopener">Deep foundations</a> interactive module, with a 3D pile builder. In real footage:
-46e3251	Self-check · Chapter 8
 2ea4c4d	Video library
 da7f7e1	Animations and real footage
 8fac5e9	Two 3D animations of the principles – with music and captions – and footage from the BME Faculty of Civil Engineering showing how ground improvement is carried out on a real site. Click a card to play; full screen is also available in the player.
@@ -126,10 +116,6 @@ da7f7e1	Animations and real footage
 213e8dc	Decide on each one – you get an explanation straight after answering.
 f2b82d2	↺ Start again
 77ccacb	Protection against harmful settlement
-641900d	Interactive module for the Foundation Engineering course at the BME Faculty of Civil Engineering (Department of Engineering Geology and Geotechnics).
-bc473cb	Related module
-bd67fd5	<a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener">Ground investigation – interactive module</a>
-7d7307f	The numerical examples and simulators are simplified models for teaching purposes.
 961dee7	Back to top
 5e35d5b	⛶ Full screen
 bf2b3de	✕ Close
