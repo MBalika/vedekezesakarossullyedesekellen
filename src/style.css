@@ -547,3 +547,9 @@ sub,sup{font-size:.72em;line-height:0}
 @media (max-width:420px){.series{grid-template-columns:minmax(0,1fr)}}
 footer.foot{text-align:center;margin-top:60px}
 footer.foot p{max-width:760px;margin-inline:auto;text-align:center;text-align-last:center}
+/* rövid lépésleírás keskeny panelben: balra zárva (a nem törő egység sorkizárva lyukat hagyna) */
+#vibTxt,#ktTxt{text-align:left}
+/* a sorozat kártyáin a nyíl a sarokban áll (a címben külön sorba tört) */
+.series a{position:relative;padding-inline:20px}
+.series a::after{content:"↗";position:absolute;top:7px;right:10px;font-size:12px;color:var(--mute)}
+.series a:hover::after{color:var(--teal)}

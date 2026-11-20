@@ -54,8 +54,10 @@ window.U.seg = seg;
     const goal = () => Math.max(0, t.getBoundingClientRect().top + scrollY - (bar ? bar.offsetHeight : 0) - 10);
     history.replaceState(null, '', h);
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    scrollTo({ top: goal(), behavior: reduce ? 'auto' : 'smooth' });
-    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'auto' }); setTimeout(fix, 250); } };
+    /* nagy távolságnál előbb a cél közelébe ugrunk, és csak az utolsó szakasz sima – a hosszú oldalon így is gyorsan és pontosan érkezik */
+    const y0 = scrollY, g0 = goal(); if (!reduce && Math.abs(g0 - y0) > 4000) scrollTo({ top: g0 + (g0 > y0 ? -1200 : 1200), behavior: 'instant' });
+    scrollTo({ top: goal(), behavior: reduce ? 'instant' : 'smooth' });
+    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'instant' }); setTimeout(fix, 250); } };
     const done = () => { removeEventListener('scrollend', done); clearTimeout(tm); fix(); };
     addEventListener('scrollend', done, { once: true }); const tm = setTimeout(done, 1600);
   });

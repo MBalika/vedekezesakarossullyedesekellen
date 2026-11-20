@@ -127,7 +127,7 @@ window.SVpat = pat;
     const pts = [], sp = []; for (let u = 0; u <= 1.0001; u += 0.02) { const q = qB * u; pts.push(`${tx(u)},${qy(q)}`); const ds = q <= relief ? q / Math.max(relief, 1) * 3 : 3 + (q - relief) * 0.55; sp.push(`${tx(u)},${sy(Math.min(52, ds))}`); }
     SV('polyline', { points: pts.join(' '), fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, G); SV('polyline', { points: sp.join(' '), fill: 'none', stroke: 'var(--teal)', 'stroke-width': 2.6 }, G);
     SV('line', { x1: tx(prog), x2: tx(prog), y1: cy0 + 4, y2: cy0 + ch + 2, stroke: 'var(--ink2)', 'stroke-dasharray': '2 3' }, G);
-    SV('text', { x: tx(0) + 2, y: qy(relief) - 5, 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:#6f5949', text: 'tehermentesítés (γ·D)' }, G);
+    SV('text', { x: tx(0) + 2, y: qy(relief) - 5, 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:var(--ink2)', text: 'tehermentesítés (γ·D)' }, G);
     SV('text', { x: tx(1) - 2, y: qy(qB) + 14, 'text-anchor': 'end', 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)', text: 'összes teher' }, G);
     SV('text', { x: tx(0) + 2, y: cy0 + ch + 12, 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:var(--teal-ink)', text: 'süllyedés ↓' }, G);
     SV('text', { x: tx(1) - 2, y: cy0 + ch + 12, 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--mute)', text: 'építés →' }, G);
@@ -141,17 +141,17 @@ window.SVpat = pat;
 
 /* ---------- 3 eset: teher / szélesség hatása a feszültségre ---------- */
 (function threeCases() {
-  const host = $('#tcSvg'); if (!host) return; const draw = () => { const narrow = (host.clientWidth || 600) < 520; const s = svg(host, narrow ? 300 : 660, narrow ? 3 * 232 : 238);
+  const host = $('#tcSvg'); if (!host) return; const draw = () => { const narrow = (host.clientWidth || 600) < 520; const s = svg(host, narrow ? 300 : 660, narrow ? 700 : 238);
   const cases = [['Kétszeres teher', 'b, 2q', 'feszültség mindenhol kétszeres, a mélység ugyanaz', 1, 2], ['Kétszeres szélesség', '2b, q', 'ugyanaz a feszültség kétszer mélyebben', 2, 1], ['Fele felület', 'b/2, 2q', 'nagy feszültség felül, de sekély hatás', 0.5, 2]];
-  cases.forEach(([t, lab, d, wk, qk], i) => {
-    const g = SV('g', { transform: narrow ? `translate(46,${i * 232})` : `translate(${i * 220 + 10},0)` }, s); const cx = 100, Y = 64, w0 = 44;
+  let off = 0; cases.forEach(([t, lab, d, wk, qk], i) => {
+    const g = SV('g', { transform: narrow ? `translate(46,${off})` : `translate(${i * 220 + 10},0)` }, s); const cx = 100, Y = 64, w0 = 44; const dy0 = narrow ? Y + Math.max(70, 70 * wk) + 30 : 212; off += dy0 + 46;
     SV('text', { x: 0, y: 18, text: `${i + 1}. ${t}`, 'font-size': 13, 'font-weight': 800, fill: 'var(--ink)' }, g);
     const bulb = (w, dep, col, op, dash) => SV('path', { d: `M${cx - w / 2},${Y} C${cx - w},${Y + dep * .4} ${cx - w * .5},${Y + dep} ${cx},${Y + dep} C${cx + w * .5},${Y + dep} ${cx + w},${Y + dep * .4} ${cx + w / 2},${Y} Z`, fill: col, 'fill-opacity': op, stroke: col, 'stroke-width': 1.6, 'stroke-dasharray': dash || '' }, g);
     bulb(w0, 70, 'var(--mute)', 0, '4 4'); bulb(w0 * wk, 70 * wk, qk > 1 ? 'var(--coral)' : 'var(--teal)', .28 + (qk - 1) * .2);
     SV('rect', { x: cx - w0 * wk / 2, y: Y - 7, width: w0 * wk, height: 7, fill: '#c3c7ca', stroke: '#4b5458' }, g);
     for (let k = 0; k < Math.max(2, Math.round(3 * qk)); k++) { const x = cx - w0 * wk / 2 + (k + .5) * (w0 * wk) / Math.max(2, Math.round(3 * qk)); SV('line', { x1: x, x2: x, y1: Y - 26, y2: Y - 10, stroke: 'var(--coral)', 'stroke-width': 1.6 }, g); SV('path', { d: `M${x - 3},${Y - 13} L${x},${Y - 8} L${x + 3},${Y - 13}`, fill: 'var(--coral)' }, g); }
     SV('text', { x: cx + w0 * wk / 2 + 6, y: Y - 12, text: lab, 'font-size': 11, 'font-weight': 700, fill: 'var(--coral-ink)' }, g);
-        const tx = SV('text', { x: 0, y: 214, 'font-size': 12, fill: 'var(--ink2)' }, g); const words = d.split(' '); let line = '', yy = 212; words.forEach(wd => { if ((line + wd).length > 30) { SV('tspan', { x: 0, y: yy, text: line }, tx); line = ''; yy += 15; } line += wd + ' '; }); SV('tspan', { x: 0, y: yy, text: line }, tx);
+        const tx = SV('text', { x: 0, y: dy0, 'font-size': 12, fill: 'var(--ink2)' }, g); const words = d.split(' '); let line = '', yy = dy0; words.forEach(wd => { if ((line + wd).length > 30) { SV('tspan', { x: 0, y: yy, text: line }, tx); line = ''; yy += 15; } line += wd + ' '; }); SV('tspan', { x: 0, y: yy, text: line }, tx);
   }); }; draw(); let lw = host.clientWidth; addEventListener('resize', () => { if (Math.abs(host.clientWidth - lw) > 20) { lw = host.clientWidth; draw(); } });
 })();
 })();

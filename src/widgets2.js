@@ -24,7 +24,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     for (let i = 1; i < nl; i++) { const y = yv - i * 0.3 * k; SV('line', { x1: xL - 8, x2: xR + 8, y1: y, y2: y, stroke: '#5b4c3c', 'stroke-dasharray': '6 4', 'stroke-width': 1.2 }, gfill); }
     SV('polygon', { points: pts, fill: 'none', stroke: '#e5ae47', 'stroke-width': 2.5, 'stroke-dasharray': '7 5' }, s);
     SV('line', { x1: xL - 8, x2: xR + 8, y1: yv, y2: yv, stroke: '#2a6b56', 'stroke-width': 3 }, s);
-    if (gw) { const yw = yb + v * k * 0.55; SV('line', { x1: 0, x2: W, y1: yw, y2: yw, stroke: '#2b78ad', 'stroke-width': 2.5 }, s); SV('path', { d: `M${W - 96},${yw - 12} l8,10 l8,-10 z`, fill: '#2b78ad' }, s); SV('text', { x: W - 74, y: yw - 5, text: 'talajvíz', 'font-size': 12, 'font-weight': 700, class: 'hl', style: 'fill:#1f5f8c' }, s); }
+    if (gw) { const yw = yb + v * k * 0.55; SV('line', { x1: 0, x2: W, y1: yw, y2: yw, stroke: '#2b78ad', 'stroke-width': 2.5 }, s); SV('path', { d: `M${W - 96},${yw - 12} l8,10 l8,-10 z`, fill: '#2b78ad' }, s); SV('text', { x: W - 74, y: yw - 5, text: 'talajvíz', 'font-size': 12, 'font-weight': 700, class: 'hl', style: 'fill:var(--sky-ink)' }, s); }
     // alaptest + teher
     SV('rect', { x: cx - B * k / 2, y: yb - 26, width: B * k, height: 26, fill: '#c3c7ca', stroke: '#4b5458' }, s); SV('rect', { x: cx - 12, y: 30, width: 24, height: yb - 56, fill: '#c3c7ca', stroke: '#4b5458' }, s);
     SV('line', { x1: cx, x2: cx, y1: 2, y2: 22, stroke: '#d4553a', 'stroke-width': 3 }, s); SV('path', { d: `M${cx - 7},18 L${cx},30 L${cx + 7},18 Z`, fill: '#d4553a' }, s); SV('text', { x: cx + 14, y: 20, text: `P = ${P} kN/m`, 'font-size': 13, 'font-weight': 800, fill: 'var(--coral-ink)' }, s);
@@ -38,7 +38,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     SV('text', { x: cx, y: yd + 17, 'text-anchor': 'middle', text: `B + 2·v·tgϑ = ${fmt(Bv, 2)} m`, 'font-size': 12.5, 'font-weight': 800, class: 'hl' }, s);
     const xv = xL - 20; SV('line', { x1: xv, x2: xv, y1: yb, y2: yv, stroke: 'var(--ink)', 'stroke-width': 1.5 }, s); [yb, yv].forEach(y => SV('line', { x1: xv - 5, x2: xv + 5, y1: y, y2: y, stroke: 'var(--ink)', 'stroke-width': 1.5 }, s));
     SV('text', { x: xv - 8, y: (yb + yv) / 2 + 4, 'text-anchor': 'end', text: `v = ${fmt(v, 2)} m`, 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: xR + 14, y: yv + 4, text: 'geotextília', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:#1f5a48' }, s);
+    SV('text', { x: xR + 14, y: yv + 4, text: 'geotextília', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--teal-ink)' }, s);
     $('#tcsOut').innerHTML = `<div class="r"><span>σ<sub>1</sub> az alapsíkon (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ<sub>2</sub> a csereréteg alján</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>kiszélesítés oldalanként (v·tgϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>tömörítendő rétegek (≤ 30 cm)</span><b>${nl} db</b></div>`;
     const msgs = []; if (!ok2) msgs.push('✗ Az alapréteg terhelése nagyobb a megengedettnél – vastagabb csereréteg vagy szélesebb alap kell.'); else msgs.push('✓ A csereréteg alatti alapréteg terhelése megfelel.');
     if (gw) msgs.push('⚠ A talajvíz a cserezónában van – talajvíz alatt a cseretalaj nem tömöríthető! (víztelenítés vagy más módszer)');

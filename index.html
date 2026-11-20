@@ -567,6 +567,12 @@ sub,sup{font-size:.72em;line-height:0}
 @media (max-width:420px){.series{grid-template-columns:minmax(0,1fr)}}
 footer.foot{text-align:center;margin-top:60px}
 footer.foot p{max-width:760px;margin-inline:auto;text-align:center;text-align-last:center}
+/* rövid lépésleírás keskeny panelben: balra zárva (a nem törő egység sorkizárva lyukat hagyna) */
+#vibTxt,#ktTxt{text-align:left}
+/* a sorozat kártyáin a nyíl a sarokban áll (a címben külön sorba tört) */
+.series a{position:relative;padding-inline:20px}
+.series a::after{content:"↗";position:absolute;top:7px;right:10px;font-size:12px;color:var(--mute)}
+.series a:hover::after{color:var(--teal)}
 
 </style>
 <style id="bxt-css">
@@ -1125,18 +1131,18 @@ footer.foot p{max-width:760px;margin-inline:auto;text-align:center;text-align-la
 <section class="chap c-teal" id="tovabb"><div class="wrap">
   <div class="chhead"><div class="chnum">↗</div><div><div class="kicker">A sorozat többi része</div><h2>Az Alapozás tananyagai</h2><p class="lead">A káros süllyedések elleni védekezés a tárgy egyik állomása. A többi interaktív tananyag ugyanebben a rendszerben mutatja be az alapozás tervezésének lépéseit.</p></div></div>
   <div class="series">
-    <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése ↗</b><small>Alapsík, alaptípus, törési mechanizmus – a tervezés lépései</small></a>
-    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok teherbírásszámítása ↗</b><small>Az alapfelület méretezése teherbírási határállapotban</small></a>
-    <a href="https://bme-alapozas.vercel.app/" target="_blank" rel="noopener"><b>Alapozás – nyitóoldal ↗</b><small>A tárgy útja kilenc állomáson és minden tananyag egy helyen</small></a>
-    <a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener"><b>Talajfelderítés ↗</b><small>Fúrás, szondázás, geofizika, mintavétel – mit tudunk meg a talajról</small></a>
-    <a href="https://sikalapokallekonysagvizsgalata.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok állékonyságvizsgálata ↗</b><small>Elcsúszás, felborulás, felúszás, általános állékonyság</small></a>
-    <a href="https://sikalapok-sullyedesszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása ↗</b><small>Feszültségek az altalajban, süllyedés, süllyedéstűrés, mérés</small></a>
-    <a href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Alapozás kedvezőtlen altalajon ↗</b><small>Térfogatváltozó agyag, roskadékony lösz, feltöltés, szerves talaj</small></a>
-    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>A síkalapokat érő hatások ↗</b><small>Rezgés, földrengés, üreg, kimosás és fagy az alap alatt</small></a>
-    <a href="https://melyalapozasok.vercel.app/" target="_blank" rel="noopener"><b>Mélyalapozások ↗</b><small>Cölöpök, résfalak, kutak – ha a teherbíró réteg mélyen van</small></a>
-    <a href="https://munkaterhatarolasok.vercel.app/" target="_blank" rel="noopener"><b>Munkatérhatárolások ↗</b><small>Dúcolás, falak, horgonyzás – a mélyebb alapsík munkagödre</small></a>
-    <a href="https://bme-alapozas.vercel.app/telek/" target="_blank" rel="noopener"><b>Egy telek, egy félév ↗</b><small>Kilenc feladat egyetlen telken – te vagy a geotechnikus</small></a>
-    <a href="https://bme-alapozas.vercel.app/ar-labor/" target="_blank" rel="noopener"><b>Alapozás AR labor ↗</b><small>Talajtörés, feszültséghagyma, CFA cölöp és munkagödör a saját asztalodon</small></a>
+    <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése</b><small>Alapsík, alaptípus, törési mechanizmus – a tervezés lépései</small></a>
+    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok teherbírásszámítása</b><small>Az alapfelület méretezése teherbírási határállapotban</small></a>
+    <a href="https://bme-alapozas.vercel.app/" target="_blank" rel="noopener"><b>Alapozás – nyitóoldal</b><small>A tárgy útja kilenc állomáson és minden tananyag egy helyen</small></a>
+    <a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener"><b>Talajfelderítés</b><small>Fúrás, szondázás, geofizika, mintavétel – mit tudunk meg a talajról</small></a>
+    <a href="https://sikalapokallekonysagvizsgalata.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok állékonyságvizsgálata</b><small>Elcsúszás, felborulás, felúszás, általános állékonyság</small></a>
+    <a href="https://sikalapok-sullyedesszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása</b><small>Feszültségek az altalajban, süllyedés, süllyedéstűrés, mérés</small></a>
+    <a href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Alapozás kedvezőtlen altalajon</b><small>Térfogatváltozó agyag, roskadékony lösz, feltöltés, szerves talaj</small></a>
+    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>A síkalapokat érő hatások</b><small>Rezgés, földrengés, üreg, kimosás és fagy az alap alatt</small></a>
+    <a href="https://melyalapozasok.vercel.app/" target="_blank" rel="noopener"><b>Mélyalapozások</b><small>Cölöpök, résfalak, kutak – ha a teherbíró réteg mélyen van</small></a>
+    <a href="https://munkaterhatarolasok.vercel.app/" target="_blank" rel="noopener"><b>Munkatérhatárolások</b><small>Dúcolás, falak, horgonyzás – a mélyebb alapsík munkagödre</small></a>
+    <a href="https://bme-alapozas.vercel.app/telek/" target="_blank" rel="noopener"><b>Egy telek, egy félév</b><small>Kilenc feladat egyetlen telken – te vagy a geotechnikus</small></a>
+    <a href="https://bme-alapozas.vercel.app/ar-labor/" target="_blank" rel="noopener"><b>Alapozás AR labor</b><small>Talajtörés, feszültséghagyma, CFA cölöp és munkagödör a saját asztalodon</small></a>
   </div>
 </div></section>
 </main>
@@ -1205,8 +1211,10 @@ window.U.seg = seg;
     const goal = () => Math.max(0, t.getBoundingClientRect().top + scrollY - (bar ? bar.offsetHeight : 0) - 10);
     history.replaceState(null, '', h);
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    scrollTo({ top: goal(), behavior: reduce ? 'auto' : 'smooth' });
-    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'auto' }); setTimeout(fix, 250); } };
+    /* nagy távolságnál előbb a cél közelébe ugrunk, és csak az utolsó szakasz sima – a hosszú oldalon így is gyorsan és pontosan érkezik */
+    const y0 = scrollY, g0 = goal(); if (!reduce && Math.abs(g0 - y0) > 4000) scrollTo({ top: g0 + (g0 > y0 ? -1200 : 1200), behavior: 'instant' });
+    scrollTo({ top: goal(), behavior: reduce ? 'instant' : 'smooth' });
+    let n = 0; const fix = () => { const d = goal() - scrollY; if (Math.abs(d) > 4 && n++ < 3) { scrollTo({ top: goal(), behavior: 'instant' }); setTimeout(fix, 250); } };
     const done = () => { removeEventListener('scrollend', done); clearTimeout(tm); fix(); };
     addEventListener('scrollend', done, { once: true }); const tm = setTimeout(done, 1600);
   });
@@ -1434,7 +1442,7 @@ window.SVpat = pat;
     const pts = [], sp = []; for (let u = 0; u <= 1.0001; u += 0.02) { const q = qB * u; pts.push(`${tx(u)},${qy(q)}`); const ds = q <= relief ? q / Math.max(relief, 1) * 3 : 3 + (q - relief) * 0.55; sp.push(`${tx(u)},${sy(Math.min(52, ds))}`); }
     SV('polyline', { points: pts.join(' '), fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, G); SV('polyline', { points: sp.join(' '), fill: 'none', stroke: 'var(--teal)', 'stroke-width': 2.6 }, G);
     SV('line', { x1: tx(prog), x2: tx(prog), y1: cy0 + 4, y2: cy0 + ch + 2, stroke: 'var(--ink2)', 'stroke-dasharray': '2 3' }, G);
-    SV('text', { x: tx(0) + 2, y: qy(relief) - 5, 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:#6f5949', text: 'tehermentesítés (γ·D)' }, G);
+    SV('text', { x: tx(0) + 2, y: qy(relief) - 5, 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:var(--ink2)', text: 'tehermentesítés (γ·D)' }, G);
     SV('text', { x: tx(1) - 2, y: qy(qB) + 14, 'text-anchor': 'end', 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)', text: 'összes teher' }, G);
     SV('text', { x: tx(0) + 2, y: cy0 + ch + 12, 'font-size': 11, 'font-weight': 700, class: 'hl', style: 'fill:var(--teal-ink)', text: 'süllyedés ↓' }, G);
     SV('text', { x: tx(1) - 2, y: cy0 + ch + 12, 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--mute)', text: 'építés →' }, G);
@@ -1448,17 +1456,17 @@ window.SVpat = pat;
 
 /* ---------- 3 eset: teher / szélesség hatása a feszültségre ---------- */
 (function threeCases() {
-  const host = $('#tcSvg'); if (!host) return; const draw = () => { const narrow = (host.clientWidth || 600) < 520; const s = svg(host, narrow ? 300 : 660, narrow ? 3 * 232 : 238);
+  const host = $('#tcSvg'); if (!host) return; const draw = () => { const narrow = (host.clientWidth || 600) < 520; const s = svg(host, narrow ? 300 : 660, narrow ? 700 : 238);
   const cases = [['Kétszeres teher', 'b, 2q', 'feszültség mindenhol kétszeres, a mélység ugyanaz', 1, 2], ['Kétszeres szélesség', '2b, q', 'ugyanaz a feszültség kétszer mélyebben', 2, 1], ['Fele felület', 'b/2, 2q', 'nagy feszültség felül, de sekély hatás', 0.5, 2]];
-  cases.forEach(([t, lab, d, wk, qk], i) => {
-    const g = SV('g', { transform: narrow ? `translate(46,${i * 232})` : `translate(${i * 220 + 10},0)` }, s); const cx = 100, Y = 64, w0 = 44;
+  let off = 0; cases.forEach(([t, lab, d, wk, qk], i) => {
+    const g = SV('g', { transform: narrow ? `translate(46,${off})` : `translate(${i * 220 + 10},0)` }, s); const cx = 100, Y = 64, w0 = 44; const dy0 = narrow ? Y + Math.max(70, 70 * wk) + 30 : 212; off += dy0 + 46;
     SV('text', { x: 0, y: 18, text: `${i + 1}. ${t}`, 'font-size': 13, 'font-weight': 800, fill: 'var(--ink)' }, g);
     const bulb = (w, dep, col, op, dash) => SV('path', { d: `M${cx - w / 2},${Y} C${cx - w},${Y + dep * .4} ${cx - w * .5},${Y + dep} ${cx},${Y + dep} C${cx + w * .5},${Y + dep} ${cx + w},${Y + dep * .4} ${cx + w / 2},${Y} Z`, fill: col, 'fill-opacity': op, stroke: col, 'stroke-width': 1.6, 'stroke-dasharray': dash || '' }, g);
     bulb(w0, 70, 'var(--mute)', 0, '4 4'); bulb(w0 * wk, 70 * wk, qk > 1 ? 'var(--coral)' : 'var(--teal)', .28 + (qk - 1) * .2);
     SV('rect', { x: cx - w0 * wk / 2, y: Y - 7, width: w0 * wk, height: 7, fill: '#c3c7ca', stroke: '#4b5458' }, g);
     for (let k = 0; k < Math.max(2, Math.round(3 * qk)); k++) { const x = cx - w0 * wk / 2 + (k + .5) * (w0 * wk) / Math.max(2, Math.round(3 * qk)); SV('line', { x1: x, x2: x, y1: Y - 26, y2: Y - 10, stroke: 'var(--coral)', 'stroke-width': 1.6 }, g); SV('path', { d: `M${x - 3},${Y - 13} L${x},${Y - 8} L${x + 3},${Y - 13}`, fill: 'var(--coral)' }, g); }
     SV('text', { x: cx + w0 * wk / 2 + 6, y: Y - 12, text: lab, 'font-size': 11, 'font-weight': 700, fill: 'var(--coral-ink)' }, g);
-        const tx = SV('text', { x: 0, y: 214, 'font-size': 12, fill: 'var(--ink2)' }, g); const words = d.split(' '); let line = '', yy = 212; words.forEach(wd => { if ((line + wd).length > 30) { SV('tspan', { x: 0, y: yy, text: line }, tx); line = ''; yy += 15; } line += wd + ' '; }); SV('tspan', { x: 0, y: yy, text: line }, tx);
+        const tx = SV('text', { x: 0, y: dy0, 'font-size': 12, fill: 'var(--ink2)' }, g); const words = d.split(' '); let line = '', yy = dy0; words.forEach(wd => { if ((line + wd).length > 30) { SV('tspan', { x: 0, y: yy, text: line }, tx); line = ''; yy += 15; } line += wd + ' '; }); SV('tspan', { x: 0, y: yy, text: line }, tx);
   }); }; draw(); let lw = host.clientWidth; addEventListener('resize', () => { if (Math.abs(host.clientWidth - lw) > 20) { lw = host.clientWidth; draw(); } });
 })();
 })();
@@ -1491,7 +1499,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     for (let i = 1; i < nl; i++) { const y = yv - i * 0.3 * k; SV('line', { x1: xL - 8, x2: xR + 8, y1: y, y2: y, stroke: '#5b4c3c', 'stroke-dasharray': '6 4', 'stroke-width': 1.2 }, gfill); }
     SV('polygon', { points: pts, fill: 'none', stroke: '#e5ae47', 'stroke-width': 2.5, 'stroke-dasharray': '7 5' }, s);
     SV('line', { x1: xL - 8, x2: xR + 8, y1: yv, y2: yv, stroke: '#2a6b56', 'stroke-width': 3 }, s);
-    if (gw) { const yw = yb + v * k * 0.55; SV('line', { x1: 0, x2: W, y1: yw, y2: yw, stroke: '#2b78ad', 'stroke-width': 2.5 }, s); SV('path', { d: `M${W - 96},${yw - 12} l8,10 l8,-10 z`, fill: '#2b78ad' }, s); SV('text', { x: W - 74, y: yw - 5, text: 'talajvíz', 'font-size': 12, 'font-weight': 700, class: 'hl', style: 'fill:#1f5f8c' }, s); }
+    if (gw) { const yw = yb + v * k * 0.55; SV('line', { x1: 0, x2: W, y1: yw, y2: yw, stroke: '#2b78ad', 'stroke-width': 2.5 }, s); SV('path', { d: `M${W - 96},${yw - 12} l8,10 l8,-10 z`, fill: '#2b78ad' }, s); SV('text', { x: W - 74, y: yw - 5, text: 'talajvíz', 'font-size': 12, 'font-weight': 700, class: 'hl', style: 'fill:var(--sky-ink)' }, s); }
     // alaptest + teher
     SV('rect', { x: cx - B * k / 2, y: yb - 26, width: B * k, height: 26, fill: '#c3c7ca', stroke: '#4b5458' }, s); SV('rect', { x: cx - 12, y: 30, width: 24, height: yb - 56, fill: '#c3c7ca', stroke: '#4b5458' }, s);
     SV('line', { x1: cx, x2: cx, y1: 2, y2: 22, stroke: '#d4553a', 'stroke-width': 3 }, s); SV('path', { d: `M${cx - 7},18 L${cx},30 L${cx + 7},18 Z`, fill: '#d4553a' }, s); SV('text', { x: cx + 14, y: 20, text: `P = ${P} kN/m`, 'font-size': 13, 'font-weight': 800, fill: 'var(--coral-ink)' }, s);
@@ -1505,7 +1513,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     SV('text', { x: cx, y: yd + 17, 'text-anchor': 'middle', text: `B + 2·v·tgϑ = ${fmt(Bv, 2)} m`, 'font-size': 12.5, 'font-weight': 800, class: 'hl' }, s);
     const xv = xL - 20; SV('line', { x1: xv, x2: xv, y1: yb, y2: yv, stroke: 'var(--ink)', 'stroke-width': 1.5 }, s); [yb, yv].forEach(y => SV('line', { x1: xv - 5, x2: xv + 5, y1: y, y2: y, stroke: 'var(--ink)', 'stroke-width': 1.5 }, s));
     SV('text', { x: xv - 8, y: (yb + yv) / 2 + 4, 'text-anchor': 'end', text: `v = ${fmt(v, 2)} m`, 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: xR + 14, y: yv + 4, text: 'geotextília', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:#1f5a48' }, s);
+    SV('text', { x: xR + 14, y: yv + 4, text: 'geotextília', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--teal-ink)' }, s);
     $('#tcsOut').innerHTML = `<div class="r"><span>σ<sub>1</sub> az alapsíkon (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ<sub>2</sub> a csereréteg alján</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>kiszélesítés oldalanként (v·tgϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>tömörítendő rétegek (≤ 30 cm)</span><b>${nl} db</b></div>`;
     const msgs = []; if (!ok2) msgs.push('✗ Az alapréteg terhelése nagyobb a megengedettnél – vastagabb csereréteg vagy szélesebb alap kell.'); else msgs.push('✓ A csereréteg alatti alapréteg terhelése megfelel.');
     if (gw) msgs.push('⚠ A talajvíz a cserezónában van – talajvíz alatt a cseretalaj nem tömöríthető! (víztelenítés vagy más módszer)');
