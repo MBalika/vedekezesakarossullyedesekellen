@@ -1,0 +1,121 @@
+# 2026-11-21: négy módszercsoport (1/A … 4/D), új sorrend, talajcsere-ábra
+b70c0db	<span class="code">4/D</span> <b>Deep foundations</b>
+549043a	<span class="code">4/B–C</span> <b>Structure, sequence</b>
+a8193a0	<span class="code">4/A</span> <b>Preloading</b>
+df42b08	<span class="code">3/F</span> <b>Mass stabilisation</b>
+9b6960d	<span class="code">3</span> <b>Two-component resin</b>
+a5f84bb	<span class="code">3/E</span> <b>Void-filling grouting</b>
+682244e	<span class="code">3/D</span> <b>Fracture/compensation grouting</b>
+d7fd54f	<span class="code">3/C</span> <b>Rock fissure grouting</b>
+e826eea	<span class="code">3/B</span> <b>Compaction grouting</b>
+a511ff0	<span class="code">3/A</span> <b>Permeation grouting</b>
+711a626	<span class="code">2/D</span> <b>Gravel pile</b>
+5881262	<span class="code">2/C</span> <b>Stone pillar</b>
+e1a9972	<span class="code">2/B</span> <b>Dynamic compaction</b>
+6573dd1	<span class="code">2/A</span> <b>Deep compaction</b>
+1751838	<span class="code">1/C</span> <b>Soil replacement</b>
+76ee7a7	<span class="code">1/B</span> <b>Deeper foundation level</b>
+183cf47	<span class="code">1/A</span> <b>Lower contact pressure</b>
+ec548db	Self-check · 4/B–4/D
+e0f93c5	Try it: support settlement and settlement joint
+090810a	Structural measures: if we cannot shape the ground, we shape the structure
+d044e22	Self-check · 4/A
+8b42ac1	Try it: preloading and unloading
+00b1e59	Preloading: let it settle first – without the building
+f8626c0	<a href="#eloterheles"><span>4/A</span>Preloading</a><a href="#szerkezet"><span>4/B</span>Structural measures</a><a href="#sorrend"><span>4/C</span>Construction sequence</a><a href="#melyalap"><span>4/D</span>Deep foundations</a>
+68c71a0	Subsections
+1e0d734	When we improve not the ground, or not only the ground: preloading forces the settlement to take place in advance, the design of the structure and the construction sequence make differential settlement tolerable, or we switch to deep foundations.
+1a43bc8	Method group 4
+ec2ad58	Self-check · 3/A–3/F
+7b05a76	Try it: plan the job!
+f4f37c7	Try it: which material gets into the voids?
+5e9e87d	3/E · void filling
+0026e60	3/D · fracture/compensation
+82b93c9	3/C · rock fissure
+e870d5d	3/B · compaction
+c11703c	3/A · permeation
+ac7ce2e	Choose a method and start the animation!
+ed24f20	Try it: the five methods as an animation
+3efa97a	<b>3/E · Void filling</b>
+8a905e1	<b>3/D · Fracture/compensation</b>
+0e7f95c	<b>3/C · Rock fissure</b>
+2e82287	<b>3/B · Compaction</b>
+f9d9bc5	<b>3/A · Permeation</b>
+f843e06	The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void.
+4c38f7a	<span class="n">3/F</span>Mass stabilisation
+2a92033	<span class="n">3/A–E</span>Grouting
+82d938e	<a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Permeation</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Compaction</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Rock fissure</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Fracture/compensation</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Void filling</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Mass stabilisation</a>
+47d42ef	Method group 3 · ground improvement by grouting and mixing
+980eb65	Self-check · 2/A–2/D
+18fe15b	Summary footage: ground improvement in practice
+06f0649	Try it: grid and effect
+e51518c	Try it: making a stone pillar step by step
+ae37237	Try it: drop it yourself!
+ee10206	Try it: vibroflotation step by step
+c676961	<span class="n">2/D</span>Gravel pile
+0e7a150	<span class="n">2/C</span>Stone pillar
+3aa4e56	<span class="n">2/B</span>Dynamic compaction
+ec10a45	<span class="n">2/A</span>Deep compaction
+34f6c25	Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material, or by <b>compacting</b> the soil. Four mechanical methods are presented below – at the end of the group, real footage of ground improvement as a whole.
+68d6951	Method group 2 · mechanical ground improvement
+e5bbcdc	Self-check · 1/C
+c184286	Try it: load spread in the replacement layer
+786a97e	The summary video of method group 1: the principles of lower contact pressure, a deeper foundation level and soil replacement step by step – with layer-by-layer compaction and load spread.
+0091bdb	<b>Two checks.</b> Both the stress on the replacement layer at foundation level, σ<sub>1</sub> = P/B, and the stress on the base layer at the bottom of the replacement layer, σ<sub>2</sub> = P/(B + 2·v·tg ϑ) + γ<sub>1</sub>·v, must stay below the allowable value.
+4c76204	<b>Backfilling.</b> Sandy gravel, crushed stone or crushed concrete is spread and compacted in layers of at most 30 cm – above the water table.
+bc2cc64	<b>Widening.</b> On each side, the bottom of the excavation is v·tg ϑ wider than the footing: the load spreads at the angle ϑ, so at the bottom of the replacement layer it is distributed over a width of B + 2·v·tg ϑ.
+ca7c6cf	<b>Excavation.</b> The highly compressible soil below the foundation level is removed within the stressed zone – or in part of it.
+6330aa7	How does soil replacement work?
+df3f175	Soil replacement: out with the bad soil – in with the good
+1580b60	Self-check · 1/A–1/B
+848ad65	Try it: 3D settlement simulator
+a346be8	<a href="#talpnyomas"><span>1/A</span>Lower contact pressure</a><a href="#alapsik"><span>1/B</span>Deeper foundation level</a><a href="#talajcsere"><span>1/C</span>Soil replacement</a>
+bcc7914	We modify the foundation itself: a larger footing area reduces the contact pressure, the foundation level is taken deeper, or the poor soil below the foundation level is replaced with better soil.
+4bb8fdf	Method group 1
+add08c1	<span>4/D</span>Deep foundations
+ede1093	<span>4/C</span>Construction sequence
+b542016	<span>4/B</span>Structural measures
+c316f83	<span>4/A</span>Preloading
+46d9e3e	<span>3/F</span>Mass stabilisation
+f8dfcb0	<span>3/E</span>Void filling
+f86d9cf	<span>3/D</span>Fracture/compensation
+93df383	<span>3/C</span>Rock fissure
+0dd883d	<span>3/B</span>Compaction
+419848a	<span>3/A</span>Permeation
+67ac70d	<span>2/D</span>Gravel pile
+147f974	<span>2/C</span>Stone pillar
+5a54448	<span>2/B</span>Dynamic compaction
+9d70976	<span>2/A</span>Deep compaction
+75dafa3	<span>1/C</span>Soil replacement
+6d3bc57	<span>1/B</span>Deeper foundation level
+733caf5	<span>1/A</span>Lower contact pressure
+fd73365	If the calculated settlements are not acceptable, the original design has to be changed. The methods <b>can be combined</b> – the choice depends on the subsoil, the depth of the intervention and the cost. The page follows this order: within the four groups the subsections (1/A, 1/B …) follow one another.
+0777a9a	Four method groups – from the ground to the structure
+318b384	<a class="btn pri" href="#attekintes">Start with the overview →</a>⏎        <a class="btn ghost" href="#videok">▶ Videos</a>⏎        <a class="btn ghost" href="#igazhamis">True/false test</a>
+10bb626	<b>4</b><span>method groups, 17 subsections</span>
+47a95d2	If the calculated settlement or differential settlement is not acceptable with the chosen type of foundation, the design must be changed. Four method groups are available: changing the foundation, mechanical compaction, grouting and stabilisation, and design measures.
+dc94e67	<span class="snl">The four method groups:</span><a href="#alapozas" style="--dot:#39c2a5"><span>1</span>A–C</a><a href="#tomorites" style="--dot:#e5ae47"><span>2</span>A–D</a><a href="#szilarditas" style="--dot:#a28ce8"><span>3</span>A–F</a><a href="#tervezoi" style="--dot:#f07a5c"><span>4</span>A–D</a>
+0b266f2	<a href="#t-mech" data-open="mech:m1"><span>2/A</span>Deep compaction</a><a href="#t-mech" data-open="mech:m2"><span>2/B</span>Dynamic compaction</a><a href="#t-mech" data-open="mech:m3"><span>2/C</span>Stone pillar</a><a href="#t-mech" data-open="mech:m4"><span>2/D</span>Gravel pile</a>
+5cdad8e	<a href="#talpnyomas"><span>1/A</span>Lower contact pressure</a><a href="#alapsik"><span>1/B</span>Deeper foundation level</a><a href="#szim3d" class="x"><span>1/A–B</span>3D simulator</a><a href="#talajcsere"><span>1/C</span>Soil replacement</a>
+f63c4d0	<a href="#attekintes" style="--dot:#6db2e2"><i></i>Overview</a>⏎      <a class="grp" href="#alapozas" style="--dot:#39c2a5"><b>1</b>Changing the foundation</a>⏎      <a class="grp" href="#tomorites" style="--dot:#e5ae47"><b>2</b>Mechanical compaction</a>⏎      <a class="grp" href="#szilarditas" style="--dot:#a28ce8"><b>3</b>Grouting, stabilisation</a>⏎      <a class="grp" href="#tervezoi" style="--dot:#f07a5c"><b>4</b>Design measures</a>⏎      <a href="#osszegzes" style="--dot:#6db2e2"><i></i>Summary</a>⏎      <a href="#videok" style="--dot:#6db2e2"><i></i>Video library</a>⏎      <a href="#igazhamis" style="--dot:#6db2e2"><i></i>True/false</a>
+94fd04d	lower contact pressure · deeper foundation level · soil replacement
+a080784	4/D Deep foundations
+ab6b80a	4/B–C Structural measures, construction sequence
+2a66f43	4/A Preloading
+fc70f89	3/F Mass stabilisation
+ade7b06	3/D Fracture/compensation grouting
+0809be4	3/B Compaction grouting
+c1a5357	3/A Permeation grouting
+edd52a1	2/D Gravel pile
+8c19cd5	2/C Stone pillar
+339c0a8	2/B Dynamic compaction
+a95d696	2/A Deep compaction (vibroflotation)
+78d27c6	1/B Deeper foundation level
+ff3fcb3	1/A Lower contact pressure
+f5e7489	base layer (γ_{2})
+60b36b8	weak, compressible
+fdaf52e	on the base layer
+0a707f0	layers ≤ 30 cm, compacted
+873e7af	replacement layer (γ_{1})
+2654ec0	on the replacement layer
+f55fb20	excavation backfilled

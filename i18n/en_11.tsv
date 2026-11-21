@@ -8,64 +8,42 @@ b820d87	Grouting materials and soil grading
 d5e7d48	by gravity or at low pressure
 e33737b	voids, cellars, galleries
 4281df2	an existing void is filled
-5fa47bd	<b>5 · Void filling</b>
 39bba72	settlement compensation, re-levelling
 aec7673	high pressure, fast-setting material
 80222ab	soil and rock
 26cec0c	the ground fractures, the grout sheets lift it
-07820fd	<b>4 · Fracture/compensation</b>
 ce11aa0	rock slope, rock under foundations, watertightness
 547d208	permeation type, cement-based
 6c478bd	fissured rock
 402368d	the fissure network of the rock is filled
-f253719	<b>3 · Rock fissure</b>
 2608271	load-bearing columns, re-levelling floor slabs
 d7e735e	higher pressure, stiff mortar
 ab1da70	loose soil, also silt and clay
 325171e	voids formed stage by stage, the surrounding soil is compacted
-7fe3108	<b>2 · Compaction</b>
 46c82ba	underpinning, sealing, excavations
 e90cbc1	low pressure, low-viscosity material
 1af6b51	granular soil, coarse silt
 b502823	the grout fills the voids; the void volume and the soil structure do not change
-5aa5826	<b>1 · Permeation</b>
 09d9c55	Typical application
 a9193e3	Pressure, material
 55125f8	Soil
 8466981	What happens to the soil?
 ea329ba	Progress <span class="v" data-for="injT"></span>
 c0f02d0	the grains stay in place, only the voids are filled
-e964439	5 · void filling
-fde0492	4 · fracture/compensation
-bb9eb8c	3 · rock fissure
-b05f3c1	2 · compaction
-3c03427	1 · permeation
 dca1c67	▶ Play
 5c1f0ac	Permeation grouting
-b907d3f	The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void. Choose a method and start the animation!
 9a5cff0	Five grouting methods – what does the grout do to the soil?
 8a3ea9b	In grouting, a binder is injected into the pores, fissures and voids of the soil or rock through drilled or driven pipes. Reducing the void volume improves the strength and deformation properties. In mass stabilisation, the soil is mixed in place with a binder.
-042aa2d	<b>Two-component resin</b>
 c0f690b	improved cement mortar, expanding PU foam
 62a25cb	voids, cellars, mine galleries
-f91f6ee	<b>Void-filling grouting</b>
 20a5ec2	settlement compensation, re-levelling buildings
-18a6554	<b>Fracture/compensation grouting</b>
 e03ca32	slope, rock under foundations, watertightness
 603e4a8	filling the fissure network
-4fb4dd6	<b>Rock fissure grouting</b>
 9964137	compacts, forms load-bearing columns
 9ff83c3	stiff mortar, bulbs stage by stage
-94d9eeb	<b>Compaction grouting</b>
 0ab4817	fills the voids; from the bottom upwards
 b69bcb1	cement grouting: pipes every 50–100 cm, 7–10 atm
 256f1c9	granular soil, coarse silt; with cement only coarser than 0.8–1 mm
-8667864	<b>Permeation grouting</b>
-f09ddc2	<span>d5</span>Void-filling grouting
-ed08b54	<span>d5</span>Fracture/compensation grouting
-c65724b	<span>d5</span>Rock fissure grouting
-1fd67f0	<span>d5</span>Compaction grouting
-af5590c	<span>d5</span>Permeation grouting
 be57364	rare in new construction
 4ea82a4	also under existing buildings
 b85f230	compacts loose soil

@@ -9,15 +9,21 @@
       <a class="langbtn" id="langSw" href="en" hreflang="en" lang="en" aria-label="English version"><b>HU</b><span>EN</span></a>
     </div>
     <nav class="chapnav" aria-label="Fejezetek">
-      <a href="#attekintes" style="--dot:#e5ae47"><i></i>1 · Áttekintés</a>
-      <a href="#alapozas" style="--dot:#39c2a5"><i></i>2 · Talpnyomás, alapsík (3D)</a>
-      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>3 · Talajcsere</a>
-      <a href="#tomorites" style="--dot:#e5ae47"><i></i>4 · Tömörítés</a>
-      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>5 · Injektálás, stabilizáció</a>
-      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>6 · Előterhelés</a>
-      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>7 · Tervezői eszközök</a>
-      <a href="#videok" style="--dot:#fff"><i></i>Videótár</a>
-      <a href="#igazhamis" style="--dot:#fff"><i></i>Igaz/hamis</a>
+      <a href="#attekintes" style="--dot:#6db2e2"><i></i>Áttekintés</a>
+      <a class="grp" href="#alapozas" style="--dot:#39c2a5"><b>1</b>Alapozás átalakítása</a>
+      <a class="grp" href="#tomorites" style="--dot:#e5ae47"><b>2</b>Mechanikai tömörítés</a>
+      <a class="grp" href="#szilarditas" style="--dot:#a28ce8"><b>3</b>Injektálás, szilárdítás</a>
+      <a class="grp" href="#tervezoi" style="--dot:#f07a5c"><b>4</b>Tervezői eszközök</a>
+      <a href="#osszegzes" style="--dot:#6db2e2"><i></i>Összegzés</a>
+      <a href="#videok" style="--dot:#6db2e2"><i></i>Videótár</a>
+      <a href="#igazhamis" style="--dot:#6db2e2"><i></i>Igaz/hamis</a>
+    </nav>
+    <nav class="subnav" aria-label="Alpontok">
+      <div class="sn" data-sec="alapozas" style="--dot:#39c2a5"><a href="#talpnyomas"><span>1/A</span>Kisebb talpnyomás</a><a href="#alapsik"><span>1/B</span>Mélyebb alapsík</a><a href="#szim3d" class="x"><span>1/A–B</span>3D szimulátor</a><a href="#talajcsere"><span>1/C</span>Talajcsere</a></div>
+      <div class="sn" data-sec="tomorites" style="--dot:#e5ae47"><a href="#t-mech" data-open="mech:m1"><span>2/A</span>Mélytömörítés</a><a href="#t-mech" data-open="mech:m2"><span>2/B</span>Dinamikus tömörítés</a><a href="#t-mech" data-open="mech:m3"><span>2/C</span>Kőtömzs</a><a href="#t-mech" data-open="mech:m4"><span>2/D</span>Kavicscölöp</a></div>
+      <div class="sn" data-sec="szilarditas" style="--dot:#a28ce8"><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Itatásos</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Talajtömörítő</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Kőzet hézagkitöltő</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Repesztő/kompenzáló</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Üregkitöltő</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Tömegstabilizáció</a></div>
+      <div class="sn" data-sec="tervezoi" style="--dot:#f07a5c"><a href="#eloterheles"><span>4/A</span>Előterhelés</a><a href="#szerkezet"><span>4/B</span>Szerkezeti megoldás</a><a href="#sorrend"><span>4/C</span>Építési sorrend</a><a href="#melyalap"><span>4/D</span>Mélyalapozás</a></div>
+      <div class="sn sn-all" data-sec="" style="--dot:#6db2e2"><span class="snl">A négy módszercsoport:</span><a href="#alapozas" style="--dot:#39c2a5"><span>1</span>A–C</a><a href="#tomorites" style="--dot:#e5ae47"><span>2</span>A–D</a><a href="#szilarditas" style="--dot:#a28ce8"><span>3</span>A–F</a><a href="#tervezoi" style="--dot:#f07a5c"><span>4</span>A–D</a></div>
     </nav>
   </div>
   <div class="progress"></div>
@@ -28,9 +34,9 @@
     <div>
       <div class="kicker">BME · Alapozás · Síkalapok süllyedésszámítása</div>
       <h1>Védekezés a <em>káros süllyedések</em> ellen</h1>
-      <p class="lead">Ha a számított süllyedés vagy süllyedéskülönbség a kialakított alapozási módszerrel nem engedhető meg, a terven változtatni kell. Nyolc eszköz áll rendelkezésre – a talpnyomás csökkentésétől a talajjavításon át a mélyalapozásig.</p>
+      <p class="lead">Ha a számított süllyedés vagy süllyedéskülönbség a kialakított alapozási módszerrel nem engedhető meg, a terven változtatni kell. Négy módszercsoport áll rendelkezésre: az alapozás átalakítása, a mechanikai tömörítés, az injektálás és szilárdítás, valamint a tervezői eszközök.</p>
       <div class="stats">
-        <div class="stat"><b>8</b><span>beavatkozási mód (a–h)</span></div>
+        <div class="stat"><b>4</b><span>módszercsoport, 17 alpont</span></div>
         <div class="stat"><b>3D</b><span>süllyedés-szimulátor</span></div>
         <div class="stat"><b>8</b><span>valós BME-felvétel</span></div>
         <div class="stat"><b>2</b><span>animációs videó</span></div>
@@ -38,7 +44,7 @@
         <div class="stat"><b>40</b><span>igaz/hamis állítás</span></div>
       </div>
       <div class="btns">
-        <a class="btn pri" href="#alapozas">Indítsd a 3D szimulátort →</a>
+        <a class="btn pri" href="#attekintes">Kezdjük az áttekintéssel →</a>
         <a class="btn ghost" href="#videok">▶ Videók</a>
         <a class="btn ghost" href="#igazhamis">Igaz/hamis teszt</a>
       </div>
@@ -47,58 +53,59 @@
 </section>
 
 <main>
-<!-- 1. ÁTTEKINTÉS -->
-<section class="chap c-amber" id="attekintes"><div class="wrap">
-  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">A beavatkozások térképe</div><h2>Négy irány – a talajtól a szerkezetig</h2><p class="lead">Ha a számított süllyedések nem engedhetők meg, az eredeti terveken változtatni kell. A módszerek <b>kombinálhatók</b> – a választás az altalajtól, a beavatkozás mélységétől és a költségtől függ.</p></div></div>
+<!-- ÁTTEKINTÉS -->
+<section class="chap c-sky" id="attekintes"><div class="wrap">
+  <div class="chhead"><div class="chnum">◇</div><div><div class="kicker">A beavatkozások térképe</div><h2>Négy módszercsoport – a talajtól a szerkezetig</h2><p class="lead">Ha a számított süllyedések nem engedhetők meg, az eredeti terveken változtatni kell. A módszerek <b>kombinálhatók</b> – a választás az altalajtól, a beavatkozás mélységétől és a költségtől függ. Az oldal ebben a rendben halad: a négy csoporton belül az alpontok (1/A, 1/B …) követik egymást.</p></div></div>
   <div class="callout web"><span class="ci">i</span><p>Hogy mekkora süllyedés engedhető meg, és hogyan károsítja az épületet az egyenlőtlen süllyedés, azt a <a href="https://sikalapok-sullyedesszamitasa.vercel.app" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása</b></a> tananyag Süllyedéstűrés fejezete mutatja be. Ez az oldal a védekezés módszereivel foglalkozik.</p></div>
   <div class="dirs">
-    <div class="dir c-teal"><span class="n">1</span><h4>Alapozás átalakítása</h4><a href="#alapozas"><span>a</span>Kisebb talpnyomás</a><a href="#alapozas"><span>b</span>Mélyebb alapsík</a><a href="#talajcsere"><span>c</span>Talajcsere</a></div>
-    <div class="dir c-amber"><span class="n">2</span><h4>Mechanikai tömörítés</h4><a href="#tomorites"><span>d1</span>Mélytömörítés</a><a href="#tomorites"><span>d2</span>Dinamikus tömörítés</a><a href="#tomorites"><span>d3</span>Kőtömzs</a><a href="#tomorites"><span>d4</span>Kavicscölöp</a></div>
-    <div class="dir c-violet"><span class="n">3</span><h4>Injektálás, szilárdítás</h4><a href="#szilarditas"><span>d5</span>Itatásos injektálás</a><a href="#szilarditas"><span>d5</span>Talajtömörítő injektálás</a><a href="#szilarditas"><span>d5</span>Kőzet hézagkitöltő injektálás</a><a href="#szilarditas"><span>d5</span>Repesztő/kompenzáló injektálás</a><a href="#szilarditas"><span>d5</span>Üregkitöltő injektálás</a><a href="#szilarditas"><span>d6</span>Tömegstabilizáció</a></div>
-    <div class="dir c-coral"><span class="n">4</span><h4>Tervezői eszközök</h4><a href="#eloterheles"><span>e</span>Előterhelés</a><a href="#szerkezet"><span>f</span>Szerkezeti megoldás</a><a href="#szerkezet"><span>g</span>Építési sorrend</a><a href="#szerkezet"><span>h</span>Mélyalapozás</a></div>
+    <div class="dir c-teal"><span class="n">1</span><h4>Alapozás átalakítása</h4><a href="#talpnyomas"><span>1/A</span>Kisebb talpnyomás</a><a href="#alapsik"><span>1/B</span>Mélyebb alapsík</a><a href="#talajcsere"><span>1/C</span>Talajcsere</a></div>
+    <div class="dir c-amber"><span class="n">2</span><h4>Mechanikai tömörítés</h4><a href="#t-mech" data-open="mech:m1"><span>2/A</span>Mélytömörítés</a><a href="#t-mech" data-open="mech:m2"><span>2/B</span>Dinamikus tömörítés</a><a href="#t-mech" data-open="mech:m3"><span>2/C</span>Kőtömzs</a><a href="#t-mech" data-open="mech:m4"><span>2/D</span>Kavicscölöp</a></div>
+    <div class="dir c-violet"><span class="n">3</span><h4>Injektálás, szilárdítás</h4><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Itatásos</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Talajtömörítő</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Kőzet hézagkitöltő</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Repesztő/kompenzáló</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Üregkitöltő</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Tömegstabilizáció</a></div>
+    <div class="dir c-coral"><span class="n">4</span><h4>Tervezői eszközök</h4><a href="#eloterheles"><span>4/A</span>Előterhelés</a><a href="#szerkezet"><span>4/B</span>Szerkezeti megoldás</a><a href="#sorrend"><span>4/C</span>Építési sorrend</a><a href="#melyalap"><span>4/D</span>Mélyalapozás</a></div>
   </div>
 
-  <div class="sub-h"><span class="lt">★</span><h3>Módszerválasztó – melyik jöhet szóba?</h3></div>
-  <div class="sel" id="selector">
-    <div class="panel"><div class="pb">
-      <div class="q2"><h5>Milyen a problémás talaj?</h5><div class="seg" data-q="soil"><button data-v="szemcses">laza szemcsés</button><button data-v="kotott" class="on">puha kötött (agyag)</button><button data-v="szerves">tőzeg, szerves</button><button data-v="feltoltes">feltöltés</button></div></div>
-      <div class="q2"><h5>Hol van a talajvíz?</h5><div class="seg" data-q="gw"><button data-v="felett" class="on">a beavatkozás alatt</button><button data-v="alatt">a beavatkozás zónájában</button></div></div>
-      <div class="q2"><h5>Milyen mélyen van a gond?</h5><div class="seg" data-q="depth"><button data-v="sekely">sekély (≤ 2 m)</button><button data-v="kozepes" class="on">közepes (2–7 m)</button><button data-v="mely">mély (> 7 m)</button></div></div>
-      <div class="q2"><h5>Mélyebben kedvezőbb réteg van?</h5><div class="seg" data-q="better"><button data-v="igen" class="on">igen</button><button data-v="nem">nem</button></div></div>
-      <div class="q2"><h5>Helyzet</h5><div class="seg" data-q="sit"><button data-v="uj" class="on">új építés</button><button data-v="meglevo">meglévő épület (utólag)</button></div></div>
-      <p class="src">Egyszerűsített, oktatási célú döntéssegítő a módszerek alkalmazási feltételei alapján – a valós választás mindig talajvizsgálaton és számításon alapul.</p>
-    </div></div>
-    <div class="mlist" id="selList"></div>
-  </div>
-  <div class="sub-h"><span class="lt">≡</span><h3>Összefoglaló táblázat</h3></div>
-  <div class="tscroll"><table class="t sumt">
-    <thead><tr><th>Módszer</th><th>Alkalmas talaj</th><th>Mélység, jellemző adat</th><th>Korlát, megjegyzés</th></tr></thead>
-    <tbody>
-      <tr><td><b>a) Kisebb talpnyomás</b></td><td>ha mélyebben kevésbé összenyomódó réteg van</td><td>szélesebb alap, kisebb q</td><td>nő a súly és a határmélység; fordított rétegződésnél ronthat</td></tr>
-      <tr><td><b>b) Mélyebb alapsík</b></td><td>pár méteren belül jobb teherbíró réteg</td><td>pince: kiemelt föld tehermentesít</td><td>2–2,5 m-nél mélyebb sávalap nem gazdaságos</td></tr>
-      <tr><td><b>c) Talajcsere</b></td><td>bármely rossz talaj, sekély zónában</td><td>50–80 cm, ≤ 30 cm-es rétegekben tömörítve</td><td>csak talajvíz felett; kiszélesítés: B + 2·v·tgϑ</td></tr>
-      <tr><td><b>Mélytömörítés</b></td><td>laza szemcsés talaj, feltöltés</td><td>vibrátor Ø 25–40 cm, öblítéssel</td><td>finomszem-tartalom kb. &lt; 10–12 %</td></tr>
-      <tr><td><b>Dinamikus tömörítés</b></td><td>lazább-puhább talaj, nagy felület</td><td>15–40 t ejtősúly, H = 10–40 m; max. 5–7 m</td><td>erős rezgés – épületek mellett nem</td></tr>
-      <tr><td><b>Kőtömzs</b></td><td>nagyon laza-puha talaj</td><td>szemcsés anyag bedöngölése, nagy átmérőjű tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
-      <tr><td><b>Kavicscölöp</b></td><td>lazább-puhább talaj (kötött is)</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
-      <tr><td><b>Itatásos injektálás</b></td><td>szemcsés talaj, durva iszap; cementtel csak 0,8–1 mm-nél durvább</td><td>cementbesajtolás: csövek 50–100 cm-enként, 7–10 atm</td><td>a hézagokat tölti ki; alulról felfelé</td></tr>
-      <tr><td><b>Talajtömörítő injektálás</b></td><td>laza talaj, iszap és agyag is</td><td>sűrű habarcs, szakaszos gömbök</td><td>tömörít, teherviselő oszlopokat képez</td></tr>
-      <tr><td><b>Kőzet hézagkitöltő injektálás</b></td><td>repedezett kőzet</td><td>a repedéshálózat kitöltése</td><td>rézsű, alap alatti kőzet, vízzárás</td></tr>
-      <tr><td><b>Repesztő/kompenzáló injektálás</b></td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, épület visszaemelése</td></tr>
-      <tr><td><b>Üregkitöltő injektálás</b></td><td>üregek, pincék, bányajáratok</td><td>gravitációsan vagy kis nyomással</td><td>javított cementhabarcs, duzzadó PU hab</td></tr>
-      <tr><td><b>Kétkomponensű műgyanta</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
-      <tr><td><b>Tömegstabilizáció</b></td><td>tőzeg, puha agyag, szerves talaj</td><td>keverőfej 1,5 m × Ø 0,95 m; max. ~7 m</td><td>állékony területről indul; idő kell a szilárduláshoz</td></tr>
-      <tr><td><b>e) Előterhelés</b></td><td>telített, összenyomható kötött talaj</td><td>a teher ≥ a későbbi épületteher</td><td>hosszú idő – drénekkel gyorsítható</td></tr>
-      <tr><td><b>f–g) Szerkezet, sorrend</b></td><td>–</td><td>merev vagy hajlékony szerkezet, süllyedési hézag</td><td>kiegészítő eszköz</td></tr>
-      <tr><td><b>h) Mélyalapozás</b></td><td>ha a teherbíró réteg mélyen van</td><td>cölöp, résfal</td><td>sokszor a legegyszerűbb, leggyorsabb</td></tr>
-    </tbody>
-  </table></div>
 </div></section>
 
-<!-- 2. ALAPOZÁS ÁTALAKÍTÁSA -->
-<section class="chap c-teal" id="alapozas"><div class="wrap">
-  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">a) Kisebb talpnyomás · b) Alapsík mélyebbre vitele</div><h2>3D süllyedés-szimulátor</h2><p class="lead">Nagyobb alapfelület → kisebb talpnyomás. Mélyebb alapsík → jobb teherbíró réteg, több kiemelt föld. De vajon mindig csökken a süllyedés? <b>Forgasd a 3D modellt, húzd a csúszkákat</b>, és figyeld a feszültségburát, a határmélységet és a süllyedést!</p></div></div>
+<!-- 1. ALAPOZÁS ÁTALAKÍTÁSA -->
+<section class="chap c-teal grp" id="alapozas"><div class="wrap">
+  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">1. módszercsoport</div><h2>Alapozás átalakítása</h2><p class="lead">Magát az alapozást alakítjuk át: nagyobb alapfelülettel csökkentjük a talpnyomást, mélyebbre visszük az alapsíkot, vagy az alapsík alatti rossz talajt jobbra cseréljük.</p></div></div>
+  <nav class="subidx" aria-label="Alpontok"><a href="#talpnyomas"><span>1/A</span>Kisebb talpnyomás</a><a href="#alapsik"><span>1/B</span>Mélyebb alapsík</a><a href="#talajcsere"><span>1/C</span>Talajcsere</a></nav>
 
+  <div class="sub-h" id="talpnyomas"><span class="lt">1/A</span><h3>Kisebb talpnyomás alkalmazása</h3></div>
+  <div class="twocol tw-ab">
+    <div>
+      <p>A talaj teherbírása szempontjából szükségesnél <b>nagyobb felületű alapot</b> építünk. Szélesebb alapfelület alatt kisebb feszültségek keletkeznek. Sok esetben azonban nem csökkenti a süllyedést olyan mértékben, mint azt a tervező várja:</p>
+      <ul><li>a szélesebb alaptest maga is <b>nagyobb súlyt</b> jelent,</li><li>főként pedig a szélesebb alap alatt <b>nagyobb mélységig</b> jutnak le az összenyomódást okozó feszültségek – <b>nagyobb lesz a határmélység</b>.</li></ul>
+      <p>Akkor hatásos, ha <b>mélyebben kevésbé összenyomódó</b> rétegek vannak (A eset). A B esetben a puhább, lejjebb lévő agyagréteg kap szélesítéskor nagyobb feszültséget – így a süllyedés akár <b>növekedhet</b> is: pont ellenkező hatást érünk el!</p>
+    </div>
+    <div class="panel"><div class="ph"><h4>A és B eset – meddig ér a feszültségbura?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Alapszélesség <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
+  </div>
+  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">A szaggatott vonal az eredeti (b szélességű, q talpfeszültségű) alap feszültségburája. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
+
+  <div class="sub-h" id="alapsik"><span class="lt">1/B</span><h3>Alapsík mélyebbre vitele – és a pince</h3></div>
+  <div class="twocol">
+    <div>
+      <p>Akkor jön számításba, ha a térszínközeli kompresszibilis rétegben felvett alapsík esetén túl nagy süllyedés adódik, és nem túl nagy mélységben (pár méterre) <b>kevésbé összenyomódó, jobb teherbíró</b> talaj van. Ekkor az alapok melletti takarás megnő, így a talajtöréssel szembeni biztonság növekszik, az alapszélesség csökkenthető.</p>
+      <div class="callout warn"><span class="ci">!</span><p><b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pilléralapozás (vagy kútalapozás) célszerű, amelyet felül gerendarács köt össze.</p></div>
+      <p>Ilyen talajviszonyok mellett érdemes <b>pincét</b> készíteni, ha a terepszint alatti helyiségek is hasznosíthatók. A pince hatása kettős:</p>
+      <ul><li>mélyebben fekvő teherbíró rétegre kerül(het) az alapsík;</li><li>nő a <b>kiemelt földtömeg súlya</b> – ez tehermentesíti az altalajt.</li></ul>
+      <p>Ha a „pince” helyéről kiemelt talaj tömege nagyobb az oda kerülő építményénél, az altalajra hárított hatékony feszültségek eredője „negatív”, és az építmény (kellően merev vb. lemezalap esetén) gyakorlatilag mozdulatlan lesz – ez a <b>kompenzált alapozás</b> elve.</p>
+      <div class="grid g2"><figure class="photo contain"><img src="img/pince-abra.jpg" alt="Mélyebb alapsík felvétele pincével" loading="lazy" style="height:170px;padding:8px"><figcaption>Mélyebb alapsík felvétele pincével</figcaption></figure><figure class="photo contain"><img src="img/foldkiemeles-abra.jpg" alt="A földkiemelés szerepe" loading="lazy" style="height:170px;padding:8px"><figcaption>A földkiemelés szerepe</figcaption></figure></div>
+      <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros antennával együtt 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
+    </div>
+    <div class="panel"><div class="ph"><h4>Földkiemelés és kompenzáció</h4><button class="chip" id="bsPlay">▶ Építés</button></div><div class="pb">
+      <div id="bsSvg"></div>
+      <div class="ctl"><label>Felszín feletti szintek <span class="v" data-for="bsN"></span></label><input type="range" id="bsN" min="1" max="14" value="6"></div>
+      <div class="ctl"><label>Pinceszintek <span class="v" data-for="bsP"></span></label><input type="range" id="bsP" min="0" max="3" value="1"></div>
+      <div class="ctl"><label>Építés készültsége <span class="v" data-for="bsT"></span></label><input type="range" id="bsT" min="0" max="100" value="100"></div>
+      <div class="res" id="bsOut"></div>
+      <div class="insight" id="bsMsg"></div>
+      <p class="src" style="margin:8px 0 0">Szemléltetés: kb. 12 kPa/szint + 15 kPa alaplemez, γ = 19 kN/m³.</p>
+    </div></div>
+  </div>
+
+  <div class="sub-h try" id="szim3d"><span class="lt">1/A–B</span><h3>Próbáld ki: 3D süllyedés-szimulátor</h3></div>
+  <p>Nagyobb alapfelület → kisebb talpnyomás. Mélyebb alapsík → jobb teherbíró réteg, több kiemelt föld. De vajon mindig csökken a süllyedés? <b>Forgasd a 3D modellt, húzd a csúszkákat</b>, és figyeld a feszültségburát, a határmélységet és a süllyedést!</p>
   <div class="sim simmain">
     <div class="lcol">
       <div class="view" id="simView">
@@ -139,46 +146,31 @@
     <div class="panel"><div class="ph"><h4>Süllyedés a változó függvényében</h4><div class="seg" id="simCurveSel"><button data-v="B" class="on">s(B)</button><button data-v="D">s(D)</button></div></div><div class="pb"><svg class="svgbox" id="simCurve"></svg></div></div>
   </div>
   <p class="src" style="margin-top:10px">A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m<sub>0</sub> = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ<sub>0</sub> kritérium) → rétegenkénti összegzés: s = Σ Δσ<sub>z</sub>·Δh / E<sub>oed</sub>. A földkiemelés hatását a q<sub>0</sub> = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.</p>
+  <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 1/A–1/B</h4><div class="dots"></div></div></div>
 
-  <div class="sub-h"><span class="lt">a</span><h3>Kisebb talpnyomás alkalmazása</h3></div>
-  <div class="twocol tw-ab">
-    <div>
-      <p>A talaj teherbírása szempontjából szükségesnél <b>nagyobb felületű alapot</b> építünk. Szélesebb alapfelület alatt kisebb feszültségek keletkeznek. Sok esetben azonban nem csökkenti a süllyedést olyan mértékben, mint azt a tervező várja:</p>
-      <ul><li>a szélesebb alaptest maga is <b>nagyobb súlyt</b> jelent,</li><li>főként pedig a szélesebb alap alatt <b>nagyobb mélységig</b> jutnak le az összenyomódást okozó feszültségek – <b>nagyobb lesz a határmélység</b>.</li></ul>
-      <p>Akkor hatásos, ha <b>mélyebben kevésbé összenyomódó</b> rétegek vannak (A eset). A B esetben a puhább, lejjebb lévő agyagréteg kap szélesítéskor nagyobb feszültséget – így a süllyedés akár <b>növekedhet</b> is: pont ellenkező hatást érünk el!</p>
-    </div>
-    <div class="panel"><div class="ph"><h4>A és B eset – meddig ér a feszültségbura?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Alapszélesség <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
+  <div class="sub-h" id="talajcsere"><span class="lt">1/C</span><h3>Talajcsere alkalmazása: ki a rossz talajjal – be a jóval</h3></div>
+  <p>Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p>
+  <div class="panel tcsfig"><div class="ph"><h4>Hogyan működik a talajcsere?</h4></div><div class="pb pb-split"><div id="tcsFig"></div><div class="side">
+    <ol class="steps">
+      <li><b>Kiemelés.</b> Az alapsík alatti, erősen összenyomódó talajt a feszültségzónában – vagy annak egy részében – kiemeljük.</li>
+      <li><b>Kiszélesítés.</b> A munkagödör alja oldalanként v·tg ϑ‑val szélesebb az alapnál: a teher ϑ szögben terjed szét, így a csereréteg alján B + 2·v·tg ϑ szélességen oszlik el.</li>
+      <li><b>Visszatöltés.</b> Homokos kavicsot, zúzottkövet vagy törtbetont legfeljebb 30 cm-es rétegekben terítünk és tömörítünk – talajvíz felett.</li>
+      <li><b>Két ellenőrzés.</b> Az alapsíkon a csererétegre jutó σ<sub>1</sub> = P/B, a csereréteg alján az alaprétegre jutó σ<sub>2</sub> = P/(B + 2·v·tg ϑ) + γ<sub>1</sub>·v feszültség is maradjon a megengedett alatt.</li>
+    </ol>
+  </div></div></div>
+  <div class="grid g4" style="margin-top:20px">
+    <div class="card top"><h4>💧 Talajvíz felett</h4><p>Talajcsere általában csak talajvíz felett végezhető, mert különben nem lehet tömöríteni.</p></div>
+    <div class="card top"><h4>📏 50–80 cm</h4><p>Általában részleges talajcsere is elegendő; a szokásos vastagság 50–80 cm.</p></div>
+    <div class="card top"><h4>🧱 ≤ 30 cm rétegek</h4><p>Max. 30 cm-es laza rétegenként kell tömöríteni. Szükség lehet georácsra, geotextíliára, kompozit elválasztó rétegre.</p></div>
+    <div class="card top"><h4>↔ Kiszélesítés</h4><p>Oldalirányban a csereréteg vastagságának megfelelően ki kell szélesíteni – nagy földmunka, a kitermelt talajt el kell szállítani.</p></div>
   </div>
-  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">A szaggatott vonal az eredeti (b szélességű, q talpfeszültségű) alap feszültségburája. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
-
-  <div class="sub-h"><span class="lt">b</span><h3>Alapsík mélyebbre vitele – és a pince</h3></div>
-  <div class="twocol">
-    <div>
-      <p>Akkor jön számításba, ha a térszínközeli kompresszibilis rétegben felvett alapsík esetén túl nagy süllyedés adódik, és nem túl nagy mélységben (pár méterre) <b>kevésbé összenyomódó, jobb teherbíró</b> talaj van. Ekkor az alapok melletti takarás megnő, így a talajtöréssel szembeni biztonság növekszik, az alapszélesség csökkenthető.</p>
-      <div class="callout warn"><span class="ci">!</span><p><b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pilléralapozás (vagy kútalapozás) célszerű, amelyet felül gerendarács köt össze.</p></div>
-      <p>Ilyen talajviszonyok mellett érdemes <b>pincét</b> készíteni, ha a terepszint alatti helyiségek is hasznosíthatók. A pince hatása kettős:</p>
-      <ul><li>mélyebben fekvő teherbíró rétegre kerül(het) az alapsík;</li><li>nő a <b>kiemelt földtömeg súlya</b> – ez tehermentesíti az altalajt.</li></ul>
-      <p>Ha a „pince” helyéről kiemelt talaj tömege nagyobb az oda kerülő építményénél, az altalajra hárított hatékony feszültségek eredője „negatív”, és az építmény (kellően merev vb. lemezalap esetén) gyakorlatilag mozdulatlan lesz – ez a <b>kompenzált alapozás</b> elve.</p>
-      <div class="grid g2"><figure class="photo contain"><img src="img/pince-abra.jpg" alt="Mélyebb alapsík felvétele pincével" loading="lazy" style="height:170px;padding:8px"><figcaption>Mélyebb alapsík felvétele pincével</figcaption></figure><figure class="photo contain"><img src="img/foldkiemeles-abra.jpg" alt="A földkiemelés szerepe" loading="lazy" style="height:170px;padding:8px"><figcaption>A földkiemelés szerepe</figcaption></figure></div>
-      <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros antennával együtt 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
-    </div>
-    <div class="panel"><div class="ph"><h4>Földkiemelés és kompenzáció</h4><button class="chip" id="bsPlay">▶ Építés</button></div><div class="pb">
-      <div id="bsSvg"></div>
-      <div class="ctl"><label>Felszín feletti szintek <span class="v" data-for="bsN"></span></label><input type="range" id="bsN" min="1" max="14" value="6"></div>
-      <div class="ctl"><label>Pinceszintek <span class="v" data-for="bsP"></span></label><input type="range" id="bsP" min="0" max="3" value="1"></div>
-      <div class="ctl"><label>Építés készültsége <span class="v" data-for="bsT"></span></label><input type="range" id="bsT" min="0" max="100" value="100"></div>
-      <div class="res" id="bsOut"></div>
-      <div class="insight" id="bsMsg"></div>
-      <p class="src" style="margin:8px 0 0">Szemléltetés: kb. 12 kPa/szint + 15 kPa alaplemez, γ = 19 kN/m³.</p>
-    </div></div>
+  <div class="callout warn"><span class="ci">!</span><p>Igazolni kell a talajtöréssel szembeni biztonságot <b>az alapsík alatti talajcserén</b> és <b>a talajcsere alsó síkja alatti talajon</b> is – és természetesen a süllyedéseknek is határértéken belül kell maradniuk. Költséges (hosszadalmas) megoldás; ma jellemzően térszíni lemezalapoknál alkalmazzák.</p></div>
+  <div class="vblock">
+    <h4>Nézd meg animációban</h4>
+    <p>Az 1. módszercsoport összefoglaló videója: a kisebb talpnyomás, a mélyebb alapsík és a talajcsere elve lépésről lépésre – a rétegenkénti tömörítéssel és a teherterjedéssel.</p>
+    <button class="vcard" data-video="tj1"></button>
   </div>
-  <div class="vinline"><button class="vcard" data-video="tj1"></button></div>
-  <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 2. fejezet</h4><div class="dots"></div></div></div>
-</div></section>
-
-<!-- 3. TALAJCSERE -->
-<section class="chap c-teal" id="talajcsere"><div class="wrap">
-  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">c) Talajcsere alkalmazása</div><h2>Ki a rossz talajjal – be a jóval</h2><p class="lead">Az alapsík alatti erősen összenyomódó eredeti talajt teljes vastagságban (a feszültségzónában) vagy csak részben kiemeljük, és helyére <b>kedvezőbb tulajdonságú cseretalajt</b> – homokos kavicsot, zúzottkövet, törtbetont – építünk be, kellő tömörítés mellett.</p></div></div>
+  <div class="sub-h try" id="tcssim"><span class="lt">1/C</span><h3>Próbáld ki: teherterjedés a csererétegben</h3></div>
   <div class="sim wide">
     <div class="panel"><div class="ph"><h4>Teherterjedés a csererétegben (sávalap)</h4><button class="chip" id="tcsPlay">▶ Rétegenkénti építés</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ<sub>2</sub> = P / (B + 2·v·tgϑ) + γ<sub>1</sub>·v, ahol γ<sub>1</sub> = 20 kN/m³ a cseretalaj térfogatsúlya – egyszerűsített szemléltetés.</p></div></div>
     <div class="panel"><div class="pb ctl2">
@@ -191,31 +183,28 @@
       <div class="res" id="tcsOut"></div>
     </div></div>
   </div>
-  <div class="grid g4" style="margin-top:20px">
-    <div class="card top"><h4>💧 Talajvíz felett</h4><p>Talajcsere általában csak talajvíz felett végezhető, mert különben nem lehet tömöríteni.</p></div>
-    <div class="card top"><h4>📏 50–80 cm</h4><p>Általában részleges talajcsere is elegendő; a szokásos vastagság 50–80 cm.</p></div>
-    <div class="card top"><h4>🧱 ≤ 30 cm rétegek</h4><p>Max. 30 cm-es laza rétegenként kell tömöríteni. Szükség lehet georácsra, geotextíliára, kompozit elválasztó rétegre.</p></div>
-    <div class="card top"><h4>↔ Kiszélesítés</h4><p>Oldalirányban a csereréteg vastagságának megfelelően ki kell szélesíteni – nagy földmunka, a kitermelt talajt el kell szállítani.</p></div>
-  </div>
-  <div class="callout warn"><span class="ci">!</span><p>Igazolni kell a talajtöréssel szembeni biztonságot <b>az alapsík alatti talajcserén</b> és <b>a talajcsere alsó síkja alatti talajon</b> is – és természetesen a süllyedéseknek is határértéken belül kell maradniuk. Költséges (hosszadalmas) megoldás; ma jellemzően térszíni lemezalapoknál alkalmazzák.</p></div>
-  <div class="grid g2" style="align-items:center;margin-top:18px">
-    <figure class="photo contain"><img src="img/talajcsere-abra.jpg" alt="Süllyedéscsökkentés talajcserével" loading="lazy" style="height:250px;padding:8px"><figcaption>Süllyedéscsökkentés talajcserével</figcaption></figure>
-    <div><h4 style="margin:0 0 8px">Nézd meg animációban</h4><p style="margin:0 0 12px;color:var(--ink2)">A videó lépésről lépésre mutatja be a kisebb talpnyomás, a mélyebb alapsík és a talajcsere elvét – a rétegenkénti tömörítéssel és a teherterjedéssel.</p><button class="vcard" data-video="tj1"></button></div>
-  </div>
-  <div class="quiz" id="q4"><div class="qh"><h4>Önellenőrzés · 3. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q4"><div class="qh"><h4>Önellenőrzés · 1/C</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 4. MECHANIKAI TÖMÖRÍTÉS -->
-<section class="chap c-amber" id="tomorites"><div class="wrap">
-  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">d) Talajszilárdítás · mechanikai eljárások</div><h2>Tömörítés: rázással, ejtéssel, kőoszlopokkal</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be – előbb egy valós felvétel a talajjavítások egészéről.</p></div></div>
-  <div data-ytc="8Zcv7ktWD68"></div>
-  <div class="tabs" data-group="mech"><button data-tab="m1" class="on"><span class="n">1</span>Mélytömörítés</button><button data-tab="m2"><span class="n">2</span>Dinamikus tömörítés</button><button data-tab="m3"><span class="n">3</span>Kőtömzs</button><button data-tab="m4"><span class="n">4</span>Kavicscölöp</button></div>
+<!-- 2. MECHANIKAI TÖMÖRÍTÉS -->
+<section class="chap c-amber grp" id="tomorites"><div class="wrap">
+  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">2. módszercsoport · talajszilárdítás mechanikai eljárásokkal</div><h2>Mechanikai tömörítés</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be – a csoport végén egy valós felvétel a talajjavítások egészéről.</p></div></div>
+  <div class="tabs" data-group="mech" id="t-mech"><button data-tab="m1" class="on"><span class="n">2/A</span>Mélytömörítés</button><button data-tab="m2"><span class="n">2/B</span>Dinamikus tömörítés</button><button data-tab="m3"><span class="n">2/C</span>Kőtömzs</button><button data-tab="m4"><span class="n">2/D</span>Kavicscölöp</button></div>
 
   <div class="tabpane on" data-group="mech" data-tab="m1">
     <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Mélytömörítés – vibroflotáció</h3>
         <p>Laza szemcsés talajok, feltöltések összenyomhatóságának csökkentésére, szilárdságának növelésére. Egy darura szerelt rezgéskeltő, <b>25–40 cm átmérőjű</b> cső (mélyvibrátor) önsúlyánál fogva halad lefelé, amit a <b>vízbesajtolás (öblítés)</b> segít. A lyuk környezetében a talaj tömörödik; a vibrátor fokozatos felhúzása közben a lyukba kavicsot, murvát, bányameddőt, homokot juttatnak és a felfelé haladó vibrátorral tömörítik.</p>
+      </div>
+      <div>
+        <div class="grid g2"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Mélyvibrátor öblítéssel" loading="lazy"><figcaption>Mélyvibrátor öblítés közben</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Daruval függesztett mélyvibrátorok" loading="lazy"><figcaption>Daruval függesztett vibrátorok</figcaption></figure></div>
+      </div>
+    </div>
+    <div data-ytc="Gca4PGhTC5o"></div>
+    <h4 class="tryh">Próbáld ki: vibroflotáció lépésről lépésre</h4>
+    <div class="twocol tw-top">
+      <div>
         <div class="stepper" id="vibSteps"><button data-v="0" class="on">1 · Lehatolás</button><button data-v="1">2 · Tömörítés</button><button data-v="2">3 · Felhúzás + töltés</button><button data-v="3">4 · Kész</button></div>
         <div class="panel"><div class="pb"><div id="vibSvg"></div><p id="vibTxt" style="margin:8px 0 0"></p></div></div>
       </div>
@@ -226,10 +215,8 @@
           <div style="margin-top:10px" id="vibFinesMsg"></div>
           <p class="src" style="margin-top:10px">Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12 % alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.</p>
         </div></div>
-        <div class="grid g2" style="margin-top:14px"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Mélyvibrátor öblítéssel" loading="lazy"><figcaption>Mélyvibrátor öblítés közben</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Daruval függesztett mélyvibrátorok" loading="lazy"><figcaption>Daruval függesztett vibrátorok</figcaption></figure></div>
       </div>
     </div>
-    <div data-ytc="Gca4PGhTC5o"></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m2">
@@ -237,8 +224,17 @@
       <div>
         <h3 style="margin-bottom:10px">Dinamikus tömörítés</h3>
         <p>A tömörítőhatást egy <b>15–40 tonnás ejtősúly</b> ejtegetésével, <b>H = 10–40 m</b> magasságból érik el. Meghatározandó: az ejtősúly nagysága, az ejtési magasság, a tömörítési raszter, a fázisonkénti ejtésszám és a pihentetés időtartama. <b>Max. 5–7 m mélységig</b> hatásos; nagyobb felületek tömörítésére, laza talajokon (pl. nagy terhelésű csarnokpadozatok alatt). Csak lazább-puhább talajokban alkalmazható.</p>
-        <div class="panel"><div class="ph"><h4>Ejts te is!</h4><div class="btns"><button class="chip on" id="dynDrop" style="--c:var(--amber)">⬇ Ejtés</button><button class="chip" id="dynReset">↺</button></div></div><div class="pb"><div id="dynSvg"></div></div></div>
         <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne-féle becslés: <b class="nw">d ≈ n·√(W·H)</b> (W tonnában, H méterben), n ≈ 0,5 a legtöbb talajra, 0,35–0,40 telített finomszemcsés talajra. Becslés – a tényleges hatásmélységet próbatömörítéssel igazolják; a gyakorlatban jellemzően <span class="nw">max. 5–7 m</span>.</p></div>
+      </div>
+      <div>
+        <figure class="photo"><img src="img/dinamikus-foto1.jpg" alt="Dinamikus tömörítés munkaterülete" loading="lazy"><figcaption>Dinamikus tömörítés: a raszterben ejtegetett pontok gödrei</figcaption></figure>
+      </div>
+    </div>
+    <div data-ytc="LtSalNj4ByQ"></div>
+    <h4 class="tryh">Próbáld ki: ejts te is!</h4>
+    <div class="twocol tw-top">
+      <div>
+        <div class="panel"><div class="ph"><h4>Ejts te is!</h4><div class="btns"><button class="chip on" id="dynDrop" style="--c:var(--amber)">⬇ Ejtés</button><button class="chip" id="dynReset">↺</button></div></div><div class="pb"><div id="dynSvg"></div></div></div>
       </div>
       <div>
         <div class="panel"><div class="pb">
@@ -247,27 +243,28 @@
           <div class="ctl"><label>Talaj (empirikus n tényező)</label><div class="seg" id="dynSoil"><button data-v="0.55">tiszta homok</button><button data-v="0.5" class="on">vegyes, feltöltés</button><button data-v="0.38">telített finomszemcsés</button></div></div>
           <div class="res" id="dynOut"></div>
         </div></div>
-        <figure class="photo" style="margin-top:14px"><img src="img/dinamikus-foto1.jpg" alt="Dinamikus tömörítés munkaterülete" loading="lazy"><figcaption>Dinamikus tömörítés: a raszterben ejtegetett pontok gödrei</figcaption></figure>
       </div>
     </div>
-    <div data-ytc="LtSalNj4ByQ"></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m3">
-    <div class="twocol tw-k">
+    <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Kőtömzs</h3>
         <p>A dinamikus tömörítéshez képest a különbség: az ejtegetés során a tömörítő súly alá fokozatosan <b>szemcsés anyagot</b> (homokos kavicsot, zúzottkövet) helyeznek, amit a döngölő „bedolgoz” a puhább altalajba. A hatása kettős:</p>
         <ul><li>a szemcsés anyag kiszorítása <b>jelentősen tömöríti</b> a puha altalajt;</li><li><b>nagy teherbírású, nagyobb átmérőjű</b> szemcsés „tömzsök” alakulnak ki.</li></ul>
         <p>Csak nagyon laza-puha talajokban alkalmazható.</p>
-        <div class="stepper" id="ktSteps" style="margin-top:14px"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
       </div>
       <div>
-        <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
+    <figure class="photo contain"><img src="img/kotomzs-abra.jpg" alt="Kőtömzs munkafázisai" loading="lazy" style="height:300px;padding:6px"><figcaption>A kőtömzs munkafázisai</figcaption></figure>
       </div>
     </div>
-    <figure class="photo contain" style="margin-top:18px"><img src="img/kotomzs-abra.jpg" alt="Kőtömzs munkafázisai" loading="lazy" style="height:300px;padding:6px"><figcaption>A kőtömzs munkafázisai</figcaption></figure>
     <div class="vinline"><p class="ytnote">A döngölésről szóló felvétel a kőtömzsök készítését is megmutatja.</p><button data-ytm="LtSalNj4ByQ" data-tech="Döngölés és kőtömzs"></button></div>
+    <h4 class="tryh">Próbáld ki: a kőtömzs készítése lépésről lépésre</h4>
+    <div class="solo">
+        <div class="stepper" id="ktSteps"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
+        <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
+    </div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m4">
@@ -277,49 +274,46 @@
         <p>Elvét tekintve a kőtömzsökhöz hasonló módszer, csak <b>kisebb átmérőjű</b> szemcsés anyagú oszlopok – cölöpök – alakulnak ki. Csak lazább-puhább talajokban alkalmazható.</p>
         <div class="stepper" id="kcSteps"><button data-v="0" class="on">1 · előkészítés</button><button data-v="1">2 · töltés</button><button data-v="2">3 · lehajtás</button><button data-v="3">4 · tömörítés</button><button data-v="4">5 · lezárás</button></div>
         <p id="kcStepTxt"><b>Előkészítés:</b> a lánctalpas hordozógép a zsilipes (alsó adagolású) mélyvibrátort a kitűzött pont fölé állítja.</p>
-        <figure class="photo contain"><img src="img/kavicscolop-abra.jpg" alt="Kavicscölöp készítésének lépései" loading="lazy" style="height:400px;padding:6px"><figcaption>A kavicscölöp készítésének lépései</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Raszter és hatás (felülnézet)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">háromszög</button><button data-v="sq">négyzet</button></div></div><div class="pb">
-          <div id="kcSvg"></div>
-          <div class="ctl"><label>Oszlopátmérő d <span class="v" data-for="kcD"></span></label><input type="range" id="kcD" min="0.5" max="1.1" step="0.05" value="0.8"></div>
-          <div class="ctl"><label>Raszterköz s <span class="v" data-for="kcS"></span></label><input type="range" id="kcS" min="1.4" max="3.2" step="0.1" value="2.0"></div>
-          <div class="ctl"><label>Feszültségkoncentráció n (oszlop/talaj) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
-          <div class="res" id="kcOut"></div>
-          <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
-          <p class="src" style="margin-top:8px">Egységcella-modell: a<sub>s</sub> = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.</p>
-        </div></div>
+        <figure class="photo contain"><img src="img/kavicscolop-abra.jpg" alt="Kavicscölöp készítésének lépései" loading="lazy" style="height:400px;padding:6px"><figcaption>A kavicscölöp készítésének lépései</figcaption></figure>
       </div>
     </div>
     <div data-ytc="cNkNZV6kgqk"></div>
+    <h4 class="tryh">Próbáld ki: raszter és hatás</h4>
+    <div class="solo">
+    <div class="panel"><div class="ph"><h4>Raszter és hatás (felülnézet)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">háromszög</button><button data-v="sq">négyzet</button></div></div><div class="pb">
+      <div id="kcSvg"></div>
+      <div class="ctl"><label>Oszlopátmérő d <span class="v" data-for="kcD"></span></label><input type="range" id="kcD" min="0.5" max="1.1" step="0.05" value="0.8"></div>
+      <div class="ctl"><label>Raszterköz s <span class="v" data-for="kcS"></span></label><input type="range" id="kcS" min="1.4" max="3.2" step="0.1" value="2.0"></div>
+      <div class="ctl"><label>Feszültségkoncentráció n (oszlop/talaj) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
+      <div class="res" id="kcOut"></div>
+      <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
+      <p class="src" style="margin-top:8px">Egységcella-modell: a<sub>s</sub> = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.</p>
+    </div></div>
+    </div>
   </div>
-  <div class="quiz" id="q5"><div class="qh"><h4>Önellenőrzés · 4. fejezet</h4><div class="dots"></div></div></div>
+  <h4 class="tryh">Összefoglaló felvétel: a talajjavítások a valóságban</h4>
+  <div data-ytc="8Zcv7ktWD68"></div>
+  <div class="quiz" id="q5"><div class="qh"><h4>Önellenőrzés · 2/A–2/D</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
-<section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Talajszilárdítás · injektálás és keverés</div><h2>Injektálás és tömegstabilizáció</h2><p class="lead">Injektálásnál a talaj vagy a kőzet pórusaiba, repedéseibe, üregeibe kötőanyagot juttatunk be fúrt vagy vert csöveken keresztül. A hézagtérfogat csökkentésével javulnak a szilárdsági és alakváltozási tulajdonságok. Tömegstabilizációnál a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
-  <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Injektálás</button><button data-tab="i2"><span class="n">6</span>Tömegstabilizáció</button></div>
+<!-- 3. INJEKTÁLÁS, SZILÁRDÍTÁS -->
+<section class="chap c-violet grp" id="szilarditas"><div class="wrap">
+  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">3. módszercsoport · talajszilárdítás injektálással és keveréssel</div><h2>Injektálás, szilárdítás</h2><p class="lead">Injektálásnál a talaj vagy a kőzet pórusaiba, repedéseibe, üregeibe kötőanyagot juttatunk be fúrt vagy vert csöveken keresztül. A hézagtérfogat csökkentésével javulnak a szilárdsági és alakváltozási tulajdonságok. Tömegstabilizációnál a talajt kötőanyaggal helyben átkeverjük.</p></div></div>
+  <nav class="subidx" aria-label="Alpontok"><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Itatásos</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Talajtömörítő</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Kőzet hézagkitöltő</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Repesztő/kompenzáló</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Üregkitöltő</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Tömegstabilizáció</a></nav>
+  <div class="tabs" data-group="inj" id="t-inj"><button data-tab="i1" class="on"><span class="n">3/A–E</span>Injektálás</button><button data-tab="i2"><span class="n">3/F</span>Tömegstabilizáció</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
-    <div class="sub-h"><span class="lt">5</span><h3>Öt injektálási módszer – mit tesz az anyag a talajjal?</h3></div>
-    <p>Az injektálási módszerek abban különböznek, hogy a besajtolt anyag mit tesz a talajjal. Csak kitöltheti a meglévő hézagokat, kiszoríthatja és tömörítheti a talajt, megrepesztheti és megemelheti, vagy egy meglévő üreget tölthet ki. Válassz módszert, és indítsd el az animációt!</p>
-    <div class="sim wide injsim">
-      <div class="panel"><div class="ph"><h4 id="injH">Itatásos injektálás</h4><button class="btn sec" id="injPlay" type="button">▶ Lejátszás</button></div><div class="pb">
-        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">1 · itatásos</button><button data-v="1">2 · talajtömörítő</button><button data-v="2">3 · kőzet hézagkitöltő</button><button data-v="3">4 · repesztő/kompenzáló</button><button data-v="4">5 · üregkitöltő</button></div>
-        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
-        <p class="injcap" id="injCap">a szemcsék helyben maradnak, csak a hézagok telnek ki</p>
-        <div class="ctl" style="margin-top:10px"><label>Előrehaladás <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
-      </div></div>
-      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
-    </div>
+  <div class="sub-h" id="injmod"><span class="lt">3/A–E</span><h3>Öt injektálási módszer – mit tesz az anyag a talajjal?</h3></div>
+    <p>Az injektálási módszerek abban különböznek, hogy a besajtolt anyag mit tesz a talajjal. Csak kitöltheti a meglévő hézagokat, kiszoríthatja és tömörítheti a talajt, megrepesztheti és megemelheti, vagy egy meglévő üreget tölthet ki.</p>
     <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
       <thead><tr><th>Módszer</th><th>Mi történik a talajjal?</th><th>Talaj</th><th>Nyomás, anyag</th><th>Jellemző alkalmazás</th></tr></thead>
       <tbody>
-        <tr><td><b>1 · Itatásos</b></td><td>az anyag kitölti a hézagokat, a hézagtérfogat és a szerkezet nem változik</td><td>szemcsés talaj, durva iszap</td><td>kis nyomás, kis viszkozitású anyag</td><td>alapmegerősítés, tömítés, munkagödör</td></tr>
-        <tr><td><b>2 · Talajtömörítő</b></td><td>szakaszosan képzett üregek, a környező talaj tömörödik</td><td>laza talaj, iszap és agyag is</td><td>nagyobb nyomás, sűrű habarcs</td><td>teherviselő oszlopok, padozat visszaemelése</td></tr>
-        <tr><td><b>3 · Kőzet hézagkitöltő</b></td><td>a kőzet repedéshálózata telik ki</td><td>repedezett kőzet</td><td>itatásos jellegű, cementalapú</td><td>sziklarézsű, alap alatti kőzet, vízzárás</td></tr>
-        <tr><td><b>4 · Repesztő/kompenzáló</b></td><td>a talaj megreped, az anyaglemezek megemelik</td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, visszaemelés</td></tr>
-        <tr><td><b>5 · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással</td><td>pince, bányajárat, padozat alatti üreg</td></tr>
+        <tr><td><b>3/A · Itatásos</b></td><td>az anyag kitölti a hézagokat, a hézagtérfogat és a szerkezet nem változik</td><td>szemcsés talaj, durva iszap</td><td>kis nyomás, kis viszkozitású anyag</td><td>alapmegerősítés, tömítés, munkagödör</td></tr>
+        <tr><td><b>3/B · Talajtömörítő</b></td><td>szakaszosan képzett üregek, a környező talaj tömörödik</td><td>laza talaj, iszap és agyag is</td><td>nagyobb nyomás, sűrű habarcs</td><td>teherviselő oszlopok, padozat visszaemelése</td></tr>
+        <tr><td><b>3/C · Kőzet hézagkitöltő</b></td><td>a kőzet repedéshálózata telik ki</td><td>repedezett kőzet</td><td>itatásos jellegű, cementalapú</td><td>sziklarézsű, alap alatti kőzet, vízzárás</td></tr>
+        <tr><td><b>3/D · Repesztő/kompenzáló</b></td><td>a talaj megreped, az anyaglemezek megemelik</td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, visszaemelés</td></tr>
+        <tr><td><b>3/E · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással</td><td>pince, bányajárat, padozat alatti üreg</td></tr>
       </tbody>
     </table></div>
     <div class="sub-h"><span class="lt">⚗</span><h3>Injektálóanyagok és a talaj szemcsézete</h3></div>
@@ -330,52 +324,81 @@
         <p>A perforált besajtoló csöveket egymástól <b>50–100 cm</b> távolságban helyezik el, és <b>7–10 atm</b> nyomáson juttatják le a cementtejet vagy cement+homok habarcsot. A hézagoknak nagyobbnak kell lenniük a cementszemcse átmérőjénél, ezért csak <b>0,8–1 mm-nél durvább</b> homok-kavics, illetve üreges, repedezett kötött talaj injektálható vele. Csőfelhúzás közben <b>alulról felfelé</b> kell injektálni.</p>
         <h4 style="margin:16px 0 6px">Kétkomponensű, duzzadó műgyanta</h4>
         <p>Homokos és iszapos talajban (agyagban nem hatékony). Folyékonyan, nagyobb nyomással jut a talajba, kitölti az üregeket, réseket, repedéseket és összeköti a szemcséket; pár perc múlva <b>duzzadni kezd</b>, és a talajjal nagyon kemény <b>geokompozitot</b> alkot – nő a kohézió, jelentősen csökken a pórustérfogat. Gyakori utólagos alapmegerősítésre.</p>
-        <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cementbesajtolás" loading="lazy" style="height:230px;padding:6px"><figcaption>Cementbesajtolás</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Melyik anyag jut be a hézagokba?</h4></div><div class="pb">
-          <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">kavics</button><button data-v="durva" class="on">durva homok</button><button data-v="kozep">középhomok</button><button data-v="finom">finom homok</button><button data-v="iszap">iszap</button><button data-v="agyag">agyag</button><button data-v="repedt">repedezett</button></div>
-          <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
-          <div class="mlist" id="grOut" style="margin-top:12px"></div>
-          <p class="src" style="margin-top:8px">Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D<sub>15</sub>(talaj)/D<sub>85</sub>(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 3–4 µm (szemcséinek 95 %-a 20 µm-nél finomabb).</p>
-        </div></div>
+        <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cementbesajtolás" loading="lazy" style="height:230px;padding:6px"><figcaption>Cementbesajtolás</figcaption></figure>
       </div>
     </div>
     <div class="sub-h"><span class="lt">📷</span><h3>Utólagos alapmegerősítés injektálással – lépésről lépésre</h3></div>
     <div class="stepper" id="injBar"></div>
     <div id="injPhotos"></div>
     <div data-ytc="CgKwZBWn_xM"></div>
+    <div class="sub-h try" id="injsim"><span class="lt">3/A–E</span><h3>Próbáld ki: az öt módszer animációban</h3></div>
+    <p>Válassz módszert, és indítsd el az animációt!</p>
+    <div class="sim wide injsim">
+      <div class="panel"><div class="ph"><h4 id="injH">Itatásos injektálás</h4><button class="btn sec" id="injPlay" type="button">▶ Lejátszás</button></div><div class="pb">
+        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">3/A · itatásos</button><button data-v="1">3/B · talajtömörítő</button><button data-v="2">3/C · kőzet hézagkitöltő</button><button data-v="3">3/D · repesztő/kompenzáló</button><button data-v="4">3/E · üregkitöltő</button></div>
+        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
+        <p class="injcap" id="injCap">a szemcsék helyben maradnak, csak a hézagok telnek ki</p>
+        <div class="ctl" style="margin-top:10px"><label>Előrehaladás <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
+      </div></div>
+      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
+    </div>
+    <h4 class="tryh">Próbáld ki: melyik anyag jut be a hézagokba?</h4>
+    <div class="solo">
+    <div class="panel"><div class="ph"><h4>Melyik anyag jut be a hézagokba?</h4></div><div class="pb">
+      <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">kavics</button><button data-v="durva" class="on">durva homok</button><button data-v="kozep">középhomok</button><button data-v="finom">finom homok</button><button data-v="iszap">iszap</button><button data-v="agyag">agyag</button><button data-v="repedt">repedezett</button></div>
+      <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
+      <div class="mlist" id="grOut" style="margin-top:12px"></div>
+      <p class="src" style="margin-top:8px">Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D<sub>15</sub>(talaj)/D<sub>85</sub>(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 3–4 µm (szemcséinek 95 %-a 20 µm-nél finomabb).</p>
+    </div></div>
+    </div>
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
+    <h3 style="margin-bottom:10px">Tömegstabilizáció</h3>
     <div class="twocol">
       <div>
         <p>Speciális keverőfejjel keverik össze a talajt és a kötőanyagot. A keverőszár forgó felsővázas hidraulikus kotróra szerelt eszköz; alján a tengelyeken körbeforgó keverőfej, amelyre a talajhoz kifejlesztett keverőlapátok szerelhetők. A kötőanyag a kotróhoz csatlakoztatott önjáró silókból érkezik nyomás alatt; mennyiségét a gépkezelő a kabinból szabályozza.</p>
         <div class="facts"><span class="fact">keverőfej <b>1,5 m × Ø 0,95 m</b></span><span class="fact">egy lépésben <b>≈ 1,2 m²</b></span><span class="fact">szár <b>3–5 m</b> + <b>2 m</b> toldás → <b>~7 m</b></span><span class="fact">teljesítmény <b>0,5–0,8 m³/perc</b></span><span class="fact">fej + szár <b>≈ 5 t</b></span><span class="fact">alapgép <b>25–40 t</b></span></div>
         <div class="callout warn"><span class="ci">!</span><p>A stabilizálást mindig <b>állékony területről</b> kell kezdeni – a géplánc maga előtt haladva stabilizálja a talajt. A stabilizált felület nem rögtön nyeri el végleges teherbírását: szükség esetén geotextília, georács és szemcsés anyag teherelosztó réteget készítenek.</p></div>
-        <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Mélystabilizáció technológiája" loading="lazy" style="height:170px;padding:6px"><figcaption>A tömegstabilizáció technológiája</figcaption></figure>
         <p class="src" style="margin-top:12px">Kitekintés: egy helsinki kísérleti projektben tőzegben 100 kg/m³ cementtel érték el a legjobb eredményt; a kötőanyag a teljes költség közel felét adta, a szilárdság 30 és 90 nap között akár megduplázódhat.</p>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Tervezd meg a munkát!</h4></div><div class="pb ctl2">
-          <p class="figcap" style="grid-column:1/-1">A géplánc állékony (már stabilizált) területről indul, és maga előtt keveri a talajt</p>
-          <div id="msSvg"></div>
-          <div class="ctl"><label>Készültség <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
-          <div class="ctl"><label>Terület <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
-          <div class="ctl"><label>Mélység <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
-          <div class="ctl"><label>Keverési teljesítmény <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
-          <div class="ctl" style="grid-column:1/-1"><label>Kötőanyag-adagolás <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
-          <div class="res" id="msOut"></div>
-        </div></div>
+        <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Mélystabilizáció technológiája" loading="lazy" style="height:170px;padding:6px"><figcaption>A tömegstabilizáció technológiája</figcaption></figure>
       </div>
     </div>
     <div data-ytc="wh31VB1fY_8"></div>
+    <h4 class="tryh">Próbáld ki: tervezd meg a munkát!</h4>
+    <div class="solo">
+    <div class="panel"><div class="ph"><h4>Tervezd meg a munkát!</h4></div><div class="pb ctl2">
+      <p class="figcap" style="grid-column:1/-1">A géplánc állékony (már stabilizált) területről indul, és maga előtt keveri a talajt</p>
+      <div id="msSvg"></div>
+      <div class="ctl"><label>Készültség <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
+      <div class="ctl"><label>Terület <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
+      <div class="ctl"><label>Mélység <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
+      <div class="ctl"><label>Keverési teljesítmény <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
+      <div class="ctl" style="grid-column:1/-1"><label>Kötőanyag-adagolás <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
+      <div class="res" id="msOut"></div>
+    </div></div>
+    </div>
   </div>
-  <div class="quiz" id="q6"><div class="qh"><h4>Önellenőrzés · 5. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q6"><div class="qh"><h4>Önellenőrzés · 3/A–3/F</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 6. ELŐTERHELÉS -->
-<section class="chap c-coral" id="eloterheles"><div class="wrap">
-  <div class="chhead"><div class="chnum">6</div><div><div class="kicker">e) Előterhelés alkalmazása</div><h2>Süllyedjen előbb – az épület nélkül</h2><p class="lead">Az építmény süllyedését úgy mérsékeljük, hogy előzetesen felhordott terheléssel <b>„kikényszerítjük”</b> az altalaj összenyomódásának legalább egy részét. A réteg ezután úgy viselkedik, mint egy geológiailag előterhelt réteg: az alapra kerülő teher alatt már jóval kisebb fajlagos összenyomódással kell számolni.</p></div></div>
+<!-- 4. TERVEZŐI ESZKÖZÖK -->
+<section class="chap c-coral grp" id="tervezoi"><div class="wrap">
+  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">4. módszercsoport</div><h2>Tervezői eszközök</h2><p class="lead">Ha a talajt nem, vagy nem csak a talajt javítjuk: előterheléssel előre kikényszerítjük a süllyedést, a szerkezet kialakításával és az építési sorrenddel elviselhetővé tesszük a süllyedéskülönbséget, vagy mélyalapozásra térünk át.</p></div></div>
+  <nav class="subidx" aria-label="Alpontok"><a href="#eloterheles"><span>4/A</span>Előterhelés</a><a href="#szerkezet"><span>4/B</span>Szerkezeti megoldás</a><a href="#sorrend"><span>4/C</span>Építési sorrend</a><a href="#melyalap"><span>4/D</span>Mélyalapozás</a></nav>
+
+  <div class="sub-h" id="eloterheles"><span class="lt">4/A</span><h3>Előterhelés alkalmazása: süllyedjen előbb – az épület nélkül</h3></div>
+  <p>Az építmény süllyedését úgy mérsékeljük, hogy előzetesen felhordott terheléssel <b>„kikényszerítjük”</b> az altalaj összenyomódásának legalább egy részét. A réteg ezután úgy viselkedik, mint egy geológiailag előterhelt réteg: az alapra kerülő teher alatt már jóval kisebb fajlagos összenyomódással kell számolni.</p>
+  <div class="prose two">
+      <h3 style="margin-bottom:10px">Mexikóváros</h3>
+      <p>A főváros egy régi vulkáni tó helyén épült, amelyet igen vastag, nagymértékben összenyomható, finom vulkáni hamuból lerakódott tavi üledék tölt ki. Az egész város süllyed – helyenként méteres nagyságrendben. Klasszikus példa José A. Cuevas megoldása a Lotería Nacional („El Moro”) épületénél, az 1930-as években. Az épület <b>kompenzált alapozást</b> kapott: annyi talajt emeltek ki, amennyinek a súlyát a kész épület nagyjából visszapótolja. A kiemelés után a munkagödör feneke megemelkedett (legfeljebb 127 cm-t mértek). A merev vasbeton alapszerkezetre ezért <b>ideiglenes ballasztot</b> raktak a tervezett épületsúlyig – az eredeti terv kavicsot írt elő, a kivitelezéskor betontömböket használtak. Így a talaj visszakapta korábbi terhét, és az alakváltozás még a felszerkezet építése előtt lezajlott. Az építés közben a ballasztot <b>napról napra annyival csökkentették, amennyi súly beépült</b>: az összsúly közel állandó maradt. A város regionális süllyedését ez nem állítja meg.</p>
+      <div class="callout web"><span class="ci">i</span><p><b>Kitekintés – függőleges drének:</b> vastag agyagrétegben a konszolidáció évekig tarthat (a konszolidációs idő a szivárgási úthossz négyzetével arányos). Előregyártott függőleges drénekkel (PVD) a víz vízszintesen, rövid úton jut a drénbe – így az előterhelés ideje hónapokra rövidülhet.</p></div>
+  </div>
+  <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
+  <div class="sub-h try" id="plsim"><span class="lt">4/A</span><h3>Próbáld ki: előterhelés és tehermentesítés</h3></div>
   <div class="charts" style="margin-top:0">
     <div class="panel"><div class="ph"><h4>Hézagtényező – hatékony feszültség</h4></div><div class="pb"><div id="plSvg"></div></div></div>
     <div class="panel"><div class="ph"><h4>Süllyedés az idő függvényében</h4></div><div class="pb"><div id="plTime"></div></div></div>
@@ -386,47 +409,82 @@
     <div class="legend"><span><i style="background:var(--coral)"></i>előterhelés nélkül</span><span><i style="background:var(--amber)"></i>előterhelés + tehermentesítés</span><span><i style="background:var(--teal)"></i>újraterhelés (épület) előterhelés után</span></div>
     <p class="src" style="margin-top:8px">Szemléltető modell: 6 m vastag normálisan konszolidált agyag, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0,45, C<sub>r</sub> = 0,06, e<sub>0</sub> = 1,2. Ha Δσ ≤ Δσ<sub>p</sub>, az épület alatt csak az újraterhelési (kis meredekségű) ágon nyomódik össze a talaj.</p>
   </div></div>
-  <div class="twocol" style="margin-top:26px">
-    <div>
-      <h3 style="margin-bottom:10px">Mexikóváros</h3>
-      <p>A főváros egy régi vulkáni tó helyén épült, amelyet igen vastag, nagymértékben összenyomható, finom vulkáni hamuból lerakódott tavi üledék tölt ki. Az egész város süllyed – helyenként méteres nagyságrendben. Klasszikus példa José A. Cuevas megoldása a Lotería Nacional („El Moro”) épületénél, az 1930-as években. Az épület <b>kompenzált alapozást</b> kapott: annyi talajt emeltek ki, amennyinek a súlyát a kész épület nagyjából visszapótolja. A kiemelés után a munkagödör feneke megemelkedett (legfeljebb 127 cm-t mértek). A merev vasbeton alapszerkezetre ezért <b>ideiglenes ballasztot</b> raktak a tervezett épületsúlyig – az eredeti terv kavicsot írt elő, a kivitelezéskor betontömböket használtak. Így a talaj visszakapta korábbi terhét, és az alakváltozás még a felszerkezet építése előtt lezajlott. Az építés közben a ballasztot <b>napról napra annyival csökkentették, amennyi súly beépült</b>: az összsúly közel állandó maradt. A város regionális süllyedését ez nem állítja meg.</p>
-      <div class="callout web"><span class="ci">i</span><p><b>Kitekintés – függőleges drének:</b> vastag agyagrétegben a konszolidáció évekig tarthat (a konszolidációs idő a szivárgási úthossz négyzetével arányos). Előregyártott függőleges drénekkel (PVD) a víz vízszintesen, rövid úton jut a drénbe – így az előterhelés ideje hónapokra rövidülhet.</p></div>
-    </div>
+  <div class="solo" style="margin-top:22px">
     <div class="panel"><div class="ph"><h4>Ballaszt + épület = állandó teher</h4></div><div class="pb"><p class="figcap" id="mxCap"></p><div id="mxSvg"></div><div class="ctl"><label>Építés előrehaladása <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>
-  <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
-  <div class="quiz" id="q7"><div class="qh"><h4>Önellenőrzés · 6. fejezet</h4><div class="dots"></div></div></div>
-</div></section>
+  <div class="quiz" id="q7"><div class="qh"><h4>Önellenőrzés · 4/A</h4><div class="dots"></div></div></div>
 
-<!-- 7. TERVEZŐI ESZKÖZÖK -->
-<section class="chap c-coral" id="szerkezet"><div class="wrap">
-  <div class="chhead"><div class="chnum">7</div><div><div class="kicker">f) Szerkezeti megoldás · g) Építési sorrend · h) Mélyalapozás</div><h2>Ha a talajt nem, a szerkezetet alakítjuk</h2><p class="lead">A szerkezet merevségének helyes megválasztása: <b>vagy olyan merev</b> legyen, hogy a süllyedéskülönbségekből származó feszültségeket károsodás nélkül elbírja, <b>vagy olyan hajlékony</b>, hogy a süllyedésből származó alakváltozásokat károsodás nélkül kövesse (természetesen az előírt határértékeken belül).</p></div></div>
-  <div class="twocol">
+  <div class="sub-h" id="szerkezet"><span class="lt">4/B</span><h3>Szerkezeti megoldás: ha a talajt nem, a szerkezetet alakítjuk</h3></div>
+  <p>A szerkezet merevségének helyes megválasztása: <b>vagy olyan merev</b> legyen, hogy a süllyedéskülönbségekből származó feszültségeket károsodás nélkül elbírja, <b>vagy olyan hajlékony</b>, hogy a süllyedésből származó alakváltozásokat károsodás nélkül kövesse (természetesen az előírt határértékeken belül).</p>
+  <p>Süllyedésre gyanús területen lehetőleg <b>statikailag határozott</b> szerkezetet tervezzünk: nincsenek merev kapcsolatok, jelentősebb süllyedéskülönbség esetén a pillérek, gerendák, födémek egymáshoz képest el tudnak fordulni (csuklós kapcsolatok), így nem alakulnak ki többlet-igénybevételek.</p>
+  <div class="callout tip"><span class="ci">⚙</span><p><b>Közművek:</b> a tervezetten nagy süllyedést szenvedő építményeknél gondoskodni kell az üzemi vezetékek, közművek megfelelő bekötéséről – <b>ovális nyílás, hajlékony vezeték + védőcső</b>.</p></div>
+  <h4 class="tryh">Próbáld ki: támaszsüllyedés és süllyedési hézag</h4>
+  <div class="twocol tw-top">
     <div class="panel"><div class="ph phcol"><h4>Támaszsüllyedés a keretben</h4><div class="seg" id="frType"><button data-v="rigid" class="on">merev csomópontok</button><button data-v="hinge">csuklós csomópontok</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>A jobb pillér süllyedése δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
     <div>
-      <p>Süllyedésre gyanús területen lehetőleg <b>statikailag határozott</b> szerkezetet tervezzünk: nincsenek merev kapcsolatok, jelentősebb süllyedéskülönbség esetén a pillérek, gerendák, födémek egymáshoz képest el tudnak fordulni (csuklós kapcsolatok), így nem alakulnak ki többlet-igénybevételek.</p>
-      <div class="panel" style="margin-top:12px"><div class="ph"><h4>Süllyedési hézag</h4><label class="tgl"><input type="checkbox" id="jtTgl">hézag</label></div><div class="pb"><div id="jtSvg"></div><div class="ctl"><label>Konszolidáció előrehaladása <span class="v" data-for="jtS"></span></label><input type="range" id="jtS" min="0" max="100" value="80"></div><p class="src" style="margin:0">Hosszú, különbözőképpen terhelt épületrészeket célszerű süllyedési hézaggal elválasztani – a hődilatáció miatt eleve szükséges.</p></div></div>
+      <div class="panel"><div class="ph"><h4>Süllyedési hézag</h4><label class="tgl"><input type="checkbox" id="jtTgl">hézag</label></div><div class="pb"><div id="jtSvg"></div><div class="ctl"><label>Konszolidáció előrehaladása <span class="v" data-for="jtS"></span></label><input type="range" id="jtS" min="0" max="100" value="80"></div><p class="src" style="margin:0">Hosszú, különbözőképpen terhelt épületrészeket célszerű süllyedési hézaggal elválasztani – a hődilatáció miatt eleve szükséges.</p></div></div>
     </div>
   </div>
-  <div class="callout tip"><span class="ci">⚙</span><p><b>Közművek:</b> a tervezetten nagy süllyedést szenvedő építményeknél gondoskodni kell az üzemi vezetékek, közművek megfelelő bekötéséről – <b>ovális nyílás, hajlékony vezeték + védőcső</b>.</p></div>
-  <div class="sub-h"><span class="lt">g</span><h3>Helyes építési sorrend</h3></div>
+
+  <div class="sub-h" id="sorrend"><span class="lt">4/C</span><h3>Helyes építési sorrend</h3></div>
   <div class="prose two">
       <p>A süllyedésre <b>érzékeny szerkezeti részeket</b> lehetőleg <b>minél később</b> építjük meg. Ellentétes tendenciák:</p>
       <ul><li>gépesítés, eszközlekötés, előregyártás – az építés <b>gyorsítása</b> mellett szól;</li><li>pórusvíznyomás-növekedés (telített agyagon álló alapok esetén) – az ütem <b>lassítását</b> diktálja.</li></ul>
       <p>Nagy hasznos terhű építményeknél (silók, folyadéktároló tartályok) a <b>teherfelhordás szabályozható</b>; hídfők süllyedése a háttöltés építési idejével befolyásolható.</p>
   </div>
   <div class="panel" style="margin-top:18px"><div class="ph"><h4>Építési ütem telített agyagon</h4></div><div class="pb pb-split"><div id="paSvg"></div><div class="side"><div class="ctl"><label>A teherfelhordás időtartama <span class="v" data-for="paT"></span></label><input type="range" id="paT" min="1" max="24" value="4"></div><div class="insight" id="paMsg"></div></div></div></div>
-  <div class="sub-h"><span class="lt">h</span><h3>Mélyalapozás tervezése</h3></div>
+
+  <div class="sub-h" id="melyalap"><span class="lt">4/D</span><h3>Mélyalapozás tervezése</h3></div>
   <div class="grid g2">
     <div class="card top"><p>Ha a síkalapozás mellett a számítások meg nem engedhető süllyedéseket, süllyedéskülönbségeket jeleznek, a tervezők jelentős része áttér a <b>mélyalapozásra</b> (cölöp, résfal). Sok esetben ez a <b>legegyszerűbb, leggyorsabb és legolcsóbb</b> megoldás.</p></div>
     <div class="card top"><h4>Mélyalapozás részletesen</h4><p>CFA-cölöp, csavart, fúrt és előregyártott cölöpök, mikrocölöp, jet-grouting, mélykeverés, résfal, kút- és szekrényalapozás – a <a href="https://melyalapozasok.vercel.app" target="_blank" rel="noopener">Mélyalapozások</a> interaktív tananyagban, 3D cölöpépítővel. Valós felvételen:</p></div>
   </div>
   <div class="ytgrid ytpair" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
-  <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 7. fejezet</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 4/B–4/D</h4><div class="dots"></div></div></div>
+</div></section>
+
+<!-- ÖSSZEGZÉS -->
+<section class="chap c-sky" id="osszegzes"><div class="wrap">
+  <div class="chhead"><div class="chnum">Σ</div><div><div class="kicker">Összegzés</div><h2>Melyik módszer mikor?</h2><p class="lead">Most, hogy minden módszert megismertél, próbáld ki: add meg a talajt, a talajvíz helyét és a gond mélységét, és nézd meg, mely eljárások jöhetnek szóba. Alatta a módszerek összefoglaló táblázata.</p></div></div>
+  <div class="sub-h"><span class="lt">★</span><h3>Módszerválasztó – melyik jöhet szóba?</h3></div>
+  <div class="sel" id="selector">
+    <div class="panel"><div class="pb">
+      <div class="q2"><h5>Milyen a problémás talaj?</h5><div class="seg" data-q="soil"><button data-v="szemcses">laza szemcsés</button><button data-v="kotott" class="on">puha kötött (agyag)</button><button data-v="szerves">tőzeg, szerves</button><button data-v="feltoltes">feltöltés</button></div></div>
+      <div class="q2"><h5>Hol van a talajvíz?</h5><div class="seg" data-q="gw"><button data-v="felett" class="on">a beavatkozás alatt</button><button data-v="alatt">a beavatkozás zónájában</button></div></div>
+      <div class="q2"><h5>Milyen mélyen van a gond?</h5><div class="seg" data-q="depth"><button data-v="sekely">sekély (≤ 2 m)</button><button data-v="kozepes" class="on">közepes (2–7 m)</button><button data-v="mely">mély (> 7 m)</button></div></div>
+      <div class="q2"><h5>Mélyebben kedvezőbb réteg van?</h5><div class="seg" data-q="better"><button data-v="igen" class="on">igen</button><button data-v="nem">nem</button></div></div>
+      <div class="q2"><h5>Helyzet</h5><div class="seg" data-q="sit"><button data-v="uj" class="on">új építés</button><button data-v="meglevo">meglévő épület (utólag)</button></div></div>
+      <p class="src">Egyszerűsített, oktatási célú döntéssegítő a módszerek alkalmazási feltételei alapján – a valós választás mindig talajvizsgálaton és számításon alapul.</p>
+    </div></div>
+    <div class="mlist" id="selList"></div>
+  </div>
+  <div class="sub-h"><span class="lt">≡</span><h3>Összefoglaló táblázat</h3></div>
+  <div class="tscroll"><table class="t sumt">
+    <thead><tr><th>Módszer</th><th>Alkalmas talaj</th><th>Mélység, jellemző adat</th><th>Korlát, megjegyzés</th></tr></thead>
+    <tbody>
+      <tr class="g1"><td><span class="code">1/A</span> <b>Kisebb talpnyomás</b></td><td>ha mélyebben kevésbé összenyomódó réteg van</td><td>szélesebb alap, kisebb q</td><td>nő a súly és a határmélység; fordított rétegződésnél ronthat</td></tr>
+      <tr class="g1"><td><span class="code">1/B</span> <b>Mélyebb alapsík</b></td><td>pár méteren belül jobb teherbíró réteg</td><td>pince: kiemelt föld tehermentesít</td><td>2–2,5 m-nél mélyebb sávalap nem gazdaságos</td></tr>
+      <tr class="g1"><td><span class="code">1/C</span> <b>Talajcsere</b></td><td>bármely rossz talaj, sekély zónában</td><td>50–80 cm, ≤ 30 cm-es rétegekben tömörítve</td><td>csak talajvíz felett; kiszélesítés: B + 2·v·tgϑ</td></tr>
+      <tr class="g2"><td><span class="code">2/A</span> <b>Mélytömörítés</b></td><td>laza szemcsés talaj, feltöltés</td><td>vibrátor Ø 25–40 cm, öblítéssel</td><td>finomszem-tartalom kb. &lt; 10–12 %</td></tr>
+      <tr class="g2"><td><span class="code">2/B</span> <b>Dinamikus tömörítés</b></td><td>lazább-puhább talaj, nagy felület</td><td>15–40 t ejtősúly, H = 10–40 m; max. 5–7 m</td><td>erős rezgés – épületek mellett nem</td></tr>
+      <tr class="g2"><td><span class="code">2/C</span> <b>Kőtömzs</b></td><td>nagyon laza-puha talaj</td><td>szemcsés anyag bedöngölése, nagy átmérőjű tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
+      <tr class="g2"><td><span class="code">2/D</span> <b>Kavicscölöp</b></td><td>lazább-puhább talaj (kötött is)</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
+      <tr class="g3"><td><span class="code">3/A</span> <b>Itatásos injektálás</b></td><td>szemcsés talaj, durva iszap; cementtel csak 0,8–1 mm-nél durvább</td><td>cementbesajtolás: csövek 50–100 cm-enként, 7–10 atm</td><td>a hézagokat tölti ki; alulról felfelé</td></tr>
+      <tr class="g3"><td><span class="code">3/B</span> <b>Talajtömörítő injektálás</b></td><td>laza talaj, iszap és agyag is</td><td>sűrű habarcs, szakaszos gömbök</td><td>tömörít, teherviselő oszlopokat képez</td></tr>
+      <tr class="g3"><td><span class="code">3/C</span> <b>Kőzet hézagkitöltő injektálás</b></td><td>repedezett kőzet</td><td>a repedéshálózat kitöltése</td><td>rézsű, alap alatti kőzet, vízzárás</td></tr>
+      <tr class="g3"><td><span class="code">3/D</span> <b>Repesztő/kompenzáló injektálás</b></td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, épület visszaemelése</td></tr>
+      <tr class="g3"><td><span class="code">3/E</span> <b>Üregkitöltő injektálás</b></td><td>üregek, pincék, bányajáratok</td><td>gravitációsan vagy kis nyomással</td><td>javított cementhabarcs, duzzadó PU hab</td></tr>
+      <tr class="g3"><td><span class="code">3</span> <b>Kétkomponensű műgyanta</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
+      <tr class="g3"><td><span class="code">3/F</span> <b>Tömegstabilizáció</b></td><td>tőzeg, puha agyag, szerves talaj</td><td>keverőfej 1,5 m × Ø 0,95 m; max. ~7 m</td><td>állékony területről indul; idő kell a szilárduláshoz</td></tr>
+      <tr class="g4"><td><span class="code">4/A</span> <b>Előterhelés</b></td><td>telített, összenyomható kötött talaj</td><td>a teher ≥ a későbbi épületteher</td><td>hosszú idő – drénekkel gyorsítható</td></tr>
+      <tr class="g4"><td><span class="code">4/B–C</span> <b>Szerkezet, sorrend</b></td><td>–</td><td>merev vagy hajlékony szerkezet, süllyedési hézag</td><td>kiegészítő eszköz</td></tr>
+      <tr class="g4"><td><span class="code">4/D</span> <b>Mélyalapozás</b></td><td>ha a teherbíró réteg mélyen van</td><td>cölöp, résfal</td><td>sokszor a legegyszerűbb, leggyorsabb</td></tr>
+    </tbody>
+  </table></div>
 </div></section>
 
 <!-- VIDEÓTÁR -->
-<section class="chap c-teal" id="videok"><div class="wrap">
+<section class="chap c-sky" id="videok"><div class="wrap">
   <div class="chhead"><div class="chnum">▶</div><div><div class="kicker">Videótár</div><h2>Animációk és valós felvételek</h2><p class="lead">Két 3D animáció az elvekről – zenével és feliratokkal –, és a BME Építőmérnöki Kar felvételei arról, hogyan készülnek a talajjavítások egy valódi munkaterületen. Kattints egy kártyára a lejátszáshoz; a lejátszóban teljes képernyő is elérhető.</p></div></div>
   <div class="vgrid">
     <button class="vcard" data-video="tj1"></button><button class="vcard" data-video="tj7"></button>
@@ -438,12 +496,12 @@
 </div></section>
 
 <!-- IGAZ / HAMIS -->
-<section class="chap c-amber" id="igazhamis"><div class="wrap">
+<section class="chap c-sky" id="igazhamis"><div class="wrap">
   <div class="chhead"><div class="chnum">✓</div><div><div class="kicker">Záró teszt</div><h2>40 igaz vagy hamis állítás</h2><p class="lead">Döntsd el mindegyikről – a válasz után azonnal kapsz magyarázatot.</p></div></div>
   <div class="tfbar"><div class="tfscore" id="tfScore"></div><button class="chip" id="tfReset">↺ Újrakezdés</button></div>
   <div class="tfgrid" id="tfGrid"></div>
 </div></section>
-<section class="chap c-teal" id="tovabb"><div class="wrap">
+<section class="chap c-sky" id="tovabb"><div class="wrap">
   <div class="chhead"><div class="chnum">↗</div><div><div class="kicker">A sorozat többi része</div><h2>Az Alapozás tananyagai</h2><p class="lead">A káros süllyedések elleni védekezés a tárgy egyik állomása. A többi interaktív tananyag ugyanebben a rendszerben mutatja be az alapozás tervezésének lépéseit.</p></div></div>
   <div class="series">
     <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése</b><small>Alapsík, alaptípus, törési mechanizmus – a tervezés lépései</small></a>

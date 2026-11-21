@@ -49,7 +49,7 @@ FONTS = '<style id="fonts-css">' + ''.join([
 # POST: a fordítókészlet által nem kezelt helyek (egyedi data-* attribútum) az angol HTML-ben
 POST = [('data-tech="Döngölés és kőtömzs"', 'data-tech="Pounding and stone pillars"'),
         # angol feliratú ábrák és videó-indexképek (img/en/)
-        *[(f'src="img/{f}.jpg"', f'src="img/en/{f}.jpg"') for f in ['pince-abra', 'foldkiemeles-abra', 'talajcsere-abra', 'kavicscolop-abra']],
+        *[(f'src="img/{f}.jpg"', f'src="img/en/{f}.jpg"') for f in ['pince-abra', 'foldkiemeles-abra', 'kavicscolop-abra']],
         ('<img src="img/${i}.jpg"', '<img src="img/${i === \'inj-4\' ? \'en/\' : \'\'}${i}.jpg"'),
         ('<img src="img/thumb-${c.dataset.video}.jpg"', '<img src="img/en/thumb-${c.dataset.video}.jpg"')]
 
@@ -115,13 +115,13 @@ if r.returncode:
 if (I18N / 'missing.tsv').exists(): (I18N / 'missing.tsv').unlink()
 # tizedesvessző → pont: a HTML-szövegben (címkék között) és a JS-literálokban (acorn); tg → tan
 p = EN / 'index.src.html'; t = p.read_text()
-p.write_text(re.sub(r'>([^<]*)<', lambda m: '>' + re.sub(r'(?<=\d),(?=\d)', '.', re.sub(r'\btg(?=[  ][αδφ\d(]|²)', 'tan', m.group(1))) + '<', t))
+p.write_text(re.sub(r'>([^<]*)<', lambda m: '>' + re.sub(r'(?<=\d),(?=\d)', '.', re.sub(r'\btg(?=[  ][αδφϑθ\d(]|²)', 'tan', m.group(1))) + '<', t))
 r = subprocess.run(['node', str(I18N / 'numfix_js.mjs'), *[str(EN / f) for f in FILES if f.endswith('.js')]], capture_output=True, text=True)
 print(r.stdout.strip().replace('\n', ' · '))
 if r.returncode: print(r.stderr); sys.exit(1)
 for f in FILES:
     if f.endswith('.js'):
-        p = EN / f; t = p.read_text(); t = re.sub(r'\btg(?=[  ][αδφ$\d(]|²)', 'tan', t); t = re.sub(r'\bctg(?=[  ][αδφ$\d(]|²)', 'cot', t); p.write_text(t)
+        p = EN / f; t = p.read_text(); t = re.sub(r'\btg(?=[  ][αδφϑθ$\d(]|²)', 'tan', t); t = re.sub(r'\bctg(?=[  ][αδφϑθ$\d(]|²)', 'cot', t); p.write_text(t)
 # az angol oldalon a BME-videók helyett azok eredeti angol változatai (Geotech Project csatorna) – i18n/yt_en.json;
 # amelyiknek nincs angol változata, az marad, „in Hungarian” jelzéssel
 YE = json.loads((I18N / 'yt_en.json').read_text(encoding='utf-8'))

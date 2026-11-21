@@ -6,6 +6,72 @@ const out = (id, txt) => { const e = $(`[data-for="${id}"]`); if (e && e.textCon
 const rv = (id) => { const r = $('#' + id); window.U.fillRange(r); return +r.value; };
 const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t) => { const u = clamp((t - t0) / dur, 0, 1); fn(u); if (u < 1) requestAnimationFrame(st); else if (done) done(); }; requestAnimationFrame(st); };
 
+/* ---------- 1/C talajcsere: a módszer ábrája (kiemelés, kiszélesítés, rétegenkénti tömörítés, teherterjedés, két ellenőrzés) ---------- */
+(function replacementFig() {
+  const host = $('#tcsFig'); if (!host) return;
+  const arrow = (x, y1, y2, c, w, s, hw = 6) => { SV('line', { x1: x, y1, x2: x, y2: y2 - hw * 1.2, stroke: c, 'stroke-width': w }, s); SV('path', { d: `M${x - hw} ${y2 - hw * 1.6}L${x} ${y2}L${x + hw} ${y2 - hw * 1.6}Z`, fill: c }, s); };
+  const dimH = (x1, x2, y, txt, s, up = true) => { SV('line', { x1, y1: y, x2, y2: y, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s); [x1, x2].forEach(x => SV('line', { x1: x, y1: y - 6, x2: x, y2: y + 6, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s)); SV('text', { x: (x1 + x2) / 2, y: up ? y - 6 : y + 17, 'text-anchor': 'middle', text: txt, 'font-size': 13.5 * FS, 'font-weight': 800, class: 'hl' }, s); };
+  const dimV = (x, y1, y2, txt, s) => { SV('line', { x1: x, y1, x2: x, y2, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s); [y1, y2].forEach(y => SV('line', { x1: x - 6, y1: y, x2: x + 6, y2: y, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s)); SV('text', { x: x - 9, y: (y1 + y2) / 2 + 5, 'text-anchor': 'end', text: txt, 'font-size': 14 * FS, 'font-weight': 800, class: 'hl' }, s); };
+  /* felirat kis kártyán: a mintás talajon is jól olvasható */
+  let FS = 1;   // keskeny nézetben nagyobb feliratok
+  const lab = (x, y, lines, s, c = 'var(--ink)') => { const g = SV('g', {}, s); lines.forEach((t, i) => SV('text', { x, y: y + i * 17 * FS, text: t, 'font-size': (i ? 13 : 14) * FS, 'font-weight': i ? 600 : 800, style: `fill:${i ? 'var(--ink2)' : c}` }, g)); try { const b = g.getBBox(); const r = SV('rect', { x: b.x - 7, y: b.y - 4, width: b.width + 14, height: b.height + 8, rx: 7, fill: 'var(--card)', opacity: .93, stroke: c, 'stroke-opacity': .35 }); g.insertBefore(r, g.firstChild); } catch (e) { } };
+  const MEG = EN ? 'allow' : 'meg';   // a megengedett feszültség indexe
+  const draw = () => {
+    /* keskeny helyen a feliratok a metszet alá, egy oszlopba kerülnek */
+    const nar = (host.clientWidth || 720) < 560; FS = nar ? 1.35 : 1;
+    const W = nar ? 460 : 720, ys = nar ? 374 : 404, Hh = nar ? ys + 400 : ys; const s = svg(host, W, Hh); pat(s);
+    const y0 = 96, yb = 176, v = 120, yv = yb + v, cx = nar ? 244 : 268, B = 150, th = 35, tg = Math.tan(th * Math.PI / 180), Bv = B + 2 * v * tg;
+    const xl = cx - Bv / 2, xr = cx + Bv / 2, bl = cx - B / 2, br = cx + B / 2, sl = 30, xt = 482;
+    // talajok
+    SV('rect', { x: 0, y: 0, width: W, height: y0, fill: 'var(--card2)' }, s);
+    SV('rect', { x: 0, y: y0, width: W, height: yb - y0, fill: 'url(#pClay)' }, s);
+    SV('rect', { x: 0, y: yb, width: W, height: ys - yb, fill: 'url(#pSoft)' }, s);
+    // munkagödör a terepig, visszatöltve
+    SV('path', { d: `M${xl - sl} ${y0}L${xl} ${yb}L${xr} ${yb}L${xr + sl} ${y0}Z`, fill: 'url(#pFill)' }, s);
+    SV('path', { d: `M${xl - sl} ${y0}L${xl} ${yb}M${xr} ${yb}L${xr + sl} ${y0}`, fill: 'none', stroke: '#4a3a2c', 'stroke-width': 1.4, 'stroke-dasharray': '6 4' }, s);
+    SV('rect', { x: 0, y: y0 - 4, width: W, height: 5, fill: '#7d9a5b' }, s);
+    // csereréteg: 30 cm-es rétegekben tömörítve
+    SV('rect', { x: xl, y: yb, width: Bv, height: v, fill: 'url(#pGrav)', stroke: '#4a3a2c', 'stroke-width': 1.8 }, s);
+    for (let i = 1; i < 4; i++) SV('line', { x1: xl, y1: yb + v * i / 4, x2: xr, y2: yb + v * i / 4, stroke: '#4a3a2c', 'stroke-width': 1, 'stroke-dasharray': '4 4', opacity: .75 }, s);
+    // teherterjedés ϑ szögben
+    SV('path', { d: `M${bl} ${yb}L${br} ${yb}L${xr} ${yv}L${xl} ${yv}Z`, fill: 'var(--coral)', opacity: .2 }, s);
+    [[bl, xl], [br, xr]].forEach(([a, b]) => SV('line', { x1: a, y1: yb, x2: b, y2: yv, stroke: 'var(--coral-ink)', 'stroke-width': 2.2, 'stroke-dasharray': '8 5' }, s));
+    const r = 46, sa = Math.sin(th * Math.PI / 180), ca = Math.cos(th * Math.PI / 180);
+    SV('line', { x1: bl, y1: yb, x2: bl, y2: yb + r + 8, stroke: 'var(--ink)', 'stroke-width': 1, 'stroke-dasharray': '3 3' }, s);
+    SV('path', { d: `M${bl} ${yb + r}A${r} ${r} 0 0 1 ${bl - r * sa} ${yb + r * ca}`, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.4 }, s);
+    const am = (90 + th / 2) * Math.PI / 180; SV('text', { x: bl + Math.cos(am) * (r + 12) - 4, y: yb + Math.sin(am) * (r + 12) + 6, text: 'ϑ', 'font-size': 15 * FS, 'font-weight': 800, class: 'hl', 'text-anchor': 'middle' }, s);
+    // σ1 az alapsíkon, σ2 a csereréteg alján
+    SV('rect', { x: bl, y: yb, width: B, height: 22, fill: 'var(--coral)', opacity: .75 }, s);
+    for (let i = 0; i < 6; i++) arrow(bl + 12 + i * (B - 24) / 5, yb + 2, yb + 20, '#fff', 1.6, s, 4);
+    const h2 = 22 * B / Bv + 4; SV('rect', { x: xl, y: yv, width: Bv, height: h2, fill: 'var(--amber)', opacity: .85 }, s);
+    for (let i = 0; i < 9; i++) arrow(xl + 10 + i * (Bv - 20) / 8, yv + 1, yv + h2 - 1, '#fff', 1.3, s, 3);
+    // alaptest és teher
+    SV('rect', { x: bl, y: yb - 26, width: B, height: 26, fill: '#c3c7ca', stroke: '#4b5458', 'stroke-width': 1.6 }, s);
+    SV('rect', { x: cx - 22, y: y0 - 42, width: 44, height: yb - 26 - (y0 - 42), fill: '#c3c7ca', stroke: '#4b5458', 'stroke-width': 1.6 }, s);
+    arrow(cx, 6, y0 - 46, 'var(--ink)', 3.2, s, 8); SV('text', { x: cx + 14, y: 28, text: 'P', 'font-size': 17 * FS, 'font-weight': 800, class: 'hl' }, s);
+    // talajvíz a csere alatt
+    const yw = yv + 60; SV('line', { x1: 0, y1: yw, x2: W, y2: yw, stroke: 'var(--sky)', 'stroke-width': 2, 'stroke-dasharray': '10 6' }, s);
+    SV('path', { d: `M24 ${yw - 14}L40 ${yw - 14}L32 ${yw - 3}Z`, fill: 'var(--sky)' }, s); SV('text', { x: 46, y: yw - 5, text: 'talajvíz', 'font-size': 12.5 * FS, 'font-weight': 700, class: 'hl', style: 'fill:var(--sky-ink)' }, s);
+    // méretek
+    dimH(bl, br, yb + 50, 'B', s); dimH(xl, xr, yv + h2 + 12, 'B + 2·v·tg ϑ', s, false);
+    dimV(xl - 16, yb, yv, 'v', s); dimV(xl - sl - 26, y0, yb, 't', s);
+    // feliratok: széles nézetben jobbra, vezetővonallal; keskenyben a metszet alatt, egy oszlopban
+    const L1 = ['takaróréteg (γ_{0})', 'a gödör visszatöltve'], L2 = ['σ_{1} = P/B ≤ σ_{1,' + MEG + '}', 'a csererétegen'], L3 = ['csereréteg (γ_{1})', 'homokos kavics, zúzottkő', '≤ 30 cm-es rétegek, tömörítve'], L4 = ['σ_{2} ≤ σ_{2,' + MEG + '}', 'az alaprétegen'], L5 = ['gyenge, összenyomható', 'alapréteg (γ_{2})'];
+    if (!nar) {
+      lab(xt, 126, L1, s);
+      SV('line', { x1: br + 4, y1: yb + 11, x2: xt - 6, y2: yb + 11, stroke: 'var(--coral-ink)', 'stroke-width': 1.2 }, s);
+      lab(xt, yb + 16, L2, s, 'var(--coral-ink)');
+      lab(xt, yb + 72, L3, s);
+      SV('line', { x1: xr - 6, y1: yv + h2 / 2, x2: xt - 6, y2: yv + h2 / 2, stroke: 'var(--amber-ink)', 'stroke-width': 1.2 }, s);
+      lab(xt, yv + 18, L4, s, 'var(--amber-ink)');
+      lab(xt, yw + 26, L5, s);
+    } else {
+      let y = ys + 30; [[L1], [L2, 'var(--coral-ink)'], [L3], [L4, 'var(--amber-ink)'], [L5]].forEach(([Ls, c]) => { lab(16, y, Ls, s, c); y += Ls.length * 17 * FS + 16; });
+    }
+  };
+  draw(); let lw = innerWidth; addEventListener('resize', () => { if (Math.abs(innerWidth - lw) < 24) return; lw = innerWidth; draw(); });
+})();
+
 /* ---------- c) talajcsere ---------- */
 (function replacement() {
   const host = $('#tcsSvg'); if (!host) return; let build = 1;

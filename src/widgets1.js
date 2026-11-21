@@ -21,20 +21,20 @@ window.SVpat = pat;
 (function selector() {
   const root = $('#selector'); if (!root) return;
   const M = [
-    { id: 'a', n: 'a) Kisebb talpnyomás', d: 'szélesebb alap – ha lejjebb kedvezőbb réteg van', href: '#alapozas', c: 'var(--teal)' },
-    { id: 'b', n: 'b) Mélyebb alapsík', d: 'pár méteren belül teherbíró réteg, pince', href: '#alapozas', c: 'var(--teal)' },
-    { id: 'c', n: 'c) Talajcsere', d: 'sekély probléma, talajvíz felett, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
-    { id: 'd1', n: 'Mélytömörítés (vibroflotáció)', d: 'laza szemcsés talaj, feltöltés', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd2', n: 'Dinamikus tömörítés', d: 'nagy felület, laza-puha talaj, max. 5–7 m', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd3', n: 'Kőtömzs', d: 'nagyon laza-puha talaj', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd4', n: 'Kavicscölöp', d: 'lazább-puhább talaj, kötött talaj is', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd5', n: 'Itatásos injektálás', d: 'szemcsés talaj, durva iszap; cementtel csak > 0,8–1 mm', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd6', n: 'Talajtömörítő injektálás', d: 'laza talaj, iszap és agyag is; meglévő épület alatt is', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd8', n: 'Repesztő/kompenzáló injektálás', d: 'süllyedéskompenzálás, épület visszaemelése', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd7', n: 'Tömegstabilizáció', d: 'tőzeg, puha agyag, max. ~7 m', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'e', n: 'e) Előterhelés', d: 'telített, összenyomható kötött talaj, van idő', href: '#eloterheles', c: 'var(--coral)' },
-    { id: 'f', n: 'f–g) Szerkezeti megoldás, építési sorrend', d: 'mindig kiegészítő eszköz', href: '#szerkezet', c: 'var(--coral)' },
-    { id: 'h', n: 'h) Mélyalapozás', d: 'a jó teherbíró réteg mélyen van', href: '#szerkezet', c: 'var(--coral)' },
+    { id: 'a', n: '1/A Kisebb talpnyomás', d: 'szélesebb alap – ha lejjebb kedvezőbb réteg van', href: '#talpnyomas', c: 'var(--teal)' },
+    { id: 'b', n: '1/B Mélyebb alapsík', d: 'pár méteren belül teherbíró réteg, pince', href: '#alapsik', c: 'var(--teal)' },
+    { id: 'c', n: '1/C Talajcsere', d: 'sekély probléma, talajvíz felett, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
+    { id: 'd1', n: '2/A Mélytömörítés (vibroflotáció)', d: 'laza szemcsés talaj, feltöltés', href: '#t-mech', open: 'mech:m1', c: 'var(--amber)' },
+    { id: 'd2', n: '2/B Dinamikus tömörítés', d: 'nagy felület, laza-puha talaj, max. 5–7 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
+    { id: 'd3', n: '2/C Kőtömzs', d: 'nagyon laza-puha talaj', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
+    { id: 'd4', n: '2/D Kavicscölöp', d: 'lazább-puhább talaj, kötött talaj is', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
+    { id: 'd5', n: '3/A Itatásos injektálás', d: 'szemcsés talaj, durva iszap; cementtel csak > 0,8–1 mm', href: '#injmod', open: 'inj:i1', inj: 0, c: 'var(--violet)' },
+    { id: 'd6', n: '3/B Talajtömörítő injektálás', d: 'laza talaj, iszap és agyag is; meglévő épület alatt is', href: '#injmod', open: 'inj:i1', inj: 1, c: 'var(--violet)' },
+    { id: 'd8', n: '3/D Repesztő/kompenzáló injektálás', d: 'süllyedéskompenzálás, épület visszaemelése', href: '#injmod', open: 'inj:i1', inj: 3, c: 'var(--violet)' },
+    { id: 'd7', n: '3/F Tömegstabilizáció', d: 'tőzeg, puha agyag, max. ~7 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
+    { id: 'e', n: '4/A Előterhelés', d: 'telített, összenyomható kötött talaj, van idő', href: '#eloterheles', c: 'var(--coral)' },
+    { id: 'f', n: '4/B–C Szerkezeti megoldás, építési sorrend', d: 'mindig kiegészítő eszköz', href: '#szerkezet', c: 'var(--coral)' },
+    { id: 'h', n: '4/D Mélyalapozás', d: 'a jó teherbíró réteg mélyen van', href: '#melyalap', c: 'var(--coral)' },
   ];
   const st = { soil: 'kotott', gw: 'felett', depth: 'kozepes', sit: 'uj', better: 'igen' };
   const score = (m) => {
@@ -59,7 +59,7 @@ window.SVpat = pat;
     return { s, why };
   };
   const list = $('#selList');
-  const draw = () => { const sc = M.map(m => ({ m, ...score(m) })).sort((a, b) => b.s - a.s); list.innerHTML = ''; sc.forEach(({ m, s, why }) => { const c = s >= 3 ? 'good' : s <= -1 ? 'bad' : ''; list.appendChild(H('div', { class: 'mi ' + c }, `<i class="d" style="background:${m.c}"></i><div><h5>${m.n}</h5><p>${why.filter(Boolean).join(' · ') || m.d}</p></div><a href="${m.href}">→</a>`)); }); };
+  const draw = () => { const sc = M.map(m => ({ m, ...score(m) })).sort((a, b) => b.s - a.s); list.innerHTML = ''; sc.forEach(({ m, s, why }) => { const c = s >= 3 ? 'good' : s <= -1 ? 'bad' : ''; list.appendChild(H('div', { class: 'mi ' + c }, `<i class="d" style="background:${m.c}"></i><div><h5>${m.n}</h5><p>${why.filter(Boolean).join(' · ') || m.d}</p></div><a href="${m.href}"${m.open ? ` data-open="${m.open}"` : ''}${m.inj != null ? ` data-inj="${m.inj}"` : ''}>→</a>`)); }); };
   $$('[data-q]', root).forEach(g => window.U.seg(g, (v) => { st[g.dataset.q] = v; draw(); }));
   draw();
 })();

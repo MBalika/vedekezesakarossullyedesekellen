@@ -61,14 +61,35 @@ window.U.seg = seg;
     const done = () => { removeEventListener('scrollend', done); clearTimeout(tm); fix(); };
     addEventListener('scrollend', done, { once: true }); const tm = setTimeout(done, 1600);
   });
+  /* alpontsor: a menü alatt az aktív módszercsoport alpontjai; a fül- és módszerválasztó alpontok a megnyitott fület jelzik */
+  const sns = $$('.subnav .sn'); let snCur = null;
+  const subMark = (y, curId) => {
+    const sh = sns.find(d => d.dataset.sec === curId) || sns.find(d => d.dataset.sec === '');
+    if (sh !== snCur) { sns.forEach(d => d.classList.toggle('on', d === sh)); snCur = sh; if (sh) sh.scrollLeft = 0; }
+    if (!sh || !sh.dataset.sec) return; const as = $$('a', sh); let best = null;
+    as.forEach(a => {
+      if (a.dataset.open) { const [g, t] = a.dataset.open.split(':'); const tb = document.querySelector(`.tabs[data-group="${g}"] button[data-tab="${t}"]`); let on = !!(tb && tb.classList.contains('on'));
+        if (on && a.dataset.inj != null) { const ib = document.querySelector('#injM button.on'); on = !!(ib && ib.dataset.v === a.dataset.inj); } a.classList.toggle('on', on); }
+      else { const t = document.querySelector(a.getAttribute('href')); if (t && t.getBoundingClientRect().top + scrollY <= y) best = a; }
+    });
+    as.filter(a => !a.dataset.open).forEach(a => a.classList.toggle('on', a === best));
+    const on = as.find(a => a.classList.contains('on')); if (on && sh.scrollWidth > sh.clientWidth + 1 && on.dataset.lastOn !== '1') { as.forEach(a => a.dataset.lastOn = ''); on.dataset.lastOn = '1'; sh.scrollTo({ left: Math.max(0, on.offsetLeft - (sh.clientWidth - on.offsetWidth) / 2), behavior: 'smooth' }); }
+  };
+  /* alpont-hivatkozás: a megfelelő fül (és injektálási módszer) megnyitása a görgetés előtt */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-open]'); if (!a) return; const [g, t] = a.dataset.open.split(':'); window.U.openTab(g, t);
+    if (a.dataset.inj != null) { const b = document.querySelector(`#injM button[data-v="${a.dataset.inj}"]`); if (b && !b.classList.contains('on')) b.click(); }
+  }, true);
   const onScroll = () => {
-    const y = scrollY + 140; let cur = null; secs.forEach(s => { if (s.offsetTop <= y) cur = s; });
+    const y = scrollY + (bar ? bar.offsetHeight : 120) + 30; let cur = null; secs.forEach(s => { if (s.offsetTop <= y) cur = s; });
     links.forEach(a => a.classList.toggle('on', cur && a.getAttribute('href') === '#' + cur.id));
+    subMark(y, cur ? cur.id : '');
     const h = document.documentElement.scrollHeight - innerHeight; if (prog) prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
     if (top) top.classList.toggle('on', scrollY > 900);
     const on = links.find(a => a.classList.contains('on')); if (on && on.dataset.lastOn !== '1') { links.forEach(a => a.dataset.lastOn = ''); on.dataset.lastOn = '1'; centerTab(on); }
   };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  addEventListener('tabchange', () => setTimeout(onScroll, 0)); document.addEventListener('click', (e) => { if (e.target.closest('#injM')) setTimeout(onScroll, 0); });
   if (top) top.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
@@ -81,8 +102,8 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 
 // --- videók ---
 const VIDEOS = {
-  tj1: { t: 'Talajcsere', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '2:16', ch: 'a–c' },
-  tj7: { t: 'Előterhelés – Mexikóváros', s: 'ballaszt az épületsúlyig, kivárás, ütemezett eltávolítás', d: '2:14', ch: 'e' },
+  tj1: { t: 'Alapozás átalakítása', s: 'kisebb talpnyomás · mélyebb alapsík · talajcsere', d: '2:16', ch: '1/A–1/C' },
+  tj7: { t: 'Előterhelés – Mexikóváros', s: 'ballaszt az épületsúlyig, kivárás, ütemezett eltávolítás', d: '2:14', ch: '4/A' },
 };
 window.VIDEOS = VIDEOS;
 (function videos() {

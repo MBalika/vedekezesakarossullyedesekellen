@@ -582,6 +582,43 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
 .card ul, .card ol, .card li, .callout ul, .callout li { text-align: left; text-align-last: auto; }
 .dir a { justify-content: center; }
 
+/* ---- négy módszercsoport: menü, alpontok, színek (2026-11-21) ---- */
+.chapnav a.grp b{font:800 11px/1 var(--fh);min-width:18px;height:18px;border-radius:5px;display:inline-grid;place-items:center;background:var(--dot);color:#081a17}
+.subnav{border-top:1px solid rgba(255,255,255,.07);height:36px;display:flex;align-items:center}
+.subnav .sn{display:none;gap:4px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;align-items:center;width:100%}
+.subnav .sn::-webkit-scrollbar{display:none}
+.subnav .sn.on{display:flex}
+.subnav .sn>:first-child{margin-left:auto}.subnav .sn>:last-child{margin-right:auto}
+.subnav a{flex:none;display:inline-flex;align-items:center;gap:6px;color:var(--hero-mute);text-decoration:none;font:600 12px var(--fb);padding:4px 8px;border-radius:7px}
+.subnav a span{font:800 10.5px/1.3 var(--fh);color:var(--dot);border:1px solid color-mix(in srgb,var(--dot) 55%,transparent);border-radius:5px;padding:0 4px}
+.subnav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.subnav a.on{color:#fff;background:rgba(255,255,255,.1)}
+.subnav a.on span{background:var(--dot);color:#081a17;border-color:var(--dot)}
+.subnav .snl{flex:none;font:600 12px var(--fb);color:var(--hero-mute);margin-right:2px}
+section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg,color-mix(in srgb,var(--cs) 55%,transparent),transparent 340px)}
+.subidx{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:-8px 0 6px}
+.subidx a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font:650 14px var(--fb);padding:7px 12px 7px 8px;border-radius:10px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.subidx a:hover{border-color:var(--c)}
+.subidx a span{font:800 12px var(--fh);color:#fff;background:var(--c);border-radius:6px;padding:1px 7px}
+.sub-h .lt{white-space:nowrap}
+.sub-h.try .lt{background:transparent;color:var(--ci);box-shadow:inset 0 0 0 2px var(--c)}
+.tryh{margin:34px 0 14px;font-size:18px;text-align:center;color:var(--ci)}
+.solo{max-width:820px;margin-inline:auto}
+.twocol.tw-top{align-items:start}
+.vblock{text-align:center;margin:30px auto 0;max-width:640px}
+.vblock h4{margin:0 0 6px}
+.vblock p{color:var(--ink2);margin:0 0 12px;text-align:center}
+.vblock .vcard{width:100%}
+.tcsfig{margin-bottom:20px}
+.tcsfig .steps li{text-align:left}
+.sumt tr.g1{--c:var(--teal)}.sumt tr.g2{--c:var(--amber)}.sumt tr.g3{--c:var(--violet)}.sumt tr.g4{--c:var(--coral)}
+.sumt .code{font:800 12px var(--fh);color:#fff;background:var(--c);border-radius:6px;padding:1px 6px;margin-right:2px}
+.sumt tr[class^="g"] td:first-child{box-shadow:inset 4px 0 0 var(--c)}
+@media (min-width:981px){.tcsfig .pb-split{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr)}}
+/* áttekintő kártyák: az alpontok kitöltik a kártyát (egyforma magas kártyák, nincs üres alj) */
+.dir a{flex:1 1 0;min-height:40px}
+.tabs button .n{width:auto;min-width:22px;padding:0 6px;white-space:nowrap}
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -702,15 +739,21 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
       <a class="langbtn" id="langSw" href="./" hreflang="hu" lang="hu" aria-label="Magyar változat"><span>HU</span><b>EN</b></a>
     </div>
     <nav class="chapnav" aria-label="Chapters">
-      <a href="#attekintes" style="--dot:#e5ae47"><i></i>1 · Overview</a>
-      <a href="#alapozas" style="--dot:#39c2a5"><i></i>2 · Contact pressure, foundation level (3D)</a>
-      <a href="#talajcsere" style="--dot:#39c2a5"><i></i>3 · Soil replacement</a>
-      <a href="#tomorites" style="--dot:#e5ae47"><i></i>4 · Compaction</a>
-      <a href="#szilarditas" style="--dot:#a28ce8"><i></i>5 · Grouting, stabilisation</a>
-      <a href="#eloterheles" style="--dot:#f07a5c"><i></i>6 · Preloading</a>
-      <a href="#szerkezet" style="--dot:#f07a5c"><i></i>7 · Design measures</a>
-      <a href="#videok" style="--dot:#fff"><i></i>Video library</a>
-      <a href="#igazhamis" style="--dot:#fff"><i></i>True/false</a>
+      <a href="#attekintes" style="--dot:#6db2e2"><i></i>Overview</a>
+      <a class="grp" href="#alapozas" style="--dot:#39c2a5"><b>1</b>Changing the foundation</a>
+      <a class="grp" href="#tomorites" style="--dot:#e5ae47"><b>2</b>Mechanical compaction</a>
+      <a class="grp" href="#szilarditas" style="--dot:#a28ce8"><b>3</b>Grouting, stabilisation</a>
+      <a class="grp" href="#tervezoi" style="--dot:#f07a5c"><b>4</b>Design measures</a>
+      <a href="#osszegzes" style="--dot:#6db2e2"><i></i>Summary</a>
+      <a href="#videok" style="--dot:#6db2e2"><i></i>Video library</a>
+      <a href="#igazhamis" style="--dot:#6db2e2"><i></i>True/false</a>
+    </nav>
+    <nav class="subnav" aria-label="Subsections">
+      <div class="sn" data-sec="alapozas" style="--dot:#39c2a5"><a href="#talpnyomas"><span>1/A</span>Lower contact pressure</a><a href="#alapsik"><span>1/B</span>Deeper foundation level</a><a href="#szim3d" class="x"><span>1/A–B</span>3D simulator</a><a href="#talajcsere"><span>1/C</span>Soil replacement</a></div>
+      <div class="sn" data-sec="tomorites" style="--dot:#e5ae47"><a href="#t-mech" data-open="mech:m1"><span>2/A</span>Deep compaction</a><a href="#t-mech" data-open="mech:m2"><span>2/B</span>Dynamic compaction</a><a href="#t-mech" data-open="mech:m3"><span>2/C</span>Stone pillar</a><a href="#t-mech" data-open="mech:m4"><span>2/D</span>Gravel pile</a></div>
+      <div class="sn" data-sec="szilarditas" style="--dot:#a28ce8"><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Permeation</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Compaction</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Rock fissure</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Fracture/compensation</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Void filling</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Mass stabilisation</a></div>
+      <div class="sn" data-sec="tervezoi" style="--dot:#f07a5c"><a href="#eloterheles"><span>4/A</span>Preloading</a><a href="#szerkezet"><span>4/B</span>Structural measures</a><a href="#sorrend"><span>4/C</span>Construction sequence</a><a href="#melyalap"><span>4/D</span>Deep foundations</a></div>
+      <div class="sn sn-all" data-sec="" style="--dot:#6db2e2"><span class="snl">The four method groups:</span><a href="#alapozas" style="--dot:#39c2a5"><span>1</span>A–C</a><a href="#tomorites" style="--dot:#e5ae47"><span>2</span>A–D</a><a href="#szilarditas" style="--dot:#a28ce8"><span>3</span>A–F</a><a href="#tervezoi" style="--dot:#f07a5c"><span>4</span>A–D</a></div>
     </nav>
   </div>
   <div class="progress"></div>
@@ -721,9 +764,9 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
     <div>
       <div class="kicker">BME · Foundation Engineering · Settlement of shallow foundations</div>
       <h1>Protection against <em>harmful settlement</em></h1>
-      <p class="lead">If the calculated settlement or differential settlement is not acceptable with the chosen type of foundation, the design must be changed. Eight tools are available – from reducing the contact pressure through ground improvement to deep foundations.</p>
+      <p class="lead">If the calculated settlement or differential settlement is not acceptable with the chosen type of foundation, the design must be changed. Four method groups are available: changing the foundation, mechanical compaction, grouting and stabilisation, and design measures.</p>
       <div class="stats">
-        <div class="stat"><b>8</b><span>remedial methods (a–h)</span></div>
+        <div class="stat"><b>4</b><span>method groups, 17 subsections</span></div>
         <div class="stat"><b>3D</b><span>settlement simulator</span></div>
         <div class="stat"><b>8</b><span>real-site videos</span></div>
         <div class="stat"><b>2</b><span>animated videos</span></div>
@@ -731,7 +774,7 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
         <div class="stat"><b>40</b><span>true/false statements</span></div>
       </div>
       <div class="btns">
-        <a class="btn pri" href="#alapozas">Start the 3D simulator →</a>
+        <a class="btn pri" href="#attekintes">Start with the overview →</a>
         <a class="btn ghost" href="#videok">▶ Videos</a>
         <a class="btn ghost" href="#igazhamis">True/false test</a>
       </div>
@@ -740,58 +783,59 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
 </section>
 
 <main>
-<!-- 1. ÁTTEKINTÉS -->
-<section class="chap c-amber" id="attekintes"><div class="wrap">
-  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">Map of remedial measures</div><h2>Four directions – from the ground to the structure</h2><p class="lead">If the calculated settlements are not acceptable, the original design has to be changed. The methods <b>can be combined</b> – the choice depends on the subsoil, the depth of the intervention and the cost.</p></div></div>
+<!-- ÁTTEKINTÉS -->
+<section class="chap c-sky" id="attekintes"><div class="wrap">
+  <div class="chhead"><div class="chnum">◇</div><div><div class="kicker">Map of remedial measures</div><h2>Four method groups – from the ground to the structure</h2><p class="lead">If the calculated settlements are not acceptable, the original design has to be changed. The methods <b>can be combined</b> – the choice depends on the subsoil, the depth of the intervention and the cost. The page follows this order: within the four groups the subsections (1/A, 1/B …) follow one another.</p></div></div>
   <div class="callout web"><span class="ci">i</span><p>How much settlement is acceptable, and how differential settlement damages a building, is covered in the Settlement tolerance chapter of the <a href="https://sikalapok-sullyedesszamitasa.vercel.app/en" target="_blank" rel="noopener"><b>Settlement of shallow foundations</b></a> module. This page deals with the methods of protection.</p></div>
   <div class="dirs">
-    <div class="dir c-teal"><span class="n">1</span><h4>Changing the foundation</h4><a href="#alapozas"><span>a</span>Lower contact pressure</a><a href="#alapozas"><span>b</span>Deeper foundation level</a><a href="#talajcsere"><span>c</span>Soil replacement</a></div>
-    <div class="dir c-amber"><span class="n">2</span><h4>Mechanical compaction</h4><a href="#tomorites"><span>d1</span>Deep compaction</a><a href="#tomorites"><span>d2</span>Dynamic compaction</a><a href="#tomorites"><span>d3</span>Stone pillar</a><a href="#tomorites"><span>d4</span>Gravel pile</a></div>
-    <div class="dir c-violet"><span class="n">3</span><h4>Grouting, stabilisation</h4><a href="#szilarditas"><span>d5</span>Permeation grouting</a><a href="#szilarditas"><span>d5</span>Compaction grouting</a><a href="#szilarditas"><span>d5</span>Rock fissure grouting</a><a href="#szilarditas"><span>d5</span>Fracture/compensation grouting</a><a href="#szilarditas"><span>d5</span>Void-filling grouting</a><a href="#szilarditas"><span>d6</span>Mass stabilisation</a></div>
-    <div class="dir c-coral"><span class="n">4</span><h4>Design measures</h4><a href="#eloterheles"><span>e</span>Preloading</a><a href="#szerkezet"><span>f</span>Structural measures</a><a href="#szerkezet"><span>g</span>Construction sequence</a><a href="#szerkezet"><span>h</span>Deep foundations</a></div>
+    <div class="dir c-teal"><span class="n">1</span><h4>Changing the foundation</h4><a href="#talpnyomas"><span>1/A</span>Lower contact pressure</a><a href="#alapsik"><span>1/B</span>Deeper foundation level</a><a href="#talajcsere"><span>1/C</span>Soil replacement</a></div>
+    <div class="dir c-amber"><span class="n">2</span><h4>Mechanical compaction</h4><a href="#t-mech" data-open="mech:m1"><span>2/A</span>Deep compaction</a><a href="#t-mech" data-open="mech:m2"><span>2/B</span>Dynamic compaction</a><a href="#t-mech" data-open="mech:m3"><span>2/C</span>Stone pillar</a><a href="#t-mech" data-open="mech:m4"><span>2/D</span>Gravel pile</a></div>
+    <div class="dir c-violet"><span class="n">3</span><h4>Grouting, stabilisation</h4><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Permeation</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Compaction</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Rock fissure</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Fracture/compensation</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Void filling</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Mass stabilisation</a></div>
+    <div class="dir c-coral"><span class="n">4</span><h4>Design measures</h4><a href="#eloterheles"><span>4/A</span>Preloading</a><a href="#szerkezet"><span>4/B</span>Structural measures</a><a href="#sorrend"><span>4/C</span>Construction sequence</a><a href="#melyalap"><span>4/D</span>Deep foundations</a></div>
   </div>
 
-  <div class="sub-h"><span class="lt">★</span><h3>Method selector – which ones are possible?</h3></div>
-  <div class="sel" id="selector">
-    <div class="panel"><div class="pb">
-      <div class="q2"><h5>What is the problem soil?</h5><div class="seg" data-q="soil"><button data-v="szemcses">loose granular</button><button data-v="kotott" class="on">soft cohesive (clay)</button><button data-v="szerves">peat, organic</button><button data-v="feltoltes">fill</button></div></div>
-      <div class="q2"><h5>Where is the groundwater?</h5><div class="seg" data-q="gw"><button data-v="felett" class="on">below the treated zone</button><button data-v="alatt">within the treated zone</button></div></div>
-      <div class="q2"><h5>How deep is the problem?</h5><div class="seg" data-q="depth"><button data-v="sekely">shallow (≤ 2 m)</button><button data-v="kozepes" class="on">medium (2–7 m)</button><button data-v="mely">deep (> 7 m)</button></div></div>
-      <div class="q2"><h5>Is there a better layer deeper down?</h5><div class="seg" data-q="better"><button data-v="igen" class="on">yes</button><button data-v="nem">no</button></div></div>
-      <div class="q2"><h5>Situation</h5><div class="seg" data-q="sit"><button data-v="uj" class="on">new construction</button><button data-v="meglevo">existing building (retrofit)</button></div></div>
-      <p class="src">A simplified decision aid for teaching, based on the conditions of application of the methods – the real choice is always based on ground investigation and calculation.</p>
-    </div></div>
-    <div class="mlist" id="selList"></div>
-  </div>
-  <div class="sub-h"><span class="lt">≡</span><h3>Summary table</h3></div>
-  <div class="tscroll"><table class="t sumt">
-    <thead><tr><th>Method</th><th>Suitable soil</th><th>Depth, typical data</th><th>Limitation, remark</th></tr></thead>
-    <tbody>
-      <tr><td><b>a) Lower contact pressure</b></td><td>if there is a less compressible layer deeper down</td><td>wider foundation, lower q</td><td>the weight and the influence depth increase; with reversed layering it can make things worse</td></tr>
-      <tr><td><b>b) Deeper foundation level</b></td><td>a better bearing layer within a few metres</td><td>basement: the excavated soil unloads the ground</td><td>a strip footing deeper than 2–2.5 m is not economical</td></tr>
-      <tr><td><b>c) Soil replacement</b></td><td>any poor soil, in a shallow zone</td><td>50–80 cm, compacted in layers ≤ 30 cm</td><td>only above the water table; widening: B + 2·v·tanϑ</td></tr>
-      <tr><td><b>Deep compaction</b></td><td>loose granular soil, fill</td><td>vibrator Ø 25–40 cm, with flushing</td><td>fines content approx. &lt; 10–12%</td></tr>
-      <tr><td><b>Dynamic compaction</b></td><td>looser, softer soil, large area</td><td>15–40 t pounder, H = 10–40 m; max. 5–7 m</td><td>strong vibration – not next to buildings</td></tr>
-      <tr><td><b>Stone pillar</b></td><td>very loose, soft soil</td><td>granular material pounded in, large-diameter pillars</td><td>displacement compaction + load-bearing elements</td></tr>
-      <tr><td><b>Gravel pile</b></td><td>looser, softer soil (cohesive too)</td><td>bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m</td><td>also acts as a vertical drain</td></tr>
-      <tr><td><b>Permeation grouting</b></td><td>granular soil, coarse silt; with cement only coarser than 0.8–1 mm</td><td>cement grouting: pipes every 50–100 cm, 7–10 atm</td><td>fills the voids; from the bottom upwards</td></tr>
-      <tr><td><b>Compaction grouting</b></td><td>loose soil, also silt and clay</td><td>stiff mortar, bulbs stage by stage</td><td>compacts, forms load-bearing columns</td></tr>
-      <tr><td><b>Rock fissure grouting</b></td><td>fissured rock</td><td>filling the fissure network</td><td>slope, rock under foundations, watertightness</td></tr>
-      <tr><td><b>Fracture/compensation grouting</b></td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling buildings</td></tr>
-      <tr><td><b>Void-filling grouting</b></td><td>voids, cellars, mine galleries</td><td>by gravity or at low pressure</td><td>improved cement mortar, expanding PU foam</td></tr>
-      <tr><td><b>Two-component resin</b></td><td>sandy, silty soil</td><td>expanding geocomposite</td><td>not effective in clay; retrofit strengthening</td></tr>
-      <tr><td><b>Mass stabilisation</b></td><td>peat, soft clay, organic soil</td><td>mixing head 1.5 m × Ø 0.95 m; max. ~7 m</td><td>starts from stable ground; hardening takes time</td></tr>
-      <tr><td><b>e) Preloading</b></td><td>saturated, compressible cohesive soil</td><td>surcharge ≥ the later building load</td><td>long time – can be accelerated with drains</td></tr>
-      <tr><td><b>f–g) Structure, sequence</b></td><td>–</td><td>rigid or flexible structure, settlement joint</td><td>supplementary tool</td></tr>
-      <tr><td><b>h) Deep foundations</b></td><td>if the bearing layer is deep</td><td>pile, diaphragm wall</td><td>often the simplest and fastest</td></tr>
-    </tbody>
-  </table></div>
 </div></section>
 
-<!-- 2. ALAPOZÁS ÁTALAKÍTÁSA -->
-<section class="chap c-teal" id="alapozas"><div class="wrap">
-  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">a) Lower contact pressure · b) Deeper foundation level</div><h2>3D settlement simulator</h2><p class="lead">Larger foundation area → lower contact pressure. Deeper foundation level → a better bearing layer and more excavated soil. But does the settlement always decrease? <b>Rotate the 3D model, drag the sliders</b> and watch the stress bulb, the influence depth and the settlement!</p></div></div>
+<!-- 1. ALAPOZÁS ÁTALAKÍTÁSA -->
+<section class="chap c-teal grp" id="alapozas"><div class="wrap">
+  <div class="chhead"><div class="chnum">1</div><div><div class="kicker">Method group 1</div><h2>Changing the foundation</h2><p class="lead">We modify the foundation itself: a larger footing area reduces the contact pressure, the foundation level is taken deeper, or the poor soil below the foundation level is replaced with better soil.</p></div></div>
+  <nav class="subidx" aria-label="Subsections"><a href="#talpnyomas"><span>1/A</span>Lower contact pressure</a><a href="#alapsik"><span>1/B</span>Deeper foundation level</a><a href="#talajcsere"><span>1/C</span>Soil replacement</a></nav>
 
+  <div class="sub-h" id="talpnyomas"><span class="lt">1/A</span><h3>Using a lower contact pressure</h3></div>
+  <div class="twocol tw-ab">
+    <div>
+      <p>We build a foundation with a <b>larger area</b> than bearing resistance alone would require. Lower stresses develop under a wider foundation. In many cases, however, it does not reduce the settlement as much as the designer expects:</p>
+      <ul><li>the wider footing itself means a <b>greater weight</b>,</li><li>and above all, under a wider foundation the stresses causing compression reach <b>greater depths</b> – <b>the influence depth increases</b>.</li></ul>
+      <p>It is effective if there are <b>less compressible layers deeper down</b> (case A). In case B, widening puts more stress on the softer clay layer lower down – so the settlement may even <b>increase</b>: exactly the opposite of what we wanted!</p>
+    </div>
+    <div class="panel"><div class="ph"><h4>Cases A and B – how deep does the stress bulb reach?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Foundation width <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
+  </div>
+  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Effect of footing size and load on the stresses</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">The dashed outline is the pressure bulb of the original footing (width b, contact pressure q). The depth of the effect is set by the <b>width</b> of the foundation, the magnitude of the stress by the <b>contact pressure</b>.</p></div></div>
+
+  <div class="sub-h" id="alapsik"><span class="lt">1/B</span><h3>Deeper foundation level – and the basement</h3></div>
+  <div class="twocol">
+    <div>
+      <p>This comes into consideration if a foundation level in the compressible layer near the surface gives too much settlement and there is <b>less compressible, better bearing</b> soil not too deep down (a few metres). The embedment next to the foundations then increases, so the safety against bearing failure grows and the foundation width can be reduced.</p>
+      <div class="callout warn"><span class="ci">!</span><p>A <b>strip footing deeper than 2–2.5 m</b> is no longer economical – in that case pad foundations (or caisson foundations) are advisable, tied together at the top by a grid of ground beams.</p></div>
+      <p>Under such ground conditions it is worth building a <b>basement</b> if the rooms below ground level can also be used. The basement has a twofold effect:</p>
+      <ul><li>the foundation level reaches (or may reach) a deeper bearing layer;</li><li>the <b>weight of the excavated soil</b> increases – this unloads the subsoil.</li></ul>
+      <p>If the mass of soil excavated for the “basement” is greater than that of the structure placed there, the resultant of the effective stresses transferred to the subsoil is “negative”, and the structure (with a sufficiently rigid RC raft) will be practically immobile – this is the principle of the <b>compensated foundation</b>.</p>
+      <div class="grid g2"><figure class="photo contain"><img src="img/en/pince-abra.jpg" alt="Deeper foundation level with a basement" loading="lazy" style="height:170px;padding:8px"><figcaption>Deeper foundation level with a basement</figcaption></figure><figure class="photo contain"><img src="img/en/foldkiemeles-abra.jpg" alt="The role of excavation" loading="lazy" style="height:170px;padding:8px"><figcaption>The role of excavation</figcaption></figure></div>
+      <div class="callout dyk"><span class="ci">★</span><p><b>Did you know?</b> The 44-storey Torre Latinoamericana in Mexico City (1956), 182 m high including its antenna, stands on extremely compressible volcanic clay: its base slab is 13.5 m deep, and the load is carried by 361 piles down to a dense sand layer 33 m deep. Its structural and foundation designer, Leonardo Zeevaert, also exploited the weight of the excavated soil – the tower “does not settle, it floats”, and it withstood the magnitude 7.9 earthquake of 1957.</p></div>
+    </div>
+    <div class="panel"><div class="ph"><h4>Excavation and compensation</h4><button class="chip" id="bsPlay">▶ Construction</button></div><div class="pb">
+      <div id="bsSvg"></div>
+      <div class="ctl"><label>Storeys above ground <span class="v" data-for="bsN"></span></label><input type="range" id="bsN" min="1" max="14" value="6"></div>
+      <div class="ctl"><label>Basement levels <span class="v" data-for="bsP"></span></label><input type="range" id="bsP" min="0" max="3" value="1"></div>
+      <div class="ctl"><label>Construction progress <span class="v" data-for="bsT"></span></label><input type="range" id="bsT" min="0" max="100" value="100"></div>
+      <div class="res" id="bsOut"></div>
+      <div class="insight" id="bsMsg"></div>
+      <p class="src" style="margin:8px 0 0">Illustration: approx. 12 kPa/storey + 15 kPa base slab, γ = 19 kN/m³.</p>
+    </div></div>
+  </div>
+
+  <div class="sub-h try" id="szim3d"><span class="lt">1/A–B</span><h3>Try it: 3D settlement simulator</h3></div>
+  <p>Larger foundation area → lower contact pressure. Deeper foundation level → a better bearing layer and more excavated soil. But does the settlement always decrease? <b>Rotate the 3D model, drag the sliders</b> and watch the stress bulb, the influence depth and the settlement!</p>
   <div class="sim simmain">
     <div class="lcol">
       <div class="view" id="simView">
@@ -832,46 +876,31 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
     <div class="panel"><div class="ph"><h4>Settlement as a function of the variable</h4><div class="seg" id="simCurveSel"><button data-v="B" class="on">s(B)</button><button data-v="D">s(D)</button></div></div><div class="pb"><svg class="svgbox" id="simCurve"></svg></div></div>
   </div>
   <p class="src" style="margin-top:10px">The simulator follows the steps of the more accurate settlement calculation: permanent load → stress below the footing (below the centre of a rectangular loaded area, Steinbrenner; or Jáky’s linear approximation) → influence depth (Jáky: m<sub>0</sub> = B for a square footing; or the 0.2·σ<sub>0</sub> criterion of Hungarian practice) → summation by layer: s = Σ Δσ<sub>z</sub>·Δh / E<sub>oed</sub>. The effect of excavation is taken into account through the net pressure q<sub>0</sub> = q − γ·D; the weight of the footing and the backfill is added to the load. A teaching model, not design software.</p>
+  <div class="quiz" id="q3"><div class="qh"><h4>Self-check · 1/A–1/B</h4><div class="dots"></div></div></div>
 
-  <div class="sub-h"><span class="lt">a</span><h3>Using a lower contact pressure</h3></div>
-  <div class="twocol tw-ab">
-    <div>
-      <p>We build a foundation with a <b>larger area</b> than bearing resistance alone would require. Lower stresses develop under a wider foundation. In many cases, however, it does not reduce the settlement as much as the designer expects:</p>
-      <ul><li>the wider footing itself means a <b>greater weight</b>,</li><li>and above all, under a wider foundation the stresses causing compression reach <b>greater depths</b> – <b>the influence depth increases</b>.</li></ul>
-      <p>It is effective if there are <b>less compressible layers deeper down</b> (case A). In case B, widening puts more stress on the softer clay layer lower down – so the settlement may even <b>increase</b>: exactly the opposite of what we wanted!</p>
-    </div>
-    <div class="panel"><div class="ph"><h4>Cases A and B – how deep does the stress bulb reach?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Foundation width <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
+  <div class="sub-h" id="talajcsere"><span class="lt">1/C</span><h3>Soil replacement: out with the bad soil – in with the good</h3></div>
+  <p>The highly compressible original soil below the foundation level is excavated over its full thickness (within the stressed zone) or only partly, and <b>replacement soil with better properties</b> – sandy gravel, crushed stone, crushed concrete – is placed in its stead, with adequate compaction.</p>
+  <div class="panel tcsfig"><div class="ph"><h4>How does soil replacement work?</h4></div><div class="pb pb-split"><div id="tcsFig"></div><div class="side">
+    <ol class="steps">
+      <li><b>Excavation.</b> The highly compressible soil below the foundation level is removed within the stressed zone – or in part of it.</li>
+      <li><b>Widening.</b> On each side, the bottom of the excavation is v·tan ϑ wider than the footing: the load spreads at the angle ϑ, so at the bottom of the replacement layer it is distributed over a width of B + 2·v·tan ϑ.</li>
+      <li><b>Backfilling.</b> Sandy gravel, crushed stone or crushed concrete is spread and compacted in layers of at most 30 cm – above the water table.</li>
+      <li><b>Two checks.</b> Both the stress on the replacement layer at foundation level, σ<sub>1</sub> = P/B, and the stress on the base layer at the bottom of the replacement layer, σ<sub>2</sub> = P/(B + 2·v·tan ϑ) + γ<sub>1</sub>·v, must stay below the allowable value.</li>
+    </ol>
+  </div></div></div>
+  <div class="grid g4" style="margin-top:20px">
+    <div class="card top"><h4>💧 Above the water table</h4><p>Soil replacement can generally be done only above the water table, because otherwise it cannot be compacted.</p></div>
+    <div class="card top"><h4>📏 50–80 cm</h4><p>Partial replacement is usually sufficient; the usual thickness is 50–80 cm.</p></div>
+    <div class="card top"><h4>🧱 Layers ≤ 30 cm</h4><p>Compact in loose layers of max. 30 cm. A geogrid, geotextile or composite separation layer may be needed.</p></div>
+    <div class="card top"><h4>↔ Widening</h4><p>It has to be widened laterally in proportion to the thickness of the replacement layer – a lot of earthworks, and the excavated soil has to be carted away.</p></div>
   </div>
-  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Effect of footing size and load on the stresses</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">The dashed outline is the pressure bulb of the original footing (width b, contact pressure q). The depth of the effect is set by the <b>width</b> of the foundation, the magnitude of the stress by the <b>contact pressure</b>.</p></div></div>
-
-  <div class="sub-h"><span class="lt">b</span><h3>Deeper foundation level – and the basement</h3></div>
-  <div class="twocol">
-    <div>
-      <p>This comes into consideration if a foundation level in the compressible layer near the surface gives too much settlement and there is <b>less compressible, better bearing</b> soil not too deep down (a few metres). The embedment next to the foundations then increases, so the safety against bearing failure grows and the foundation width can be reduced.</p>
-      <div class="callout warn"><span class="ci">!</span><p>A <b>strip footing deeper than 2–2.5 m</b> is no longer economical – in that case pad foundations (or caisson foundations) are advisable, tied together at the top by a grid of ground beams.</p></div>
-      <p>Under such ground conditions it is worth building a <b>basement</b> if the rooms below ground level can also be used. The basement has a twofold effect:</p>
-      <ul><li>the foundation level reaches (or may reach) a deeper bearing layer;</li><li>the <b>weight of the excavated soil</b> increases – this unloads the subsoil.</li></ul>
-      <p>If the mass of soil excavated for the “basement” is greater than that of the structure placed there, the resultant of the effective stresses transferred to the subsoil is “negative”, and the structure (with a sufficiently rigid RC raft) will be practically immobile – this is the principle of the <b>compensated foundation</b>.</p>
-      <div class="grid g2"><figure class="photo contain"><img src="img/en/pince-abra.jpg" alt="Deeper foundation level with a basement" loading="lazy" style="height:170px;padding:8px"><figcaption>Deeper foundation level with a basement</figcaption></figure><figure class="photo contain"><img src="img/en/foldkiemeles-abra.jpg" alt="The role of excavation" loading="lazy" style="height:170px;padding:8px"><figcaption>The role of excavation</figcaption></figure></div>
-      <div class="callout dyk"><span class="ci">★</span><p><b>Did you know?</b> The 44-storey Torre Latinoamericana in Mexico City (1956), 182 m high including its antenna, stands on extremely compressible volcanic clay: its base slab is 13.5 m deep, and the load is carried by 361 piles down to a dense sand layer 33 m deep. Its structural and foundation designer, Leonardo Zeevaert, also exploited the weight of the excavated soil – the tower “does not settle, it floats”, and it withstood the magnitude 7.9 earthquake of 1957.</p></div>
-    </div>
-    <div class="panel"><div class="ph"><h4>Excavation and compensation</h4><button class="chip" id="bsPlay">▶ Construction</button></div><div class="pb">
-      <div id="bsSvg"></div>
-      <div class="ctl"><label>Storeys above ground <span class="v" data-for="bsN"></span></label><input type="range" id="bsN" min="1" max="14" value="6"></div>
-      <div class="ctl"><label>Basement levels <span class="v" data-for="bsP"></span></label><input type="range" id="bsP" min="0" max="3" value="1"></div>
-      <div class="ctl"><label>Construction progress <span class="v" data-for="bsT"></span></label><input type="range" id="bsT" min="0" max="100" value="100"></div>
-      <div class="res" id="bsOut"></div>
-      <div class="insight" id="bsMsg"></div>
-      <p class="src" style="margin:8px 0 0">Illustration: approx. 12 kPa/storey + 15 kPa base slab, γ = 19 kN/m³.</p>
-    </div></div>
+  <div class="callout warn"><span class="ci">!</span><p>Safety against bearing failure has to be verified both <b>on the replacement soil below the foundation level</b> and <b>on the soil below the base of the replacement</b> – and of course the settlements must also stay within the limits. A costly (lengthy) solution; today it is typically used for rafts at ground level.</p></div>
+  <div class="vblock">
+    <h4>Watch it as an animation</h4>
+    <p>The summary video of method group 1: the principles of lower contact pressure, a deeper foundation level and soil replacement step by step – with layer-by-layer compaction and load spread.</p>
+    <button class="vcard" data-video="tj1"></button>
   </div>
-  <div class="vinline"><button class="vcard" data-video="tj1"></button></div>
-  <div class="quiz" id="q3"><div class="qh"><h4>Self-check · Chapter 2</h4><div class="dots"></div></div></div>
-</div></section>
-
-<!-- 3. TALAJCSERE -->
-<section class="chap c-teal" id="talajcsere"><div class="wrap">
-  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">c) Using soil replacement</div><h2>Out with the bad soil – in with the good</h2><p class="lead">The highly compressible original soil below the foundation level is excavated over its full thickness (within the stressed zone) or only partly, and <b>replacement soil with better properties</b> – sandy gravel, crushed stone, crushed concrete – is placed in its stead, with adequate compaction.</p></div></div>
+  <div class="sub-h try" id="tcssim"><span class="lt">1/C</span><h3>Try it: load spread in the replacement layer</h3></div>
   <div class="sim wide">
     <div class="panel"><div class="ph"><h4>Load spread in the replacement layer (strip footing)</h4><button class="chip" id="tcsPlay">▶ Layer-by-layer construction</button></div><div class="pb"><div id="tcsSvg"></div><div class="insight" id="tcsMsg"></div><p class="src" style="margin:10px 0 0">σ<sub>2</sub> = P / (B + 2·v·tanϑ) + γ<sub>1</sub>·v, where γ<sub>1</sub> = 20 kN/m³ is the unit weight of the replacement soil – simplified illustration.</p></div></div>
     <div class="panel"><div class="pb ctl2">
@@ -884,31 +913,28 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
       <div class="res" id="tcsOut"></div>
     </div></div>
   </div>
-  <div class="grid g4" style="margin-top:20px">
-    <div class="card top"><h4>💧 Above the water table</h4><p>Soil replacement can generally be done only above the water table, because otherwise it cannot be compacted.</p></div>
-    <div class="card top"><h4>📏 50–80 cm</h4><p>Partial replacement is usually sufficient; the usual thickness is 50–80 cm.</p></div>
-    <div class="card top"><h4>🧱 Layers ≤ 30 cm</h4><p>Compact in loose layers of max. 30 cm. A geogrid, geotextile or composite separation layer may be needed.</p></div>
-    <div class="card top"><h4>↔ Widening</h4><p>It has to be widened laterally in proportion to the thickness of the replacement layer – a lot of earthworks, and the excavated soil has to be carted away.</p></div>
-  </div>
-  <div class="callout warn"><span class="ci">!</span><p>Safety against bearing failure has to be verified both <b>on the replacement soil below the foundation level</b> and <b>on the soil below the base of the replacement</b> – and of course the settlements must also stay within the limits. A costly (lengthy) solution; today it is typically used for rafts at ground level.</p></div>
-  <div class="grid g2" style="align-items:center;margin-top:18px">
-    <figure class="photo contain"><img src="img/en/talajcsere-abra.jpg" alt="Reducing settlement with soil replacement" loading="lazy" style="height:250px;padding:8px"><figcaption>Reducing settlement with soil replacement</figcaption></figure>
-    <div><h4 style="margin:0 0 8px">Watch it as an animation</h4><p style="margin:0 0 12px;color:var(--ink2)">The video shows the principles of lower contact pressure, a deeper foundation level and soil replacement step by step – with layer-by-layer compaction and load spread.</p><button class="vcard" data-video="tj1"></button></div>
-  </div>
-  <div class="quiz" id="q4"><div class="qh"><h4>Self-check · Chapter 3</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q4"><div class="qh"><h4>Self-check · 1/C</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 4. MECHANIKAI TÖMÖRÍTÉS -->
-<section class="chap c-amber" id="tomorites"><div class="wrap">
-  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">d) Ground improvement · mechanical methods</div><h2>Compaction: by vibration, dropping weights, stone columns</h2><p class="lead">Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material, or by <b>compacting</b> the soil. Four mechanical methods are presented below – first, real footage of ground improvement as a whole.</p></div></div>
-  <div data-ytc="8Zcv7ktWD68"></div>
-  <div class="tabs" data-group="mech"><button data-tab="m1" class="on"><span class="n">1</span>Deep compaction</button><button data-tab="m2"><span class="n">2</span>Dynamic compaction</button><button data-tab="m3"><span class="n">3</span>Stone pillar</button><button data-tab="m4"><span class="n">4</span>Gravel pile</button></div>
+<!-- 2. MECHANIKAI TÖMÖRÍTÉS -->
+<section class="chap c-amber grp" id="tomorites"><div class="wrap">
+  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">Method group 2 · mechanical ground improvement</div><h2>Mechanical compaction</h2><p class="lead">Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material, or by <b>compacting</b> the soil. Four mechanical methods are presented below – at the end of the group, real footage of ground improvement as a whole.</p></div></div>
+  <div class="tabs" data-group="mech" id="t-mech"><button data-tab="m1" class="on"><span class="n">2/A</span>Deep compaction</button><button data-tab="m2"><span class="n">2/B</span>Dynamic compaction</button><button data-tab="m3"><span class="n">2/C</span>Stone pillar</button><button data-tab="m4"><span class="n">2/D</span>Gravel pile</button></div>
 
   <div class="tabpane on" data-group="mech" data-tab="m1">
     <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Deep compaction – vibroflotation</h3>
         <p>To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight, assisted by <b>water jetting (flushing)</b>. The soil around the hole is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator.</p>
+      </div>
+      <div>
+        <div class="grid g2"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Deep vibrator with flushing" loading="lazy"><figcaption>Deep vibrator during flushing</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Crane-suspended deep vibrators" loading="lazy"><figcaption>Crane-suspended vibrators</figcaption></figure></div>
+      </div>
+    </div>
+    <div data-ytc="I1M6afZLrxo"></div>
+    <h4 class="tryh">Try it: vibroflotation step by step</h4>
+    <div class="twocol tw-top">
+      <div>
         <div class="stepper" id="vibSteps"><button data-v="0" class="on">1 · Penetration</button><button data-v="1">2 · Compaction</button><button data-v="2">3 · Withdrawal + backfilling</button><button data-v="3">4 · Done</button></div>
         <div class="panel"><div class="pb"><div id="vibSvg"></div><p id="vibTxt" style="margin:8px 0 0"></p></div></div>
       </div>
@@ -919,10 +945,8 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
           <div style="margin-top:10px" id="vibFinesMsg"></div>
           <p class="src" style="margin-top:10px">Outlook: vibratory compaction is effective if the fines content stays below about 10–12% – the fine particles “absorb” the vibration energy.</p>
         </div></div>
-        <div class="grid g2" style="margin-top:14px"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Deep vibrator with flushing" loading="lazy"><figcaption>Deep vibrator during flushing</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Crane-suspended deep vibrators" loading="lazy"><figcaption>Crane-suspended vibrators</figcaption></figure></div>
       </div>
     </div>
-    <div data-ytc="I1M6afZLrxo"></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m2">
@@ -930,8 +954,17 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
       <div>
         <h3 style="margin-bottom:10px">Dynamic compaction</h3>
         <p>The compaction effect is achieved by repeatedly dropping a <b>15–40 tonne pounder</b> from a height of <b>H = 10–40 m</b>. To be determined: the weight of the pounder, the drop height, the compaction grid, the number of drops per phase and the duration of the rest periods. Effective <b>to a depth of max. 5–7 m</b>; for compacting larger areas on loose soils (e.g. under heavily loaded warehouse floors). Applicable only in looser, softer soils.</p>
-        <div class="panel"><div class="ph"><h4>Drop it yourself!</h4><div class="btns"><button class="chip on" id="dynDrop" style="--c:var(--amber)">⬇ Drop</button><button class="chip" id="dynReset">↺</button></div></div><div class="pb"><div id="dynSvg"></div></div></div>
         <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne estimate: <b class="nw">d ≈ n·√(W·H)</b> (W in tonnes, H in metres), n ≈ 0.5 for most soils, 0.35–0.40 for saturated fine-grained soil. An estimate – the actual depth of influence is verified by trial compaction; in practice it is typically <span class="nw">max. 5–7 m</span>.</p></div>
+      </div>
+      <div>
+        <figure class="photo"><img src="img/dinamikus-foto1.jpg" alt="Dynamic compaction work area" loading="lazy"><figcaption>Dynamic compaction: craters of the points pounded in a grid</figcaption></figure>
+      </div>
+    </div>
+    <div data-ytc="VNDEW8acU_0"></div>
+    <h4 class="tryh">Try it: drop it yourself!</h4>
+    <div class="twocol tw-top">
+      <div>
+        <div class="panel"><div class="ph"><h4>Drop it yourself!</h4><div class="btns"><button class="chip on" id="dynDrop" style="--c:var(--amber)">⬇ Drop</button><button class="chip" id="dynReset">↺</button></div></div><div class="pb"><div id="dynSvg"></div></div></div>
       </div>
       <div>
         <div class="panel"><div class="pb">
@@ -940,27 +973,28 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
           <div class="ctl"><label>Soil (empirical factor n)</label><div class="seg" id="dynSoil"><button data-v="0.55">clean sand</button><button data-v="0.5" class="on">mixed, fill</button><button data-v="0.38">saturated fine-grained</button></div></div>
           <div class="res" id="dynOut"></div>
         </div></div>
-        <figure class="photo" style="margin-top:14px"><img src="img/dinamikus-foto1.jpg" alt="Dynamic compaction work area" loading="lazy"><figcaption>Dynamic compaction: craters of the points pounded in a grid</figcaption></figure>
       </div>
     </div>
-    <div data-ytc="VNDEW8acU_0"></div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m3">
-    <div class="twocol tw-k">
+    <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Stone pillar</h3>
         <p>The difference from dynamic compaction: during pounding, <b>granular material</b> (sandy gravel, crushed stone) is gradually placed under the pounder, which “works” it into the softer subsoil. The effect is twofold:</p>
         <ul><li>the displacement of the granular material <b>considerably compacts</b> the soft subsoil;</li><li>granular “pillars” of <b>high bearing capacity and larger diameter</b> are formed.</li></ul>
         <p>Applicable only in very loose, soft soils.</p>
-        <div class="stepper" id="ktSteps" style="margin-top:14px"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
       </div>
       <div>
-        <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
+    <figure class="photo contain"><img src="img/kotomzs-abra.jpg" alt="Stone pillar work stages" loading="lazy" style="height:300px;padding:6px"><figcaption>The work stages of a stone pillar</figcaption></figure>
       </div>
     </div>
-    <figure class="photo contain" style="margin-top:18px"><img src="img/kotomzs-abra.jpg" alt="Stone pillar work stages" loading="lazy" style="height:300px;padding:6px"><figcaption>The work stages of a stone pillar</figcaption></figure>
     <div class="vinline"><p class="ytnote">The footage on pounding also shows how stone pillars are made.</p><button data-ytm="VNDEW8acU_0" data-tech="Pounding and stone pillars"></button></div>
+    <h4 class="tryh">Try it: making a stone pillar step by step</h4>
+    <div class="solo">
+        <div class="stepper" id="ktSteps"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
+        <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
+    </div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m4">
@@ -970,49 +1004,46 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
         <p>In principle similar to stone pillars, except that <b>smaller-diameter</b> columns – piles – of granular material are formed. Applicable only in looser, softer soils.</p>
         <div class="stepper" id="kcSteps"><button data-v="0" class="on">1 · preparation</button><button data-v="1">2 · filling</button><button data-v="2">3 · penetration</button><button data-v="3">4 · compaction</button><button data-v="4">5 · completion</button></div>
         <p id="kcStepTxt"><b>Preparation:</b> the crawler base machine positions the bottom-feed deep vibrator over the set-out point.</p>
-        <figure class="photo contain"><img src="img/en/kavicscolop-abra.jpg" alt="Steps in making a gravel pile" loading="lazy" style="height:400px;padding:6px"><figcaption>The steps in making a gravel pile</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Grid and effect (plan view)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">triangular</button><button data-v="sq">square</button></div></div><div class="pb">
-          <div id="kcSvg"></div>
-          <div class="ctl"><label>Column diameter d <span class="v" data-for="kcD"></span></label><input type="range" id="kcD" min="0.5" max="1.1" step="0.05" value="0.8"></div>
-          <div class="ctl"><label>Spacing s <span class="v" data-for="kcS"></span></label><input type="range" id="kcS" min="1.4" max="3.2" step="0.1" value="2.0"></div>
-          <div class="ctl"><label>Stress concentration n (column/soil) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
-          <div class="res" id="kcOut"></div>
-          <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
-          <p class="src" style="margin-top:8px">Unit cell model: a<sub>s</sub> = C·(d/s)², C = 0.907 (triangular) / 0.785 (square); settlement reduction s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. The columns also speed up consolidation as vertical drains.</p>
-        </div></div>
+        <figure class="photo contain"><img src="img/en/kavicscolop-abra.jpg" alt="Steps in making a gravel pile" loading="lazy" style="height:400px;padding:6px"><figcaption>The steps in making a gravel pile</figcaption></figure>
       </div>
     </div>
     <div data-ytc="2iWMoVIZc_k"></div>
+    <h4 class="tryh">Try it: grid and effect</h4>
+    <div class="solo">
+    <div class="panel"><div class="ph"><h4>Grid and effect (plan view)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">triangular</button><button data-v="sq">square</button></div></div><div class="pb">
+      <div id="kcSvg"></div>
+      <div class="ctl"><label>Column diameter d <span class="v" data-for="kcD"></span></label><input type="range" id="kcD" min="0.5" max="1.1" step="0.05" value="0.8"></div>
+      <div class="ctl"><label>Spacing s <span class="v" data-for="kcS"></span></label><input type="range" id="kcS" min="1.4" max="3.2" step="0.1" value="2.0"></div>
+      <div class="ctl"><label>Stress concentration n (column/soil) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
+      <div class="res" id="kcOut"></div>
+      <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
+      <p class="src" style="margin-top:8px">Unit cell model: a<sub>s</sub> = C·(d/s)², C = 0.907 (triangular) / 0.785 (square); settlement reduction s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. The columns also speed up consolidation as vertical drains.</p>
+    </div></div>
+    </div>
   </div>
-  <div class="quiz" id="q5"><div class="qh"><h4>Self-check · Chapter 4</h4><div class="dots"></div></div></div>
+  <h4 class="tryh">Summary footage: ground improvement in practice</h4>
+  <div data-ytc="8Zcv7ktWD68"></div>
+  <div class="quiz" id="q5"><div class="qh"><h4>Self-check · 2/A–2/D</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 5. INJEKTÁLÁS, TÖMEGSTABILIZÁCIÓ -->
-<section class="chap c-violet" id="szilarditas"><div class="wrap">
-  <div class="chhead"><div class="chnum">5</div><div><div class="kicker">d) Ground improvement · grouting and mixing</div><h2>Grouting and mass stabilisation</h2><p class="lead">In grouting, a binder is injected into the pores, fissures and voids of the soil or rock through drilled or driven pipes. Reducing the void volume improves the strength and deformation properties. In mass stabilisation, the soil is mixed in place with a binder.</p></div></div>
-  <div class="tabs" data-group="inj"><button data-tab="i1" class="on"><span class="n">5</span>Grouting</button><button data-tab="i2"><span class="n">6</span>Mass stabilisation</button></div>
+<!-- 3. INJEKTÁLÁS, SZILÁRDÍTÁS -->
+<section class="chap c-violet grp" id="szilarditas"><div class="wrap">
+  <div class="chhead"><div class="chnum">3</div><div><div class="kicker">Method group 3 · ground improvement by grouting and mixing</div><h2>Grouting, stabilisation</h2><p class="lead">In grouting, a binder is injected into the pores, fissures and voids of the soil or rock through drilled or driven pipes. Reducing the void volume improves the strength and deformation properties. In mass stabilisation, the soil is mixed in place with a binder.</p></div></div>
+  <nav class="subidx" aria-label="Subsections"><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Permeation</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Compaction</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Rock fissure</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Fracture/compensation</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Void filling</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Mass stabilisation</a></nav>
+  <div class="tabs" data-group="inj" id="t-inj"><button data-tab="i1" class="on"><span class="n">3/A–E</span>Grouting</button><button data-tab="i2"><span class="n">3/F</span>Mass stabilisation</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
-    <div class="sub-h"><span class="lt">5</span><h3>Five grouting methods – what does the grout do to the soil?</h3></div>
-    <p>The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void. Choose a method and start the animation!</p>
-    <div class="sim wide injsim">
-      <div class="panel"><div class="ph"><h4 id="injH">Permeation grouting</h4><button class="btn sec" id="injPlay" type="button">▶ Play</button></div><div class="pb">
-        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">1 · permeation</button><button data-v="1">2 · compaction</button><button data-v="2">3 · rock fissure</button><button data-v="3">4 · fracture/compensation</button><button data-v="4">5 · void filling</button></div>
-        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
-        <p class="injcap" id="injCap">the grains stay in place, only the voids are filled</p>
-        <div class="ctl" style="margin-top:10px"><label>Progress <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
-      </div></div>
-      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
-    </div>
+  <div class="sub-h" id="injmod"><span class="lt">3/A–E</span><h3>Five grouting methods – what does the grout do to the soil?</h3></div>
+    <p>The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void.</p>
     <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
       <thead><tr><th>Method</th><th>What happens to the soil?</th><th>Soil</th><th>Pressure, material</th><th>Typical application</th></tr></thead>
       <tbody>
-        <tr><td><b>1 · Permeation</b></td><td>the grout fills the voids; the void volume and the soil structure do not change</td><td>granular soil, coarse silt</td><td>low pressure, low-viscosity material</td><td>underpinning, sealing, excavations</td></tr>
-        <tr><td><b>2 · Compaction</b></td><td>voids formed stage by stage, the surrounding soil is compacted</td><td>loose soil, also silt and clay</td><td>higher pressure, stiff mortar</td><td>load-bearing columns, re-levelling floor slabs</td></tr>
-        <tr><td><b>3 · Rock fissure</b></td><td>the fissure network of the rock is filled</td><td>fissured rock</td><td>permeation type, cement-based</td><td>rock slope, rock under foundations, watertightness</td></tr>
-        <tr><td><b>4 · Fracture/compensation</b></td><td>the ground fractures, the grout sheets lift it</td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling</td></tr>
-        <tr><td><b>5 · Void filling</b></td><td>an existing void is filled</td><td>voids, cellars, galleries</td><td>by gravity or at low pressure</td><td>cellar, mine gallery, void under a floor slab</td></tr>
+        <tr><td><b>3/A · Permeation</b></td><td>the grout fills the voids; the void volume and the soil structure do not change</td><td>granular soil, coarse silt</td><td>low pressure, low-viscosity material</td><td>underpinning, sealing, excavations</td></tr>
+        <tr><td><b>3/B · Compaction</b></td><td>voids formed stage by stage, the surrounding soil is compacted</td><td>loose soil, also silt and clay</td><td>higher pressure, stiff mortar</td><td>load-bearing columns, re-levelling floor slabs</td></tr>
+        <tr><td><b>3/C · Rock fissure</b></td><td>the fissure network of the rock is filled</td><td>fissured rock</td><td>permeation type, cement-based</td><td>rock slope, rock under foundations, watertightness</td></tr>
+        <tr><td><b>3/D · Fracture/compensation</b></td><td>the ground fractures, the grout sheets lift it</td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling</td></tr>
+        <tr><td><b>3/E · Void filling</b></td><td>an existing void is filled</td><td>voids, cellars, galleries</td><td>by gravity or at low pressure</td><td>cellar, mine gallery, void under a floor slab</td></tr>
       </tbody>
     </table></div>
     <div class="sub-h"><span class="lt">⚗</span><h3>Grouting materials and soil grading</h3></div>
@@ -1023,52 +1054,81 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
         <p>The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.</p>
         <h4 style="margin:16px 0 6px">Two-component, expanding resin</h4>
         <p>In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.</p>
-        <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cement grouting" loading="lazy" style="height:230px;padding:6px"><figcaption>Cement grouting</figcaption></figure>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Which material gets into the voids?</h4></div><div class="pb">
-          <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">gravel</button><button data-v="durva" class="on">coarse sand</button><button data-v="kozep">medium sand</button><button data-v="finom">fine sand</button><button data-v="iszap">silt</button><button data-v="agyag">clay</button><button data-v="repedt">fissured</button></div>
-          <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
-          <div class="mlist" id="grOut" style="margin-top:12px"></div>
-          <p class="src" style="margin-top:8px">Outlook: according to a widely used rule of thumb, cement-based grouting is possible if N = D<sub>15</sub>(soil)/D<sub>85</sub>(grout) &gt; 24, and not possible if N &lt; 11. The mean particle size of Portland cement is about 15 µm, that of microfine cement 3–4 µm (95% of its particles are finer than 20 µm).</p>
-        </div></div>
+        <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cement grouting" loading="lazy" style="height:230px;padding:6px"><figcaption>Cement grouting</figcaption></figure>
       </div>
     </div>
     <div class="sub-h"><span class="lt">📷</span><h3>Retrofit strengthening of a foundation by grouting – step by step</h3></div>
     <div class="stepper" id="injBar"></div>
     <div id="injPhotos"></div>
     <div data-ytc="bVTljbQcE6U"></div>
+    <div class="sub-h try" id="injsim"><span class="lt">3/A–E</span><h3>Try it: the five methods as an animation</h3></div>
+    <p>Choose a method and start the animation!</p>
+    <div class="sim wide injsim">
+      <div class="panel"><div class="ph"><h4 id="injH">Permeation grouting</h4><button class="btn sec" id="injPlay" type="button">▶ Play</button></div><div class="pb">
+        <div class="seg" id="injM" style="margin-bottom:12px"><button data-v="0" class="on">3/A · permeation</button><button data-v="1">3/B · compaction</button><button data-v="2">3/C · rock fissure</button><button data-v="3">3/D · fracture/compensation</button><button data-v="4">3/E · void filling</button></div>
+        <div id="injSvg" style="border-radius:10px;overflow:hidden"></div>
+        <p class="injcap" id="injCap">the grains stay in place, only the voids are filled</p>
+        <div class="ctl" style="margin-top:10px"><label>Progress <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
+      </div></div>
+      <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
+    </div>
+    <h4 class="tryh">Try it: which material gets into the voids?</h4>
+    <div class="solo">
+    <div class="panel"><div class="ph"><h4>Which material gets into the voids?</h4></div><div class="pb">
+      <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">gravel</button><button data-v="durva" class="on">coarse sand</button><button data-v="kozep">medium sand</button><button data-v="finom">fine sand</button><button data-v="iszap">silt</button><button data-v="agyag">clay</button><button data-v="repedt">fissured</button></div>
+      <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
+      <div class="mlist" id="grOut" style="margin-top:12px"></div>
+      <p class="src" style="margin-top:8px">Outlook: according to a widely used rule of thumb, cement-based grouting is possible if N = D<sub>15</sub>(soil)/D<sub>85</sub>(grout) &gt; 24, and not possible if N &lt; 11. The mean particle size of Portland cement is about 15 µm, that of microfine cement 3–4 µm (95% of its particles are finer than 20 µm).</p>
+    </div></div>
+    </div>
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
+    <h3 style="margin-bottom:10px">Mass stabilisation</h3>
     <div class="twocol">
       <div>
         <p>The soil and the binder are mixed with a special mixing head. The mixing boom is mounted on a hydraulic excavator with a slewing superstructure; at its lower end is a mixing head rotating about its axes, to which mixing paddles developed for the soil can be fitted. The binder arrives under pressure from self-propelled silos connected to the excavator; the operator controls the quantity from the cab.</p>
         <div class="facts"><span class="fact">mixing head <b>1.5 m × Ø 0.95 m</b></span><span class="fact">per step <b>≈ 1.2 m²</b></span><span class="fact">boom <b>3–5 m</b> + <b>2 m</b> extension → <b>~7 m</b></span><span class="fact">output <b>0.5–0.8 m³/min</b></span><span class="fact">head + boom <b>≈ 5 t</b></span><span class="fact">base machine <b>25–40 t</b></span></div>
         <div class="callout warn"><span class="ci">!</span><p>Stabilisation must always start <b>from stable ground</b> – the plant train stabilises the soil ahead of itself as it advances. The stabilised area does not reach its final bearing capacity at once: if necessary, a load-distributing layer of geotextile, geogrid and granular material is built.</p></div>
-        <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Deep stabilisation technology" loading="lazy" style="height:170px;padding:6px"><figcaption>Mass stabilisation technology</figcaption></figure>
         <p class="src" style="margin-top:12px">Outlook: in a pilot project in Helsinki the best result in peat was achieved with 100 kg/m³ of cement; the binder accounted for nearly half of the total cost, and the strength may even double between 30 and 90 days.</p>
       </div>
       <div>
-        <div class="panel"><div class="ph"><h4>Plan the job!</h4></div><div class="pb ctl2">
-          <p class="figcap" style="grid-column:1/-1">The plant train starts from stable (already stabilised) ground and mixes the soil ahead of itself</p>
-          <div id="msSvg"></div>
-          <div class="ctl"><label>Progress <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
-          <div class="ctl"><label>Area <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
-          <div class="ctl"><label>Depth <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
-          <div class="ctl"><label>Mixing output <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
-          <div class="ctl" style="grid-column:1/-1"><label>Binder content <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
-          <div class="res" id="msOut"></div>
-        </div></div>
+        <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Deep stabilisation technology" loading="lazy" style="height:170px;padding:6px"><figcaption>Mass stabilisation technology</figcaption></figure>
       </div>
     </div>
     <div data-ytc="85GbWBj3in8"></div>
+    <h4 class="tryh">Try it: plan the job!</h4>
+    <div class="solo">
+    <div class="panel"><div class="ph"><h4>Plan the job!</h4></div><div class="pb ctl2">
+      <p class="figcap" style="grid-column:1/-1">The plant train starts from stable (already stabilised) ground and mixes the soil ahead of itself</p>
+      <div id="msSvg"></div>
+      <div class="ctl"><label>Progress <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
+      <div class="ctl"><label>Area <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
+      <div class="ctl"><label>Depth <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
+      <div class="ctl"><label>Mixing output <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
+      <div class="ctl" style="grid-column:1/-1"><label>Binder content <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
+      <div class="res" id="msOut"></div>
+    </div></div>
+    </div>
   </div>
-  <div class="quiz" id="q6"><div class="qh"><h4>Self-check · Chapter 5</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q6"><div class="qh"><h4>Self-check · 3/A–3/F</h4><div class="dots"></div></div></div>
 </div></section>
 
-<!-- 6. ELŐTERHELÉS -->
-<section class="chap c-coral" id="eloterheles"><div class="wrap">
-  <div class="chhead"><div class="chnum">6</div><div><div class="kicker">e) Using preloading</div><h2>Let it settle first – without the building</h2><p class="lead">The settlement of the structure is reduced by <b>“forcing out”</b> at least part of the compression of the subsoil with a surcharge placed in advance. The layer then behaves like a geologically overconsolidated layer: under the load placed on the foundation, a much smaller specific compression has to be expected.</p></div></div>
+<!-- 4. TERVEZŐI ESZKÖZÖK -->
+<section class="chap c-coral grp" id="tervezoi"><div class="wrap">
+  <div class="chhead"><div class="chnum">4</div><div><div class="kicker">Method group 4</div><h2>Design measures</h2><p class="lead">When we improve not the ground, or not only the ground: preloading forces the settlement to take place in advance, the design of the structure and the construction sequence make differential settlement tolerable, or we switch to deep foundations.</p></div></div>
+  <nav class="subidx" aria-label="Subsections"><a href="#eloterheles"><span>4/A</span>Preloading</a><a href="#szerkezet"><span>4/B</span>Structural measures</a><a href="#sorrend"><span>4/C</span>Construction sequence</a><a href="#melyalap"><span>4/D</span>Deep foundations</a></nav>
+
+  <div class="sub-h" id="eloterheles"><span class="lt">4/A</span><h3>Preloading: let it settle first – without the building</h3></div>
+  <p>The settlement of the structure is reduced by <b>“forcing out”</b> at least part of the compression of the subsoil with a surcharge placed in advance. The layer then behaves like a geologically overconsolidated layer: under the load placed on the foundation, a much smaller specific compression has to be expected.</p>
+  <div class="prose two">
+      <h3 style="margin-bottom:10px">Mexico City</h3>
+      <p>The capital was built on the site of an old volcanic lake, filled with very thick, highly compressible lake sediment deposited from fine volcanic ash. The whole city is settling – in places by metres. A classic example is José A. Cuevas's solution for the Lotería Nacional (“El Moro”) building in the 1930s. The building was given a <b>compensated foundation</b>: as much soil was excavated as the weight of the finished building would roughly replace. After excavation the bottom of the pit heaved (up to 127 cm was measured). So <b>temporary ballast</b> was placed on the rigid reinforced concrete substructure up to the design weight of the building – the original design specified gravel, concrete blocks were used in construction. The soil thus got its former load back, and the deformation took place before the superstructure was built. During construction the ballast was <b>reduced day by day by the weight that had been built in</b>: the total weight stayed nearly constant. This does not stop the regional subsidence of the city.</p>
+      <div class="callout web"><span class="ci">i</span><p><b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.</p></div>
+  </div>
+  <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
+  <div class="sub-h try" id="plsim"><span class="lt">4/A</span><h3>Try it: preloading and unloading</h3></div>
   <div class="charts" style="margin-top:0">
     <div class="panel"><div class="ph"><h4>Void ratio – effective stress</h4></div><div class="pb"><div id="plSvg"></div></div></div>
     <div class="panel"><div class="ph"><h4>Settlement versus time</h4></div><div class="pb"><div id="plTime"></div></div></div>
@@ -1079,47 +1139,82 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
     <div class="legend"><span><i style="background:var(--coral)"></i>without preloading</span><span><i style="background:var(--amber)"></i>preloading + unloading</span><span><i style="background:var(--teal)"></i>reloading (building) after preloading</span></div>
     <p class="src" style="margin-top:8px">Illustrative model: 6 m thick normally consolidated clay, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0.45, C<sub>r</sub> = 0.06, e<sub>0</sub> = 1.2. If Δσ ≤ Δσ<sub>p</sub>, the soil below the building compresses only along the reloading branch (with a small slope).</p>
   </div></div>
-  <div class="twocol" style="margin-top:26px">
-    <div>
-      <h3 style="margin-bottom:10px">Mexico City</h3>
-      <p>The capital was built on the site of an old volcanic lake, filled with very thick, highly compressible lake sediment deposited from fine volcanic ash. The whole city is settling – in places by metres. A classic example is José A. Cuevas's solution for the Lotería Nacional (“El Moro”) building in the 1930s. The building was given a <b>compensated foundation</b>: as much soil was excavated as the weight of the finished building would roughly replace. After excavation the bottom of the pit heaved (up to 127 cm was measured). So <b>temporary ballast</b> was placed on the rigid reinforced concrete substructure up to the design weight of the building – the original design specified gravel, concrete blocks were used in construction. The soil thus got its former load back, and the deformation took place before the superstructure was built. During construction the ballast was <b>reduced day by day by the weight that had been built in</b>: the total weight stayed nearly constant. This does not stop the regional subsidence of the city.</p>
-      <div class="callout web"><span class="ci">i</span><p><b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.</p></div>
-    </div>
+  <div class="solo" style="margin-top:22px">
     <div class="panel"><div class="ph"><h4>Ballast + building = constant load</h4></div><div class="pb"><p class="figcap" id="mxCap"></p><div id="mxSvg"></div><div class="ctl"><label>Construction progress <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>
-  <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
-  <div class="quiz" id="q7"><div class="qh"><h4>Self-check · Chapter 6</h4><div class="dots"></div></div></div>
-</div></section>
+  <div class="quiz" id="q7"><div class="qh"><h4>Self-check · 4/A</h4><div class="dots"></div></div></div>
 
-<!-- 7. TERVEZŐI ESZKÖZÖK -->
-<section class="chap c-coral" id="szerkezet"><div class="wrap">
-  <div class="chhead"><div class="chnum">7</div><div><div class="kicker">f) Structural measures · g) Construction sequence · h) Deep foundations</div><h2>If we cannot shape the ground, we shape the structure</h2><p class="lead">Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).</p></div></div>
-  <div class="twocol">
+  <div class="sub-h" id="szerkezet"><span class="lt">4/B</span><h3>Structural measures: if we cannot shape the ground, we shape the structure</h3></div>
+  <p>Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).</p>
+  <p>In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop.</p>
+  <div class="callout tip"><span class="ci">⚙</span><p><b>Utilities:</b> for structures designed for large settlement, proper connection of service pipes and utilities has to be provided – <b>oval opening, flexible pipe + sleeve</b>.</p></div>
+  <h4 class="tryh">Try it: support settlement and settlement joint</h4>
+  <div class="twocol tw-top">
     <div class="panel"><div class="ph phcol"><h4>Support settlement in a frame</h4><div class="seg" id="frType"><button data-v="rigid" class="on">rigid joints</button><button data-v="hinge">pinned joints</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>Settlement of the right-hand column δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
     <div>
-      <p>In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop.</p>
-      <div class="panel" style="margin-top:12px"><div class="ph"><h4>Settlement joint</h4><label class="tgl"><input type="checkbox" id="jtTgl">joint</label></div><div class="pb"><div id="jtSvg"></div><div class="ctl"><label>Consolidation progress <span class="v" data-for="jtS"></span></label><input type="range" id="jtS" min="0" max="100" value="80"></div><p class="src" style="margin:0">Long building parts with different loads are best separated by a settlement joint – it is needed anyway because of thermal expansion.</p></div></div>
+      <div class="panel"><div class="ph"><h4>Settlement joint</h4><label class="tgl"><input type="checkbox" id="jtTgl">joint</label></div><div class="pb"><div id="jtSvg"></div><div class="ctl"><label>Consolidation progress <span class="v" data-for="jtS"></span></label><input type="range" id="jtS" min="0" max="100" value="80"></div><p class="src" style="margin:0">Long building parts with different loads are best separated by a settlement joint – it is needed anyway because of thermal expansion.</p></div></div>
     </div>
   </div>
-  <div class="callout tip"><span class="ci">⚙</span><p><b>Utilities:</b> for structures designed for large settlement, proper connection of service pipes and utilities has to be provided – <b>oval opening, flexible pipe + sleeve</b>.</p></div>
-  <div class="sub-h"><span class="lt">g</span><h3>The right construction sequence</h3></div>
+
+  <div class="sub-h" id="sorrend"><span class="lt">4/C</span><h3>The right construction sequence</h3></div>
   <div class="prose two">
       <p><b>Structural parts sensitive</b> to settlement should be built <b>as late as possible</b>. Opposing tendencies:</p>
       <ul><li>mechanisation, plant commitment, prefabrication – these argue for <b>speeding up</b> construction;</li><li>pore water pressure increase (for foundations on saturated clay) – this dictates <b>slowing down</b> the rate.</li></ul>
       <p>For structures with large imposed loads (silos, liquid storage tanks) the <b>rate of loading can be controlled</b>; the settlement of bridge abutments can be influenced by the construction time of the backfill.</p>
   </div>
   <div class="panel" style="margin-top:18px"><div class="ph"><h4>Rate of construction on saturated clay</h4></div><div class="pb pb-split"><div id="paSvg"></div><div class="side"><div class="ctl"><label>Duration of loading <span class="v" data-for="paT"></span></label><input type="range" id="paT" min="1" max="24" value="4"></div><div class="insight" id="paMsg"></div></div></div></div>
-  <div class="sub-h"><span class="lt">h</span><h3>Designing deep foundations</h3></div>
+
+  <div class="sub-h" id="melyalap"><span class="lt">4/D</span><h3>Designing deep foundations</h3></div>
   <div class="grid g2">
     <div class="card top"><p>If the calculations show unacceptable settlements or differential settlements for a shallow foundation, many designers switch to <b>deep foundations</b> (piles, diaphragm walls). In many cases this is the <b>simplest, fastest and cheapest</b> solution.</p></div>
     <div class="card top"><h4>Deep foundations in detail</h4><p>CFA piles, screw, bored and precast piles, micropiles, jet grouting, deep mixing, diaphragm walls, caisson and box foundations – in the <a href="https://melyalapozasok.vercel.app/en" target="_blank" rel="noopener">Deep foundations</a> interactive module, with a 3D pile builder. In real footage:</p></div>
   </div>
   <div class="ytgrid ytpair" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="ef6ZE8deD6M"></button></div>
-  <div class="quiz" id="q8"><div class="qh"><h4>Self-check · Chapter 7</h4><div class="dots"></div></div></div>
+  <div class="quiz" id="q8"><div class="qh"><h4>Self-check · 4/B–4/D</h4><div class="dots"></div></div></div>
+</div></section>
+
+<!-- ÖSSZEGZÉS -->
+<section class="chap c-sky" id="osszegzes"><div class="wrap">
+  <div class="chhead"><div class="chnum">Σ</div><div><div class="kicker">Summary</div><h2>Which method, when?</h2><p class="lead">Now that you have met every method, try it out: set the soil, the groundwater level and the depth of the problem, and see which methods come into question. Below it is the summary table of the methods.</p></div></div>
+  <div class="sub-h"><span class="lt">★</span><h3>Method selector – which ones are possible?</h3></div>
+  <div class="sel" id="selector">
+    <div class="panel"><div class="pb">
+      <div class="q2"><h5>What is the problem soil?</h5><div class="seg" data-q="soil"><button data-v="szemcses">loose granular</button><button data-v="kotott" class="on">soft cohesive (clay)</button><button data-v="szerves">peat, organic</button><button data-v="feltoltes">fill</button></div></div>
+      <div class="q2"><h5>Where is the groundwater?</h5><div class="seg" data-q="gw"><button data-v="felett" class="on">below the treated zone</button><button data-v="alatt">within the treated zone</button></div></div>
+      <div class="q2"><h5>How deep is the problem?</h5><div class="seg" data-q="depth"><button data-v="sekely">shallow (≤ 2 m)</button><button data-v="kozepes" class="on">medium (2–7 m)</button><button data-v="mely">deep (> 7 m)</button></div></div>
+      <div class="q2"><h5>Is there a better layer deeper down?</h5><div class="seg" data-q="better"><button data-v="igen" class="on">yes</button><button data-v="nem">no</button></div></div>
+      <div class="q2"><h5>Situation</h5><div class="seg" data-q="sit"><button data-v="uj" class="on">new construction</button><button data-v="meglevo">existing building (retrofit)</button></div></div>
+      <p class="src">A simplified decision aid for teaching, based on the conditions of application of the methods – the real choice is always based on ground investigation and calculation.</p>
+    </div></div>
+    <div class="mlist" id="selList"></div>
+  </div>
+  <div class="sub-h"><span class="lt">≡</span><h3>Summary table</h3></div>
+  <div class="tscroll"><table class="t sumt">
+    <thead><tr><th>Method</th><th>Suitable soil</th><th>Depth, typical data</th><th>Limitation, remark</th></tr></thead>
+    <tbody>
+      <tr class="g1"><td><span class="code">1/A</span> <b>Lower contact pressure</b></td><td>if there is a less compressible layer deeper down</td><td>wider foundation, lower q</td><td>the weight and the influence depth increase; with reversed layering it can make things worse</td></tr>
+      <tr class="g1"><td><span class="code">1/B</span> <b>Deeper foundation level</b></td><td>a better bearing layer within a few metres</td><td>basement: the excavated soil unloads the ground</td><td>a strip footing deeper than 2–2.5 m is not economical</td></tr>
+      <tr class="g1"><td><span class="code">1/C</span> <b>Soil replacement</b></td><td>any poor soil, in a shallow zone</td><td>50–80 cm, compacted in layers ≤ 30 cm</td><td>only above the water table; widening: B + 2·v·tanϑ</td></tr>
+      <tr class="g2"><td><span class="code">2/A</span> <b>Deep compaction</b></td><td>loose granular soil, fill</td><td>vibrator Ø 25–40 cm, with flushing</td><td>fines content approx. &lt; 10–12%</td></tr>
+      <tr class="g2"><td><span class="code">2/B</span> <b>Dynamic compaction</b></td><td>looser, softer soil, large area</td><td>15–40 t pounder, H = 10–40 m; max. 5–7 m</td><td>strong vibration – not next to buildings</td></tr>
+      <tr class="g2"><td><span class="code">2/C</span> <b>Stone pillar</b></td><td>very loose, soft soil</td><td>granular material pounded in, large-diameter pillars</td><td>displacement compaction + load-bearing elements</td></tr>
+      <tr class="g2"><td><span class="code">2/D</span> <b>Gravel pile</b></td><td>looser, softer soil (cohesive too)</td><td>bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m</td><td>also acts as a vertical drain</td></tr>
+      <tr class="g3"><td><span class="code">3/A</span> <b>Permeation grouting</b></td><td>granular soil, coarse silt; with cement only coarser than 0.8–1 mm</td><td>cement grouting: pipes every 50–100 cm, 7–10 atm</td><td>fills the voids; from the bottom upwards</td></tr>
+      <tr class="g3"><td><span class="code">3/B</span> <b>Compaction grouting</b></td><td>loose soil, also silt and clay</td><td>stiff mortar, bulbs stage by stage</td><td>compacts, forms load-bearing columns</td></tr>
+      <tr class="g3"><td><span class="code">3/C</span> <b>Rock fissure grouting</b></td><td>fissured rock</td><td>filling the fissure network</td><td>slope, rock under foundations, watertightness</td></tr>
+      <tr class="g3"><td><span class="code">3/D</span> <b>Fracture/compensation grouting</b></td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling buildings</td></tr>
+      <tr class="g3"><td><span class="code">3/E</span> <b>Void-filling grouting</b></td><td>voids, cellars, mine galleries</td><td>by gravity or at low pressure</td><td>improved cement mortar, expanding PU foam</td></tr>
+      <tr class="g3"><td><span class="code">3</span> <b>Two-component resin</b></td><td>sandy, silty soil</td><td>expanding geocomposite</td><td>not effective in clay; retrofit strengthening</td></tr>
+      <tr class="g3"><td><span class="code">3/F</span> <b>Mass stabilisation</b></td><td>peat, soft clay, organic soil</td><td>mixing head 1.5 m × Ø 0.95 m; max. ~7 m</td><td>starts from stable ground; hardening takes time</td></tr>
+      <tr class="g4"><td><span class="code">4/A</span> <b>Preloading</b></td><td>saturated, compressible cohesive soil</td><td>surcharge ≥ the later building load</td><td>long time – can be accelerated with drains</td></tr>
+      <tr class="g4"><td><span class="code">4/B–C</span> <b>Structure, sequence</b></td><td>–</td><td>rigid or flexible structure, settlement joint</td><td>supplementary tool</td></tr>
+      <tr class="g4"><td><span class="code">4/D</span> <b>Deep foundations</b></td><td>if the bearing layer is deep</td><td>pile, diaphragm wall</td><td>often the simplest and fastest</td></tr>
+    </tbody>
+  </table></div>
 </div></section>
 
 <!-- VIDEÓTÁR -->
-<section class="chap c-teal" id="videok"><div class="wrap">
+<section class="chap c-sky" id="videok"><div class="wrap">
   <div class="chhead"><div class="chnum">▶</div><div><div class="kicker">Video library</div><h2>Animations and real footage</h2><p class="lead">Two 3D animations of the principles – with music and captions – and real footage in English (Geotech Project channel) showing how ground improvement is carried out on a real site. Click a card to play; full screen is also available in the player.</p></div></div>
   <div class="vgrid">
     <button class="vcard" data-video="tj1"></button><button class="vcard" data-video="tj7"></button>
@@ -1131,12 +1226,12 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
 </div></section>
 
 <!-- IGAZ / HAMIS -->
-<section class="chap c-amber" id="igazhamis"><div class="wrap">
+<section class="chap c-sky" id="igazhamis"><div class="wrap">
   <div class="chhead"><div class="chnum">✓</div><div><div class="kicker">Final test</div><h2>40 true or false statements</h2><p class="lead">Decide on each one – you get an explanation straight after answering.</p></div></div>
   <div class="tfbar"><div class="tfscore" id="tfScore"></div><button class="chip" id="tfReset">↺ Start again</button></div>
   <div class="tfgrid" id="tfGrid"></div>
 </div></section>
-<section class="chap c-teal" id="tovabb"><div class="wrap">
+<section class="chap c-sky" id="tovabb"><div class="wrap">
   <div class="chhead"><div class="chnum">↗</div><div><div class="kicker">The rest of the series</div><h2>The Foundation Engineering modules</h2><p class="lead">Protection against harmful settlement is one stage of the course. The other interactive modules present the steps of foundation design in the same system.</p></div></div>
   <div class="series">
     <a href="https://sikalapoktervezese.vercel.app/en" target="_blank" rel="noopener"><b>Design of shallow foundations</b><small>Foundation level, foundation type, failure mechanism – the steps of design</small></a>
@@ -1226,14 +1321,35 @@ window.U.seg = seg;
     const done = () => { removeEventListener('scrollend', done); clearTimeout(tm); fix(); };
     addEventListener('scrollend', done, { once: true }); const tm = setTimeout(done, 1600);
   });
+  /* alpontsor: a menü alatt az aktív módszercsoport alpontjai; a fül- és módszerválasztó alpontok a megnyitott fület jelzik */
+  const sns = $$('.subnav .sn'); let snCur = null;
+  const subMark = (y, curId) => {
+    const sh = sns.find(d => d.dataset.sec === curId) || sns.find(d => d.dataset.sec === '');
+    if (sh !== snCur) { sns.forEach(d => d.classList.toggle('on', d === sh)); snCur = sh; if (sh) sh.scrollLeft = 0; }
+    if (!sh || !sh.dataset.sec) return; const as = $$('a', sh); let best = null;
+    as.forEach(a => {
+      if (a.dataset.open) { const [g, t] = a.dataset.open.split(':'); const tb = document.querySelector(`.tabs[data-group="${g}"] button[data-tab="${t}"]`); let on = !!(tb && tb.classList.contains('on'));
+        if (on && a.dataset.inj != null) { const ib = document.querySelector('#injM button.on'); on = !!(ib && ib.dataset.v === a.dataset.inj); } a.classList.toggle('on', on); }
+      else { const t = document.querySelector(a.getAttribute('href')); if (t && t.getBoundingClientRect().top + scrollY <= y) best = a; }
+    });
+    as.filter(a => !a.dataset.open).forEach(a => a.classList.toggle('on', a === best));
+    const on = as.find(a => a.classList.contains('on')); if (on && sh.scrollWidth > sh.clientWidth + 1 && on.dataset.lastOn !== '1') { as.forEach(a => a.dataset.lastOn = ''); on.dataset.lastOn = '1'; sh.scrollTo({ left: Math.max(0, on.offsetLeft - (sh.clientWidth - on.offsetWidth) / 2), behavior: 'smooth' }); }
+  };
+  /* alpont-hivatkozás: a megfelelő fül (és injektálási módszer) megnyitása a görgetés előtt */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-open]'); if (!a) return; const [g, t] = a.dataset.open.split(':'); window.U.openTab(g, t);
+    if (a.dataset.inj != null) { const b = document.querySelector(`#injM button[data-v="${a.dataset.inj}"]`); if (b && !b.classList.contains('on')) b.click(); }
+  }, true);
   const onScroll = () => {
-    const y = scrollY + 140; let cur = null; secs.forEach(s => { if (s.offsetTop <= y) cur = s; });
+    const y = scrollY + (bar ? bar.offsetHeight : 120) + 30; let cur = null; secs.forEach(s => { if (s.offsetTop <= y) cur = s; });
     links.forEach(a => a.classList.toggle('on', cur && a.getAttribute('href') === '#' + cur.id));
+    subMark(y, cur ? cur.id : '');
     const h = document.documentElement.scrollHeight - innerHeight; if (prog) prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
     if (top) top.classList.toggle('on', scrollY > 900);
     const on = links.find(a => a.classList.contains('on')); if (on && on.dataset.lastOn !== '1') { links.forEach(a => a.dataset.lastOn = ''); on.dataset.lastOn = '1'; centerTab(on); }
   };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  addEventListener('tabchange', () => setTimeout(onScroll, 0)); document.addEventListener('click', (e) => { if (e.target.closest('#injM')) setTimeout(onScroll, 0); });
   if (top) top.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
@@ -1246,8 +1362,8 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 
 // --- videók ---
 const VIDEOS = {
-  tj1: { t: 'Soil replacement', s: 'lower contact pressure, deeper foundation level, soil replacement', d: '2:16', ch: 'a–c' },
-  tj7: { t: 'Preloading – Mexico City', s: 'ballast up to the building weight, waiting, phased removal', d: '2:14', ch: 'e' },
+  tj1: { t: 'Changing the foundation', s: 'lower contact pressure · deeper foundation level · soil replacement', d: '2:16', ch: '1/A–1/C' },
+  tj7: { t: 'Preloading – Mexico City', s: 'ballast up to the building weight, waiting, phased removal', d: '2:14', ch: '4/A' },
 };
 window.VIDEOS = VIDEOS;
 (function videos() {
@@ -1344,20 +1460,20 @@ window.SVpat = pat;
 (function selector() {
   const root = $('#selector'); if (!root) return;
   const M = [
-    { id: 'a', n: 'a) Lower contact pressure', d: 'wider foundation – if there is a better layer lower down', href: '#alapozas', c: 'var(--teal)' },
-    { id: 'b', n: 'b) Deeper foundation level', d: 'bearing layer within a few metres, basement', href: '#alapozas', c: 'var(--teal)' },
-    { id: 'c', n: 'c) Soil replacement', d: 'shallow problem, above the water table, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
-    { id: 'd1', n: 'Deep compaction (vibroflotation)', d: 'loose granular soil, fill', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd2', n: 'Dynamic compaction', d: 'large area, loose or soft soil, max. 5–7 m', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd3', n: 'Stone pillar', d: 'very loose, soft soil', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd4', n: 'Gravel pile', d: 'looser, softer soil, cohesive soil too', href: '#tomorites', c: 'var(--amber)' },
-    { id: 'd5', n: 'Permeation grouting', d: 'granular soil, coarse silt; with cement only > 0.8–1 mm', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd6', n: 'Compaction grouting', d: 'loose soil, also silt and clay; also under existing buildings', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd8', n: 'Fracture/compensation grouting', d: 'settlement compensation, re-levelling buildings', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'd7', n: 'Mass stabilisation', d: 'peat, soft clay, max. ~7 m', href: '#szilarditas', c: 'var(--violet)' },
-    { id: 'e', n: 'e) Preloading', d: 'saturated, compressible cohesive soil, time available', href: '#eloterheles', c: 'var(--coral)' },
-    { id: 'f', n: 'f–g) Structural measures, construction sequence', d: 'always a supplementary tool', href: '#szerkezet', c: 'var(--coral)' },
-    { id: 'h', n: 'h) Deep foundations', d: 'the good bearing layer is deep', href: '#szerkezet', c: 'var(--coral)' },
+    { id: 'a', n: '1/A Lower contact pressure', d: 'wider foundation – if there is a better layer lower down', href: '#talpnyomas', c: 'var(--teal)' },
+    { id: 'b', n: '1/B Deeper foundation level', d: 'bearing layer within a few metres, basement', href: '#alapsik', c: 'var(--teal)' },
+    { id: 'c', n: '1/C Talajcsere', d: 'shallow problem, above the water table, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
+    { id: 'd1', n: '2/A Deep compaction (vibroflotation)', d: 'loose granular soil, fill', href: '#t-mech', open: 'mech:m1', c: 'var(--amber)' },
+    { id: 'd2', n: '2/B Dynamic compaction', d: 'large area, loose or soft soil, max. 5–7 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
+    { id: 'd3', n: '2/C Stone pillar', d: 'very loose, soft soil', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
+    { id: 'd4', n: '2/D Gravel pile', d: 'looser, softer soil, cohesive soil too', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
+    { id: 'd5', n: '3/A Permeation grouting', d: 'granular soil, coarse silt; with cement only > 0.8–1 mm', href: '#injmod', open: 'inj:i1', inj: 0, c: 'var(--violet)' },
+    { id: 'd6', n: '3/B Compaction grouting', d: 'loose soil, also silt and clay; also under existing buildings', href: '#injmod', open: 'inj:i1', inj: 1, c: 'var(--violet)' },
+    { id: 'd8', n: '3/D Fracture/compensation grouting', d: 'settlement compensation, re-levelling buildings', href: '#injmod', open: 'inj:i1', inj: 3, c: 'var(--violet)' },
+    { id: 'd7', n: '3/F Mass stabilisation', d: 'peat, soft clay, max. ~7 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
+    { id: 'e', n: '4/A Preloading', d: 'saturated, compressible cohesive soil, time available', href: '#eloterheles', c: 'var(--coral)' },
+    { id: 'f', n: '4/B–C Structural measures, construction sequence', d: 'always a supplementary tool', href: '#szerkezet', c: 'var(--coral)' },
+    { id: 'h', n: '4/D Deep foundations', d: 'the good bearing layer is deep', href: '#melyalap', c: 'var(--coral)' },
   ];
   const st = { soil: 'kotott', gw: 'felett', depth: 'kozepes', sit: 'uj', better: 'yes' };
   const score = (m) => {
@@ -1382,7 +1498,7 @@ window.SVpat = pat;
     return { s, why };
   };
   const list = $('#selList');
-  const draw = () => { const sc = M.map(m => ({ m, ...score(m) })).sort((a, b) => b.s - a.s); list.innerHTML = ''; sc.forEach(({ m, s, why }) => { const c = s >= 3 ? 'good' : s <= -1 ? 'bad' : ''; list.appendChild(H('div', { class: 'mi ' + c }, `<i class="d" style="background:${m.c}"></i><div><h5>${m.n}</h5><p>${why.filter(Boolean).join(' · ') || m.d}</p></div><a href="${m.href}">→</a>`)); }); };
+  const draw = () => { const sc = M.map(m => ({ m, ...score(m) })).sort((a, b) => b.s - a.s); list.innerHTML = ''; sc.forEach(({ m, s, why }) => { const c = s >= 3 ? 'good' : s <= -1 ? 'bad' : ''; list.appendChild(H('div', { class: 'mi ' + c }, `<i class="d" style="background:${m.c}"></i><div><h5>${m.n}</h5><p>${why.filter(Boolean).join(' · ') || m.d}</p></div><a href="${m.href}"${m.open ? ` data-open="${m.open}"` : ''}${m.inj != null ? ` data-inj="${m.inj}"` : ''}>→</a>`)); }); };
   $$('[data-q]', root).forEach(g => window.U.seg(g, (v) => { st[g.dataset.q] = v; draw(); }));
   draw();
 })();
@@ -1488,6 +1604,72 @@ const bindR = (ids, fn) => ids.forEach(id => { const r = $('#' + id); if (r) r.a
 const out = (id, txt) => { const e = $(`[data-for="${id}"]`); if (e && e.textContent !== String(txt)) e.textContent = txt; };   // csak változáskor ír
 const rv = (id) => { const r = $('#' + id); window.U.fillRange(r); return +r.value; };
 const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t) => { const u = clamp((t - t0) / dur, 0, 1); fn(u); if (u < 1) requestAnimationFrame(st); else if (done) done(); }; requestAnimationFrame(st); };
+
+/* ---------- 1/C talajcsere: a módszer ábrája (kiemelés, kiszélesítés, rétegenkénti tömörítés, teherterjedés, két ellenőrzés) ---------- */
+(function replacementFig() {
+  const host = $('#tcsFig'); if (!host) return;
+  const arrow = (x, y1, y2, c, w, s, hw = 6) => { SV('line', { x1: x, y1, x2: x, y2: y2 - hw * 1.2, stroke: c, 'stroke-width': w }, s); SV('path', { d: `M${x - hw} ${y2 - hw * 1.6}L${x} ${y2}L${x + hw} ${y2 - hw * 1.6}Z`, fill: c }, s); };
+  const dimH = (x1, x2, y, txt, s, up = true) => { SV('line', { x1, y1: y, x2, y2: y, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s); [x1, x2].forEach(x => SV('line', { x1: x, y1: y - 6, x2: x, y2: y + 6, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s)); SV('text', { x: (x1 + x2) / 2, y: up ? y - 6 : y + 17, 'text-anchor': 'middle', text: txt, 'font-size': 13.5 * FS, 'font-weight': 800, class: 'hl' }, s); };
+  const dimV = (x, y1, y2, txt, s) => { SV('line', { x1: x, y1, x2: x, y2, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s); [y1, y2].forEach(y => SV('line', { x1: x - 6, y1: y, x2: x + 6, y2: y, stroke: 'var(--ink)', 'stroke-width': 1.2 }, s)); SV('text', { x: x - 9, y: (y1 + y2) / 2 + 5, 'text-anchor': 'end', text: txt, 'font-size': 14 * FS, 'font-weight': 800, class: 'hl' }, s); };
+  /* felirat kis kártyán: a mintás talajon is jól olvasható */
+  let FS = 1;   // keskeny nézetben nagyobb feliratok
+  const lab = (x, y, lines, s, c = 'var(--ink)') => { const g = SV('g', {}, s); lines.forEach((t, i) => SV('text', { x, y: y + i * 17 * FS, text: t, 'font-size': (i ? 13 : 14) * FS, 'font-weight': i ? 600 : 800, style: `fill:${i ? 'var(--ink2)' : c}` }, g)); try { const b = g.getBBox(); const r = SV('rect', { x: b.x - 7, y: b.y - 4, width: b.width + 14, height: b.height + 8, rx: 7, fill: 'var(--card)', opacity: .93, stroke: c, 'stroke-opacity': .35 }); g.insertBefore(r, g.firstChild); } catch (e) { } };
+  const MEG = EN ? 'allow' : 'meg';   // a megengedett feszültség indexe
+  const draw = () => {
+    /* keskeny helyen a feliratok a metszet alá, egy oszlopba kerülnek */
+    const nar = (host.clientWidth || 720) < 560; FS = nar ? 1.35 : 1;
+    const W = nar ? 460 : 720, ys = nar ? 374 : 404, Hh = nar ? ys + 400 : ys; const s = svg(host, W, Hh); pat(s);
+    const y0 = 96, yb = 176, v = 120, yv = yb + v, cx = nar ? 244 : 268, B = 150, th = 35, tg = Math.tan(th * Math.PI / 180), Bv = B + 2 * v * tg;
+    const xl = cx - Bv / 2, xr = cx + Bv / 2, bl = cx - B / 2, br = cx + B / 2, sl = 30, xt = 482;
+    // talajok
+    SV('rect', { x: 0, y: 0, width: W, height: y0, fill: 'var(--card2)' }, s);
+    SV('rect', { x: 0, y: y0, width: W, height: yb - y0, fill: 'url(#pClay)' }, s);
+    SV('rect', { x: 0, y: yb, width: W, height: ys - yb, fill: 'url(#pSoft)' }, s);
+    // munkagödör a terepig, visszatöltve
+    SV('path', { d: `M${xl - sl} ${y0}L${xl} ${yb}L${xr} ${yb}L${xr + sl} ${y0}Z`, fill: 'url(#pFill)' }, s);
+    SV('path', { d: `M${xl - sl} ${y0}L${xl} ${yb}M${xr} ${yb}L${xr + sl} ${y0}`, fill: 'none', stroke: '#4a3a2c', 'stroke-width': 1.4, 'stroke-dasharray': '6 4' }, s);
+    SV('rect', { x: 0, y: y0 - 4, width: W, height: 5, fill: '#7d9a5b' }, s);
+    // csereréteg: 30 cm-es rétegekben tömörítve
+    SV('rect', { x: xl, y: yb, width: Bv, height: v, fill: 'url(#pGrav)', stroke: '#4a3a2c', 'stroke-width': 1.8 }, s);
+    for (let i = 1; i < 4; i++) SV('line', { x1: xl, y1: yb + v * i / 4, x2: xr, y2: yb + v * i / 4, stroke: '#4a3a2c', 'stroke-width': 1, 'stroke-dasharray': '4 4', opacity: .75 }, s);
+    // teherterjedés ϑ szögben
+    SV('path', { d: `M${bl} ${yb}L${br} ${yb}L${xr} ${yv}L${xl} ${yv}Z`, fill: 'var(--coral)', opacity: .2 }, s);
+    [[bl, xl], [br, xr]].forEach(([a, b]) => SV('line', { x1: a, y1: yb, x2: b, y2: yv, stroke: 'var(--coral-ink)', 'stroke-width': 2.2, 'stroke-dasharray': '8 5' }, s));
+    const r = 46, sa = Math.sin(th * Math.PI / 180), ca = Math.cos(th * Math.PI / 180);
+    SV('line', { x1: bl, y1: yb, x2: bl, y2: yb + r + 8, stroke: 'var(--ink)', 'stroke-width': 1, 'stroke-dasharray': '3 3' }, s);
+    SV('path', { d: `M${bl} ${yb + r}A${r} ${r} 0 0 1 ${bl - r * sa} ${yb + r * ca}`, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.4 }, s);
+    const am = (90 + th / 2) * Math.PI / 180; SV('text', { x: bl + Math.cos(am) * (r + 12) - 4, y: yb + Math.sin(am) * (r + 12) + 6, text: 'ϑ', 'font-size': 15 * FS, 'font-weight': 800, class: 'hl', 'text-anchor': 'middle' }, s);
+    // σ1 az alapsíkon, σ2 a csereréteg alján
+    SV('rect', { x: bl, y: yb, width: B, height: 22, fill: 'var(--coral)', opacity: .75 }, s);
+    for (let i = 0; i < 6; i++) arrow(bl + 12 + i * (B - 24) / 5, yb + 2, yb + 20, '#fff', 1.6, s, 4);
+    const h2 = 22 * B / Bv + 4; SV('rect', { x: xl, y: yv, width: Bv, height: h2, fill: 'var(--amber)', opacity: .85 }, s);
+    for (let i = 0; i < 9; i++) arrow(xl + 10 + i * (Bv - 20) / 8, yv + 1, yv + h2 - 1, '#fff', 1.3, s, 3);
+    // alaptest és teher
+    SV('rect', { x: bl, y: yb - 26, width: B, height: 26, fill: '#c3c7ca', stroke: '#4b5458', 'stroke-width': 1.6 }, s);
+    SV('rect', { x: cx - 22, y: y0 - 42, width: 44, height: yb - 26 - (y0 - 42), fill: '#c3c7ca', stroke: '#4b5458', 'stroke-width': 1.6 }, s);
+    arrow(cx, 6, y0 - 46, 'var(--ink)', 3.2, s, 8); SV('text', { x: cx + 14, y: 28, text: 'P', 'font-size': 17 * FS, 'font-weight': 800, class: 'hl' }, s);
+    // talajvíz a csere alatt
+    const yw = yv + 60; SV('line', { x1: 0, y1: yw, x2: W, y2: yw, stroke: 'var(--sky)', 'stroke-width': 2, 'stroke-dasharray': '10 6' }, s);
+    SV('path', { d: `M24 ${yw - 14}L40 ${yw - 14}L32 ${yw - 3}Z`, fill: 'var(--sky)' }, s); SV('text', { x: 46, y: yw - 5, text: 'groundwater', 'font-size': 12.5 * FS, 'font-weight': 700, class: 'hl', style: 'fill:var(--sky-ink)' }, s);
+    // méretek
+    dimH(bl, br, yb + 50, 'B', s); dimH(xl, xr, yv + h2 + 12, 'B + 2·v·tan ϑ', s, false);
+    dimV(xl - 16, yb, yv, 'v', s); dimV(xl - sl - 26, y0, yb, 't', s);
+    // feliratok: széles nézetben jobbra, vezetővonallal; keskenyben a metszet alatt, egy oszlopban
+    const L1 = ['cover layer (γ_{0})', 'excavation backfilled'], L2 = ['σ_{1} = P/B ≤ σ_{1,' + MEG + '}', 'on the replacement layer'], L3 = ['replacement layer (γ_{1})', 'sandy gravel, crushed stone', 'layers ≤ 30 cm, compacted'], L4 = ['σ_{2} ≤ σ_{2,' + MEG + '}', 'on the base layer'], L5 = ['weak, compressible', 'base layer (γ_{2})'];
+    if (!nar) {
+      lab(xt, 126, L1, s);
+      SV('line', { x1: br + 4, y1: yb + 11, x2: xt - 6, y2: yb + 11, stroke: 'var(--coral-ink)', 'stroke-width': 1.2 }, s);
+      lab(xt, yb + 16, L2, s, 'var(--coral-ink)');
+      lab(xt, yb + 72, L3, s);
+      SV('line', { x1: xr - 6, y1: yv + h2 / 2, x2: xt - 6, y2: yv + h2 / 2, stroke: 'var(--amber-ink)', 'stroke-width': 1.2 }, s);
+      lab(xt, yv + 18, L4, s, 'var(--amber-ink)');
+      lab(xt, yw + 26, L5, s);
+    } else {
+      let y = ys + 30; [[L1], [L2, 'var(--coral-ink)'], [L3], [L4, 'var(--amber-ink)'], [L5]].forEach(([Ls, c]) => { lab(16, y, Ls, s, c); y += Ls.length * 17 * FS + 16; });
+    }
+  };
+  draw(); let lw = innerWidth; addEventListener('resize', () => { if (Math.abs(innerWidth - lw) < 24) return; lw = innerWidth; draw(); });
+})();
 
 /* ---------- c) talajcsere ---------- */
 (function replacement() {

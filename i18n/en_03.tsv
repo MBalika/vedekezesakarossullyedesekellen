@@ -41,11 +41,6 @@ b652603	triangular
 2faaa2d	Column diameter d <span class="v" data-for="kcD"></span>
 a499141	Spacing s <span class="v" data-for="kcS"></span>
 bdd7cc3	Stress concentration n (column/soil) <span class="v" data-for="kcN"></span>
-f8ef645	Self-check · Chapter 5
-54f02f4	d) Ground improvement · grouting and mixing
-042bedb	Grouting and mass stabilisation
-7a8b5a2	<span class="n">5</span>Grouting
-145e45a	<span class="n">6</span>Mass stabilisation
 39bf93f	Cement grouting
 fef1e7a	The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.
 f3b2e11	In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.
@@ -69,9 +64,6 @@ d5d3121	Plan the job!
 b07ed84	Depth <span class="v" data-for="msD"></span>
 7ef460a	Mixing output <span class="v" data-for="msQ"></span>
 4bcc023	Binder content <span class="v" data-for="msK"></span>
-6a24416	Self-check · Chapter 6
-e0d45c8	e) Using preloading
-a8f3f32	Let it settle first – without the building
 2f98c23	The settlement of the structure is reduced by <b>“forcing out”</b> at least part of the compression of the subsoil with a surcharge placed in advance. The layer then behaves like a geologically overconsolidated layer: under the load placed on the foundation, a much smaller specific compression has to be expected.
 5a6f35c	Void ratio – effective stress
 da0ac5a	Settlement versus time
@@ -80,9 +72,6 @@ cd3c9b1	Additional stress from the building Δσ <span class="v" data-for="plB">
 2656171	Mexico City
 1ec8f09	<b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.
 01d0ce7	Construction progress <span class="v" data-for="mxT"></span>
-0b638fe	Self-check · Chapter 7
-2cd0220	f) Structural measures · g) Construction sequence · h) Deep foundations
-edd69f2	If we cannot shape the ground, we shape the structure
 9a66d7b	Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).
 8d3ccc1	Support settlement in a frame
 9526dd9	rigid joints
@@ -121,8 +110,6 @@ bf2b3de	✕ Close
 6927d01	Open on YouTube ↗
 4d588e3	=
 548cbbf	☀︎ Light
-953143a	Soil replacement
-60bc66a	lower contact pressure, deeper foundation level, soil replacement
 76f24f9	Preloading – Mexico City
 d39e287	ballast up to the building weight, waiting, phased removal
 406d4a7	=
