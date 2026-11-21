@@ -1082,10 +1082,10 @@ main .mi .rag, main .tf .rag, main .insight.rag, main .insight .rag, main .callo
   <div class="twocol" style="margin-top:26px">
     <div>
       <h3 style="margin-bottom:10px">Mexico City</h3>
-      <p>The capital was built on the site of an old volcanic lake, which was filled with very thick, highly compressible fine volcanic ash. The whole city is settling – in places by metres. The method used: the base slabs of reinforced concrete frame buildings are loaded with <b>a mass of gravel equal to the weight of the finished building</b>. Most of the settlement takes place – this is waited out – then construction continues, and the gravel is <b>removed at the rate at which the weight of the structure increases</b>.</p>
+      <p>The capital was built on the site of an old volcanic lake, filled with very thick, highly compressible lake sediment deposited from fine volcanic ash. The whole city is settling – in places by metres. A classic example is José A. Cuevas's solution for the Lotería Nacional (“El Moro”) building in the 1930s. The building was given a <b>compensated foundation</b>: as much soil was excavated as the weight of the finished building would roughly replace. After excavation the bottom of the pit heaved (up to 127 cm was measured). So <b>temporary ballast</b> was placed on the rigid reinforced concrete substructure up to the design weight of the building – the original design specified gravel, concrete blocks were used in construction. The soil thus got its former load back, and the deformation took place before the superstructure was built. During construction the ballast was <b>reduced day by day by the weight that had been built in</b>: the total weight stayed nearly constant. This does not stop the regional subsidence of the city.</p>
       <div class="callout web"><span class="ci">i</span><p><b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.</p></div>
     </div>
-    <div class="panel"><div class="ph"><h4>Gravel + building = constant load</h4></div><div class="pb"><p class="figcap" id="mxCap"></p><div id="mxSvg"></div><div class="ctl"><label>Construction progress <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
+    <div class="panel"><div class="ph"><h4>Ballast + building = constant load</h4></div><div class="pb"><p class="figcap" id="mxCap"></p><div id="mxSvg"></div><div class="ctl"><label>Construction progress <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
   <div class="quiz" id="q7"><div class="qh"><h4>Self-check · Chapter 6</h4><div class="dots"></div></div></div>
@@ -1857,22 +1857,23 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     $('#plOut').innerHTML = `<div class="r"><span>settlement under the building without preloading</span><b style="color:var(--coral)">${fmt(sNo, 0)} mm</b></div><div class="r"><span>“forced out” under the preload</span><b style="color:var(--amber-ink)">${fmt(sPre, 0)} mm</b></div><div class="r" style="grid-column:1/-1"><span>settlement under the building after preloading</span><b style="color:var(--teal)">${fmt(sAfter, 0)} mm ${dp > 0 ? `(−${pct((1 - sAfter / sNo) * 100)})` : ''}</b></div>`;
   };
   bindR(['plB', 'plP'], draw); draw();
-  // Mexikóváros: kavics + épület = állandó
+  // Mexikóváros (El Moro): ballaszt + épület = állandó; a merev alapszerkezet a talajba süllyesztve (kompenzált alapozás)
   const mx = $('#mxSvg'); if (!mx) return; const r = $('#mxT');
   const dm = () => { const u = rv('mxT') / 100; out('mxT', pct(u * 100)); const W = 600, Hh = 250, gy = 190; const s = svg(mx, W, Hh); pat(s);
     SV('rect', { x: 0, y: 0, width: W, height: gy, fill: 'var(--card2)' }, s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pSoft)' }, s);
     const x0 = 120, bw = 300, fl = Math.round(u * 6), fh = 23;
-    SV('rect', { x: x0 - 12, y: gy - 10, width: bw + 24, height: 12, fill: '#bfc3c6', stroke: '#4b5458' }, s);
-    // kavicsdepónia az alaplemezen: a tömege az épület súlyával arányosan fogy
-    const g = 1 - u; if (g > 0.01) { const hw = 60 + 84 * Math.sqrt(g), hh = 14 + 96 * Math.sqrt(g), cx = x0 + bw / 2; SV('path', { d: `M${cx - hw},${gy - 10} Q${cx - hw * .45},${gy - 10 - hh * 1.02} ${cx},${gy - 10 - hh} Q${cx + hw * .45},${gy - 10 - hh * 1.02} ${cx + hw},${gy - 10} Z`, fill: 'url(#pGrav)', stroke: '#6d5c47', 'stroke-width': 1.5 }, s); }
+    SV('rect', { x: x0 - 12, y: gy - 10, width: bw + 24, height: 50, fill: '#bfc3c6', stroke: '#4b5458' }, s);   // merev alapszerkezet a kiemelt gödörben
+    for (let c = 1; c < 4; c++) SV('line', { x1: x0 - 12 + c * (bw + 24) / 4, x2: x0 - 12 + c * (bw + 24) / 4, y1: gy - 10, y2: gy + 40, stroke: '#8d9196', 'stroke-width': 1.2 }, s);
+    // ballaszt: betontömbök az alapszerkezeten; rétegenként rakják fel, és felülről fogynak, ahogy az épület súlya nő
+    const nb = 30, vis = Math.round((1 - u) * nb); for (let k = 0; k < vis; k++) { const row = Math.floor(k / 6), col = k % 6; SV('rect', { x: x0 + 4 + col * 49, y: gy - 10 - (row + 1) * 19, width: 46, height: 17, rx: 1.5, fill: '#a9a59c', stroke: '#5f5b55', 'stroke-width': 1 }, s); }
     // vb. váz: pillérek és födémek szintenként
     for (let i = 0; i < fl; i++) { const y = gy - 10 - (i + 1) * fh; for (let c = 0; c < 5; c++) SV('rect', { x: x0 + c * (bw - 8) / 4, y, width: 8, height: fh, fill: '#8d9196', stroke: '#4b5458', 'stroke-width': .8 }, s); SV('rect', { x: x0 - 4, y: y - 2, width: bw + 8, height: 5, fill: '#bfc3c6', stroke: '#4b5458', 'stroke-width': .8 }, s); }
     // teher-oszlop: kavics + épület = állandó
-    const bx = 490, bh = 130, by = gy - 10; SV('rect', { x: bx, y: by - bh * u, width: 30, height: bh * u, fill: '#d4553a' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh * (1 - u), fill: '#8f7c66' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh, fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.2 }, s);
-    if (u < .9) SV('text', { x: bx + 38, y: by - bh + 16, text: 'gravel', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)' }, s); if (u > .1) SV('text', { x: bx + 38, y: by - 6, text: 'building', 'font-size': 12, 'font-weight': 700, fill: 'var(--coral-ink)' }, s);
+    const bx = 490, bh = 130, by = gy - 10; SV('rect', { x: bx, y: by - bh * u, width: 30, height: bh * u, fill: '#d4553a' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh * (1 - u), fill: '#a9a59c' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh, fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.2 }, s);
+    if (u < .9) SV('text', { x: bx + 38, y: by - bh + 16, text: 'ballast', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)' }, s); if (u > .1) SV('text', { x: bx + 38, y: by - 6, text: 'building', 'font-size': 12, 'font-weight': 700, fill: 'var(--coral-ink)' }, s);
     SV('text', { x: bx + 15, y: by - bh - 8, 'text-anchor': 'middle', text: 'Σ = constant', 'font-size': 12, 'font-weight': 800, fill: 'var(--ink)' }, s);
-    SV('text', { x: 12, y: Hh - 12, text: 'soft volcanic clay', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    const cap = u < .02 ? 'Gravel surcharge = the weight of the finished building → most of the settlement takes place' : u > .98 ? 'Finished building – the gravel is gone, the load did not increase' : 'Construction: the gravel is removed at the rate at which the weight of the building increases'; const ce = $('#mxCap'); if (ce && ce.textContent !== cap) ce.textContent = cap; };
+    SV('text', { x: W - 12, y: Hh - 12, 'text-anchor': 'end', text: 'soft volcanic clay', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
+    const cap = u < .02 ? 'Ballast up to the design weight of the building → the soil gets its former load back' : u > .98 ? 'Finished building – the ballast is gone, the total weight did not increase' : 'Construction: the ballast is reduced day by day by the weight that has been built in'; const ce = $('#mxCap'); if (ce && ce.textContent !== cap) ce.textContent = cap; };
   r.addEventListener('input', dm); dm();
 })();
 
@@ -1979,8 +1980,8 @@ const Q = {
   ],
   q7: [
     { q: 'What is the essence of preloading?', o: ['The soil is mixed with cement', 'Compaction by blasting', 'Part of the compression is “forced out” by loading in advance', 'Piles are driven'], a: 2, e: 'With a surcharge placed in advance we <b>“force out” at least part of the compression of the subsoil</b> – the layer behaves like a geologically overconsolidated layer.' },
-    { q: 'In Mexico City, what mass of gravel is the base slab loaded with?', o: ['Equal to the weight of the finished building', 'Half the weight of the finished building', 'Any amount', 'Twice the excavated soil'], a: 0, e: 'The base slabs of RC frame buildings are loaded with a mass of gravel <b>equal to the weight of the finished building</b>.' },
-    { q: 'How is the gravel removed in Mexico City?', o: ['All at once, before construction', 'At the rate at which the weight of the structure increases', 'It is never removed', 'After construction is complete'], a: 1, e: 'The gravel is removed <b>at the rate</b> at which the weight of the structure increases – the load on the subsoil remains nearly constant.' },
+    { q: 'In Mexico City, at the El Moro building, how much ballast was the rigid substructure loaded with?', o: ['Equal to the design weight of the building', 'Half the design weight of the building', 'Any amount', 'Twice the excavated soil'], a: 0, e: 'The rigid substructure was loaded with ballast (concrete blocks) <b>equal to the design weight of the building</b>: the soil, which had heaved because of the excavation, thus got its former load back.' },
+    { q: 'How was the ballast removed during the construction of El Moro?', o: ['All at once, before construction of the superstructure', 'Day by day, by the same amount as the weight built in', 'It was never removed', 'After construction is complete, all at once'], a: 1, e: 'The ballast was <b>reduced day by day by the weight that had been built in</b> – the total weight stayed nearly constant.' },
   ],
   q8: [
     { q: 'In an area prone to settlement, what kind of structure should we design if possible?', o: ['Statically indeterminate', 'An arch', 'Statically determinate', 'A rigid frame'], a: 2, e: 'A <b>statically determinate</b> structure if possible – the pinned connections can rotate, and no additional internal forces develop.' },
@@ -2024,7 +2025,7 @@ const TFI = [
   { s: 'With an extension boom, mass stabilisation can reach a depth of up to 7 m.', t: true, e: '3–5 m mixing boom + 2 m extension.' },
   { s: 'The stabilised area reaches its final bearing capacity immediately.', t: false, e: 'Not at once – if necessary, a load-distributing layer (geotextile, geogrid, granular material) is built.' },
   { s: 'With preloading, part of the settlement is “forced out” before construction.', t: true, e: 'Afterwards a much smaller specific compression of a precompressed layer has to be expected.' },
-  { s: 'In Mexico City the gravel is removed all at once before construction continues.', t: false, e: 'At the rate at which the weight of the structure increases.' },
+  { s: 'At El Moro the ballast was removed all at once, before construction of the superstructure began.', t: false, e: 'It was reduced day by day, by the same amount as the weight built in – the total weight stayed nearly constant.' },
   { s: 'In an area prone to settlement, a statically indeterminate structure should be designed if possible.', t: false, e: 'Determinate – with pinned connections no additional internal forces develop.' },
   { s: 'Long building parts with different loads are best separated by a settlement joint.', t: true, e: 'It is needed anyway because of thermal expansion.' },
   { s: 'For structures with large settlement, utility connections are made with an oval opening, a flexible pipe and a sleeve.', t: true, e: 'This way the pipe can follow the movement.' },

@@ -60,18 +60,8 @@ fb661c1	Part of the compression is “forced out” by loading in advance
 776eec1	Compaction by blasting
 9c8dfbe	Piles are driven
 44de38d	With a surcharge placed in advance we <b>“force out” at least part of the compression of the subsoil</b> – the layer behaves like a geologically overconsolidated layer.
-5e08d58	In Mexico City, what mass of gravel is the base slab loaded with?
-cc1a0e3	Half the weight of the finished building
-b73b5f1	Equal to the weight of the finished building
 8aad374	Any amount
 e208b1c	Twice the excavated soil
-e5cfac8	The base slabs of RC frame buildings are loaded with a mass of gravel <b>equal to the weight of the finished building</b>.
-5e61c81	How is the gravel removed in Mexico City?
-75185de	All at once, before construction
-10fa3f6	At the rate at which the weight of the structure increases
-9d2b0d8	It is never removed
-279b01d	After construction is complete
-3b33ae6	The gravel is removed <b>at the rate</b> at which the weight of the structure increases – the load on the subsoil remains nearly constant.
 72cc2f0	In an area prone to settlement, what kind of structure should we design if possible?
 aa5244a	Statically indeterminate
 bec2ebb	Statically determinate

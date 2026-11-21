@@ -78,9 +78,7 @@ da0ac5a	Settlement versus time
 cd3c9b1	Additional stress from the building Δσ <span class="v" data-for="plB"></span>
 62c05bc	<span><i style="background:var(--coral)"></i>without preloading</span><span><i style="background:var(--amber)"></i>preloading + unloading</span><span><i style="background:var(--teal)"></i>reloading (building) after preloading</span>
 2656171	Mexico City
-82d694a	The capital was built on the site of an old volcanic lake, which was filled with very thick, highly compressible fine volcanic ash. The whole city is settling – in places by metres. The method used: the base slabs of reinforced concrete frame buildings are loaded with <b>a mass of gravel equal to the weight of the finished building</b>. Most of the settlement takes place – this is waited out – then construction continues, and the gravel is <b>removed at the rate at which the weight of the structure increases</b>.
 1ec8f09	<b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.
-f78fdae	Gravel + building = constant load
 01d0ce7	Construction progress <span class="v" data-for="mxT"></span>
 0b638fe	Self-check · Chapter 7
 2cd0220	f) Structural measures · g) Construction sequence · h) Deep foundations
@@ -134,3 +132,21 @@ b4cfe1f	=
 dc6e5cf	=
 aa0ec88	<div class="kicker">Result</div><b>${ok} / ${items.length}</b><p class="muted">${ok === items.length ? 'Hibátlan – gratulálok!' : ok >= items.length * .6 ? 'Szép munka! Nézd át a hibás kérdéseket.' : 'Érdemes még egyszer átfutni a fejezetet.'}</p><div class="qnav" style="justify-content:center"><button class="sec" data-a="restart">Újrakezdés</button></div>
 3b01da9	Flawless – well done!
+8905ebf	Ballast + building = constant load
+62cbfb2	The capital was built on the site of an old volcanic lake, filled with very thick, highly compressible lake sediment deposited from fine volcanic ash. The whole city is settling – in places by metres. A classic example is José A. Cuevas's solution for the Lotería Nacional (“El Moro”) building in the 1930s. The building was given a <b>compensated foundation</b>: as much soil was excavated as the weight of the finished building would roughly replace. After excavation the bottom of the pit heaved (up to 127 cm was measured). So <b>temporary ballast</b> was placed on the rigid reinforced concrete substructure up to the design weight of the building – the original design specified gravel, concrete blocks were used in construction. The soil thus got its former load back, and the deformation took place before the superstructure was built. During construction the ballast was <b>reduced day by day by the weight that had been built in</b>: the total weight stayed nearly constant. This does not stop the regional subsidence of the city.
+9b1a3dc	Construction: the ballast is reduced day by day by the weight that has been built in
+3668cfc	Finished building – the ballast is gone, the total weight did not increase
+5f65c72	Ballast up to the design weight of the building → the soil gets its former load back
+7e9aa06	It was reduced day by day, by the same amount as the weight built in – the total weight stayed nearly constant.
+cd3b38d	At El Moro the ballast was removed all at once, before construction of the superstructure began.
+3d3a807	The ballast was <b>reduced day by day by the weight that had been built in</b> – the total weight stayed nearly constant.
+72ed1a7	After construction is complete, all at once
+6206f57	It was never removed
+109a84f	Day by day, by the same amount as the weight built in
+7504459	All at once, before construction of the superstructure
+ea7cd8e	How was the ballast removed during the construction of El Moro?
+62e639c	The rigid substructure was loaded with ballast (concrete blocks) <b>equal to the design weight of the building</b>: the soil, which had heaved because of the excavation, thus got its former load back.
+5f1cd27	Half the design weight of the building
+f1b7e62	Equal to the design weight of the building
+55d6f55	In Mexico City, at the El Moro building, how much ballast was the rigid substructure loaded with?
+50d1c95	ballast

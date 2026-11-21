@@ -374,22 +374,23 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     $('#plOut').innerHTML = `<div class="r"><span>épület alatti süllyedés előterhelés nélkül</span><b style="color:var(--coral)">${fmt(sNo, 0)} mm</b></div><div class="r"><span>előterhelés alatt „kikényszerített”</span><b style="color:var(--amber-ink)">${fmt(sPre, 0)} mm</b></div><div class="r" style="grid-column:1/-1"><span>az épület alatti süllyedés előterhelés után</span><b style="color:var(--teal)">${fmt(sAfter, 0)} mm ${dp > 0 ? `(−${pct((1 - sAfter / sNo) * 100)})` : ''}</b></div>`;
   };
   bindR(['plB', 'plP'], draw); draw();
-  // Mexikóváros: kavics + épület = állandó
+  // Mexikóváros (El Moro): ballaszt + épület = állandó; a merev alapszerkezet a talajba süllyesztve (kompenzált alapozás)
   const mx = $('#mxSvg'); if (!mx) return; const r = $('#mxT');
   const dm = () => { const u = rv('mxT') / 100; out('mxT', pct(u * 100)); const W = 600, Hh = 250, gy = 190; const s = svg(mx, W, Hh); pat(s);
     SV('rect', { x: 0, y: 0, width: W, height: gy, fill: 'var(--card2)' }, s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pSoft)' }, s);
     const x0 = 120, bw = 300, fl = Math.round(u * 6), fh = 23;
-    SV('rect', { x: x0 - 12, y: gy - 10, width: bw + 24, height: 12, fill: '#bfc3c6', stroke: '#4b5458' }, s);
-    // kavicsdepónia az alaplemezen: a tömege az épület súlyával arányosan fogy
-    const g = 1 - u; if (g > 0.01) { const hw = 60 + 84 * Math.sqrt(g), hh = 14 + 96 * Math.sqrt(g), cx = x0 + bw / 2; SV('path', { d: `M${cx - hw},${gy - 10} Q${cx - hw * .45},${gy - 10 - hh * 1.02} ${cx},${gy - 10 - hh} Q${cx + hw * .45},${gy - 10 - hh * 1.02} ${cx + hw},${gy - 10} Z`, fill: 'url(#pGrav)', stroke: '#6d5c47', 'stroke-width': 1.5 }, s); }
+    SV('rect', { x: x0 - 12, y: gy - 10, width: bw + 24, height: 50, fill: '#bfc3c6', stroke: '#4b5458' }, s);   // merev alapszerkezet a kiemelt gödörben
+    for (let c = 1; c < 4; c++) SV('line', { x1: x0 - 12 + c * (bw + 24) / 4, x2: x0 - 12 + c * (bw + 24) / 4, y1: gy - 10, y2: gy + 40, stroke: '#8d9196', 'stroke-width': 1.2 }, s);
+    // ballaszt: betontömbök az alapszerkezeten; rétegenként rakják fel, és felülről fogynak, ahogy az épület súlya nő
+    const nb = 30, vis = Math.round((1 - u) * nb); for (let k = 0; k < vis; k++) { const row = Math.floor(k / 6), col = k % 6; SV('rect', { x: x0 + 4 + col * 49, y: gy - 10 - (row + 1) * 19, width: 46, height: 17, rx: 1.5, fill: '#a9a59c', stroke: '#5f5b55', 'stroke-width': 1 }, s); }
     // vb. váz: pillérek és födémek szintenként
     for (let i = 0; i < fl; i++) { const y = gy - 10 - (i + 1) * fh; for (let c = 0; c < 5; c++) SV('rect', { x: x0 + c * (bw - 8) / 4, y, width: 8, height: fh, fill: '#8d9196', stroke: '#4b5458', 'stroke-width': .8 }, s); SV('rect', { x: x0 - 4, y: y - 2, width: bw + 8, height: 5, fill: '#bfc3c6', stroke: '#4b5458', 'stroke-width': .8 }, s); }
     // teher-oszlop: kavics + épület = állandó
-    const bx = 490, bh = 130, by = gy - 10; SV('rect', { x: bx, y: by - bh * u, width: 30, height: bh * u, fill: '#d4553a' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh * (1 - u), fill: '#8f7c66' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh, fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.2 }, s);
-    if (u < .9) SV('text', { x: bx + 38, y: by - bh + 16, text: 'kavics', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)' }, s); if (u > .1) SV('text', { x: bx + 38, y: by - 6, text: 'épület', 'font-size': 12, 'font-weight': 700, fill: 'var(--coral-ink)' }, s);
+    const bx = 490, bh = 130, by = gy - 10; SV('rect', { x: bx, y: by - bh * u, width: 30, height: bh * u, fill: '#d4553a' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh * (1 - u), fill: '#a9a59c' }, s); SV('rect', { x: bx, y: by - bh, width: 30, height: bh, fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.2 }, s);
+    if (u < .9) SV('text', { x: bx + 38, y: by - bh + 16, text: 'ballaszt', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)' }, s); if (u > .1) SV('text', { x: bx + 38, y: by - 6, text: 'épület', 'font-size': 12, 'font-weight': 700, fill: 'var(--coral-ink)' }, s);
     SV('text', { x: bx + 15, y: by - bh - 8, 'text-anchor': 'middle', text: 'Σ = állandó', 'font-size': 12, 'font-weight': 800, fill: 'var(--ink)' }, s);
-    SV('text', { x: 12, y: Hh - 12, text: 'puha vulkáni agyag', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    const cap = u < .02 ? 'Kavicsterhelés = a kész épület súlya → a süllyedés nagy része lezajlik' : u > .98 ? 'Kész épület – a kavics elfogyott, a terhelés nem nőtt' : 'Építés: a kavicsot olyan ütemben hordják el, ahogy az épület súlya nő'; const ce = $('#mxCap'); if (ce && ce.textContent !== cap) ce.textContent = cap; };
+    SV('text', { x: W - 12, y: Hh - 12, 'text-anchor': 'end', text: 'puha vulkáni agyag', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
+    const cap = u < .02 ? 'Ballaszt a tervezett épületsúlyig → a talaj visszakapja korábbi terhét' : u > .98 ? 'Kész épület – a ballaszt elfogyott, az összsúly nem nőtt' : 'Építés: a ballasztot napról napra annyival csökkentik, amennyi súly beépül'; const ce = $('#mxCap'); if (ce && ce.textContent !== cap) ce.textContent = cap; };
   r.addEventListener('input', dm); dm();
 })();
 

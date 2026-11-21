@@ -32,8 +32,8 @@ const Q = {
   ],
   q7: [
     { q: 'Mi az előterhelés lényege?', o: ['A talajt cementtel keverjük', 'Robbantással tömörítünk', 'Előzetes terheléssel „kikényszerítjük” az összenyomódás egy részét', 'Cölöpöket verünk'], a: 2, e: 'Előzetesen felhordott terheléssel <b>„kikényszerítjük” az altalaj összenyomódásának legalább egy részét</b> – a réteg úgy viselkedik, mint egy geológiailag előterhelt réteg.' },
-    { q: 'Mexikóvárosban mekkora kavicstömeggel terhelik az alaplemezt?', o: ['A kész épület súlyának megfelelővel', 'A kész épület súlyának felével', 'Tetszőleges mennyiséggel', 'A kiemelt föld kétszeresével'], a: 0, e: 'A vb. vázas épületek alaplemezeit <b>a kész épület súlyának megfelelő</b> kavicstömeggel terhelik meg.' },
-    { q: 'Hogyan távolítják el Mexikóvárosban a kavicsot?', o: ['Egyszerre, az építés előtt', 'Olyan ütemben, ahogyan az építmény súlya nő', 'Soha nem távolítják el', 'Az építés befejezése után'], a: 1, e: 'A kavicsot <b>olyan ütemben</b> távolítják el, ahogyan az építmény súlya nő – az altalaj terhelése közel állandó marad.' },
+    { q: 'Mexikóvárosban, az El Moro épületnél mekkora ballaszttal terhelték a merev alapszerkezetet?', o: ['A tervezett épületsúlynak megfelelővel', 'A tervezett épületsúly felével', 'Tetszőleges mennyiséggel', 'A kiemelt föld kétszeresével'], a: 0, e: 'A merev alapszerkezetet <b>a tervezett épületsúlynak megfelelő</b> ballaszttal (betontömbökkel) terhelték: a kiemelés miatt megemelkedett talaj így visszakapta korábbi terhét.' },
+    { q: 'Hogyan távolították el a ballasztot az El Moro építésekor?', o: ['Egyszerre, a felszerkezet építése előtt', 'Napról napra, a beépített súllyal egyező mennyiségben', 'Soha nem távolították el', 'Az építés befejezése után, egyszerre'], a: 1, e: 'A ballasztot <b>napról napra annyival csökkentették, amennyi súly beépült</b> – az összsúly közel állandó maradt.' },
   ],
   q8: [
     { q: 'Süllyedésre gyanús területen milyen szerkezetet tervezzünk lehetőleg?', o: ['Statikailag határozatlant', 'Ívtartót', 'Statikailag határozottat', 'Merev keretet'], a: 2, e: 'Lehetőleg <b>statikailag határozott</b> szerkezetet – a csuklós kapcsolatok elfordulhatnak, nem alakulnak ki többlet-igénybevételek.' },
@@ -77,7 +77,7 @@ const TFI = [
   { s: 'Toldószárral a tömegstabilizáció akár 7 m mélységig is elérhet.', t: true, e: '3–5 m-es keverőszár + 2 m toldás.' },
   { s: 'A stabilizált felület azonnal eléri végleges teherbírását.', t: false, e: 'Nem rögtön – szükség esetén teherelosztó réteget (geotextília, georács, szemcsés anyag) készítenek.' },
   { s: 'Az előterheléssel a süllyedés egy részét az építés előtt „kikényszerítjük”.', t: true, e: 'Utána egy előzetesen komprimált réteg jóval kisebb fajlagos összenyomódásával kell számolni.' },
-  { s: 'Mexikóvárosban a kavicsot egyszerre távolítják el, mielőtt az építés folytatódna.', t: false, e: 'Olyan ütemben, ahogyan az építmény súlya nő.' },
+  { s: 'Az El Morónál a ballasztot egyszerre távolították el, mielőtt a felszerkezet építése elkezdődött.', t: false, e: 'Napról napra csökkentették, a beépített súllyal egyező mennyiségben – az összsúly közel állandó maradt.' },
   { s: 'Süllyedésre gyanús területen lehetőleg statikailag határozatlan szerkezetet tervezzünk.', t: false, e: 'Határozottat – csuklós kapcsolatokkal nem alakul ki többlet-igénybevétel.' },
   { s: 'Hosszú, eltérően terhelt épületrészeket süllyedési hézaggal célszerű elválasztani.', t: true, e: 'A hődilatáció miatt eleve szükséges.' },
   { s: 'Nagy süllyedésű építményeknél a közművek bekötését ovális nyílással, hajlékony vezetékkel és védőcsővel oldják meg.', t: true, e: 'Így a vezeték követheti a mozgást.' },

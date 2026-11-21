@@ -70,9 +70,6 @@ daef4b8	 mm</b></div><div class="r" style="grid-column:1/-1"><span>settlement un
 4222eff	=
 4a079f2	building
 2a793d2	Σ = constant
-1015166	Gravel surcharge = the weight of the finished building → most of the settlement takes place
-41e438f	Finished building – the gravel is gone, the load did not increase
-20c2ac8	Construction: the gravel is removed at the rate at which the weight of the building increases
 945b569	=
 d175e55	=
 01f91b9	<b>Rigid joints (indeterminate):</b> less distortion, but the support settlement causes <b>restraint forces</b> (M, V) – the load is redistributed. ${d > 20 ? '<span class="status b">jelentős többlet-igénybevétel</span>' : ''}
