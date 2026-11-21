@@ -615,3 +615,6 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 .brand .bn{min-width:0}
 @media (max-width:640px){.brand{white-space:normal;min-width:0;flex:1 1 auto;font-size:14px;line-height:1.15}.brand .logo{flex:none}.topbar .row1 .sp{display:none}}
 @media (max-width:1000px){.brand small{display:none}}
+
+/* 2/B és 2/C: közös felvétel – a kártya fölötti megjegyzés */
+.ytshare{margin:26px auto -12px;max-width:720px;text-align:center!important;text-align-last:center;font-weight:700;color:var(--ink2)}

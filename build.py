@@ -47,7 +47,7 @@ FONTS = '<style id="fonts-css">' + ''.join([
 ]) + '</style>\n'
 
 # POST: a fordítókészlet által nem kezelt helyek (egyedi data-* attribútum) az angol HTML-ben
-POST = [('data-tech="Döngölés és kőtömzs"', 'data-tech="Pounding and stone pillars"'),
+POST = [
         # angol feliratú ábrák és videó-indexképek (img/en/)
                 ('<img src="img/${i}.jpg"', '<img src="img/${i === \'inj-4\' ? \'en/\' : \'\'}${i}.jpg"'),
         ('<img src="img/thumb-${c.dataset.video}.jpg"', '<img src="img/en/thumb-${c.dataset.video}.jpg"')]
