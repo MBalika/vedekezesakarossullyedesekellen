@@ -36,7 +36,7 @@ const Q = {
     { q: 'Hogyan távolították el a ballasztot az El Moro építésekor?', o: ['Egyszerre, a felszerkezet építése előtt', 'Napról napra, a beépített súllyal egyező mennyiségben', 'Soha nem távolították el', 'Az építés befejezése után, egyszerre'], a: 1, e: 'A ballasztot <b>napról napra annyival csökkentették, amennyi súly beépült</b> – az összsúly közel állandó maradt.' },
   ],
   q8: [
-    { q: 'Süllyedésre gyanús területen milyen szerkezetet tervezzünk lehetőleg?', o: ['Statikailag határozatlant', 'Ívtartót', 'Statikailag határozottat', 'Merev keretet'], a: 2, e: 'Lehetőleg <b>statikailag határozott</b> szerkezetet – a csuklós kapcsolatok elfordulhatnak, nem alakulnak ki többlet-igénybevételek.' },
+    { q: 'Süllyedésre gyanús területen milyen szerkezetet tervezzünk lehetőleg?', o: ['Statikailag határozatlant', 'Ívtartót', 'Statikailag határozottat', 'Merev keretet'], a: 2, e: 'Lehetőleg <b>statikailag határozott</b> szerkezetet – a csuklós kapcsolatok elfordulhatnak, a tartószerkezetben nem alakulnak ki többlet-igénybevételek. A kitöltő falazat ettől még megrepedhet: ezt is meg kell akadályozni.' },
     { q: 'Mit érdemes tenni hosszú, különbözőképpen terhelt épületrészeknél?', o: ['Süllyedési hézaggal elválasztani', 'Összeépíteni', 'Mindet cölöpözni', 'Előfeszíteni'], a: 0, e: '<b>Süllyedési hézaggal</b> célszerű elválasztani őket (a hődilatáció miatt eleve szükséges).' },
     { q: 'Mikor építsük meg a süllyedésre érzékeny szerkezeti részeket?', o: ['Minél korábban', 'Mindegy', 'Az alapozással együtt', 'Minél később'], a: 3, e: 'A süllyedésre érzékeny részeket lehetőleg <b>minél később</b> építjük meg.' },
     { q: 'Mi indokolja telített agyagon az építési ütem lassítását?', o: ['A beton kötése', 'A pórusvíznyomás növekedése', 'A daru teljesítménye', 'A fagy'], a: 1, e: 'Telített agyagon a <b>pórusvíznyomás növekedése</b> az ütem lassítását diktálja.' },
@@ -78,7 +78,7 @@ const TFI = [
   { s: 'A stabilizált felület azonnal eléri végleges teherbírását.', t: false, e: 'Nem rögtön – szükség esetén teherelosztó réteget (geotextília, georács, szemcsés anyag) készítenek.' },
   { s: 'Az előterheléssel a süllyedés egy részét az építés előtt „kikényszerítjük”.', t: true, e: 'Utána egy előzetesen komprimált réteg jóval kisebb fajlagos összenyomódásával kell számolni.' },
   { s: 'Az El Morónál a ballasztot egyszerre távolították el, mielőtt a felszerkezet építése elkezdődött.', t: false, e: 'Napról napra csökkentették, a beépített súllyal egyező mennyiségben – az összsúly közel állandó maradt.' },
-  { s: 'Süllyedésre gyanús területen lehetőleg statikailag határozatlan szerkezetet tervezzünk.', t: false, e: 'Határozottat – csuklós kapcsolatokkal nem alakul ki többlet-igénybevétel.' },
+  { s: 'Süllyedésre gyanús területen lehetőleg statikailag határozatlan szerkezetet tervezzünk.', t: false, e: 'Határozottat – csuklós kapcsolatokkal a tartószerkezetben nem alakul ki többlet-igénybevétel; a kitöltő falazat azonban a torzulástól így is megrepedhet.' },
   { s: 'Hosszú, eltérően terhelt épületrészeket süllyedési hézaggal célszerű elválasztani.', t: true, e: 'A hődilatáció miatt eleve szükséges.' },
   { s: 'Nagy süllyedésű építményeknél a közművek bekötését ovális nyílással, hajlékony vezetékkel és védőcsővel oldják meg.', t: true, e: 'Így a vezeték követheti a mozgást.' },
   { s: 'A süllyedésre érzékeny szerkezeti részeket lehetőleg minél korábban építjük meg.', t: false, e: 'Minél később.' },

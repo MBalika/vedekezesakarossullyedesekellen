@@ -29,11 +29,9 @@ da0ac5a	Settlement versus time
 cd3c9b1	Additional stress from the building Δσ <span class="v" data-for="plB"></span>
 01d0ce7	Construction progress <span class="v" data-for="mxT"></span>
 9a66d7b	Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).
-8d3ccc1	Support settlement in a frame
 9526dd9	rigid joints
 77bd7a7	pinned joints
 35e7e1c	Settlement of the right-hand column δ <span class="v" data-for="frD"></span>
-6fd9b4c	In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop.
 ee3908a	<b>Utilities:</b> for structures designed for large settlement, proper connection of service pipes and utilities has to be provided – <b>oval opening, flexible pipe + sleeve</b>.
 7fad165	The right construction sequence
 d266962	<b>Structural parts sensitive</b> to settlement should be built <b>as late as possible</b>. Opposing tendencies:

@@ -658,6 +658,9 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 .ytgrid.ytpair.yt3{grid-template-columns:repeat(3,minmax(0,280px))}
 @media (max-width:900px){.ytgrid.ytpair.yt3{grid-template-columns:minmax(0,320px)}}
 
+/* 4/B csarnokkeret: csomópont-választó és falazat-kapcsoló egy sorban */
+.frsw{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center}
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -1140,11 +1143,12 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 
   <div class="sub-h" id="szerkezet"><span class="lt">4/B</span><h3>Structural measures: if we cannot shape the ground, we shape the structure</h3></div>
   <p>Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).</p>
-  <p>In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop.</p>
+  <p>In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop in the load-bearing structure.</p>
+  <p>This, however, also depends on whether there is <b>infill masonry</b>. When the hinges rotate, the frame opening distorts, and the stiff, brittle masonry cannot follow it: it <b>cracks</b> – just as it does when the joints are rigid. Pinned connections are really advantageous where there is no infill masonry and the structure consists only of columns, beams and floors – for example in <b>precast halls</b>. So the aim is not only to avoid damage to the load-bearing structure: <b>cracking of the infill masonry</b> must also be prevented.</p>
   <div class="callout tip"><span class="ci">⚙</span><p><b>Utilities:</b> for structures designed for large settlement, proper connection of service pipes and utilities has to be provided – <b>oval opening, flexible pipe + sleeve</b>.</p></div>
-  <h4 class="tryh">Try it: support settlement in a frame</h4>
+  <h4 class="tryh">Try it: support settlement in a hall frame</h4>
   <div class="solo">
-    <div class="panel"><div class="ph phcol"><h4>Support settlement in a frame</h4><div class="seg" id="frType"><button data-v="rigid" class="on">rigid joints</button><button data-v="hinge">pinned joints</button></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>Settlement of the right-hand column δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
+    <div class="panel"><div class="ph phcol"><h4>Support settlement in a hall frame</h4><div class="frsw"><div class="seg" id="frType"><button data-v="rigid" class="on">rigid joints</button><button data-v="hinge">pinned joints</button></div><label class="tgl"><input type="checkbox" id="frWall" checked>infill masonry</label></div></div><div class="pb"><div id="frSvg"></div><div class="ctl"><label>Settlement of the right-hand column δ <span class="v" data-for="frD"></span></label><input type="range" id="frD" min="0" max="40" value="18"></div><div class="insight" id="frMsg"></div></div></div>
   </div>
 
   <div class="sub-h" id="sorrend"><span class="lt">4/C</span><h3>The right construction sequence</h3></div>
@@ -2069,29 +2073,57 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 
 /* ---------- f) szerkezeti merevség: merev vs csuklós keret ---------- */
 (function frame() {
+  /* egyhajós, két nyílású csarnokkeret: a jobb oszlop alatt puha agyag, a támasz δ-val süllyed;
+     merev vagy csuklós csomópontok, kitöltő falazattal vagy anélkül */
   const host = $('#frSvg'); if (!host) return; let rigid = true;
   const draw = () => {
-    const d = rv('frD'); out('frD', d + ' mm'); const W = 600, Hh = 330, X = [100, 300, 500], Y0 = 250, h = 62; const s = svg(host, W, Hh); pat(s);
-    const sink = d * 1.2; const dy = [0, 0, sink]; const node = (i, j) => [X[i], Y0 - j * h + dy[i]];
-    // kitöltő falak a jobb nyílásban
-    for (let j = 0; j < 3; j++) { const a = node(1, j), b = node(2, j), c = node(2, j + 1), e = node(1, j + 1); SV('polygon', { points: [a, b, c, e].map(p => p.join(',')).join(' '), fill: '#f5efe2', stroke: '#cfc7b6', opacity: .9 }, s);
-      if (!rigid && d > 6) { const k = Math.min(3, Math.floor(d / 8)); for (let q = 0; q < k; q++) SV('path', { d: `M${a[0] + 36 + q * 44},${(a[1] + b[1]) / 2 - 8} l14,-14 l-4,-6 l14,-12`, stroke: d > 24 ? '#b5302a' : '#3b2f28', 'stroke-width': 1 + d / 14, fill: 'none' }, s); } }
+    const d = rv('frD'), wall = $('#frWall').checked; out('frD', d + ' mm');
+    const W = 600, Hh = 330, X = [90, 300, 510], Y0 = 252, HC = 196; const s = svg(host, W, Hh); pat(s);
+    const sink = d * 1.2, top = Y0 - HC; const dy = [0, 0, sink];
+    const D = s.querySelector('defs');
+    // tégla minta a kitöltő falazathoz
+    const bp = SV('pattern', { id: 'pBrick', width: 24, height: 12, patternUnits: 'userSpaceOnUse' }, D);
+    SV('rect', { width: 24, height: 12, fill: '#d9a27e' }, bp); SV('path', { d: 'M0 0.5H24M0 6.5H24M6 0.5V6.5M18 6.5V12.5', stroke: '#f3e6d8', 'stroke-width': 1.2 }, bp);
+    // a jobb nyílás felső éle: merev keretnél kettős görbület, csuklósnál egyenes
+    const beamR = (t) => { const y = top + dy[1] + (top + dy[2] - top - dy[1]) * (rigid ? (3 * t * t - 2 * t * t * t) : t); return y; };
+    // kitöltő falazat mindkét nyílásban
+    if (wall) {
+      SV('rect', { x: X[0] + 4, y: top + 4, width: X[1] - X[0] - 8, height: HC - 4, fill: 'url(#pBrick)', stroke: '#b98263', 'stroke-width': 1 }, s);
+      const pts = []; for (let k = 0; k <= 20; k++) { const t = k / 20; pts.push([X[1] + 4 + t * (X[2] - X[1] - 8), beamR(t) + 4]); }
+      pts.push([X[2] - 4, Y0 + dy[2]], [X[1] + 4, Y0]);
+      SV('polygon', { points: pts.map(p => p.map(v => v.toFixed(1)).join(',')).join(' '), fill: 'url(#pBrick)', stroke: '#b98263', 'stroke-width': 1 }, s);
+      // ferde (lépcsős) nyírási repedések a torzuló jobb nyílásban
+      if (d > 4) { const n = Math.min(3, 1 + Math.floor(d / 12)), sw = 1 + d / 12, col = d > 24 ? '#b5302a' : '#5a3b2c';
+        for (let q = 0; q < n; q++) { const x0 = X[1] + 30 + q * 54, y0 = top + 26 + q * 6; let path = `M${x0} ${y0}`; let x = x0, y = y0;
+          for (let k = 0; k < 9; k++) { x += 8; path += `L${x} ${y}`; y += 12; path += `L${x} ${y}`; if (y > Y0 - 16) break; }
+          SV('path', { d: path, stroke: col, 'stroke-width': sw, fill: 'none', 'stroke-linejoin': 'round' }, s); }
+      }
+    }
     // térszín: a jobb oldali (puha) altalaj a pillérrel együtt süllyed
-    const gp = `M0,${Y0} L390,${Y0} Q440,${Y0} 474,${Y0 + sink} L${W},${Y0 + sink} L${W},${Hh} L0,${Hh} Z`;
-    SV('path', { d: gp, fill: 'url(#pSand)' }, s); SV('clipPath', { id: 'frClip' }, s.querySelector('defs')).appendChild(SV('rect', { x: 400, y: 0, width: 200, height: Hh })); SV('path', { d: gp, fill: 'url(#pClay)', 'clip-path': 'url(#frClip)' }, s);
+    const gp = `M0,${Y0} L400,${Y0} Q448,${Y0} 482,${Y0 + sink} L${W},${Y0 + sink} L${W},${Hh} L0,${Hh} Z`;
+    SV('path', { d: gp, fill: 'url(#pSand)' }, s); SV('clipPath', { id: 'frClip' }, D).appendChild(SV('rect', { x: 410, y: 0, width: 190, height: Hh })); SV('path', { d: gp, fill: 'url(#pClay)', 'clip-path': 'url(#frClip)' }, s);
     SV('text', { x: 12, y: Hh - 12, text: 'dense sand', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s); SV('text', { x: W - 12, y: Hh - 12, 'text-anchor': 'end', text: 'soft clay', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    // oszlopok
-    for (let i = 0; i < 3; i++) SV('line', { x1: node(i, 0)[0], y1: node(i, 0)[1], x2: node(i, 3)[0], y2: node(i, 3)[1], stroke: 'var(--ink)', 'stroke-width': 6 }, s);
-    // gerendák
-    for (let j = 1; j <= 3; j++) for (let i = 0; i < 2; i++) { const a = node(i, j), b = node(i + 1, j); if (rigid && i === 1 && d > 0) { const c1 = [a[0] + 70, a[1]], c2 = [b[0] - 70, b[1]]; SV('path', { d: `M${a[0]},${a[1]} C${c1[0]},${c1[1]} ${c2[0]},${c2[1]} ${b[0]},${b[1]}`, stroke: 'var(--ink)', 'stroke-width': 6, fill: 'none' }, s); } else SV('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: 'var(--ink)', 'stroke-width': 6 }, s); }
-    for (let i = 0; i < 3; i++) for (let j = 1; j <= 3; j++) { const p = node(i, j); if (rigid) { if (d > 2 && i >= 1) SV('circle', { cx: p[0], cy: p[1], r: 6 + d * 0.4, fill: '#d4553a', opacity: .35 }, s); SV('rect', { x: p[0] - 5, y: p[1] - 5, width: 10, height: 10, fill: 'var(--ink)' }, s); } else SV('circle', { cx: p[0], cy: p[1], r: 6, fill: 'var(--card)', stroke: 'var(--ink)', 'stroke-width': 3 }, s); }
-    for (let i = 0; i < 3; i++) { const p = node(i, 0); SV('rect', { x: p[0] - 26, y: p[1], width: 52, height: 12, fill: '#bfc3c6', stroke: '#4b5458' }, s); }
+    // oszlopok és alaptestek
+    for (let i = 0; i < 3; i++) { SV('line', { x1: X[i], y1: Y0 + dy[i], x2: X[i], y2: top + dy[i], stroke: 'var(--ink)', 'stroke-width': 7 }, s); SV('rect', { x: X[i] - 28, y: Y0 + dy[i], width: 56, height: 14, fill: '#bfc3c6', stroke: '#4b5458' }, s); }
+    // gerendák: bal nyílás vízszintes; jobb nyílás merev keretnél hajlik, csuklósnál elfordul
+    SV('line', { x1: X[0], y1: top, x2: X[1], y2: top, stroke: 'var(--ink)', 'stroke-width': 7 }, s);
+    const bpts = []; for (let k = 0; k <= 24; k++) { const t = k / 24; bpts.push(`${(X[1] + t * (X[2] - X[1])).toFixed(1)},${beamR(t).toFixed(1)}`); }
+    SV('polyline', { points: bpts.join(' '), fill: 'none', stroke: 'var(--ink)', 'stroke-width': 7 }, s);
+    // csomópontok: merevnél négyzet (+ kényszererő-jelzés), csuklósnál kör
+    for (let i = 0; i < 3; i++) { const p = [X[i], top + dy[i]];
+      if (rigid) { if (d > 2 && i >= 1) SV('circle', { cx: p[0], cy: p[1], r: 7 + d * 0.45, fill: '#d4553a', opacity: .32 }, s); SV('rect', { x: p[0] - 6, y: p[1] - 6, width: 12, height: 12, fill: 'var(--ink)' }, s); }
+      else SV('circle', { cx: p[0], cy: p[1], r: 7, fill: 'var(--card)', stroke: 'var(--ink)', 'stroke-width': 3 }, s); }
     // a süllyedés mérete
-    if (d > 0) { const x = 556; SV('line', { x1: 474, x2: W, y1: Y0, y2: Y0, stroke: 'var(--ink2)', 'stroke-dasharray': '4 4' }, s); SV('line', { x1: x, x2: x, y1: Y0, y2: Y0 + sink, stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); SV('path', { d: `M${x - 5},${Y0 + sink - 7} L${x},${Y0 + sink} L${x + 5},${Y0 + sink - 7}`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
+    if (d > 0) { const x = 568; SV('line', { x1: 482, x2: W, y1: Y0, y2: Y0, stroke: 'var(--ink2)', 'stroke-dasharray': '4 4' }, s); SV('line', { x1: x, x2: x, y1: Y0, y2: Y0 + sink, stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); SV('path', { d: `M${x - 5},${Y0 + sink - 7} L${x},${Y0 + sink} L${x + 5},${Y0 + sink - 7}`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
     SV('text', { x: W - 12, y: Y0 - 10, 'text-anchor': 'end', text: `δ = ${d} mm`, 'font-size': 13.5, 'font-weight': 800, fill: 'var(--coral-ink)' }, s);
-    $('#frMsg').innerHTML = rigid ? `<b>Rigid joints (indeterminate):</b> less distortion, but the support settlement causes <b>restraint forces</b> (M, V) – the load is redistributed. ${d > 20 ? '<span class="status b">significant additional internal forces</span>' : ''}` : `<b>Pinned joints (determinate):</b> no restraint forces, the hinges rotate – but the <b>distortion</b> causes cracking and sticking in the infill walls. ${d > 20 ? '<span class="status b">wall cracks</span>' : ''}`;
+    const big = d > 20;
+    const msg = rigid
+      ? (wall ? `<b>Rigid joints, with infill masonry:</b> the support settlement causes <b>restraint forces</b> (M, V) in the frame, and the brittle <b>masonry cracks</b> in the distorting opening.` : `<b>Rigid joints, no infill masonry:</b> the joints cannot rotate, so the support settlement causes <b>restraint forces</b> (M, V) – the load is redistributed.`)
+      : (wall ? `<b>Pinned joints, with infill masonry:</b> there are no restraint forces in the frame, but the opening distorts and the <b>masonry cracks</b> – damage to the masonry must also be prevented.` : `<b>Pinned joints, no infill masonry</b> (e.g. a precast hall): the hinges rotate, <b>no additional internal forces</b> develop – the structure follows the settlement without damage.`);
+    const tag = d <= 2 ? '' : rigid ? (wall ? (big ? '<span class="status b">restraint forces + wall cracks</span>' : '') : (big ? '<span class="status b">significant additional internal forces</span>' : '')) : (wall ? (big ? '<span class="status b">wall cracks</span>' : '') : '<span class="status">no damage</span>');
+    const el = $('#frMsg'), html = msg + ' ' + tag; if (el.innerHTML !== html) el.innerHTML = html;
   };
-  window.U.seg('frType', v => { rigid = v === 'rigid'; draw(); }); bindR(['frD'], draw); draw();
+  window.U.seg('frType', v => { rigid = v === 'rigid'; draw(); }); $('#frWall').addEventListener('change', draw); bindR(['frD'], draw); draw();
 })();
 
 /* ---------- g) építési ütem telített agyagon ---------- */
@@ -2415,7 +2447,7 @@ const Q = {
     { q: 'How was the ballast removed during the construction of El Moro?', o: ['All at once, before construction of the superstructure', 'Day by day, by the same amount as the weight built in', 'It was never removed', 'After construction is complete, all at once'], a: 1, e: 'The ballast was <b>reduced day by day by the weight that had been built in</b> – the total weight stayed nearly constant.' },
   ],
   q8: [
-    { q: 'In an area prone to settlement, what kind of structure should we design if possible?', o: ['Statically indeterminate', 'An arch', 'Statically determinate', 'A rigid frame'], a: 2, e: 'A <b>statically determinate</b> structure if possible – the pinned connections can rotate, and no additional internal forces develop.' },
+    { q: 'In an area prone to settlement, what kind of structure should we design if possible?', o: ['Statically indeterminate', 'An arch', 'Statically determinate', 'A rigid frame'], a: 2, e: 'A <b>statically determinate</b> structure if possible – the pinned connections can rotate, and no additional internal forces develop in the load-bearing structure. The infill masonry can still crack: this must be prevented too.' },
     { q: 'What should be done with long building parts carrying different loads?', o: ['Separate them with a settlement joint', 'Build them together', 'Put them all on piles', 'Prestress them'], a: 0, e: 'They are best separated by a <b>settlement joint</b> (it is needed anyway because of thermal expansion).' },
     { q: 'When should the parts of the structure that are sensitive to settlement be built?', o: ['As early as possible', 'It does not matter', 'Together with the foundations', 'As late as possible'], a: 3, e: 'The parts sensitive to settlement should be built <b>as late as possible</b>.' },
     { q: 'What justifies slowing down construction on saturated clay?', o: ['The setting of the concrete', 'The increase in pore water pressure', 'The capacity of the crane', 'Frost'], a: 1, e: 'On saturated clay the <b>increase in pore water pressure</b> dictates a slower rate.' },
@@ -2457,7 +2489,7 @@ const TFI = [
   { s: 'The stabilised area reaches its final bearing capacity immediately.', t: false, e: 'Not at once – if necessary, a load-distributing layer (geotextile, geogrid, granular material) is built.' },
   { s: 'With preloading, part of the settlement is “forced out” before construction.', t: true, e: 'Afterwards a much smaller specific compression of a precompressed layer has to be expected.' },
   { s: 'At El Moro the ballast was removed all at once, before construction of the superstructure began.', t: false, e: 'It was reduced day by day, by the same amount as the weight built in – the total weight stayed nearly constant.' },
-  { s: 'In an area prone to settlement, a statically indeterminate structure should be designed if possible.', t: false, e: 'Determinate – with pinned connections no additional internal forces develop.' },
+  { s: 'In an area prone to settlement, a statically indeterminate structure should be designed if possible.', t: false, e: 'Determinate – with pinned connections no additional internal forces develop in the load-bearing structure; the infill masonry, however, can still crack due to the distortion.' },
   { s: 'Long building parts with different loads are best separated by a settlement joint.', t: true, e: 'It is needed anyway because of thermal expansion.' },
   { s: 'For structures with large settlement, utility connections are made with an oval opening, a flexible pipe and a sleeve.', t: true, e: 'This way the pipe can follow the movement.' },
   { s: 'The structural parts sensitive to settlement should be built as early as possible.', t: false, e: 'As late as possible.' },

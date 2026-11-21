@@ -21,4 +21,17 @@ ffe0df9	Diaphragm wall site
 7cb991e	Diaphragm walling in practice
 6a05153	Embedded retaining walls
 a13cd64	Diaphragm walling
-354205d	Try it: support settlement in a frame
+# 2026-11-21: 4/B – kitöltő falazat; csarnokkeret merev/csuklós, falazattal vagy anélkül
+be5c7e4	infill masonry
+07b6a0d	Support settlement in a hall frame
+dcfae11	Try it: support settlement in a hall frame
+37a2e34	This, however, also depends on whether there is <b>infill masonry</b>. When the hinges rotate, the frame opening distorts, and the stiff, brittle masonry cannot follow it: it <b>cracks</b> – just as it does when the joints are rigid. Pinned connections are really advantageous where there is no infill masonry and the structure consists only of columns, beams and floors – for example in <b>precast halls</b>. So the aim is not only to avoid damage to the load-bearing structure: <b>cracking of the infill masonry</b> must also be prevented.
+df01701	In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop in the load-bearing structure.
+a6ca5ef	<span class="status">no damage</span>
+a01ad1a	<span class="status b">restraint forces + wall cracks</span>
+8dee9e3	<b>Pinned joints, no infill masonry</b> (e.g. a precast hall): the hinges rotate, <b>no additional internal forces</b> develop – the structure follows the settlement without damage.
+53449ff	<b>Pinned joints, with infill masonry:</b> there are no restraint forces in the frame, but the opening distorts and the <b>masonry cracks</b> – damage to the masonry must also be prevented.
+358682c	<b>Rigid joints, no infill masonry:</b> the joints cannot rotate, so the support settlement causes <b>restraint forces</b> (M, V) – the load is redistributed.
+f7b4d68	<b>Rigid joints, with infill masonry:</b> the support settlement causes <b>restraint forces</b> (M, V) in the frame, and the brittle <b>masonry cracks</b> in the distorting opening.
+2f2f088	Determinate – with pinned connections no additional internal forces develop in the load-bearing structure; the infill masonry, however, can still crack due to the distortion.
+52affed	A <b>statically determinate</b> structure if possible – the pinned connections can rotate, and no additional internal forces develop in the load-bearing structure. The infill masonry can still crack: this must be prevented too.

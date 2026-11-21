@@ -638,3 +638,6 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 /* 4/D: három felvétel (cölöpalapozás, résfal, jet-grouting) egy sorban */
 .ytgrid.ytpair.yt3{grid-template-columns:repeat(3,minmax(0,280px))}
 @media (max-width:900px){.ytgrid.ytpair.yt3{grid-template-columns:minmax(0,320px)}}
+
+/* 4/B csarnokkeret: csomópont-választó és falazat-kapcsoló egy sorban */
+.frsw{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center}

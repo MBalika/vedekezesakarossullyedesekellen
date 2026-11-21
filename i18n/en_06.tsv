@@ -54,7 +54,6 @@ aa5244a	Statically indeterminate
 bec2ebb	Statically determinate
 d9e74db	An arch
 d447d8d	A rigid frame
-a2b2812	A <b>statically determinate</b> structure if possible – the pinned connections can rotate, and no additional internal forces develop.
 11b27bb	What should be done with long building parts carrying different loads?
 fb97938	Build them together
 9554426	Separate them with a settlement joint

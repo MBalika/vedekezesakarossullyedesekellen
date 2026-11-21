@@ -29,9 +29,7 @@ c1b70ff	=
 2a793d2	Σ = constant
 945b569	=
 d175e55	=
-01f91b9	<b>Rigid joints (indeterminate):</b> less distortion, but the support settlement causes <b>restraint forces</b> (M, V) – the load is redistributed. ${d > 20 ? '<span class="status b">jelentős többlet-igénybevétel</span>' : ''}
 3fa1306	<span class="status b">significant additional internal forces</span>
-3945320	<b>Pinned joints (determinate):</b> no restraint forces, the hinges rotate – but the <b>distortion</b> causes cracking and sticking in the infill walls. ${d > 20 ? '<span class="status b">falrepedések</span>' : ''}
 8945fa8	<span class="status b">wall cracks</span>
 54dffd4	=
 66d9894	settlement joint

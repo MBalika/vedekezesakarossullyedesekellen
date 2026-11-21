@@ -411,29 +411,57 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 
 /* ---------- f) szerkezeti merevség: merev vs csuklós keret ---------- */
 (function frame() {
+  /* egyhajós, két nyílású csarnokkeret: a jobb oszlop alatt puha agyag, a támasz δ-val süllyed;
+     merev vagy csuklós csomópontok, kitöltő falazattal vagy anélkül */
   const host = $('#frSvg'); if (!host) return; let rigid = true;
   const draw = () => {
-    const d = rv('frD'); out('frD', d + ' mm'); const W = 600, Hh = 330, X = [100, 300, 500], Y0 = 250, h = 62; const s = svg(host, W, Hh); pat(s);
-    const sink = d * 1.2; const dy = [0, 0, sink]; const node = (i, j) => [X[i], Y0 - j * h + dy[i]];
-    // kitöltő falak a jobb nyílásban
-    for (let j = 0; j < 3; j++) { const a = node(1, j), b = node(2, j), c = node(2, j + 1), e = node(1, j + 1); SV('polygon', { points: [a, b, c, e].map(p => p.join(',')).join(' '), fill: '#f5efe2', stroke: '#cfc7b6', opacity: .9 }, s);
-      if (!rigid && d > 6) { const k = Math.min(3, Math.floor(d / 8)); for (let q = 0; q < k; q++) SV('path', { d: `M${a[0] + 36 + q * 44},${(a[1] + b[1]) / 2 - 8} l14,-14 l-4,-6 l14,-12`, stroke: d > 24 ? '#b5302a' : '#3b2f28', 'stroke-width': 1 + d / 14, fill: 'none' }, s); } }
+    const d = rv('frD'), wall = $('#frWall').checked; out('frD', d + ' mm');
+    const W = 600, Hh = 330, X = [90, 300, 510], Y0 = 252, HC = 196; const s = svg(host, W, Hh); pat(s);
+    const sink = d * 1.2, top = Y0 - HC; const dy = [0, 0, sink];
+    const D = s.querySelector('defs');
+    // tégla minta a kitöltő falazathoz
+    const bp = SV('pattern', { id: 'pBrick', width: 24, height: 12, patternUnits: 'userSpaceOnUse' }, D);
+    SV('rect', { width: 24, height: 12, fill: '#d9a27e' }, bp); SV('path', { d: 'M0 0.5H24M0 6.5H24M6 0.5V6.5M18 6.5V12.5', stroke: '#f3e6d8', 'stroke-width': 1.2 }, bp);
+    // a jobb nyílás felső éle: merev keretnél kettős görbület, csuklósnál egyenes
+    const beamR = (t) => { const y = top + dy[1] + (top + dy[2] - top - dy[1]) * (rigid ? (3 * t * t - 2 * t * t * t) : t); return y; };
+    // kitöltő falazat mindkét nyílásban
+    if (wall) {
+      SV('rect', { x: X[0] + 4, y: top + 4, width: X[1] - X[0] - 8, height: HC - 4, fill: 'url(#pBrick)', stroke: '#b98263', 'stroke-width': 1 }, s);
+      const pts = []; for (let k = 0; k <= 20; k++) { const t = k / 20; pts.push([X[1] + 4 + t * (X[2] - X[1] - 8), beamR(t) + 4]); }
+      pts.push([X[2] - 4, Y0 + dy[2]], [X[1] + 4, Y0]);
+      SV('polygon', { points: pts.map(p => p.map(v => v.toFixed(1)).join(',')).join(' '), fill: 'url(#pBrick)', stroke: '#b98263', 'stroke-width': 1 }, s);
+      // ferde (lépcsős) nyírási repedések a torzuló jobb nyílásban
+      if (d > 4) { const n = Math.min(3, 1 + Math.floor(d / 12)), sw = 1 + d / 12, col = d > 24 ? '#b5302a' : '#5a3b2c';
+        for (let q = 0; q < n; q++) { const x0 = X[1] + 30 + q * 54, y0 = top + 26 + q * 6; let path = `M${x0} ${y0}`; let x = x0, y = y0;
+          for (let k = 0; k < 9; k++) { x += 8; path += `L${x} ${y}`; y += 12; path += `L${x} ${y}`; if (y > Y0 - 16) break; }
+          SV('path', { d: path, stroke: col, 'stroke-width': sw, fill: 'none', 'stroke-linejoin': 'round' }, s); }
+      }
+    }
     // térszín: a jobb oldali (puha) altalaj a pillérrel együtt süllyed
-    const gp = `M0,${Y0} L390,${Y0} Q440,${Y0} 474,${Y0 + sink} L${W},${Y0 + sink} L${W},${Hh} L0,${Hh} Z`;
-    SV('path', { d: gp, fill: 'url(#pSand)' }, s); SV('clipPath', { id: 'frClip' }, s.querySelector('defs')).appendChild(SV('rect', { x: 400, y: 0, width: 200, height: Hh })); SV('path', { d: gp, fill: 'url(#pClay)', 'clip-path': 'url(#frClip)' }, s);
+    const gp = `M0,${Y0} L400,${Y0} Q448,${Y0} 482,${Y0 + sink} L${W},${Y0 + sink} L${W},${Hh} L0,${Hh} Z`;
+    SV('path', { d: gp, fill: 'url(#pSand)' }, s); SV('clipPath', { id: 'frClip' }, D).appendChild(SV('rect', { x: 410, y: 0, width: 190, height: Hh })); SV('path', { d: gp, fill: 'url(#pClay)', 'clip-path': 'url(#frClip)' }, s);
     SV('text', { x: 12, y: Hh - 12, text: 'tömör homok', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s); SV('text', { x: W - 12, y: Hh - 12, 'text-anchor': 'end', text: 'puha agyag', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    // oszlopok
-    for (let i = 0; i < 3; i++) SV('line', { x1: node(i, 0)[0], y1: node(i, 0)[1], x2: node(i, 3)[0], y2: node(i, 3)[1], stroke: 'var(--ink)', 'stroke-width': 6 }, s);
-    // gerendák
-    for (let j = 1; j <= 3; j++) for (let i = 0; i < 2; i++) { const a = node(i, j), b = node(i + 1, j); if (rigid && i === 1 && d > 0) { const c1 = [a[0] + 70, a[1]], c2 = [b[0] - 70, b[1]]; SV('path', { d: `M${a[0]},${a[1]} C${c1[0]},${c1[1]} ${c2[0]},${c2[1]} ${b[0]},${b[1]}`, stroke: 'var(--ink)', 'stroke-width': 6, fill: 'none' }, s); } else SV('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: 'var(--ink)', 'stroke-width': 6 }, s); }
-    for (let i = 0; i < 3; i++) for (let j = 1; j <= 3; j++) { const p = node(i, j); if (rigid) { if (d > 2 && i >= 1) SV('circle', { cx: p[0], cy: p[1], r: 6 + d * 0.4, fill: '#d4553a', opacity: .35 }, s); SV('rect', { x: p[0] - 5, y: p[1] - 5, width: 10, height: 10, fill: 'var(--ink)' }, s); } else SV('circle', { cx: p[0], cy: p[1], r: 6, fill: 'var(--card)', stroke: 'var(--ink)', 'stroke-width': 3 }, s); }
-    for (let i = 0; i < 3; i++) { const p = node(i, 0); SV('rect', { x: p[0] - 26, y: p[1], width: 52, height: 12, fill: '#bfc3c6', stroke: '#4b5458' }, s); }
+    // oszlopok és alaptestek
+    for (let i = 0; i < 3; i++) { SV('line', { x1: X[i], y1: Y0 + dy[i], x2: X[i], y2: top + dy[i], stroke: 'var(--ink)', 'stroke-width': 7 }, s); SV('rect', { x: X[i] - 28, y: Y0 + dy[i], width: 56, height: 14, fill: '#bfc3c6', stroke: '#4b5458' }, s); }
+    // gerendák: bal nyílás vízszintes; jobb nyílás merev keretnél hajlik, csuklósnál elfordul
+    SV('line', { x1: X[0], y1: top, x2: X[1], y2: top, stroke: 'var(--ink)', 'stroke-width': 7 }, s);
+    const bpts = []; for (let k = 0; k <= 24; k++) { const t = k / 24; bpts.push(`${(X[1] + t * (X[2] - X[1])).toFixed(1)},${beamR(t).toFixed(1)}`); }
+    SV('polyline', { points: bpts.join(' '), fill: 'none', stroke: 'var(--ink)', 'stroke-width': 7 }, s);
+    // csomópontok: merevnél négyzet (+ kényszererő-jelzés), csuklósnál kör
+    for (let i = 0; i < 3; i++) { const p = [X[i], top + dy[i]];
+      if (rigid) { if (d > 2 && i >= 1) SV('circle', { cx: p[0], cy: p[1], r: 7 + d * 0.45, fill: '#d4553a', opacity: .32 }, s); SV('rect', { x: p[0] - 6, y: p[1] - 6, width: 12, height: 12, fill: 'var(--ink)' }, s); }
+      else SV('circle', { cx: p[0], cy: p[1], r: 7, fill: 'var(--card)', stroke: 'var(--ink)', 'stroke-width': 3 }, s); }
     // a süllyedés mérete
-    if (d > 0) { const x = 556; SV('line', { x1: 474, x2: W, y1: Y0, y2: Y0, stroke: 'var(--ink2)', 'stroke-dasharray': '4 4' }, s); SV('line', { x1: x, x2: x, y1: Y0, y2: Y0 + sink, stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); SV('path', { d: `M${x - 5},${Y0 + sink - 7} L${x},${Y0 + sink} L${x + 5},${Y0 + sink - 7}`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
+    if (d > 0) { const x = 568; SV('line', { x1: 482, x2: W, y1: Y0, y2: Y0, stroke: 'var(--ink2)', 'stroke-dasharray': '4 4' }, s); SV('line', { x1: x, x2: x, y1: Y0, y2: Y0 + sink, stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); SV('path', { d: `M${x - 5},${Y0 + sink - 7} L${x},${Y0 + sink} L${x + 5},${Y0 + sink - 7}`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
     SV('text', { x: W - 12, y: Y0 - 10, 'text-anchor': 'end', text: `δ = ${d} mm`, 'font-size': 13.5, 'font-weight': 800, fill: 'var(--coral-ink)' }, s);
-    $('#frMsg').innerHTML = rigid ? `<b>Merev csomópontok (határozatlan):</b> kisebb torzulás, de a támaszsüllyedés <b>kényszererőket</b> (M, V) okoz – a teher átrendeződik. ${d > 20 ? '<span class="status b">jelentős többlet-igénybevétel</span>' : ''}` : `<b>Csuklós csomópontok (határozott):</b> nincs kényszererő, a csuklók elfordulnak – de a <b>torzulás</b> a kitöltő falakban repedést, befeszülést okoz. ${d > 20 ? '<span class="status b">falrepedések</span>' : ''}`;
+    const big = d > 20;
+    const msg = rigid
+      ? (wall ? `<b>Merev csomópontok, kitöltő falazattal:</b> a támaszsüllyedés <b>kényszererőket</b> (M, V) okoz a keretben, és a torzuló nyílásban a rideg <b>falazat megreped</b>.` : `<b>Merev csomópontok, kitöltő falazat nélkül:</b> a csomópontok nem tudnak elfordulni, a támaszsüllyedés <b>kényszererőket</b> (M, V) okoz – a teher átrendeződik.`)
+      : (wall ? `<b>Csuklós csomópontok, kitöltő falazattal:</b> a keretben nincs kényszererő, de a nyílás torzul, és a <b>falazat megreped</b> – a falazat károsodását is meg kell akadályozni.` : `<b>Csuklós csomópontok, kitöltő falazat nélkül</b> (pl. előregyártott csarnok): a csuklók elfordulnak, <b>nincs többlet-igénybevétel</b> – a szerkezet károsodás nélkül követi a süllyedést.`);
+    const tag = d <= 2 ? '' : rigid ? (wall ? (big ? '<span class="status b">kényszererő + falrepedés</span>' : '') : (big ? '<span class="status b">jelentős többlet-igénybevétel</span>' : '')) : (wall ? (big ? '<span class="status b">falrepedések</span>' : '') : '<span class="status">nincs károsodás</span>');
+    const el = $('#frMsg'), html = msg + ' ' + tag; if (el.innerHTML !== html) el.innerHTML = html;
   };
-  window.U.seg('frType', v => { rigid = v === 'rigid'; draw(); }); bindR(['frD'], draw); draw();
+  window.U.seg('frType', v => { rigid = v === 'rigid'; draw(); }); $('#frWall').addEventListener('change', draw); bindR(['frD'], draw); draw();
 })();
 
 /* ---------- g) építési ütem telített agyagon ---------- */
