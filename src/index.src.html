@@ -258,18 +258,6 @@
     </div>
     <div class="procfig" id="kcFig"></div>
     <div data-ytc="cNkNZV6kgqk"></div>
-    <h4 class="tryh">Próbáld ki: raszter és hatás</h4>
-    <div class="solo">
-    <div class="panel"><div class="ph"><h4>Raszter és hatás (felülnézet)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">háromszög</button><button data-v="sq">négyzet</button></div></div><div class="pb">
-      <div id="kcSvg"></div>
-      <div class="ctl"><label>Oszlopátmérő d <span class="v" data-for="kcD"></span></label><input type="range" id="kcD" min="0.5" max="1.1" step="0.05" value="0.8"></div>
-      <div class="ctl"><label>Raszterköz s <span class="v" data-for="kcS"></span></label><input type="range" id="kcS" min="1.4" max="3.2" step="0.1" value="2.0"></div>
-      <div class="ctl"><label>Feszültségkoncentráció n (oszlop/talaj) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
-      <div class="res" id="kcOut"></div>
-      <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
-      <p class="src" style="margin-top:8px">Egységcella-modell: a<sub>s</sub> = C·(d/s)², C = 0,907 (háromszög) / 0,785 (négyzet); süllyedéscsökkentés s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. Az oszlopok függőleges drénként is gyorsítják a konszolidációt.</p>
-    </div></div>
-    </div>
   </div>
   <div class="quiz" id="q5"><div class="qh"><h4>Önellenőrzés · 2/A–2/D</h4><div class="dots"></div></div></div>
 </div></section>
@@ -295,21 +283,6 @@
         <tr><td><b>3/E · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással; javított cementhabarcs, duzzadó PU hab</td><td>padozat alatti üreg, kőzetüreg, pince, bányajárat, akna, közművezeték</td></tr>
       </tbody>
     </table></div>
-    <div class="sub-h"><span class="lt">⚗</span><h3>Injektálóanyagok és a talaj szemcsézete</h3></div>
-    <div class="twocol tw-top">
-      <div>
-        <div class="facts"><span class="fact">cementtej</span><span class="fact">mikrocement</span><span class="fact">cementhabarcs</span><span class="fact">vízüveg (nátriumszilikát) alapú</span><span class="fact">akrilamid</span><span class="fact">lignoszulfit – lignoszulfát</span><span class="fact">fenoplast</span><span class="fact">aminoplast</span><span class="fact">duzzadó poliuretán hab</span><span class="fact">egyéb</span></div>
-        <h4 style="margin:16px 0 6px">Cementbesajtolás (itatásos injektálás cementtel)</h4>
-        <p>A perforált besajtoló csöveket egymástól <b>50–100 cm</b> távolságban helyezik el, és <b>7–10 atm</b> nyomáson juttatják le a cementtejet vagy cement+homok habarcsot. A hézagoknak nagyobbnak kell lenniük a cementszemcse átmérőjénél, ezért csak <b>0,8–1 mm-nél durvább</b> homok-kavics, illetve üreges, repedezett kötött talaj injektálható vele. Csőfelhúzás közben <b>alulról felfelé</b> kell injektálni.</p>
-      </div>
-      <div>
-        <h4 style="margin:0 0 6px">Kétkomponensű, duzzadó műgyanta</h4>
-        <p>Homokos és iszapos talajban (agyagban nem hatékony). Folyékonyan, nagyobb nyomással jut a talajba, kitölti az üregeket, réseket, repedéseket és összeköti a szemcséket; pár perc múlva <b>duzzadni kezd</b>, és a talajjal nagyon kemény <b>geokompozitot</b> alkot – nő a kohézió, jelentősen csökken a pórustérfogat. Gyakori utólagos alapmegerősítésre.</p>
-      </div>
-    </div>
-    <div class="sub-h"><span class="lt">📷</span><h3>Utólagos alapmegerősítés injektálással – lépésről lépésre</h3></div>
-    <div class="stepper" id="injBar"></div>
-    <div id="injPhotos"></div>
     <div data-ytc="CgKwZBWn_xM"></div>
     <div class="sub-h try" id="injsim"><span class="lt">3/A–E</span><h3>Próbáld ki: az öt módszer animációban</h3></div>
     <p>Válassz módszert, és indítsd el az animációt!</p>
@@ -321,15 +294,6 @@
         <div class="ctl" style="margin-top:10px"><label>Előrehaladás <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
       </div></div>
       <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
-    </div>
-    <h4 class="tryh">Próbáld ki: melyik anyag jut be a hézagokba?</h4>
-    <div class="solo">
-    <div class="panel"><div class="ph"><h4>Melyik anyag jut be a hézagokba?</h4></div><div class="pb">
-      <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">kavics</button><button data-v="durva" class="on">durva homok</button><button data-v="kozep">középhomok</button><button data-v="finom">finom homok</button><button data-v="iszap">iszap</button><button data-v="agyag">agyag</button><button data-v="repedt">repedezett</button></div>
-      <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
-      <div class="mlist" id="grOut" style="margin-top:12px"></div>
-      <p class="src" style="margin-top:8px">Kitekintés: egy elterjedt ökölszabály szerint a cementalapú injektálás akkor lehetséges, ha N = D<sub>15</sub>(talaj)/D<sub>85</sub>(injektálóanyag) &gt; 24, és nem lehetséges, ha N &lt; 11. A portlandcement átlagos szemcsemérete kb. 15 µm, a mikrocementé 3–4 µm (szemcséinek 95 %-a 20 µm-nél finomabb).</p>
-    </div></div>
     </div>
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">

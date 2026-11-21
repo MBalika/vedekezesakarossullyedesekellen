@@ -638,6 +638,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 /* 2/B és 2/C: közös felvétel – a kártya fölötti megjegyzés */
 .ytshare{margin:26px auto -12px;max-width:720px;text-align:center!important;text-align-last:center;font-weight:700;color:var(--ink2)}
 
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -1007,18 +1008,6 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     </div>
     <div class="procfig" id="kcFig"></div>
     <div data-ytc="2iWMoVIZc_k"></div>
-    <h4 class="tryh">Try it: grid and effect</h4>
-    <div class="solo">
-    <div class="panel"><div class="ph"><h4>Grid and effect (plan view)</h4><div class="seg" id="kcPat"><button data-v="tri" class="on">triangular</button><button data-v="sq">square</button></div></div><div class="pb">
-      <div id="kcSvg"></div>
-      <div class="ctl"><label>Column diameter d <span class="v" data-for="kcD"></span></label><input type="range" id="kcD" min="0.5" max="1.1" step="0.05" value="0.8"></div>
-      <div class="ctl"><label>Spacing s <span class="v" data-for="kcS"></span></label><input type="range" id="kcS" min="1.4" max="3.2" step="0.1" value="2.0"></div>
-      <div class="ctl"><label>Stress concentration n (column/soil) <span class="v" data-for="kcN"></span></label><input type="range" id="kcN" min="2" max="6" step="0.1" value="3.5"></div>
-      <div class="res" id="kcOut"></div>
-      <div class="meter" style="margin-top:10px"><i id="kcBar" style="background:var(--teal)"></i></div>
-      <p class="src" style="margin-top:8px">Unit cell model: a<sub>s</sub> = C·(d/s)², C = 0.907 (triangular) / 0.785 (square); settlement reduction s/s<sub>0</sub> = 1 / [1 + a<sub>s</sub>·(n − 1)]. The columns also speed up consolidation as vertical drains.</p>
-    </div></div>
-    </div>
   </div>
   <div class="quiz" id="q5"><div class="qh"><h4>Self-check · 2/A–2/D</h4><div class="dots"></div></div></div>
 </div></section>
@@ -1044,21 +1033,6 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
         <tr><td><b>3/E · Void filling</b></td><td>an existing void is filled</td><td>voids, cellars, galleries</td><td>by gravity or at low pressure; improved cement mortar, expanding PU foam</td><td>void under a floor slab, rock cavity, cellar, mine gallery, shaft, utility pipe</td></tr>
       </tbody>
     </table></div>
-    <div class="sub-h"><span class="lt">⚗</span><h3>Grouting materials and soil grading</h3></div>
-    <div class="twocol tw-top">
-      <div>
-        <div class="facts"><span class="fact">cement grout</span><span class="fact">microfine cement</span><span class="fact">cement mortar</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">expanding polyurethane foam</span><span class="fact">other</span></div>
-        <h4 style="margin:16px 0 6px">Cement grouting (permeation grouting with cement)</h4>
-        <p>The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.</p>
-      </div>
-      <div>
-        <h4 style="margin:0 0 6px">Two-component, expanding resin</h4>
-        <p>In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.</p>
-      </div>
-    </div>
-    <div class="sub-h"><span class="lt">📷</span><h3>Retrofit strengthening of a foundation by grouting – step by step</h3></div>
-    <div class="stepper" id="injBar"></div>
-    <div id="injPhotos"></div>
     <div data-ytc="bVTljbQcE6U"></div>
     <div class="sub-h try" id="injsim"><span class="lt">3/A–E</span><h3>Try it: the five methods as an animation</h3></div>
     <p>Choose a method and start the animation!</p>
@@ -1070,15 +1044,6 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
         <div class="ctl" style="margin-top:10px"><label>Progress <span class="v" data-for="injT"></span></label><input type="range" id="injT" min="0" max="100" value="100"></div>
       </div></div>
       <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
-    </div>
-    <h4 class="tryh">Try it: which material gets into the voids?</h4>
-    <div class="solo">
-    <div class="panel"><div class="ph"><h4>Which material gets into the voids?</h4></div><div class="pb">
-      <div class="seg" id="grSoil" style="margin-bottom:12px"><button data-v="kavics">gravel</button><button data-v="durva" class="on">coarse sand</button><button data-v="kozep">medium sand</button><button data-v="finom">fine sand</button><button data-v="iszap">silt</button><button data-v="agyag">clay</button><button data-v="repedt">fissured</button></div>
-      <div id="grSvg" style="border-radius:10px;overflow:hidden"></div>
-      <div class="mlist" id="grOut" style="margin-top:12px"></div>
-      <p class="src" style="margin-top:8px">Outlook: according to a widely used rule of thumb, cement-based grouting is possible if N = D<sub>15</sub>(soil)/D<sub>85</sub>(grout) &gt; 24, and not possible if N &lt; 11. The mean particle size of Portland cement is about 15 µm, that of microfine cement 3–4 µm (95% of its particles are finer than 20 µm).</p>
-    </div></div>
     </div>
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
@@ -1860,24 +1825,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 /* ---------- kőtömzs ---------- */
 /* (a kőtömzs régi lépésábrája helyett: proc.js – ktFig) */
 
-/* ---------- kavicscölöp raszter ---------- */
-(function stoneCol() {
-  const host = $('#kcSvg'); if (!host) return; let tri = true;
-  const draw = () => {
-    const d = rv('kcD'), sp = rv('kcS'), n = rv('kcN'); out('kcD', fmt(d, 2) + ' m'); out('kcS', fmt(sp, 1) + ' m'); out('kcN', fmt(n, 1));
-    const C1 = tri ? 0.907 : 0.785; const as = C1 * (d / sp) ** 2; const ratio = 1 / (1 + as * (n - 1)); const De = (tri ? 1.05 : 1.13) * sp;
-    const W = 460, Hh = 270, k = 52; const s = svg(host, W, Hh); pat(s); SV('rect', { x: 0, y: 0, width: W, height: Hh, fill: 'url(#pClay)' }, s);
-    const cols = []; const dy = tri ? sp * Math.sqrt(3) / 2 : sp; for (let j = -1; j * dy * k < Hh + 60; j++) for (let i = -1; i * sp * k < W + 60; i++) { const x = (i * sp + (tri && j % 2 ? sp / 2 : 0)) * k + 40, y = j * dy * k + 40; cols.push([x, y]); }
-    const mid = cols.reduce((b, c) => Math.hypot(c[0] - W / 2, c[1] - Hh / 2) < Math.hypot(b[0] - W / 2, b[1] - Hh / 2) ? c : b, cols[0]);
-    SV('circle', { cx: mid[0], cy: mid[1], r: De / 2 * k, fill: '#39c2a5', opacity: .25, stroke: '#0d7a68', 'stroke-dasharray': '6 4', 'stroke-width': 2 }, s);
-    cols.forEach(([x, y]) => SV('circle', { cx: x, cy: y, r: d / 2 * k, fill: 'url(#pGrav)', stroke: '#5b4c3c', 'stroke-width': 1.5 }, s));
-    SV('text', { x: mid[0], y: Math.min(Hh - 8, mid[1] + De / 2 * k + 18), 'text-anchor': 'middle', text: `unit cell: D_{e} = ${fmt(De, 2)} m`, 'font-size': 13, 'font-weight': 800, class: 'hl' }, s);
-    $('#kcOut').innerHTML = `<div class="r"><span>area replacement ratio a<sub>s</sub></span><b>${pct(as * 100, 1)}</b></div><div class="r"><span>settlement after treatment (s/s<sub>0</sub>)</span><b style="color:var(--ok)">${pct(ratio * 100)} (−${pct((1 - ratio) * 100)})</b></div>`;
-    const bar = $('#kcBar'); bar.style.width = (ratio * 100) + '%';
-  };
-  window.U.seg('kcPat', v => { tri = v === 'tri'; draw(); }); bindR(['kcD', 'kcS', 'kcN'], draw); draw();
-})();
-
 /* ---------- injektálás: öt módszer egy metszeten ---------- */
 (function injMethods() {
   const host = $('#injSvg'); if (!host) return;
@@ -1989,38 +1936,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
   if (r) r.addEventListener('input', () => { cancelAnimationFrame(raf); u = +r.value / 100; frame(); });
   build(); info(); u = 1; frame();
   let seen = false; const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !seen) { seen = true; if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play(); } })); io.observe(host);
-})();
-
-/* ---------- injektálás: melyik anyag? ---------- */
-(function grout() {
-  const host = $('#grSvg'); if (!host) return;
-  const SOIL = { kavics: { n: 'Gravel', d: 6, cem: 2, pu: 1, ch: 1 }, durva: { n: 'Coarse sand (> 1 mm)', d: 1.5, cem: 2, pu: 2, ch: 1 }, kozep: { n: 'Medium sand', d: .5, cem: 0, pu: 2, ch: 2 }, finom: { n: 'Fine sand', d: .18, cem: 0, pu: 2, ch: 2 }, iszap: { n: 'Silty sand, silt', d: .05, cem: 0, pu: 1, ch: 1 }, agyag: { n: 'Clay', d: .004, cem: 0, pu: 0, ch: 0 }, repedt: { n: 'Fissured cohesive soil', d: 0, cem: 2, pu: 1, ch: 0 } };
-  let key = 'durva'; let raf = null;
-  const draw = () => {
-    const S0 = SOIL[key]; const W = 560, Hh = 260; const s = svg(host, W, Hh); SV('rect', { x: 0, y: 0, width: W, height: Hh, fill: '#3b2f27' }, s);
-    const t = performance.now() / 1000;
-    if (key === 'repedt') { SV('rect', { x: 0, y: 0, width: W, height: Hh, fill: '#7a6553' }, s); [['M60,0 L120,90 L100,160 L170,260', 1], ['M300,0 L270,120 L330,200 L310,260', 1], ['M460,0 L420,80 L470,170 L440,260', 1]].forEach(([d]) => SV('path', { d, stroke: '#2a211b', 'stroke-width': 10, fill: 'none' }, s)); }
-    else { const r = clamp(S0.d / 6 * 70, 6, 70); const step = r * 2.05; let seed = 7; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647; for (let y = r; y < Hh + r; y += step * .88) for (let x = (Math.round(y / step) % 2) * r; x < W + r; x += step) SV('circle', { cx: x + (rnd() - .5) * r * .2, cy: y, r: r * (.9 + rnd() * .15), fill: ['#c9a96b', '#b8955a', '#d6b97f'][Math.floor(rnd() * 3)], stroke: '#8a6d3e', 'stroke-width': 1 }, s); }
-    // cementszemcsék (≈ 15 µm átlag, d85 néhány tized mm-ig – szemléltetés)
-    const pass = S0.cem === 2; for (let i = 0; i < 30; i++) { const x = (i * 97) % W, ph = (t * (pass ? 60 : 20) + i * 37) % (pass ? Hh : 26); SV('circle', { cx: x + Math.sin(t + i) * 4, cy: ph, r: 3, fill: '#e8e8e8', opacity: .95 }, s); }
-    if (!pass) SV('rect', { x: 0, y: 0, width: W, height: 10, fill: '#e8e8e8', opacity: .8 }, s);
-    const lb = SV('text', { x: 18, y: Hh - 16, text: `${S0.n} · ⚪ cement particles`, 'font-size': 12.5, 'font-weight': 700, fill: '#fff' }, s); const lw = (lb.getComputedTextLength ? lb.getComputedTextLength() : 220) + 20; s.insertBefore(SV('rect', { x: 8, y: Hh - 34, width: lw, height: 26, rx: 6, fill: 'rgba(0,0,0,.62)' }), lb);
-  };
-  const res = () => { const S0 = SOIL[key]; const L = ['✗ not suitable', '◐ limited', '✓ suitable']; const C = ['b', 'w', '']; $('#grOut').innerHTML = `<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cement grouting</h5><p>only sand-gravel coarser than 0.8–1 mm, or cohesive soil with cavities and fissures</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Two-component resin</h5><p>sandy and silty soil – not effective in clay</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Chemicals (e.g. water glass based)</h5><p>low-viscosity solutions – they also penetrate finer sands</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>`; };
-  window.U.seg('grSoil', v => { key = v; res(); });
-  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { const lp = () => { draw(); raf = requestAnimationFrame(lp); }; if (!raf) lp(); } else { cancelAnimationFrame(raf); raf = null; } })); io.observe(host);
-  res(); draw();
-})();
-
-/* ---------- injektálás munkafázisai (fotók) ---------- */
-(function injSteps() {
-  const box = $('#injPhotos'); if (!box) return; const D = [
-    { t: '1. Boreholes', d: 'Drilling grout holes every 50–100 cm, on the outer and inner side of the wall to be strengthened.', img: ['inj-1a', 'inj-1b'] },
-    { t: '2. Grout pipes', d: 'Placing perforated grout pipes (tubes) in the holes.', img: ['inj-2a', 'inj-2b'] },
-    { t: '3. Injection', d: 'Grouting at a pressure of 7–10 bar; meanwhile the movement of the building is monitored with a laser level – injection stops if it rises.', img: ['inj-3a', 'inj-3b'] },
-    { t: '4. The effect', d: 'Blow counts of dynamic probing before and after grouting: the resistance of the soil increased considerably in the treated zone.', img: ['inj-4'] }];
-  const bar = $('#injBar'); const show = (k) => { $$('button', bar).forEach((b, i) => b.classList.toggle('on', i === k)); const d = D[k]; box.innerHTML = `<div class="grid ${d.img.length > 1 ? 'g2' : ''}">${d.img.map(i => `<figure class="photo ${i === 'inj-4' ? 'contain' : ''}"><img src="img/${i === 'inj-4' ? 'en/' : ''}${i}.jpg" alt="${d.t}" loading="lazy" style="${i === 'inj-4' ? 'height:300px' : ''}"></figure>`).join('')}</div><p style="margin-top:10px"><b>${d.t}.</b> ${d.d}</p>`; };
-  D.forEach((d, i) => { const b = H('button', {}, d.t); b.addEventListener('click', () => show(i)); bar.appendChild(b); }); show(0);
 })();
 
 /* ---------- tömegstabilizáció ---------- */
@@ -2311,27 +2226,77 @@ const strip = (host, steps, opt = {}) => {
 /* ========== 2/D kavicscölöp – vibrált kőoszlop ========== */
 (function columnFig() {
   const host = $('#kcFig'); if (!host) return;
-  const soil = [{ to: 206, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
-  const names = (g) => { layerName(g, 8, 200, 'soft soil'); layerName(g, 8, 242, 'bearing layer'); };
-  /* vezetőoszlopos alapgép zsilipes, alsó adagolású vibrátorral; skip: az anyagtartály helye az árbocon */
-  const rig = (g, x, nose, skipY = 120, support = true) => {
-    tracks(g, x + 8, 64, GY);
-    R(x + 14, GY - 34, 52, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(x + 40, GY - 31, 14, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
-    R(x - 4, 50, 7, GY - 50 - 10, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); for (let y = 56; y < GY - 14; y += 10) L(x - 4, y, x + 3, y + 10, { stroke: C.yelD, 'stroke-width': .7 }, g);
-    L(x + 3, 92, x + 18, GY - 34, { stroke: C.yelD, 'stroke-width': 2 }, g);
-    if (support) P(`M${x + 70} ${GY - 16}L${x + 80} ${GY}M${x + 76} ${GY}L${x + 84} ${GY}`, { stroke: C.steelD, 'stroke-width': 2.2 }, g);
-    R(x - 18, 50, 12, nose - 50 - 40, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
-    P(`M${x - 22} 52L${x - 2} 52L${x - 6} 66L${x - 18} 66Z`, { fill: '#8e969d', stroke: C.steelD }, g);
-    R(x - 19, nose - 42, 14, 34, { rx: 2, fill: '#5d646b', stroke: C.steelD }, g); P(`M${x - 19} ${nose - 8}L${x - 12} ${nose}L${x - 5} ${nose - 8}Z`, { fill: C.steelD }, g);
-    R(x + 4, skipY, 18, 14, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g);
-    return x - 12;
+  /* vastag puha réteg (GY–222), alatta a teherbíró réteg; a kőoszlop a teherbíró rétegig ér */
+  const YB = 222, YT = 230, VX = 144, LV = 92, MX = 163;
+  const soil = [{ to: YB, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
+  const names = (g) => { layerName(g, 8, YB - 8, 'soft soil'); layerName(g, 8, 244, 'bearing layer'); };
+  /* vezetőoszlopos (árbocos) lánctalpas alapgép; a hosszú, zsilipes (alsó adagolású) mélyvibrátor az árboc előtt,
+     a teljes cölöphossznyi csővel; tip: a vibrátor csúcsa; skip: az anyagtartály (puttony) helyzete az árboc sínjén */
+  const rig = (g, tip, o = {}) => {
+    tracks(g, 156, 74, GY);
+    R(166, GY - 34, 56, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(200, GY - 31, 15, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+    if (o.support !== false) P(`M222 ${GY - 16}L234 ${GY}M230 ${GY}L240 ${GY}`, { stroke: C.steelD, 'stroke-width': 2.2 }, g);
+    // árboc (rácsos vezetőoszlop) a terepig, támasztórúd a felsővázhoz
+    R(MX - 4, 42, 9, GY - 12 - 42, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); for (let y = 46; y < GY - 16; y += 10) L(MX - 4, y, MX + 5, y + 10, { stroke: C.yelD, 'stroke-width': .7 }, g);
+    L(MX + 5, 84, 180, GY - 34, { stroke: C.yelD, 'stroke-width': 2.2 }, g);
+    // a puttony sínje az árboc bal oldalán
+    L(VX - 13, 52, VX - 13, GY - 2, { stroke: C.steelD, 'stroke-width': 1.4 }, g); [70, 110].forEach(y => L(VX - 13, y, MX - 4, y, { stroke: C.steelD, 'stroke-width': 1, opacity: .7 }, g));
+    // mélyvibrátor: tölcsér + zsilipkamra felül, hosszú cső, vibrátortest, orr
+    const top = tip - LV;
+    P(`M${VX - 11} ${top - 8}L${VX + 11} ${top - 8}L${VX + 6} ${top}L${VX - 6} ${top}Z`, { fill: '#8e969d', stroke: C.steelD, 'stroke-width': .9 }, g);
+    R(VX - 8, top, 16, 12, { rx: 2, fill: '#5d646b', stroke: C.steelD, 'stroke-width': 1 }, g);
+    R(VX - 4, top + 12, 8, LV - 12 - 34, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+    R(VX - 6, tip - 34, 12, 26, { rx: 2, fill: '#5d646b', stroke: C.steelD, 'stroke-width': 1 }, g); for (let i = 0; i < 3; i++) L(VX - 5, tip - 28 + i * 8, VX + 5, tip - 28 + i * 8, { stroke: '#8d959c', 'stroke-width': .8 }, g);
+    P(`M${VX - 6} ${tip - 8}L${VX} ${tip}L${VX + 6} ${tip - 8}Z`, { fill: C.steelD }, g);
+    // vezetőkapcsok az árbochoz (a terep fölött)
+    [top + 4, Math.min(top + 30, GY - 20)].forEach(y => { if (y < GY - 6) L(VX + 6, y, MX - 4, y, { stroke: C.steelD, 'stroke-width': 1.6 }, g); });
+    if (o.skip === 'bottom') skip(g, GY - 17);
+    return top;
   };
+  /* puttony (anyagtartály) az árboc sínjén; tilt: billentve, a zsilip tölcsérébe ürít */
+  const skip = (g, y, tilt = false, ghost = false) => {
+    const st = ghost ? { fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.3, 'stroke-dasharray': '3 2' } : { fill: '#8e969d', stroke: C.steelD, 'stroke-width': 1 };
+    const gg = SV('g', tilt ? { transform: `rotate(-38 ${VX - 14} ${y})` } : {}, g);
+    P(`M${VX - 36} ${y}L${VX - 14} ${y}L${VX - 17} ${y + 15}L${VX - 33} ${y + 15}Z`, st, gg);
+    return gg;
+  };
+  const pebbles = (g, x0, y0, x1, y1, n = 7) => { for (let i = 0; i < n; i++) { const t = i / (n - 1); SV('circle', { cx: x0 + (x1 - x0) * t + (i % 2 ? 1.6 : -1.6), cy: y0 + (y1 - y0) * t, r: 1.8, fill: '#9a8a70', stroke: '#6b5a44', 'stroke-width': .5 }, g); } };
+  /* kész (tömörített) kavicsoszlop GY-tól a teherbíró rétegig, kis kiöblösödésekkel */
+  const column = (g, x, yTop, yBot, w = 11) => gravel(g, `M${x - w + 1} ${yTop}Q${x - w - 3} ${(yTop + yBot) / 2} ${x - w} ${yBot - 4}Q${x} ${yBot + 5} ${x + w} ${yBot - 4}Q${x + w + 3} ${(yTop + yBot) / 2} ${x + w - 1} ${yTop}Z`);
   strip(host, [
-    { t: 'Preparation', c: ['the base machine sets the vibrator', 'over the set-out point, on outriggers'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4); P(`M131 ${GY + 2}L138 ${GY + 12}L145 ${GY + 2}`, { stroke: 'var(--coral)', 'stroke-width': 2, fill: 'none' }, g); } },
-    { t: 'Filling', c: ['the loader fills the skip, which is', 'hoisted up the mast into the lock'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4, 62); R(96, GY - 16, 24, 15, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g); gravel(g, `M98 ${GY - 16}Q108 ${GY - 24} 118 ${GY - 16}Z`); P(`M108 ${GY - 22}C108 100 120 70 150 64`, { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none', 'stroke-dasharray': '4 3' }, g); P('M144 60L152 64L145 69', { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none' }, g); gravel(g, `M128 52L144 52L140 64L132 64Z`); loader(g, 52, 1, GY - 40, true); } },
-    { t: 'Penetration', c: ['vibration, pull-down, compressed air:', 'to design depth, displacing sideways'], d: (g, s) => { ground(g, soil); names(g); const ax = rig(g, 150, 232); for (const sx of [-1, 1]) arrowH(g, ax + sx * 12, ax + sx * 34, 190, 'var(--ink2)', 1.5, 4); shake(g, ax, 214); } },
-    { t: 'Compaction', c: ['gravel released at the base; up-down', 'strokes push it aside and compact it'], d: (g, s) => { ground(g, soil); names(g); halo(g, s, 138, 214, 34, 26, C.halo, .5); gravel(g, `M126 ${GY + 46}Q116 ${GY + 70} 124 236Q138 244 152 236Q160 ${GY + 70} 150 ${GY + 46}Z`); const ax = rig(g, 150, 196); arrowUp(g, ax + 20, 208, 186, 'var(--ink)', 1.5, 4); arrowDown(g, ax + 30, 186, 208, 'var(--ink)', 1.5, 4); } },
-    { t: 'Completion', c: ['column Ø ≈ 0.6–1.0 m; for foundations', 'of embankments and industrial floors'], d: (g, s) => { ground(g, soil); names(g); [124, 178, 232].forEach(x => { halo(g, s, x, 196, 26, 54, C.halo, .32); gravel(g, `M${x - 10} ${GY}Q${x - 14} 196 ${x - 12} 238Q${x} 246 ${x + 12} 238Q${x + 14} 196 ${x + 10} ${GY}Z`); }); R(104, GY - 10, 148, 10, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); tag(g, 178, 96, 'load-distributing layer', { c: 'var(--ink2)' }); } },
+    { t: 'Preparation', c: ['the base machine sets the vibrator', 'over the set-out point, on outriggers'], d: (g, s) => {
+      ground(g, soil); names(g); rig(g, GY - 4, { skip: 'bottom' });
+      P(`M${VX - 7} ${GY + 3}L${VX} ${GY + 12}L${VX + 7} ${GY + 3}`, { stroke: 'var(--coral)', 'stroke-width': 2, fill: 'none' }, g);
+      arrowDown(g, 230, GY - 30, GY - 3, 'var(--ink2)', 1.4, 4);
+    } },
+    { t: 'Filling', c: ['the loader fills the skip with gravel;', 'the skip goes up, empties into the lock'], d: (g, s) => {
+      ground(g, soil); names(g); const top = rig(g, GY - 4);
+      // lent: a rakodógép a puttonyba ürít
+      skip(g, GY - 17); gravel(g, `M${VX - 35} ${GY - 16}Q${VX - 25} ${GY - 25} ${VX - 15} ${GY - 16}Z`);
+      loader(g, VX - 62, 1, GY - 46); pebbles(g, VX - 25, GY - 34, VX - 25, GY - 20, 5);
+      // fel a sín mentén → fent a zsilip tölcsérébe ürít
+      arrowUp(g, VX - 40, GY - 24, top + 14, 'var(--ink2)', 1.5, 4);
+      skip(g, top - 12, true, true); pebbles(g, VX - 9, top - 13, VX - 3, top - 6, 4);
+    } },
+    { t: 'Penetration', c: ['vibration, pull-down, compressed air:', 'to design depth, displacing sideways'], d: (g, s) => {
+      ground(g, soil); names(g); const top = rig(g, YT); arrowDown(g, VX, top - 30, top - 10, 'var(--ink)', 1.6, 4);
+      for (const sx of [-1, 1]) for (const y of [170, 196]) arrowH(g, VX + sx * 9, VX + sx * 28, y, 'var(--ink2)', 1.4, 4);
+      shake(g, VX, YT - 14);
+    } },
+    { t: 'Compaction', c: ['gravel released at the base; moving', 'up and down, the vibrator compacts it'], d: (g, s) => {
+      ground(g, soil); names(g);
+      halo(g, s, VX, YT - 18, 30, 26, C.halo, .5);
+      column(g, VX, YT - 38, YT, 14);   // az alsó, már kiengedett és tömörített szakasz
+      const top = rig(g, YT - 12, { support: true });
+      pebbles(g, VX + 1, YT - 9, VX - 1, YT - 3, 3);
+      arrowUp(g, VX + 24, YT - 18, YT - 40, 'var(--ink)', 1.5, 4); arrowDown(g, VX + 33, YT - 40, YT - 18, 'var(--ink)', 1.5, 4);
+      for (const sx of [-1, 1]) arrowH(g, VX + sx * 15, VX + sx * 26, YT - 22, 'var(--ink2)', 1.3, 3.5);
+    } },
+    { t: 'Completion', c: ['column Ø ≈ 0.6–1.0 m; for foundations', 'of embankments and industrial floors'], d: (g, s) => {
+      ground(g, soil); names(g);
+      [124, 178, 232].forEach(x => { halo(g, s, x, (GY + YT) / 2, 24, (YT - GY) / 2 + 8, C.halo, .3); column(g, x, GY, YT); });
+      R(104, GY - 10, 148, 10, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); tag(g, 178, 96, 'load-distributing layer', { c: 'var(--ink2)' });
+    } },
   ]);
 })();
 
@@ -2399,9 +2364,9 @@ const Q = {
     { q: 'How does a gravel pile differ from a stone pillar?', o: ['It is made of concrete', 'Only in granular soil', 'Larger diameter', 'Smaller-diameter granular columns'], a: 3, e: 'The principle is similar, but <b>smaller-diameter</b> columns – piles – of granular material are formed.' },
   ],
   q6: [
-    { q: 'Which soil can be grouted with cement grout?', o: ['Clay', 'Fine sand', 'Sand-gravel coarser than 0.8–1 mm, fissured cohesive soil', 'Silt'], a: 2, e: 'The voids must be larger than the cement particles: sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures.' },
+    { q: 'What is the first step of grouting?', o: ['Mixing in the binder', 'Drilling', 'Load testing', 'Talajcsere'], a: 1, e: 'The first step of grouting is always <b>drilling the holes</b>: percussion, rotary or chisel drilling, or pipe driving.' },
     { q: 'In which direction is cement grout injected?', o: ['From the bottom upwards, as the pipe is withdrawn', 'From the top downwards', 'Horizontally', 'It does not matter'], a: 0, e: 'Grouting must proceed <b>from the bottom upwards</b>, as the pipe is withdrawn.' },
-    { q: 'In which soil is two-component resin grouting NOT effective?', o: ['Sand', 'Clay', 'Silty sand', 'Coarse sand'], a: 1, e: 'It is used in sandy and silty soil – <b>it cannot be used effectively in clay</b>.' },
+    { q: 'How far apart are the perforated grout pipes typically placed?', o: ['every 5–10 cm', 'every 50–100 cm', 'every 5–10 m', 'every 20–30 m'], a: 1, e: 'The perforated (valved) grout pipes are typically placed in the holes <b>50–100 cm</b> apart.' },
     { q: 'In which grouting method does the void volume of the soil stay the same, with only the voids being filled?', o: ['Compaction', 'Fracture/compensation', 'Permeation', 'Void filling'], a: 2, e: '<b>Permeation</b> grouting fills the voids between the grains at low pressure, without disturbing the soil structure.' },
     { q: 'What happens to the soil in compaction grouting?', o: ['The stiff mortar bulbs displace and compact the surrounding soil', 'The mortar penetrates the pores', 'The soil fractures and rises', 'The soil is mixed in place'], a: 0, e: 'At higher pressure, small voids are formed stage by stage; the stiff grout <b>displaces and compacts</b> the looser soil, and load-bearing columns are formed.' },
     { q: 'Which method can compensate, for example, the settlement caused by tunnelling?', o: ['Void-filling grouting', 'Permeation grouting', 'Rock fissure grouting', 'Fracture/compensation grouting'], a: 3, e: 'In <b>fracture/compensation</b> grouting, the grout sheets forming in the forced fractures lift the ground and the structure.' },

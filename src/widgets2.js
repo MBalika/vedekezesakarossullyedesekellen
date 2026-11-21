@@ -196,24 +196,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 /* ---------- kőtömzs ---------- */
 /* (a kőtömzs régi lépésábrája helyett: proc.js – ktFig) */
 
-/* ---------- kavicscölöp raszter ---------- */
-(function stoneCol() {
-  const host = $('#kcSvg'); if (!host) return; let tri = true;
-  const draw = () => {
-    const d = rv('kcD'), sp = rv('kcS'), n = rv('kcN'); out('kcD', fmt(d, 2) + ' m'); out('kcS', fmt(sp, 1) + ' m'); out('kcN', fmt(n, 1));
-    const C1 = tri ? 0.907 : 0.785; const as = C1 * (d / sp) ** 2; const ratio = 1 / (1 + as * (n - 1)); const De = (tri ? 1.05 : 1.13) * sp;
-    const W = 460, Hh = 270, k = 52; const s = svg(host, W, Hh); pat(s); SV('rect', { x: 0, y: 0, width: W, height: Hh, fill: 'url(#pClay)' }, s);
-    const cols = []; const dy = tri ? sp * Math.sqrt(3) / 2 : sp; for (let j = -1; j * dy * k < Hh + 60; j++) for (let i = -1; i * sp * k < W + 60; i++) { const x = (i * sp + (tri && j % 2 ? sp / 2 : 0)) * k + 40, y = j * dy * k + 40; cols.push([x, y]); }
-    const mid = cols.reduce((b, c) => Math.hypot(c[0] - W / 2, c[1] - Hh / 2) < Math.hypot(b[0] - W / 2, b[1] - Hh / 2) ? c : b, cols[0]);
-    SV('circle', { cx: mid[0], cy: mid[1], r: De / 2 * k, fill: '#39c2a5', opacity: .25, stroke: '#0d7a68', 'stroke-dasharray': '6 4', 'stroke-width': 2 }, s);
-    cols.forEach(([x, y]) => SV('circle', { cx: x, cy: y, r: d / 2 * k, fill: 'url(#pGrav)', stroke: '#5b4c3c', 'stroke-width': 1.5 }, s));
-    SV('text', { x: mid[0], y: Math.min(Hh - 8, mid[1] + De / 2 * k + 18), 'text-anchor': 'middle', text: `egységcella: D_{e} = ${fmt(De, 2)} m`, 'font-size': 13, 'font-weight': 800, class: 'hl' }, s);
-    $('#kcOut').innerHTML = `<div class="r"><span>területi helyettesítési arány a<sub>s</sub></span><b>${pct(as * 100, 1)}</b></div><div class="r"><span>süllyedés a kezelés után (s/s<sub>0</sub>)</span><b style="color:var(--ok)">${pct(ratio * 100)} (−${pct((1 - ratio) * 100)})</b></div>`;
-    const bar = $('#kcBar'); bar.style.width = (ratio * 100) + '%';
-  };
-  window.U.seg('kcPat', v => { tri = v === 'tri'; draw(); }); bindR(['kcD', 'kcS', 'kcN'], draw); draw();
-})();
-
 /* ---------- injektálás: öt módszer egy metszeten ---------- */
 (function injMethods() {
   const host = $('#injSvg'); if (!host) return;
@@ -325,38 +307,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
   if (r) r.addEventListener('input', () => { cancelAnimationFrame(raf); u = +r.value / 100; frame(); });
   build(); info(); u = 1; frame();
   let seen = false; const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && !seen) { seen = true; if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play(); } })); io.observe(host);
-})();
-
-/* ---------- injektálás: melyik anyag? ---------- */
-(function grout() {
-  const host = $('#grSvg'); if (!host) return;
-  const SOIL = { kavics: { n: 'Kavics', d: 6, cem: 2, pu: 1, ch: 1 }, durva: { n: 'Durva homok (> 1 mm)', d: 1.5, cem: 2, pu: 2, ch: 1 }, kozep: { n: 'Középhomok', d: .5, cem: 0, pu: 2, ch: 2 }, finom: { n: 'Finom homok', d: .18, cem: 0, pu: 2, ch: 2 }, iszap: { n: 'Iszapos homok, iszap', d: .05, cem: 0, pu: 1, ch: 1 }, agyag: { n: 'Agyag', d: .004, cem: 0, pu: 0, ch: 0 }, repedt: { n: 'Repedezett kötött talaj', d: 0, cem: 2, pu: 1, ch: 0 } };
-  let key = 'durva'; let raf = null;
-  const draw = () => {
-    const S0 = SOIL[key]; const W = 560, Hh = 260; const s = svg(host, W, Hh); SV('rect', { x: 0, y: 0, width: W, height: Hh, fill: '#3b2f27' }, s);
-    const t = performance.now() / 1000;
-    if (key === 'repedt') { SV('rect', { x: 0, y: 0, width: W, height: Hh, fill: '#7a6553' }, s); [['M60,0 L120,90 L100,160 L170,260', 1], ['M300,0 L270,120 L330,200 L310,260', 1], ['M460,0 L420,80 L470,170 L440,260', 1]].forEach(([d]) => SV('path', { d, stroke: '#2a211b', 'stroke-width': 10, fill: 'none' }, s)); }
-    else { const r = clamp(S0.d / 6 * 70, 6, 70); const step = r * 2.05; let seed = 7; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647; for (let y = r; y < Hh + r; y += step * .88) for (let x = (Math.round(y / step) % 2) * r; x < W + r; x += step) SV('circle', { cx: x + (rnd() - .5) * r * .2, cy: y, r: r * (.9 + rnd() * .15), fill: ['#c9a96b', '#b8955a', '#d6b97f'][Math.floor(rnd() * 3)], stroke: '#8a6d3e', 'stroke-width': 1 }, s); }
-    // cementszemcsék (≈ 15 µm átlag, d85 néhány tized mm-ig – szemléltetés)
-    const pass = S0.cem === 2; for (let i = 0; i < 30; i++) { const x = (i * 97) % W, ph = (t * (pass ? 60 : 20) + i * 37) % (pass ? Hh : 26); SV('circle', { cx: x + Math.sin(t + i) * 4, cy: ph, r: 3, fill: '#e8e8e8', opacity: .95 }, s); }
-    if (!pass) SV('rect', { x: 0, y: 0, width: W, height: 10, fill: '#e8e8e8', opacity: .8 }, s);
-    const lb = SV('text', { x: 18, y: Hh - 16, text: `${S0.n} · ⚪ cementszemcsék`, 'font-size': 12.5, 'font-weight': 700, fill: '#fff' }, s); const lw = (lb.getComputedTextLength ? lb.getComputedTextLength() : 220) + 20; s.insertBefore(SV('rect', { x: 8, y: Hh - 34, width: lw, height: 26, rx: 6, fill: 'rgba(0,0,0,.62)' }), lb);
-  };
-  const res = () => { const S0 = SOIL[key]; const L = ['✗ nem alkalmas', '◐ korlátozottan', '✓ alkalmas']; const C = ['b', 'w', '']; $('#grOut').innerHTML = `<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cementbesajtolás</h5><p>csak 0,8–1 mm-nél durvább homok-kavics, ill. üreges, repedezett kötött talaj</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Kétkomponensű műgyanta</h5><p>homokos és iszapos talaj – agyagban nem hatékony</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Vegyi anyagok (pl. vízüveg alapú)</h5><p>kis viszkozitású oldatok – finomabb homokokba is bejutnak</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>`; };
-  window.U.seg('grSoil', v => { key = v; res(); });
-  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { const lp = () => { draw(); raf = requestAnimationFrame(lp); }; if (!raf) lp(); } else { cancelAnimationFrame(raf); raf = null; } })); io.observe(host);
-  res(); draw();
-})();
-
-/* ---------- injektálás munkafázisai (fotók) ---------- */
-(function injSteps() {
-  const box = $('#injPhotos'); if (!box) return; const D = [
-    { t: '1. Furatok', d: 'Injektáló furatok mélyítése 50–100 cm-enként, az erősítendő fal külső és belső oldalán.', img: ['inj-1a', 'inj-1b'] },
-    { t: '2. Besajtoló csövek', d: 'Perforált besajtoló csövek (csonkok) elhelyezése a furatokban.', img: ['inj-2a', 'inj-2b'] },
-    { t: '3. Besajtolás', d: 'Injektálás 7–10 bar nyomással; közben az épület mozgását lézeres szintezővel figyelik – emelkedésnél leállnak.', img: ['inj-3a', 'inj-3b'] },
-    { t: '4. A hatás', d: 'A dinamikus szondázás ütésszámai injektálás előtt és után: a kezelt zónában jelentősen nőtt a talaj ellenállása.', img: ['inj-4'] }];
-  const bar = $('#injBar'); const show = (k) => { $$('button', bar).forEach((b, i) => b.classList.toggle('on', i === k)); const d = D[k]; box.innerHTML = `<div class="grid ${d.img.length > 1 ? 'g2' : ''}">${d.img.map(i => `<figure class="photo ${i === 'inj-4' ? 'contain' : ''}"><img src="img/${i}.jpg" alt="${d.t}" loading="lazy" style="${i === 'inj-4' ? 'height:300px' : ''}"></figure>`).join('')}</div><p style="margin-top:10px"><b>${d.t}.</b> ${d.d}</p>`; };
-  D.forEach((d, i) => { const b = H('button', {}, d.t); b.addEventListener('click', () => show(i)); bar.appendChild(b); }); show(0);
 })();
 
 /* ---------- tömegstabilizáció ---------- */

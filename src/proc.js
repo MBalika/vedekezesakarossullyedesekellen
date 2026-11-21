@@ -139,27 +139,77 @@ const strip = (host, steps, opt = {}) => {
 /* ========== 2/D kavicscölöp – vibrált kőoszlop ========== */
 (function columnFig() {
   const host = $('#kcFig'); if (!host) return;
-  const soil = [{ to: 206, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
-  const names = (g) => { layerName(g, 8, 200, 'puha talaj'); layerName(g, 8, 242, 'teherbíró réteg'); };
-  /* vezetőoszlopos alapgép zsilipes, alsó adagolású vibrátorral; skip: az anyagtartály helye az árbocon */
-  const rig = (g, x, nose, skipY = 120, support = true) => {
-    tracks(g, x + 8, 64, GY);
-    R(x + 14, GY - 34, 52, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(x + 40, GY - 31, 14, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
-    R(x - 4, 50, 7, GY - 50 - 10, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); for (let y = 56; y < GY - 14; y += 10) L(x - 4, y, x + 3, y + 10, { stroke: C.yelD, 'stroke-width': .7 }, g);
-    L(x + 3, 92, x + 18, GY - 34, { stroke: C.yelD, 'stroke-width': 2 }, g);
-    if (support) P(`M${x + 70} ${GY - 16}L${x + 80} ${GY}M${x + 76} ${GY}L${x + 84} ${GY}`, { stroke: C.steelD, 'stroke-width': 2.2 }, g);
-    R(x - 18, 50, 12, nose - 50 - 40, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
-    P(`M${x - 22} 52L${x - 2} 52L${x - 6} 66L${x - 18} 66Z`, { fill: '#8e969d', stroke: C.steelD }, g);
-    R(x - 19, nose - 42, 14, 34, { rx: 2, fill: '#5d646b', stroke: C.steelD }, g); P(`M${x - 19} ${nose - 8}L${x - 12} ${nose}L${x - 5} ${nose - 8}Z`, { fill: C.steelD }, g);
-    R(x + 4, skipY, 18, 14, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g);
-    return x - 12;
+  /* vastag puha réteg (GY–222), alatta a teherbíró réteg; a kőoszlop a teherbíró rétegig ér */
+  const YB = 222, YT = 230, VX = 144, LV = 92, MX = 163;
+  const soil = [{ to: YB, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
+  const names = (g) => { layerName(g, 8, YB - 8, 'puha talaj'); layerName(g, 8, 244, 'teherbíró réteg'); };
+  /* vezetőoszlopos (árbocos) lánctalpas alapgép; a hosszú, zsilipes (alsó adagolású) mélyvibrátor az árboc előtt,
+     a teljes cölöphossznyi csővel; tip: a vibrátor csúcsa; skip: az anyagtartály (puttony) helyzete az árboc sínjén */
+  const rig = (g, tip, o = {}) => {
+    tracks(g, 156, 74, GY);
+    R(166, GY - 34, 56, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(200, GY - 31, 15, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+    if (o.support !== false) P(`M222 ${GY - 16}L234 ${GY}M230 ${GY}L240 ${GY}`, { stroke: C.steelD, 'stroke-width': 2.2 }, g);
+    // árboc (rácsos vezetőoszlop) a terepig, támasztórúd a felsővázhoz
+    R(MX - 4, 42, 9, GY - 12 - 42, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); for (let y = 46; y < GY - 16; y += 10) L(MX - 4, y, MX + 5, y + 10, { stroke: C.yelD, 'stroke-width': .7 }, g);
+    L(MX + 5, 84, 180, GY - 34, { stroke: C.yelD, 'stroke-width': 2.2 }, g);
+    // a puttony sínje az árboc bal oldalán
+    L(VX - 13, 52, VX - 13, GY - 2, { stroke: C.steelD, 'stroke-width': 1.4 }, g); [70, 110].forEach(y => L(VX - 13, y, MX - 4, y, { stroke: C.steelD, 'stroke-width': 1, opacity: .7 }, g));
+    // mélyvibrátor: tölcsér + zsilipkamra felül, hosszú cső, vibrátortest, orr
+    const top = tip - LV;
+    P(`M${VX - 11} ${top - 8}L${VX + 11} ${top - 8}L${VX + 6} ${top}L${VX - 6} ${top}Z`, { fill: '#8e969d', stroke: C.steelD, 'stroke-width': .9 }, g);
+    R(VX - 8, top, 16, 12, { rx: 2, fill: '#5d646b', stroke: C.steelD, 'stroke-width': 1 }, g);
+    R(VX - 4, top + 12, 8, LV - 12 - 34, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+    R(VX - 6, tip - 34, 12, 26, { rx: 2, fill: '#5d646b', stroke: C.steelD, 'stroke-width': 1 }, g); for (let i = 0; i < 3; i++) L(VX - 5, tip - 28 + i * 8, VX + 5, tip - 28 + i * 8, { stroke: '#8d959c', 'stroke-width': .8 }, g);
+    P(`M${VX - 6} ${tip - 8}L${VX} ${tip}L${VX + 6} ${tip - 8}Z`, { fill: C.steelD }, g);
+    // vezetőkapcsok az árbochoz (a terep fölött)
+    [top + 4, Math.min(top + 30, GY - 20)].forEach(y => { if (y < GY - 6) L(VX + 6, y, MX - 4, y, { stroke: C.steelD, 'stroke-width': 1.6 }, g); });
+    if (o.skip === 'bottom') skip(g, GY - 17);
+    return top;
   };
+  /* puttony (anyagtartály) az árboc sínjén; tilt: billentve, a zsilip tölcsérébe ürít */
+  const skip = (g, y, tilt = false, ghost = false) => {
+    const st = ghost ? { fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.3, 'stroke-dasharray': '3 2' } : { fill: '#8e969d', stroke: C.steelD, 'stroke-width': 1 };
+    const gg = SV('g', tilt ? { transform: `rotate(-38 ${VX - 14} ${y})` } : {}, g);
+    P(`M${VX - 36} ${y}L${VX - 14} ${y}L${VX - 17} ${y + 15}L${VX - 33} ${y + 15}Z`, st, gg);
+    return gg;
+  };
+  const pebbles = (g, x0, y0, x1, y1, n = 7) => { for (let i = 0; i < n; i++) { const t = i / (n - 1); SV('circle', { cx: x0 + (x1 - x0) * t + (i % 2 ? 1.6 : -1.6), cy: y0 + (y1 - y0) * t, r: 1.8, fill: '#9a8a70', stroke: '#6b5a44', 'stroke-width': .5 }, g); } };
+  /* kész (tömörített) kavicsoszlop GY-tól a teherbíró rétegig, kis kiöblösödésekkel */
+  const column = (g, x, yTop, yBot, w = 11) => gravel(g, `M${x - w + 1} ${yTop}Q${x - w - 3} ${(yTop + yBot) / 2} ${x - w} ${yBot - 4}Q${x} ${yBot + 5} ${x + w} ${yBot - 4}Q${x + w + 3} ${(yTop + yBot) / 2} ${x + w - 1} ${yTop}Z`);
   strip(host, [
-    { t: 'Előkészítés', c: ['a hordozógép a vibrátort a kitűzött', 'pont fölé állítja, támaszokra áll'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4); P(`M131 ${GY + 2}L138 ${GY + 12}L145 ${GY + 2}`, { stroke: 'var(--coral)', 'stroke-width': 2, fill: 'none' }, g); } },
-    { t: 'Töltés', c: ['a rakodógép tölti az anyagtartályt,', 'az árboc mentén a zsilipbe ürít'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4, 62); R(96, GY - 16, 24, 15, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g); gravel(g, `M98 ${GY - 16}Q108 ${GY - 24} 118 ${GY - 16}Z`); P(`M108 ${GY - 22}C108 100 120 70 150 64`, { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none', 'stroke-dasharray': '4 3' }, g); P('M144 60L152 64L145 69', { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none' }, g); gravel(g, `M128 52L144 52L140 64L132 64Z`); loader(g, 52, 1, GY - 40, true); } },
-    { t: 'Lehajtás', c: ['rezgés, lenyomás és sűrített levegő:', 'tervezett mélységig, oldalra kiszorít'], d: (g, s) => { ground(g, soil); names(g); const ax = rig(g, 150, 232); for (const sx of [-1, 1]) arrowH(g, ax + sx * 12, ax + sx * 34, 190, 'var(--ink2)', 1.5, 4); shake(g, ax, 214); } },
-    { t: 'Tömörítés', c: ['a kavicsot a mélyponton kiengedik; föl-le', 'mozgással oldalra nyomja, tömöríti'], d: (g, s) => { ground(g, soil); names(g); halo(g, s, 138, 214, 34, 26, C.halo, .5); gravel(g, `M126 ${GY + 46}Q116 ${GY + 70} 124 236Q138 244 152 236Q160 ${GY + 70} 150 ${GY + 46}Z`); const ax = rig(g, 150, 196); arrowUp(g, ax + 20, 208, 186, 'var(--ink)', 1.5, 4); arrowDown(g, ax + 30, 186, 208, 'var(--ink)', 1.5, 4); } },
-    { t: 'Lezárás', c: ['kész kőoszlop Ø ≈ 0,6–1,0 m; pl. töltés-,', 'ipari padló alapozására'], d: (g, s) => { ground(g, soil); names(g); [124, 178, 232].forEach(x => { halo(g, s, x, 196, 26, 54, C.halo, .32); gravel(g, `M${x - 10} ${GY}Q${x - 14} 196 ${x - 12} 238Q${x} 246 ${x + 12} 238Q${x + 14} 196 ${x + 10} ${GY}Z`); }); R(104, GY - 10, 148, 10, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); tag(g, 178, 96, 'teherelosztó réteg', { c: 'var(--ink2)' }); } },
+    { t: 'Előkészítés', c: ['a hordozógép a vibrátort a kitűzött', 'pont fölé állítja, támaszokra áll'], d: (g, s) => {
+      ground(g, soil); names(g); rig(g, GY - 4, { skip: 'bottom' });
+      P(`M${VX - 7} ${GY + 3}L${VX} ${GY + 12}L${VX + 7} ${GY + 3}`, { stroke: 'var(--coral)', 'stroke-width': 2, fill: 'none' }, g);
+      arrowDown(g, 230, GY - 30, GY - 3, 'var(--ink2)', 1.4, 4);
+    } },
+    { t: 'Töltés', c: ['a rakodógép a puttonyba tölti a kavicsot,', 'a puttony felmegy, a zsilipbe ürít'], d: (g, s) => {
+      ground(g, soil); names(g); const top = rig(g, GY - 4);
+      // lent: a rakodógép a puttonyba ürít
+      skip(g, GY - 17); gravel(g, `M${VX - 35} ${GY - 16}Q${VX - 25} ${GY - 25} ${VX - 15} ${GY - 16}Z`);
+      loader(g, VX - 62, 1, GY - 46); pebbles(g, VX - 25, GY - 34, VX - 25, GY - 20, 5);
+      // fel a sín mentén → fent a zsilip tölcsérébe ürít
+      arrowUp(g, VX - 40, GY - 24, top + 14, 'var(--ink2)', 1.5, 4);
+      skip(g, top - 12, true, true); pebbles(g, VX - 9, top - 13, VX - 3, top - 6, 4);
+    } },
+    { t: 'Lehajtás', c: ['rezgés, lenyomás és sűrített levegő:', 'tervezett mélységig, oldalra kiszorít'], d: (g, s) => {
+      ground(g, soil); names(g); const top = rig(g, YT); arrowDown(g, VX, top - 30, top - 10, 'var(--ink)', 1.6, 4);
+      for (const sx of [-1, 1]) for (const y of [170, 196]) arrowH(g, VX + sx * 9, VX + sx * 28, y, 'var(--ink2)', 1.4, 4);
+      shake(g, VX, YT - 14);
+    } },
+    { t: 'Tömörítés', c: ['a kavicsot a mélyponton kiengedik; a vibrátor', 'föl-le mozogva oldalra nyomja, tömöríti'], d: (g, s) => {
+      ground(g, soil); names(g);
+      halo(g, s, VX, YT - 18, 30, 26, C.halo, .5);
+      column(g, VX, YT - 38, YT, 14);   // az alsó, már kiengedett és tömörített szakasz
+      const top = rig(g, YT - 12, { support: true });
+      pebbles(g, VX + 1, YT - 9, VX - 1, YT - 3, 3);
+      arrowUp(g, VX + 24, YT - 18, YT - 40, 'var(--ink)', 1.5, 4); arrowDown(g, VX + 33, YT - 40, YT - 18, 'var(--ink)', 1.5, 4);
+      for (const sx of [-1, 1]) arrowH(g, VX + sx * 15, VX + sx * 26, YT - 22, 'var(--ink2)', 1.3, 3.5);
+    } },
+    { t: 'Lezárás', c: ['kész kőoszlop Ø ≈ 0,6–1,0 m; pl. töltés-,', 'ipari padló alapozására'], d: (g, s) => {
+      ground(g, soil); names(g);
+      [124, 178, 232].forEach(x => { halo(g, s, x, (GY + YT) / 2, 24, (YT - GY) / 2 + 8, C.halo, .3); column(g, x, GY, YT); });
+      R(104, GY - 10, 148, 10, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); tag(g, 178, 96, 'teherelosztó réteg', { c: 'var(--ink2)' });
+    } },
   ]);
 })();
 

@@ -1,9 +1,4 @@
 # 2026-11-19: öt injektálási módszer, áttekintés, kvíz
-7a31601	Which material gets into the voids?
-e077a5a	Two-component, expanding resin
-5270482	Cement grouting (permeation grouting with cement)
-6ebc126	<span class="fact">cement grout</span><span class="fact">microfine cement</span><span class="fact">cement mortar</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">expanding polyurethane foam</span><span class="fact">other</span>
-b820d87	Grouting materials and soil grading
 d5e7d48	by gravity or at low pressure
 e33737b	voids, cellars, galleries
 4281df2	an existing void is filled
@@ -51,7 +46,6 @@ b85f230	compacts loose soil
 7160e96	loose soil, also silt and clay; also under existing buildings
 9cf00ff	Compaction grouting
 d185fb5	granular soil, coarse silt; with cement only > 0.8–1 mm
-ca24b57	<div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Cement grouting</h5><p>only sand-gravel coarser than 0.8–1 mm, or cohesive soil with cavities and fissures</p></div><span class="status ${C[S0.cem]}">${L[S0.cem]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Two-component resin</h5><p>sandy and silty soil – not effective in clay</p></div><span class="status ${C[S0.pu]}">${L[S0.pu]}</span></div><div class="mi"><i class="d" style="background:var(--violet)"></i><div><h5>Chemicals (e.g. water glass based)</h5><p>low-viscosity solutions – they also penetrate finer sands</p></div><span class="status ${C[S0.ch]}">${L[S0.ch]}</span></div>
 e838742	</span></div></div><h5>Typical application</h5><ul class="injuse">
 3761048	</span></div><div><b>Pressure</b><span>
 5c3af4d	settlement: ${Math.round(sett)} mm
