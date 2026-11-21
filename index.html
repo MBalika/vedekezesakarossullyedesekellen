@@ -655,6 +655,10 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 .plsim{margin-top:4px}
 .plsim .insight{margin-top:12px}
 
+/* 4/D: három felvétel (cölöpalapozás, résfal, jet-grouting) egy sorban */
+.ytgrid.ytpair.yt3{grid-template-columns:repeat(3,minmax(0,280px))}
+@media (max-width:900px){.ytgrid.ytpair.yt3{grid-template-columns:minmax(0,320px)}}
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -1160,7 +1164,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     <div class="card top"><p>Ha a síkalapozás mellett a számítások meg nem engedhető süllyedéseket, süllyedéskülönbségeket jeleznek, a tervezők jelentős része áttér a <b>mélyalapozásra</b> (cölöp, résfal). Sok esetben ez a <b>legegyszerűbb, leggyorsabb és legolcsóbb</b> megoldás.</p></div>
     <div class="card top"><h4>Mélyalapozás részletesen</h4><p>CFA-cölöp, csavart, fúrt és előregyártott cölöpök, mikrocölöp, jet-grouting, mélykeverés, résfal, kút- és szekrényalapozás – a <a href="https://melyalapozasok.vercel.app" target="_blank" rel="noopener">Mélyalapozások</a> interaktív tananyagban, 3D cölöpépítővel. Valós felvételen:</p></div>
   </div>
-  <div class="ytgrid ytpair" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="MPjXIhchN-w"></button></div>
+  <div class="ytgrid ytpair yt3" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="f_41-sJhGK8"></button><button data-ytm="MPjXIhchN-w"></button></div>
   <div class="quiz" id="q8"><div class="qh"><h4>Önellenőrzés · 4/B–4/D</h4><div class="dots"></div></div></div>
 </div></section>
 
@@ -2490,7 +2494,7 @@ window.addEventListener('DOMContentLoaded', () => {
 (function () {
   const { $, $$ } = window.U;
   // a felhasznált videók adatai (cím, hossz, lejátszási lista, a polaroidok feliratai)
-  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA';
+  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA', LIST_BT = 'PLiAsGexXzYoLoUK4uIoeIHjowjrmQH1Tc';
   const YT = {
     '8Zcv7ktWD68': { title: 'Talajjavítások', dur: '2:36', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A talajjavítások áttekintése', tech: 'Talajjavítások', caps: ['Mélytömörítés', 'Vibrátorfej kavicsban', 'Talajjavítási módszerek', 'Dinamikus tömörítés'] },
     Gca4PGhTC5o: { title: 'Vibroflotáció', dur: '2:23', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A vibroflotáció a valóságban', tech: 'Vibroflotáció', caps: ['Vibroflot a talajban', 'Vízöblítés', 'Utántöltés', 'Raszteres tömörítés'] },
@@ -2499,6 +2503,7 @@ window.addEventListener('DOMContentLoaded', () => {
     CgKwZBWn_xM: { title: 'Injektálások', dur: '5:53', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'Az injektálás a valóságban', tech: 'Injektálás', caps: ['Furatkészítés', 'Injektáló furatok', 'Injektálás alagútban', 'Behatoló habarcs'] },
     wh31VB1fY_8: { title: 'Mélykeverés', dur: '5:52', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A mélykeverés és a tömegstabilizáció a valóságban', tech: 'Mélykeverés, tömegstabilizáció', caps: ['Keverés a part mentén', 'Kiemelt keverőszár', 'Keverőmarós fal', 'Tömegstabilizáció'] },
     'MPjXIhchN-w': { title: 'Jet-grouting', dur: '4:27', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A jet-grouting a valóságban', tech: 'Jet-grouting', caps: ['Foghíjtelek', 'Fúrás a gödörben', 'Visszafolyó iszap', 'Feltárt jet-oszlopok'] },
+    'f_41-sJhGK8': { title: 'Résfalazás', dur: '4:59', playlist: 'Befogott támszerkezetek', list: LIST_BT, kick: 'A résfalazás a valóságban', tech: 'Résfal', caps: ['Résfalas munkaterület', 'Réskanál', 'Vasalókosár', 'Betonozás'] },
     c3vKfjgqJdA: { title: 'Cölöpalapozások rendszerezése', dur: '2:32', playlist: 'Cölöpalapozások', list: LIST_C, kick: 'A cölöpözési technológiák áttekintése', tech: 'Cölöpalapozások', caps: ['Teherviselő oszlop', 'CFA-spirál', 'Nagyátmérőjű fúrt', 'Franki-hagymák'] },
   };
   window.YT = YT;

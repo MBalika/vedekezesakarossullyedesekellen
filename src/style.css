@@ -634,3 +634,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 /* 4/A előterhelés: egyetlen, állítható idő–süllyedés ábra, mellette a kezelők és a magyarázat */
 .plsim{margin-top:4px}
 .plsim .insight{margin-top:12px}
+
+/* 4/D: három felvétel (cölöpalapozás, résfal, jet-grouting) egy sorban */
+.ytgrid.ytpair.yt3{grid-template-columns:repeat(3,minmax(0,280px))}
+@media (max-width:900px){.ytgrid.ytpair.yt3{grid-template-columns:minmax(0,320px)}}

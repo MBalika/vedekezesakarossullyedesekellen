@@ -654,6 +654,10 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 .plsim{margin-top:4px}
 .plsim .insight{margin-top:12px}
 
+/* 4/D: három felvétel (cölöpalapozás, résfal, jet-grouting) egy sorban */
+.ytgrid.ytpair.yt3{grid-template-columns:repeat(3,minmax(0,280px))}
+@media (max-width:900px){.ytgrid.ytpair.yt3{grid-template-columns:minmax(0,320px)}}
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -1159,7 +1163,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     <div class="card top"><p>If the calculations show unacceptable settlements or differential settlements for a shallow foundation, many designers switch to <b>deep foundations</b> (piles, diaphragm walls). In many cases this is the <b>simplest, fastest and cheapest</b> solution.</p></div>
     <div class="card top"><h4>Deep foundations in detail</h4><p>CFA piles, screw, bored and precast piles, micropiles, jet grouting, deep mixing, diaphragm walls, caisson and box foundations – in the <a href="https://melyalapozasok.vercel.app/en" target="_blank" rel="noopener">Deep foundations</a> interactive module, with a 3D pile builder. In real footage:</p></div>
   </div>
-  <div class="ytgrid ytpair" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="ef6ZE8deD6M"></button></div>
+  <div class="ytgrid ytpair yt3" style="margin-top:16px"><button data-ytm="c3vKfjgqJdA"></button><button data-ytm="eOZGv_2Q_Jg"></button><button data-ytm="ef6ZE8deD6M"></button></div>
   <div class="quiz" id="q8"><div class="qh"><h4>Self-check · 4/B–4/D</h4><div class="dots"></div></div></div>
 </div></section>
 
@@ -2489,7 +2493,7 @@ window.addEventListener('DOMContentLoaded', () => {
 (function () {
   const { $, $$ } = window.U;
   // a felhasznált videók adatai (cím, hossz, lejátszási lista, a polaroidok feliratai)
-  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA';
+  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA', LIST_BT = 'PLiAsGexXzYoLoUK4uIoeIHjowjrmQH1Tc';
   const YT = {
     '8Zcv7ktWD68': { title: 'Ground improvement', dur: '2:36', playlist: 'Ground improvement', list: LIST_TJ, kick: 'An overview of ground improvement', tech: 'Ground improvement', caps: ['Deep compaction', 'Vibrator head in gravel', 'Ground improvement methods', 'Dynamic compaction'] },
     Gca4PGhTC5o: { title: 'Vibroflotation', dur: '2:23', playlist: 'Ground improvement', list: LIST_TJ, kick: 'Vibroflotation in practice', tech: 'Vibroflotation', caps: ['Vibroflot in the ground', 'Water flushing', 'Backfilling', 'Grid compaction'] },
@@ -2498,10 +2502,11 @@ window.addEventListener('DOMContentLoaded', () => {
     CgKwZBWn_xM: { title: 'Grouting', dur: '5:53', playlist: 'Ground improvement', list: LIST_TJ, kick: 'Grouting in practice', tech: 'Grouting', caps: ['Drilling', 'Grout holes', 'Grouting in a tunnel', 'Penetrating grout'] },
     wh31VB1fY_8: { title: 'Deep mixing', dur: '5:52', playlist: 'Ground improvement', list: LIST_TJ, kick: 'Deep mixing and mass stabilisation in practice', tech: 'Deep mixing, mass stabilisation', caps: ['Mixing along the bank', 'Raised mixing boom', 'Cutter soil mixing wall', 'Mass stabilisation'] },
     'MPjXIhchN-w': { title: 'Jet-grouting', dur: '4:27', playlist: 'Ground improvement', list: LIST_TJ, kick: 'Jet grouting in practice', tech: 'Jet-grouting', caps: ['Infill plot', 'Drilling in the pit', 'Returning spoil', 'Exposed jet columns'] },
+    'f_41-sJhGK8': { title: 'Diaphragm walling', dur: '4:59', playlist: 'Embedded retaining walls', list: LIST_BT, kick: 'Diaphragm walling in practice', tech: 'Diaphragm wall', caps: ['Diaphragm wall site', 'Trench grab', 'Reinforcement cage', 'Concreting'] },
     c3vKfjgqJdA: { title: 'Classification of pile foundations', dur: '2:32', playlist: 'Pile foundations', list: LIST_C, kick: 'An overview of piling technologies', tech: 'Pile foundations', caps: ['Load-bearing column', 'CFA auger', 'Large-diameter bored', 'Franki bulbs'] },
   };
   // angol oldal: az eredeti angol felvételek (Geotech Project); a csak magyarul meglévők „in Hungarian” jelzéssel
-  const YT_EN = {"MPjXIhchN-w": {"id": "ef6ZE8deD6M", "title": "Jet grouting", "dur": "4:27", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Infill site", "Drilling in the pit", "Spoil return", "Exposed jet columns"]}, "wh31VB1fY_8": {"id": "85GbWBj3in8", "title": "Soil mixing technologies", "dur": "5:52", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Mixing along the shore", "Mixing shaft lifted", "Cutter soil mixing wall", "Mass stabilisation"]}, "cNkNZV6kgqk": {"id": "2iWMoVIZc_k", "title": "Stone columns", "dur": "2:47", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Vibro rig", "Filling the hopper", "Stone at the bottom", "Stone column grid"]}, "CgKwZBWn_xM": {"id": "bVTljbQcE6U", "title": "Grouting technologies", "dur": "5:53", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Drilling", "Grout holes", "Grouting in a tunnel", "Permeating grout"]}, "Gca4PGhTC5o": {"id": "I1M6afZLrxo", "title": "Vibroflotation", "dur": "2:23", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Vibroflot in the ground", "Water jetting", "Backfilling", "Compaction on a grid"]}, "LtSalNj4ByQ": {"id": "VNDEW8acU_0", "title": "Dynamic compaction and replacement", "dur": "3:22", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Tamping grid", "Replacement pillar", "Pounder on the crane", "Dropping the weight"]}};
+  const YT_EN = {"MPjXIhchN-w": {"id": "ef6ZE8deD6M", "title": "Jet grouting", "dur": "4:27", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Infill site", "Drilling in the pit", "Spoil return", "Exposed jet columns"]}, "wh31VB1fY_8": {"id": "85GbWBj3in8", "title": "Soil mixing technologies", "dur": "5:52", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Mixing along the shore", "Mixing shaft lifted", "Cutter soil mixing wall", "Mass stabilisation"]}, "cNkNZV6kgqk": {"id": "2iWMoVIZc_k", "title": "Stone columns", "dur": "2:47", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Vibro rig", "Filling the hopper", "Stone at the bottom", "Stone column grid"]}, "CgKwZBWn_xM": {"id": "bVTljbQcE6U", "title": "Grouting technologies", "dur": "5:53", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Drilling", "Grout holes", "Grouting in a tunnel", "Permeating grout"]}, "Gca4PGhTC5o": {"id": "I1M6afZLrxo", "title": "Vibroflotation", "dur": "2:23", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Vibroflot in the ground", "Water jetting", "Backfilling", "Compaction on a grid"]}, "LtSalNj4ByQ": {"id": "VNDEW8acU_0", "title": "Dynamic compaction and replacement", "dur": "3:22", "playlist": "Ground improvement", "list": "PL9ek0nuVwC85PcjPVCAAGIJso2CkeAUzw", "caps": ["Tamping grid", "Replacement pillar", "Pounder on the crane", "Dropping the weight"]}, "f_41-sJhGK8": {"id": "eOZGv_2Q_Jg", "title": "Diaphragm walls", "dur": "4:59", "playlist": "Embedded retaining walls", "list": "PL9ek0nuVwC858cRPzrO8NKwJ1_wevMYEm", "caps": ["Diaphragm wall site", "Trench grab", "Reinforcement cage", "Concreting"]}};
   for (const [hu, e] of Object.entries(YT_EN)) if (YT[hu]) { YT[e.id] = { ...YT[hu], ...e, ch: 'Geotech Project' }; delete YT[hu]; }
   for (const y of Object.values(YT)) if (!y.ch) y.note = 'in Hungarian';
   window.YT = YT;

@@ -2,7 +2,7 @@
 (function () {
   const { $, $$ } = window.U;
   // a felhasznált videók adatai (cím, hossz, lejátszási lista, a polaroidok feliratai)
-  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA';
+  const LIST_TJ = 'PLiAsGexXzYoLJnR9HUPPN85cACUQXJhYj', LIST_C = 'PLiAsGexXzYoJk3IiDC5YBCNSs0_YQFXXA', LIST_BT = 'PLiAsGexXzYoLoUK4uIoeIHjowjrmQH1Tc';
   const YT = {
     '8Zcv7ktWD68': { title: 'Talajjavítások', dur: '2:36', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A talajjavítások áttekintése', tech: 'Talajjavítások', caps: ['Mélytömörítés', 'Vibrátorfej kavicsban', 'Talajjavítási módszerek', 'Dinamikus tömörítés'] },
     Gca4PGhTC5o: { title: 'Vibroflotáció', dur: '2:23', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A vibroflotáció a valóságban', tech: 'Vibroflotáció', caps: ['Vibroflot a talajban', 'Vízöblítés', 'Utántöltés', 'Raszteres tömörítés'] },
@@ -11,6 +11,7 @@
     CgKwZBWn_xM: { title: 'Injektálások', dur: '5:53', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'Az injektálás a valóságban', tech: 'Injektálás', caps: ['Furatkészítés', 'Injektáló furatok', 'Injektálás alagútban', 'Behatoló habarcs'] },
     wh31VB1fY_8: { title: 'Mélykeverés', dur: '5:52', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A mélykeverés és a tömegstabilizáció a valóságban', tech: 'Mélykeverés, tömegstabilizáció', caps: ['Keverés a part mentén', 'Kiemelt keverőszár', 'Keverőmarós fal', 'Tömegstabilizáció'] },
     'MPjXIhchN-w': { title: 'Jet-grouting', dur: '4:27', playlist: 'Talajjavítások', list: LIST_TJ, kick: 'A jet-grouting a valóságban', tech: 'Jet-grouting', caps: ['Foghíjtelek', 'Fúrás a gödörben', 'Visszafolyó iszap', 'Feltárt jet-oszlopok'] },
+    'f_41-sJhGK8': { title: 'Résfalazás', dur: '4:59', playlist: 'Befogott támszerkezetek', list: LIST_BT, kick: 'A résfalazás a valóságban', tech: 'Résfal', caps: ['Résfalas munkaterület', 'Réskanál', 'Vasalókosár', 'Betonozás'] },
     c3vKfjgqJdA: { title: 'Cölöpalapozások rendszerezése', dur: '2:32', playlist: 'Cölöpalapozások', list: LIST_C, kick: 'A cölöpözési technológiák áttekintése', tech: 'Cölöpalapozások', caps: ['Teherviselő oszlop', 'CFA-spirál', 'Nagyátmérőjű fúrt', 'Franki-hagymák'] },
   };
   window.YT = YT;
