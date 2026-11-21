@@ -17,7 +17,7 @@ def _bxt(h):  # dobozcímek középre (formázás skill) – boxtitle.inc.html a
 R = pathlib.Path(__file__).parent
 I18N = R / 'i18n'
 SITE = 'https://vedekezesakarossullyedesekellen.vercel.app'
-CLASSIC = ['app.js', 'widgets1.js', 'widgets2.js', 'data.js', 'yt.js', 'guard.js']
+CLASSIC = ['app.js', 'widgets1.js', 'widgets2.js', 'proc.js', 'data.js', 'yt.js', 'guard.js']
 FILES = ['index.src.html', *CLASSIC, 'sim3d.js']
 META = {
   'hu': ('Védekezés a káros süllyedések ellen',
@@ -49,8 +49,7 @@ FONTS = '<style id="fonts-css">' + ''.join([
 # POST: a fordítókészlet által nem kezelt helyek (egyedi data-* attribútum) az angol HTML-ben
 POST = [('data-tech="Döngölés és kőtömzs"', 'data-tech="Pounding and stone pillars"'),
         # angol feliratú ábrák és videó-indexképek (img/en/)
-        *[(f'src="img/{f}.jpg"', f'src="img/en/{f}.jpg"') for f in ['kavicscolop-abra']],
-        ('<img src="img/${i}.jpg"', '<img src="img/${i === \'inj-4\' ? \'en/\' : \'\'}${i}.jpg"'),
+                ('<img src="img/${i}.jpg"', '<img src="img/${i === \'inj-4\' ? \'en/\' : \'\'}${i}.jpg"'),
         ('<img src="img/thumb-${c.dataset.video}.jpg"', '<img src="img/en/thumb-${c.dataset.video}.jpg"')]
 
 

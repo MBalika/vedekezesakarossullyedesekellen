@@ -1,6 +1,4 @@
 becbb95	The design parameters include the duration of the rest periods.
-cc05389	Stone pillars can be used only in very loose, soft soils.
-a8b52cf	The pounder “works” the granular material into the soft subsoil.
 b682208	A gravel pile has a larger diameter than a stone pillar.
 4add3ad	Smaller-diameter columns of granular material are formed.
 a325afb	Fine sand and silt can also be grouted well with cement grout.
@@ -13,8 +11,6 @@ a265388	During retrofit grouting the movement of the building is monitored by la
 2983dae	During injection at 7–10 bar the movement of the building is followed with a laser level – injection stops if it rises.
 bef68a8	The mixing head of mass stabilisation covers an area of about 1.2 m² per step.
 c10fb49	The 1.5 m wide, Ø 0.95 m mixing head covers ~1.2 m² per step.
-79f3978	With an extension boom, mass stabilisation can reach a depth of up to 7 m.
-968d7a7	3–5 m mixing boom + 2 m extension.
 6c08871	The stabilised area reaches its final bearing capacity immediately.
 08d9e70	Not at once – if necessary, a load-distributing layer (geotextile, geogrid, granular material) is built.
 9f7ce29	With preloading, part of the settlement is “forced out” before construction.

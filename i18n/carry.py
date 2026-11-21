@@ -5,7 +5,7 @@ használat: python3 build.py (→ i18n/missing.tsv), majd python3 i18n/carry.py 
 import subprocess, sys, pathlib, difflib, glob, tempfile
 R = pathlib.Path(__file__).resolve().parent; ROOT = R.parent
 ref = sys.argv[1] if len(sys.argv) > 1 else 'origin/main'
-FILES = ['index.src.html', 'app.js', 'widgets1.js', 'widgets2.js', 'data.js', 'yt.js', 'guard.js', 'sim3d.js']
+FILES = ['index.src.html', 'app.js', 'widgets1.js', 'widgets2.js', 'proc.js', 'data.js', 'yt.js', 'guard.js', 'sim3d.js']
 tmp = pathlib.Path(tempfile.mkdtemp())
 for f in FILES: (tmp / f).write_bytes(subprocess.run(['git', 'show', f'{ref}:src/{f}'], capture_output=True, cwd=ROOT).stdout)
 old = {}

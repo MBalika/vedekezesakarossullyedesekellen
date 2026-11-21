@@ -102,7 +102,7 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 
 // --- videók ---
 const VIDEOS = {
-  tj1: { t: 'Alapozás átalakítása', s: 'kisebb talpnyomás · mélyebb alapsík · talajcsere', d: '2:16', ch: '1/A–1/C' },
+  tj1: { t: 'Alapozás átalakítása', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '2:16', ch: '1/A–1/C' },
   tj7: { t: 'Előterhelés – Mexikóváros', s: 'ballaszt az épületsúlyig, kivárás, ütemezett eltávolítás', d: '2:14', ch: '4/A' },
 };
 window.VIDEOS = VIDEOS;

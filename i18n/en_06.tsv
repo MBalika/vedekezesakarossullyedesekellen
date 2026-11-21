@@ -23,7 +23,6 @@ a8e8ad0	Water jetting (flushing)
 25488b8	The vibrator descends under its own weight, assisted by <b>water jetting (flushing)</b>.
 75fae28	What pounder weight and drop height does dynamic compaction use?
 17b8352	=
-9e1577e	Pounder <b>15–40 t</b>, drop height <b>H = 10–40 m</b>; effective to a depth of max. 5–7 m.
 acd80c4	What is the twofold effect of a stone pillar?
 584f6ff	It insulates and waterproofs
 39cea06	It compacts the soft subsoil, and high-capacity pillars are formed
@@ -51,9 +50,6 @@ cd39c6f	In which soil is two-component resin grouting NOT effective?
 27dca9f	Silty sand
 7452ed3	Coarse sand
 98213f7	It is used in sandy and silty soil – <b>it cannot be used effectively in clay</b>.
-155a4d8	To what depth can mass stabilisation reach with an extension boom?
-cbc742a	approx. 7 m
-4f58044	The mixing boom is 3–5 m, plus another 2 m with an extension – so <b>up to 7 m</b> deep.
 ea178f0	What is the essence of preloading?
 1e0c2fc	The soil is mixed with cement
 fb661c1	Part of the compression is “forced out” by loading in advance
@@ -112,8 +108,5 @@ cf03d28	Soil replacement is a costly solution, today typically used for rafts at
 e39f28f	A crane-mounted deep vibrator 25–40 cm in diameter.
 8c76a78	Deep compaction is most effective in cohesive, clayey soils.
 86eed77	It is for compacting loose granular soils and fills – in cohesive soil a gravel pile may be considered.
-1be6990	In dynamic compaction a 15–40 t pounder is dropped from a height of 10–40 m.
-c6a404b	The pounder weighs 15–40 t, the drop height is H = 10–40 m; the effect reaches a depth of max. 5–7 m.
 ef1840b	Dynamic compaction is effective to a depth of 20–30 m.
-cec0832	It is effective to a depth of max. 5–7 m.
 f840a73	In dynamic compaction, rest periods are used between the phases.

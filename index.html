@@ -621,6 +621,11 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 .tabs button .n{width:auto;min-width:22px;padding:0 6px;white-space:nowrap}
 /* 1/B: a szöveg keskenyebb, a kompenzáció-panel szélesebb – a két oszlop közel egyforma magas */
 @media (min-width:981px){.tw-b{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}}
+/* folyamatábrák (proc.js) */
+:root{--prsky:#e4eef5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--prsky:#1a2a33}}
+:root[data-theme="dark"]{--prsky:#1a2a33}
+.procfig{margin:22px 0 6px}
 
 </style>
 <style id="bxt-css">
@@ -923,12 +928,13 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Mélytömörítés – vibroflotáció</h3>
-        <p>Laza szemcsés talajok, feltöltések összenyomhatóságának csökkentésére, szilárdságának növelésére. Egy darura szerelt rezgéskeltő, <b>25–40 cm átmérőjű</b> cső (mélyvibrátor) önsúlyánál fogva halad lefelé, amit a <b>vízbesajtolás (öblítés)</b> segít. A lyuk környezetében a talaj tömörödik; a vibrátor fokozatos felhúzása közben a lyukba kavicsot, murvát, bányameddőt, homokot juttatnak és a felfelé haladó vibrátorral tömörítik.</p>
+        <p>Laza szemcsés talajok, feltöltések összenyomhatóságának csökkentésére, szilárdságának növelésére. Egy darura szerelt rezgéskeltő, <b>25–40 cm átmérőjű</b> cső (mélyvibrátor) önsúlyánál fogva halad lefelé a javítandó talajzóna aljáig, amit a <b>vízbesajtolás (öblítés)</b> segít. Az így kialakított lyuk környezetében a talaj tömörödik; a vibrátor fokozatos felhúzása közben a lyukba kavicsot, murvát, bányameddőt vagy homokot juttatnak, és a felfelé haladó vibrátorral tömörítik. Megfelelő sűrűségű <b>raszterben</b> végzik az áttömörítést; nagyobb felületek tömörítésére használják, például nagy terhelésű csarnokpadozatok alatt.</p>
       </div>
       <div>
         <div class="grid g2"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Mélyvibrátor öblítéssel" loading="lazy"><figcaption>Mélyvibrátor öblítés közben</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Daruval függesztett mélyvibrátorok" loading="lazy"><figcaption>Daruval függesztett vibrátorok</figcaption></figure></div>
       </div>
     </div>
+    <div class="procfig" id="vfFig"></div>
     <div data-ytc="Gca4PGhTC5o"></div>
   </div>
 
@@ -936,13 +942,14 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Dinamikus tömörítés</h3>
-        <p>A tömörítőhatást egy <b>15–40 tonnás ejtősúly</b> ejtegetésével, <b>H = 10–40 m</b> magasságból érik el. Meghatározandó: az ejtősúly nagysága, az ejtési magasság, a tömörítési raszter, a fázisonkénti ejtésszám és a pihentetés időtartama. <b>Max. 5–7 m mélységig</b> hatásos; nagyobb felületek tömörítésére, laza talajokon (pl. nagy terhelésű csarnokpadozatok alatt). Csak lazább-puhább talajokban alkalmazható.</p>
-        <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne-féle becslés: <b class="nw">d ≈ n·√(W·H)</b> (W tonnában, H méterben), n ≈ 0,5 a legtöbb talajra, 0,35–0,40 telített finomszemcsés talajra. Becslés – a tényleges hatásmélységet próbatömörítéssel igazolják; a gyakorlatban jellemzően <span class="nw">max. 5–7 m</span>.</p></div>
+        <p>A tömörítőhatást egy <b>6–30 tonnás ejtősúly</b> ejtegetésével, <b>10–30 m</b> magasból érik el. A talajtulajdonságok és a követelmények alapján kerül meghatározásra az ejtősúly nagysága, az ejtési magasság, a tömörítési raszter, a fázisonkénti ejtegetési szám és a pihentetés időtartama. <b>Max. 6–8 m mélységig</b> hatásos; laza, szemcsés összletek és feltöltések esetén. Nagyobb felületek tömörítésére használják, például nagy terhelésű csarnokpadozatok alatt.</p>
+        <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne-féle becslés: <b class="nw">d ≈ n·√(W·H)</b> (W tonnában, H méterben), n ≈ 0,5 a legtöbb talajra, 0,35–0,40 telített finomszemcsés talajra. Becslés – a tényleges hatásmélységet próbatömörítéssel igazolják; a gyakorlatban <span class="nw">max. 6–8 m</span>.</p></div>
       </div>
       <div>
         <figure class="photo"><img src="img/dinamikus-foto1.jpg" alt="Dinamikus tömörítés munkaterülete" loading="lazy"><figcaption>Dinamikus tömörítés: a raszterben ejtegetett pontok gödrei</figcaption></figure>
       </div>
     </div>
+    <div class="procfig" id="dcFig"></div>
     <div data-ytc="LtSalNj4ByQ"></div>
     <h4 class="tryh">Próbáld ki: ejts te is!</h4>
     <div class="twocol tw-top">
@@ -951,8 +958,8 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       </div>
       <div>
         <div class="panel"><div class="pb">
-          <div class="ctl"><label>Ejtősúly W <span class="v" data-for="dynW"></span></label><input type="range" id="dynW" min="10" max="40" value="15"></div>
-          <div class="ctl"><label>Ejtési magasság H <span class="v" data-for="dynH"></span></label><input type="range" id="dynH" min="10" max="40" value="12"></div>
+          <div class="ctl"><label>Ejtősúly W <span class="v" data-for="dynW"></span></label><input type="range" id="dynW" min="6" max="30" value="15"></div>
+          <div class="ctl"><label>Ejtési magasság H <span class="v" data-for="dynH"></span></label><input type="range" id="dynH" min="10" max="30" value="15"></div>
           <div class="ctl"><label>Talaj (empirikus n tényező)</label><div class="seg" id="dynSoil"><button data-v="0.55">tiszta homok</button><button data-v="0.5" class="on">vegyes, feltöltés</button><button data-v="0.38">telített finomszemcsés</button></div></div>
           <div class="res" id="dynOut"></div>
         </div></div>
@@ -961,37 +968,31 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m3">
-    <div class="twocol">
+    <h3 style="margin-bottom:10px">Kőtömzs</h3>
+    <div class="twocol tw-top">
       <div>
-        <h3 style="margin-bottom:10px">Kőtömzs</h3>
-        <p>A dinamikus tömörítéshez képest a különbség: az ejtegetés során a tömörítő súly alá fokozatosan <b>szemcsés anyagot</b> (homokos kavicsot, zúzottkövet) helyeznek, amit a döngölő „bedolgoz” a puhább altalajba. A hatása kettős:</p>
-        <ul><li>a szemcsés anyag kiszorítása <b>jelentősen tömöríti</b> a puha altalajt;</li><li><b>nagy teherbírású, nagyobb átmérőjű</b> szemcsés „tömzsök” alakulnak ki.</li></ul>
-        <p>Csak nagyon laza-puha talajokban alkalmazható.</p>
+        <p>A dinamikus tömörítéshez képest a különbség: az ejtegetés során a tömörítő súly alá fokozatosan <b>szemcsés anyagot</b> (homokos kavicsot, zúzottkövet vagy bányameddőt) helyeznek, amit a döngölőgép „bedolgoz” a <b>nagyon puha altalajba</b>. Kötött és szerves talajok esetén hatékony.</p>
       </div>
       <div>
-    <figure class="photo contain"><img src="img/kotomzs-abra.jpg" alt="Kőtömzs munkafázisai" loading="lazy" style="height:300px;padding:6px"><figcaption>A kőtömzs munkafázisai</figcaption></figure>
+        <p style="margin-bottom:6px">A hatása kettős:</p>
+        <ul><li>a szemcsés anyag kiszorítása <b>jelentősen tömöríti</b> a puha altalajt;</li><li><b>nagy teherbírású, nagyobb átmérőjű</b> (Ø 2,0–3,5 m) szemcsés „tömzsök” alakulnak ki.</li></ul>
       </div>
     </div>
+    <div class="procfig" id="ktFig"></div>
     <div class="vinline"><p class="ytnote">A döngölésről szóló felvétel a kőtömzsök készítését is megmutatja.</p><button data-ytm="LtSalNj4ByQ" data-tech="Döngölés és kőtömzs"></button></div>
-    <h4 class="tryh">Próbáld ki: a kőtömzs készítése lépésről lépésre</h4>
-    <div class="solo">
-        <div class="stepper" id="ktSteps"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
-        <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
-    </div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m4">
-    <div class="twocol">
+    <h3 style="margin-bottom:10px">Vibrált kőoszlopok (kavicscölöpök)</h3>
+    <div class="twocol tw-top">
       <div>
-        <h3 style="margin-bottom:10px">Vibrált kőoszlopok (kavicscölöpök)</h3>
-        <p>Elvét tekintve a kőtömzsökhöz hasonló módszer, csak <b>kisebb átmérőjű</b> szemcsés anyagú oszlopok – cölöpök – alakulnak ki. Csak lazább-puhább talajokban alkalmazható.</p>
-        <div class="stepper" id="kcSteps"><button data-v="0" class="on">1 · előkészítés</button><button data-v="1">2 · töltés</button><button data-v="2">3 · lehajtás</button><button data-v="3">4 · tömörítés</button><button data-v="4">5 · lezárás</button></div>
-        <p id="kcStepTxt"><b>Előkészítés:</b> a lánctalpas hordozógép a zsilipes (alsó adagolású) mélyvibrátort a kitűzött pont fölé állítja.</p>
+        <p>Elvét tekintve a kőtömzsökhöz hasonló módszer, csak <b>kisebb átmérőjű</b> szemcsés anyagú oszlopok – cölöpök – alakulnak ki. Gazdaságos talajjavítási megoldás, amely a legkülönbözőbb talajviszonyokhoz és alapozási követelményekhez igazítható; rendkívül csendes, alacsony vibrációval.</p>
       </div>
       <div>
-        <figure class="photo contain"><img src="img/kavicscolop-abra.jpg" alt="Kavicscölöp készítésének lépései" loading="lazy" style="height:400px;padding:6px"><figcaption>A kavicscölöp készítésének lépései</figcaption></figure>
+        <p>A zsilipes (alsó adagolású) mélyvibrátor a tervezett mélységig vagy a megadott talajellenállásig hatol, a talajt oldalirányba kiszorítja; a behatolást a vibráción kívül hidraulikus nyomás és sűrített levegő is segíti. Alkalmazási kör: töltésalapozás, ipari padlók alapozása.</p>
       </div>
     </div>
+    <div class="procfig" id="kcFig"></div>
     <div data-ytc="cNkNZV6kgqk"></div>
     <h4 class="tryh">Próbáld ki: raszter és hatás</h4>
     <div class="solo">
@@ -1015,6 +1016,9 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   <nav class="subidx" aria-label="Alpontok"><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Itatásos</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Talajtömörítő</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Kőzet hézagkitöltő</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Repesztő/kompenzáló</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Üregkitöltő</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Tömegstabilizáció</a></nav>
   <div class="tabs" data-group="inj" id="t-inj"><button data-tab="i1" class="on"><span class="n">3/A–E</span>Injektálás</button><button data-tab="i2"><span class="n">3/F</span>Tömegstabilizáció</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
+    <h3 style="margin-bottom:10px">Az injektálás menete</h3>
+    <p>Az injektálás első lépése mindig a <b>furatkészítés</b>; számtalan módszer létezik, például (béléscsöves) ütvefúrás, kanalas, vésős fúrás, rotary fúrás, fúrócsövek leverése, levibrálása. Az injektálóanyagok jellemzően <b>cementszuszpenziók, cementhabarcsok és (vegyi) oldatok</b>. A hézagtérfogat jelentős csökkentésével javulnak a talaj szilárdsági és alakváltozási tulajdonságai.</p>
+    <div class="procfig" id="ijFig"></div>
   <div class="sub-h" id="injmod"><span class="lt">3/A–E</span><h3>Öt injektálási módszer – mit tesz az anyag a talajjal?</h3></div>
     <p>Az injektálási módszerek abban különböznek, hogy a besajtolt anyag mit tesz a talajjal. Csak kitöltheti a meglévő hézagokat, kiszoríthatja és tömörítheti a talajt, megrepesztheti és megemelheti, vagy egy meglévő üreget tölthet ki.</p>
     <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
@@ -1022,22 +1026,21 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <tbody>
         <tr><td><b>3/A · Itatásos</b></td><td>az anyag kitölti a hézagokat, a hézagtérfogat és a szerkezet nem változik</td><td>szemcsés talaj, durva iszap</td><td>kis nyomás, kis viszkozitású anyag</td><td>alapmegerősítés, tömítés, munkagödör</td></tr>
         <tr><td><b>3/B · Talajtömörítő</b></td><td>szakaszosan képzett üregek, a környező talaj tömörödik</td><td>laza talaj, iszap és agyag is</td><td>nagyobb nyomás, sűrű habarcs</td><td>teherviselő oszlopok, padozat visszaemelése</td></tr>
-        <tr><td><b>3/C · Kőzet hézagkitöltő</b></td><td>a kőzet repedéshálózata telik ki</td><td>repedezett kőzet</td><td>itatásos jellegű, cementalapú</td><td>sziklarézsű, alap alatti kőzet, vízzárás</td></tr>
-        <tr><td><b>3/D · Repesztő/kompenzáló</b></td><td>a talaj megreped, az anyaglemezek megemelik</td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, visszaemelés</td></tr>
-        <tr><td><b>3/E · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással</td><td>pince, bányajárat, padozat alatti üreg</td></tr>
+        <tr><td><b>3/C · Kőzet hézagkitöltő</b></td><td>a kőzet repedéshálózata telik ki</td><td>repedezett kőzet</td><td>itatásos jellegű, cementalapú</td><td>sziklarézsű, alagút főtéje és homlokfala, alap alatti kőzet, vízzárás</td></tr>
+        <tr><td><b>3/D · Repesztő/kompenzáló</b></td><td>a talaj megreped, az anyaglemezek megemelik</td><td>talaj és kőzet</td><td>nagy nyomás, kis viszkozitású, gyorsan kötő anyag, több lépcsőben</td><td>leggyakrabban alagútépítésnél; süllyedéskompenzálás, visszaemelés</td></tr>
+        <tr><td><b>3/E · Üregkitöltő</b></td><td>egy meglévő üreg telik ki</td><td>üregek, pincék, járatok</td><td>gravitációsan vagy kis nyomással; javított cementhabarcs, duzzadó PU hab</td><td>padozat alatti üreg, kőzetüreg, pince, bányajárat, akna, közművezeték</td></tr>
       </tbody>
     </table></div>
     <div class="sub-h"><span class="lt">⚗</span><h3>Injektálóanyagok és a talaj szemcsézete</h3></div>
-    <div class="twocol">
+    <div class="twocol tw-top">
       <div>
         <div class="facts"><span class="fact">cementtej</span><span class="fact">mikrocement</span><span class="fact">cementhabarcs</span><span class="fact">vízüveg (nátriumszilikát) alapú</span><span class="fact">akrilamid</span><span class="fact">lignoszulfit – lignoszulfát</span><span class="fact">fenoplast</span><span class="fact">aminoplast</span><span class="fact">duzzadó poliuretán hab</span><span class="fact">egyéb</span></div>
         <h4 style="margin:16px 0 6px">Cementbesajtolás (itatásos injektálás cementtel)</h4>
         <p>A perforált besajtoló csöveket egymástól <b>50–100 cm</b> távolságban helyezik el, és <b>7–10 atm</b> nyomáson juttatják le a cementtejet vagy cement+homok habarcsot. A hézagoknak nagyobbnak kell lenniük a cementszemcse átmérőjénél, ezért csak <b>0,8–1 mm-nél durvább</b> homok-kavics, illetve üreges, repedezett kötött talaj injektálható vele. Csőfelhúzás közben <b>alulról felfelé</b> kell injektálni.</p>
-        <h4 style="margin:16px 0 6px">Kétkomponensű, duzzadó műgyanta</h4>
-        <p>Homokos és iszapos talajban (agyagban nem hatékony). Folyékonyan, nagyobb nyomással jut a talajba, kitölti az üregeket, réseket, repedéseket és összeköti a szemcséket; pár perc múlva <b>duzzadni kezd</b>, és a talajjal nagyon kemény <b>geokompozitot</b> alkot – nő a kohézió, jelentősen csökken a pórustérfogat. Gyakori utólagos alapmegerősítésre.</p>
       </div>
       <div>
-        <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cementbesajtolás" loading="lazy" style="height:230px;padding:6px"><figcaption>Cementbesajtolás</figcaption></figure>
+        <h4 style="margin:0 0 6px">Kétkomponensű, duzzadó műgyanta</h4>
+        <p>Homokos és iszapos talajban (agyagban nem hatékony). Folyékonyan, nagyobb nyomással jut a talajba, kitölti az üregeket, réseket, repedéseket és összeköti a szemcséket; pár perc múlva <b>duzzadni kezd</b>, és a talajjal nagyon kemény <b>geokompozitot</b> alkot – nő a kohézió, jelentősen csökken a pórustérfogat. Gyakori utólagos alapmegerősítésre.</p>
       </div>
     </div>
     <div class="sub-h"><span class="lt">📷</span><h3>Utólagos alapmegerősítés injektálással – lépésről lépésre</h3></div>
@@ -1067,17 +1070,17 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
     <h3 style="margin-bottom:10px">Tömegstabilizáció</h3>
-    <div class="twocol">
+    <div class="twocol tw-top">
       <div>
-        <p>Speciális keverőfejjel keverik össze a talajt és a kötőanyagot. A keverőszár forgó felsővázas hidraulikus kotróra szerelt eszköz; alján a tengelyeken körbeforgó keverőfej, amelyre a talajhoz kifejlesztett keverőlapátok szerelhetők. A kötőanyag a kotróhoz csatlakoztatott önjáró silókból érkezik nyomás alatt; mennyiségét a gépkezelő a kabinból szabályozza.</p>
-        <div class="facts"><span class="fact">keverőfej <b>1,5 m × Ø 0,95 m</b></span><span class="fact">egy lépésben <b>≈ 1,2 m²</b></span><span class="fact">szár <b>3–5 m</b> + <b>2 m</b> toldás → <b>~7 m</b></span><span class="fact">teljesítmény <b>0,5–0,8 m³/perc</b></span><span class="fact">fej + szár <b>≈ 5 t</b></span><span class="fact">alapgép <b>25–40 t</b></span></div>
+        <p>Speciális keverőfejjel keverik össze a talajt és a kötőanyagot. A keverőszár forgó felsővázas hidraulikus kotróra szerelt eszköz; alján a tengelyeken körbeforgó keverőfej, amelyre a talajhoz kifejlesztett keverőlapátok szerelhetők. A keverés során a keverőfejet lefelé-felfelé mozgatják, miközben a fejen keresztül nagy nyomással, folyamatosan érkezik a kötőanyag a kotróhoz csatlakoztatott önjáró silókból; mennyiségét a gépkezelő a kabinból szabályozza. Kötőanyag a javítandó talaj függvényében: <b>mész, cement, gipsz, granulált kohósalak</b> vagy ezek keveréke. A tömegstabilizáció a mélykeverés egyik típusa (az oszlopszerű és a részszerű, pl. CSM mellett).</p>
+        <div class="facts"><span class="fact">keverőfej <b>1,5 m × Ø 0,95 m</b></span><span class="fact">egy lépésben <b>≈ 1,2 m²</b></span><span class="fact">keverőszár <b>3–5 m</b></span><span class="fact">mélység rendszerint <b>≤ 5 m</b></span><span class="fact">teljesítmény <b>0,5–0,8 m³/perc</b></span><span class="fact">fej + szár <b>≈ 5 t</b></span><span class="fact">alapgép <b>25–40 t</b></span></div>
+      </div>
+      <div>
         <div class="callout warn"><span class="ci">!</span><p>A stabilizálást mindig <b>állékony területről</b> kell kezdeni – a géplánc maga előtt haladva stabilizálja a talajt. A stabilizált felület nem rögtön nyeri el végleges teherbírását: szükség esetén geotextília, georács és szemcsés anyag teherelosztó réteget készítenek.</p></div>
         <p class="src" style="margin-top:12px">Kitekintés: egy helsinki kísérleti projektben tőzegben 100 kg/m³ cementtel érték el a legjobb eredményt; a kötőanyag a teljes költség közel felét adta, a szilárdság 30 és 90 nap között akár megduplázódhat.</p>
       </div>
-      <div>
-        <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Mélystabilizáció technológiája" loading="lazy" style="height:170px;padding:6px"><figcaption>A tömegstabilizáció technológiája</figcaption></figure>
-      </div>
     </div>
+    <div class="procfig" id="msFig"></div>
     <div data-ytc="wh31VB1fY_8"></div>
     <h4 class="tryh">Próbáld ki: tervezd meg a munkát!</h4>
     <div class="solo">
@@ -1086,7 +1089,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <div id="msSvg"></div>
       <div class="ctl"><label>Készültség <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
       <div class="ctl"><label>Terület <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
-      <div class="ctl"><label>Mélység <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
+      <div class="ctl"><label>Mélység <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="5" step="0.5" value="3"></div>
       <div class="ctl"><label>Keverési teljesítmény <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
       <div class="ctl" style="grid-column:1/-1"><label>Kötőanyag-adagolás <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
       <div class="res" id="msOut"></div>
@@ -1177,16 +1180,16 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <tr class="g1"><td><span class="code">1/B</span> <b>Mélyebb alapsík</b></td><td>pár méteren belül jobb teherbíró réteg</td><td>pince: kiemelt föld tehermentesít</td><td>2–2,5 m-nél mélyebb sávalap nem gazdaságos</td></tr>
       <tr class="g1"><td><span class="code">1/C</span> <b>Talajcsere</b></td><td>bármely rossz talaj, sekély zónában</td><td>50–80 cm, ≤ 30 cm-es rétegekben tömörítve</td><td>csak talajvíz felett; kiszélesítés: B + 2·v·tgϑ</td></tr>
       <tr class="g2"><td><span class="code">2/A</span> <b>Mélytömörítés</b></td><td>laza szemcsés talaj, feltöltés</td><td>vibrátor Ø 25–40 cm, öblítéssel</td><td>finomszem-tartalom kb. &lt; 10–12 %</td></tr>
-      <tr class="g2"><td><span class="code">2/B</span> <b>Dinamikus tömörítés</b></td><td>lazább-puhább talaj, nagy felület</td><td>15–40 t ejtősúly, H = 10–40 m; max. 5–7 m</td><td>erős rezgés – épületek mellett nem</td></tr>
-      <tr class="g2"><td><span class="code">2/C</span> <b>Kőtömzs</b></td><td>nagyon laza-puha talaj</td><td>szemcsés anyag bedöngölése, nagy átmérőjű tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
-      <tr class="g2"><td><span class="code">2/D</span> <b>Kavicscölöp</b></td><td>lazább-puhább talaj (kötött is)</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
+      <tr class="g2"><td><span class="code">2/B</span> <b>Dinamikus tömörítés</b></td><td>laza, szemcsés összlet, feltöltés; nagy felület</td><td>6–30 t ejtősúly, 10–30 m ejtési magasság; max. 6–8 m</td><td>erős rezgés – épületek mellett nem</td></tr>
+      <tr class="g2"><td><span class="code">2/C</span> <b>Kőtömzs</b></td><td>nagyon puha, kötött és szerves talaj</td><td>szemcsés anyag bedöngölése, Ø 2,0–3,5 m-es tömzsök</td><td>kiszorításos tömörítés + teherbíró elemek</td></tr>
+      <tr class="g2"><td><span class="code">2/D</span> <b>Kavicscölöp</b></td><td>a legkülönbözőbb talajviszonyokhoz igazítható</td><td>zsilipes mélyvibrátor, Ø ≈ 0,6–1,0 m</td><td>függőleges drénként is hat</td></tr>
       <tr class="g3"><td><span class="code">3/A</span> <b>Itatásos injektálás</b></td><td>szemcsés talaj, durva iszap; cementtel csak 0,8–1 mm-nél durvább</td><td>cementbesajtolás: csövek 50–100 cm-enként, 7–10 atm</td><td>a hézagokat tölti ki; alulról felfelé</td></tr>
       <tr class="g3"><td><span class="code">3/B</span> <b>Talajtömörítő injektálás</b></td><td>laza talaj, iszap és agyag is</td><td>sűrű habarcs, szakaszos gömbök</td><td>tömörít, teherviselő oszlopokat képez</td></tr>
       <tr class="g3"><td><span class="code">3/C</span> <b>Kőzet hézagkitöltő injektálás</b></td><td>repedezett kőzet</td><td>a repedéshálózat kitöltése</td><td>rézsű, alap alatti kőzet, vízzárás</td></tr>
       <tr class="g3"><td><span class="code">3/D</span> <b>Repesztő/kompenzáló injektálás</b></td><td>talaj és kőzet</td><td>nagy nyomás, gyorsan kötő anyag</td><td>süllyedéskompenzálás, épület visszaemelése</td></tr>
       <tr class="g3"><td><span class="code">3/E</span> <b>Üregkitöltő injektálás</b></td><td>üregek, pincék, bányajáratok</td><td>gravitációsan vagy kis nyomással</td><td>javított cementhabarcs, duzzadó PU hab</td></tr>
       <tr class="g3"><td><span class="code">3</span> <b>Kétkomponensű műgyanta</b></td><td>homokos, iszapos talaj</td><td>duzzadó geokompozit</td><td>agyagban nem hatékony; utólagos megerősítés</td></tr>
-      <tr class="g3"><td><span class="code">3/F</span> <b>Tömegstabilizáció</b></td><td>tőzeg, puha agyag, szerves talaj</td><td>keverőfej 1,5 m × Ø 0,95 m; max. ~7 m</td><td>állékony területről indul; idő kell a szilárduláshoz</td></tr>
+      <tr class="g3"><td><span class="code">3/F</span> <b>Tömegstabilizáció</b></td><td>tőzeg, puha agyag, szerves talaj</td><td>keverőfej 1,5 m × Ø 0,95 m; mélység rendszerint ≤ 5 m</td><td>állékony területről indul; idő kell a szilárduláshoz</td></tr>
       <tr class="g4"><td><span class="code">4/A</span> <b>Előterhelés</b></td><td>telített, összenyomható kötött talaj</td><td>a teher ≥ a későbbi épületteher</td><td>hosszú idő – drénekkel gyorsítható</td></tr>
       <tr class="g4"><td><span class="code">4/B–C</span> <b>Szerkezet, sorrend</b></td><td>–</td><td>merev vagy hajlékony szerkezet, süllyedési hézag</td><td>kiegészítő eszköz</td></tr>
       <tr class="g4"><td><span class="code">4/D</span> <b>Mélyalapozás</b></td><td>ha a teherbíró réteg mélyen van</td><td>cölöp, résfal</td><td>sokszor a legegyszerűbb, leggyorsabb</td></tr>
@@ -1343,7 +1346,7 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 
 // --- videók ---
 const VIDEOS = {
-  tj1: { t: 'Alapozás átalakítása', s: 'kisebb talpnyomás · mélyebb alapsík · talajcsere', d: '2:16', ch: '1/A–1/C' },
+  tj1: { t: 'Alapozás átalakítása', s: 'kisebb talpnyomás, mélyebb alapsík, talajcsere', d: '2:16', ch: '1/A–1/C' },
   tj7: { t: 'Előterhelés – Mexikóváros', s: 'ballaszt az épületsúlyig, kivárás, ütemezett eltávolítás', d: '2:14', ch: '4/A' },
 };
 window.VIDEOS = VIDEOS;
@@ -1445,13 +1448,13 @@ window.SVpat = pat;
     { id: 'b', n: '1/B Mélyebb alapsík', d: 'pár méteren belül teherbíró réteg, pince', href: '#alapsik', c: 'var(--teal)' },
     { id: 'c', n: '1/C Talajcsere', d: 'sekély probléma, talajvíz felett, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
     { id: 'd1', n: '2/A Mélytömörítés (vibroflotáció)', d: 'laza szemcsés talaj, feltöltés', href: '#t-mech', open: 'mech:m1', c: 'var(--amber)' },
-    { id: 'd2', n: '2/B Dinamikus tömörítés', d: 'nagy felület, laza-puha talaj, max. 5–7 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
-    { id: 'd3', n: '2/C Kőtömzs', d: 'nagyon laza-puha talaj', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
-    { id: 'd4', n: '2/D Kavicscölöp', d: 'lazább-puhább talaj, kötött talaj is', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
+    { id: 'd2', n: '2/B Dinamikus tömörítés', d: 'nagy felület, laza szemcsés talaj, feltöltés; max. 6–8 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
+    { id: 'd3', n: '2/C Kőtömzs', d: 'nagyon puha, kötött és szerves talaj', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
+    { id: 'd4', n: '2/D Kavicscölöp', d: 'sokféle talajhoz igazítható, kötött talajban is', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
     { id: 'd5', n: '3/A Itatásos injektálás', d: 'szemcsés talaj, durva iszap; cementtel csak > 0,8–1 mm', href: '#injmod', open: 'inj:i1', inj: 0, c: 'var(--violet)' },
     { id: 'd6', n: '3/B Talajtömörítő injektálás', d: 'laza talaj, iszap és agyag is; meglévő épület alatt is', href: '#injmod', open: 'inj:i1', inj: 1, c: 'var(--violet)' },
     { id: 'd8', n: '3/D Repesztő/kompenzáló injektálás', d: 'süllyedéskompenzálás, épület visszaemelése', href: '#injmod', open: 'inj:i1', inj: 3, c: 'var(--violet)' },
-    { id: 'd7', n: '3/F Tömegstabilizáció', d: 'tőzeg, puha agyag, max. ~7 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
+    { id: 'd7', n: '3/F Tömegstabilizáció', d: 'tőzeg, puha agyag; rendszerint ≤ 5 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
     { id: 'e', n: '4/A Előterhelés', d: 'telített, összenyomható kötött talaj, van idő', href: '#eloterheles', c: 'var(--coral)' },
     { id: 'f', n: '4/B–C Szerkezeti megoldás, építési sorrend', d: 'mindig kiegészítő eszköz', href: '#szerkezet', c: 'var(--coral)' },
     { id: 'h', n: '4/D Mélyalapozás', d: 'a jó teherbíró réteg mélyen van', href: '#melyalap', c: 'var(--coral)' },
@@ -1465,13 +1468,13 @@ window.SVpat = pat;
       case 'b': add(better === 'igen' && depth !== 'mely' ? 3 : -2, better === 'igen' ? 'pár méteren belül jobb réteg' : ''); if (sit === 'meglevo') add(-3); break;
       case 'c': add(depth === 'sekely' ? 3 : -2, depth === 'sekely' ? 'sekély probléma' : 'mély rétegnél drága'); add(gw === 'felett' ? 1 : -4, gw === 'felett' ? '' : 'talajvíz alatt nem tömöríthető'); if (sit === 'meglevo') add(-4); break;
       case 'd1': add(soil === 'szemcses' || soil === 'feltoltes' ? 3 : -3, soil === 'szemcses' ? 'laza szemcsés talaj' : soil === 'feltoltes' ? 'feltöltés' : 'kötött talajban hatástalan'); if (sit === 'meglevo') add(-3, 'rezgés a meglévő épület mellett'); break;
-      case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 5–7 m' : ''); if (sit === 'meglevo') add(-4, 'erős rezgés – épület mellett nem'); break;
+      case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 6–8 m' : ''); if (sit === 'meglevo') add(-4, 'erős rezgés – épület mellett nem'); break;
       case 'd3': add(soil === 'kotott' || soil === 'feltoltes' ? 2 : 0); if (sit === 'meglevo') add(-4); break;
       case 'd4': add(soil === 'kotott' ? 3 : soil === 'szerves' ? -1 : 1, soil === 'kotott' ? 'puha kötött talajhoz is' : ''); if (sit === 'meglevo') add(-2); break;
       case 'd5': add(soil === 'szemcses' ? 3 : soil === 'feltoltes' ? 1 : -2, soil === 'szemcses' ? 'a hézagokat tölti ki' : soil === 'feltoltes' ? '' : 'finom talajba nem jut be'); if (sit === 'meglevo') add(1, 'utólagos beavatkozás is'); break;
       case 'd6': add(soil === 'szerves' ? -2 : 1, soil === 'kotott' ? 'iszapban, agyagban is tömörít' : soil === 'szerves' ? '' : 'laza talajt tömörít'); if (sit === 'meglevo') add(3, 'meglévő épület alatt is'); break;
       case 'd8': add(sit === 'meglevo' ? 3 : -2, sit === 'meglevo' ? 'süllyedéskompenzálás, visszaemelés' : 'új építésnél ritka'); if (soil === 'szerves') add(-2); break;
-      case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'tőzeg, szerves talaj' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'max. ~7 m' : ''); if (sit === 'meglevo') add(-4); break;
+      case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'tőzeg, szerves talaj' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'rendszerint ≤ 5 m' : ''); if (sit === 'meglevo') add(-4); break;
       case 'e': add(soil === 'kotott' || soil === 'szerves' ? 3 : 0, soil === 'kotott' || soil === 'szerves' ? 'összenyomható kötött talaj' : ''); if (sit === 'meglevo') add(-4); break;
       case 'f': add(2, 'mindig érdemes'); break;
       case 'h': add(depth === 'mely' ? 4 : better === 'nem' ? 2 : 0, depth === 'mely' ? 'mélyen van a jó réteg' : ''); if (sit === 'meglevo') add(0); break;
@@ -1802,7 +1805,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     SV('rect', { x: W - 52, y: gy, width: 52, height: Hh - gy, fill: 'var(--card)', opacity: .86 }, s);
     SV('rect', { x: W - 52, y: gy + 5 * k, width: 52, height: 2 * k, fill: 'var(--coral)', opacity: .32 }, s);
     for (let m = 0; m <= 12; m += 2) { SV('line', { x1: W - 52, x2: W - 44, y1: gy + m * k, y2: gy + m * k, stroke: 'var(--ink2)' }, s); if (m) SV('text', { x: W - 8, y: gy + m * k + 4, 'text-anchor': 'end', text: m + ' m', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)' }, s); }
-    SV('text', { x: W - 58, y: gy + 6 * k + 4, 'text-anchor': 'end', text: 'jellemzően 5–7 m', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)' }, s);
+    SV('text', { x: W - 58, y: gy + 6 * k + 4, 'text-anchor': 'end', text: 'max. 6–8 m', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)' }, s);
     const yd = gy + Math.min(d, 12.6) * k; SV('line', { x1: cx - 120, x2: W - 52, y1: yd, y2: yd, stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '4 4' }, s);
     SV('text', { x: cx - 124, y: Math.min(yd + 4, Hh - 10), 'text-anchor': 'end', text: `hatásmélység ≈ ${fmt(d, 1)} m`, 'font-size': 12.5, 'font-weight': 800, class: 'hl' }, s);
     // lánctalpas daru rácsos gémmel
@@ -1831,27 +1834,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 })();
 
 /* ---------- kőtömzs ---------- */
-(function stonePier() {
-  const host = $('#ktSvg'); if (!host) return; let step = 0; const T = ['Az ejtősúly gödröt üt a puha talajba.', 'A gödröt szemcsés anyaggal (homokos kavics, zúzottkő) töltik fel.', 'Újabb ejtés: a súly a kavicsot „bedolgozza” a puha altalajba – kiszorítja és tömöríti.', 'Töltés–ejtés ciklusok: a tömzs lefelé és oldalra épül.', 'Kész kőtömzs: nagy átmérőjű, nagy teherbírású szemcsés oszlop + tömörödött környezet.'];
-  const draw = () => {
-    const W = 400, Hh = 270, gy = 84, cx = 200; const s = svg(host, W, Hh); pat(s);
-    SV('rect', { x: 0, y: 0, width: W, height: gy, fill: 'var(--card2)' }, s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pSoft)' }, s); SV('rect', { x: 0, y: gy - 3, width: W, height: 4, fill: '#8a8f6a' }, s);
-    const depth = [40, 40, 78, 112, 134][step], wid = [60, 60, 80, 96, 106][step];
-    if (step >= 2) { SV('ellipse', { cx, cy: gy + depth / 2, rx: wid / 2 + 30, ry: depth / 2 + 22, fill: '#a3874f', opacity: .42 }, s);
-      [[-1, .35], [1, .35], [-1, .75], [1, .75]].forEach(([sg, f]) => { const x0 = cx + sg * (wid / 2 + 4), y0 = gy + depth * f; SV('line', { x1: x0, y1: y0, x2: x0 + sg * 20, y2: y0 + 5, stroke: '#fff', 'stroke-width': 2.2 }, s); SV('path', { d: `M${x0 + sg * 20},${y0 + 5} l${-sg * 8},-5 l${sg * 1},9 z`, fill: '#fff' }, s); }); }
-    if (step >= 1) SV('path', { d: `M${cx - wid / 2},${gy} C${cx - wid / 2 - 10},${gy + depth * .7} ${cx - wid / 3},${gy + depth} ${cx},${gy + depth} C${cx + wid / 3},${gy + depth} ${cx + wid / 2 + 10},${gy + depth * .7} ${cx + wid / 2},${gy} Z`, fill: 'url(#pGrav)', stroke: '#6d5c47', 'stroke-width': 1.5 }, s);
-    else SV('path', { d: `M${cx - 30},${gy} Q${cx},${gy + 70} ${cx + 30},${gy} Z`, fill: '#3a2f27' }, s);
-    if (step === 0 || step === 2 || step === 3) { const wy = gy - (step === 0 ? -12 : 2) - 22; SV('rect', { x: cx - 25, y: wy, width: 50, height: 22, rx: 3, fill: '#4b5458', stroke: '#222' }, s); SV('line', { x1: cx, x2: cx, y1: 0, y2: wy, stroke: '#4b5458', 'stroke-width': 1.6 }, s); SV('path', { d: `M${cx + 42},${wy - 24} v22 m-6,-8 l6,9 l6,-9`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
-    if (step === 1) { for (let i = 0; i < 12; i++) SV('circle', { cx: cx - 22 + (i * 13) % 44, cy: 16 + (i * 17) % 52, r: 5, fill: '#8f7c66', stroke: '#6d5c47' }, s); SV('text', { x: cx + 36, y: 62, text: 'homokos kavics, zúzottkő', 'font-size': 13, 'font-weight': 700, fill: 'var(--ink2)' }, s); }
-    if (step === 4) { SV('line', { x1: cx - wid / 2, x2: cx + wid / 2, y1: gy - 14, y2: gy - 14, stroke: 'var(--ink)', 'stroke-width': 1.4 }, s); [cx - wid / 2, cx + wid / 2].forEach(x => SV('line', { x1: x, x2: x, y1: gy - 19, y2: gy - 9, stroke: 'var(--ink)', 'stroke-width': 1.4 }, s)); SV('text', { x: cx, y: gy - 24, 'text-anchor': 'middle', text: 'nagy átmérőjű tömzs', 'font-size': 13, 'font-weight': 700, fill: 'var(--ink2)' }, s); }
-    if (step >= 2) SV('text', { x: cx, y: Math.min(Hh - 10, gy + depth + 42), 'text-anchor': 'middle', text: 'tömörödött zóna', 'font-size': 13, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: 10, y: gy + 20, text: 'nagyon laza-puha talaj', 'font-size': 13, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: 14, y: 26, text: `${step + 1}. lépés`, 'font-size': 15, 'font-weight': 800, fill: 'var(--ink)' }, s);
-    $('#ktTxt').textContent = T[step];
-  };
-  $('#ktSteps').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; step = +b.dataset.v; $$('#ktSteps button').forEach((x, i) => x.classList.toggle('on', i === step)); draw(); });
-  draw();
-})();
+/* (a kőtömzs régi lépésábrája helyett: proc.js – ktFig) */
 
 /* ---------- kavicscölöp raszter ---------- */
 (function stoneCol() {
@@ -1869,9 +1852,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     const bar = $('#kcBar'); bar.style.width = (ratio * 100) + '%';
   };
   window.U.seg('kcPat', v => { tri = v === 'tri'; draw(); }); bindR(['kcD', 'kcS', 'kcN'], draw); draw();
-  // lépések
-  const T = ['<b>Előkészítés:</b> a lánctalpas hordozógép a zsilipes (alsó adagolású) mélyvibrátort a kitűzött pont fölé állítja.', '<b>Töltés:</b> a skip (anyagtartály) feltölti a vibrátor tetején lévő zsilipet kaviccsal; a zsilipet sűrített levegővel zárják.', '<b>Lehajtás:</b> a vibrátor rezgéssel és a gép lenyomó erejével a tervezett mélységig hatol – oldalra szorítja a talajt.', '<b>Tömörítés:</b> kb. 1 m felhúzás → a kavics kifolyik a csúcsnál → visszanyomás. A kiszorított kavics kiszélesedik (Ø ≈ 0,6–1,0 m), a környezet tömörödik.', '<b>Lezárás:</b> a ciklusokat a felszínig ismétlik; a kész oszlopokra teherelosztó réteg kerül.'];
-  const sb = $('#kcSteps'); if (sb) sb.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', sb).forEach(x => x.classList.toggle('on', x === b)); $('#kcStepTxt').innerHTML = T[+b.dataset.v]; });
 })();
 
 /* ---------- injektálás: öt módszer egy metszeten ---------- */
@@ -1888,11 +1868,11 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
       lab: 'a habarcsgömbök kiszorítják és tömörítik a talajt' },
     { n: 'Kőzet hézagkitöltő injektálás', e: 'Olyan, mint az itatásos injektálás, csak a kőzettestek repedéshálózatát injektáljuk. Az anyag a fúrásból kiindulva a repedések mentén terjed, és kitölti azokat.',
       soil: 'repedezett, mállott kőzet', mat: 'cementtej, cementhabarcs, szükség esetén műgyanta', pr: 'a repedések nyitottságához igazítva',
-      use: ['sziklarézsűk stabilizálása', 'alapok alatti lazább kőzetek stabilizálása', 'kőzettömegek vízzáróságának javítása'],
+      use: ['sziklarézsűk stabilizálása', 'alagutak főtéjének és homlokfalának stabilizálása', 'alapok alatti lazább kőzetek stabilizálása', 'kőzetösszletek vízzáróságának javítása'],
       lab: 'csak a kőzet repedéshálózata telik ki' },
     { n: 'Repesztő/kompenzáló injektálás', e: 'A talajok és kőzetek „kierőszakolt” repedésein keresztül, nagy nyomáson kis viszkozitású, gyorsan kötő injektálóanyagot sajtolnak be. A megnyíló repedésekben injektálóanyag-lemezek keletkeznek, és a talaj a felette lévő építménnyel együtt megemelkedik. A besajtolás szelepes csöveken keresztül többször megismételhető, így a mozgás pontosan adagolható.',
       soil: 'talajok és kőzetek, finom szemcsés talaj is', mat: 'kis viszkozitású, gyorsan kötő injektálóanyag', pr: 'nagy – a talaj megreped',
-      use: ['süllyedéskompenzálás, például alagútépítés alatt', 'megsüllyedt építmények visszaemelése'],
+      use: ['leggyakrabban alagútépítés során', 'süllyedéskompenzálás', 'építmények visszaemelése'],
       lab: 'a repedésekben keletkező lemezek megemelik az épületet' },
     { n: 'Üregkitöltő injektálás', e: 'Kisebb-nagyobb üregek kitöltésére használják, gravitációsan vagy kisebb nyomással. Az üreg alulról felfelé telik meg; a nehezen elérhető részeket duzzadó habbal zárják le.',
       soil: 'természetes és mesterséges üregek', mat: 'döntően javított cementhabarcs, kiegészítve duzzadó poliuretán habokkal', pr: 'gravitációs vagy kicsi',
@@ -2166,6 +2146,212 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 
 </script>
 <script>
+/* ===== Folyamatábrák a talajjavítási módszerekhez (a BME-videók ábrái és szövegei alapján) =====
+   Minden ábra lépésenkénti metszetsor: számozott panel, cím, rajz, rövid magyarázat.
+   Széles nézetben egy sorban, keskenyben két oszlopban. Az útvonalak szóközzel írva (az angol build tizedesvessző-cseréje miatt). */
+(function () {
+const { $, $$ } = window.U; const SV = window.SV, svg = window.mkSvg, pat = window.SVpat;
+const PW = 260, PH = 330, GY = 150, GB = 250;           // panel szélessége/magassága, terep- és talajalj-szint a panelen belül
+const C = { yel: '#f2b705', yelD: '#b88700', steel: '#7c848c', steelD: '#4b5258', dark: '#2f3439', water: '#3b8fd0', halo: '#ef8a2a', grout: '#d8d4c8', groutD: '#9c968a', conc: '#c3c7ca' };
+
+/* --- alapelemek --- */
+const P = (d, a, g) => SV('path', { d, ...a }, g);
+const R = (x, y, w, h, a, g) => SV('rect', { x, y, width: w, height: h, ...a }, g);
+const L = (x1, y1, x2, y2, a, g) => SV('line', { x1, y1, x2, y2, ...a }, g);
+const T = (x, y, text, a, g) => SV('text', { x, y, text, ...a }, g);
+const arrowDown = (g, x, y1, y2, c = 'var(--ink)', w = 2, hw = 5) => { L(x, y1, x, y2 - hw * 1.3, { stroke: c, 'stroke-width': w }, g); P(`M${x - hw} ${y2 - hw * 1.6}L${x} ${y2}L${x + hw} ${y2 - hw * 1.6}Z`, { fill: c }, g); };
+const arrowH = (g, x1, x2, y, c = 'var(--ink)', w = 1.8, hw = 5) => { const s = Math.sign(x2 - x1); L(x1, y, x2 - s * hw * 1.3, y, { stroke: c, 'stroke-width': w }, g); P(`M${x2 - s * hw * 1.6} ${y - hw}L${x2} ${y}L${x2 - s * hw * 1.6} ${y + hw}Z`, { fill: c }, g); };
+const arrowUp = (g, x, y1, y2, c = 'var(--ink)', w = 2, hw = 5) => { L(x, y1, x, y2 + hw * 1.3, { stroke: c, 'stroke-width': w }, g); P(`M${x - hw} ${y2 + hw * 1.6}L${x} ${y2}L${x + hw} ${y2 + hw * 1.6}Z`, { fill: c }, g); };
+/* felirat kis kártyán (mintás talajon is olvasható) */
+const tag = (g, x, y, text, o = {}) => { const gg = SV('g', {}, g); const t = T(x, y, text, { 'font-size': o.fs || 11.5, 'font-weight': o.fw || 700, 'text-anchor': o.a || 'middle', style: `fill:${o.c || 'var(--ink)'}` }, gg); try { const b = t.getBBox(); const r = R(b.x - 5, b.y - 2.5, b.width + 10, b.height + 5, { rx: 5, fill: 'var(--card)', opacity: .92, stroke: o.c || 'var(--line)', 'stroke-opacity': .5 }); gg.insertBefore(r, t); } catch (e) { } return gg; };
+let uid = 0;
+const defs = (s) => { let d = s.querySelector('defs'); if (!d) d = SV('defs', {}, s); return d; };
+const radial = (s, c, op) => { const id = 'prh' + (++uid); const rg = SV('radialGradient', { id }, defs(s)); SV('stop', { offset: '0', 'stop-color': c, 'stop-opacity': op }, rg); SV('stop', { offset: '.7', 'stop-color': c, 'stop-opacity': op * .45 }, rg); SV('stop', { offset: '1', 'stop-color': c, 'stop-opacity': 0 }, rg); return `url(#${id})`; };
+const halo = (g, s, cx, cy, rx, ry, c = C.halo, op = .62) => SV('ellipse', { cx, cy, rx, ry, fill: radial(s, c, op) }, g);
+
+/* terep: ég, rétegek, fű; a rétegek: [{to, fill, name}] felülről lefelé */
+const ground = (g, layers = [{ to: GB, fill: 'url(#pSand)' }]) => {
+  R(0, 40, PW, GY - 40, { fill: 'var(--prsky)' }, g);
+  let y = GY; layers.forEach(l => { R(0, y, PW, l.to - y, { fill: l.fill }, g); y = l.to; });
+  R(0, GY - 3, PW, 4, { fill: '#7d9a5b' }, g);
+};
+const layerName = (g, x, y, text, a = 'start') => T(x, y, text, { 'font-size': 10.5, 'font-weight': 700, 'text-anchor': a, class: 'hl', style: 'fill:var(--ink2)' }, g);
+
+/* gépek */
+const tracks = (g, x, w, y) => { R(x, y - 12, w, 12, { rx: 6, fill: C.dark }, g); for (let i = 0; i < 5; i++) SV('circle', { cx: x + 7 + i * (w - 14) / 4, cy: y - 6, r: 3.2, fill: '#6b7178' }, g); };
+/* lánctalpas rácsos gémű daru: x a lánctalp közepe, a gémcsúcs (tx, ty) */
+const crane = (g, x, tx, ty, flip = 1) => {
+  tracks(g, x - 34, 68, GY);
+  R(x - 26, GY - 36, 50, 24, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g);
+  R(x - 22 * flip - (flip < 0 ? 14 : 0), GY - 33, 14, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+  R(flip > 0 ? x + 14 : x - 30, GY - 34, 14, 20, { fill: C.yelD }, g);
+  const px = x - 10 * flip, py = GY - 34; const dx = tx - px, dy = ty - py, len = Math.hypot(dx, dy), nx = -dy / len * 3.2, ny = dx / len * 3.2;
+  P(`M${px + nx} ${py + ny}L${tx + nx * .4} ${ty + ny * .4}M${px - nx} ${py - ny}L${tx - nx * .4} ${ty - ny * .4}`, { stroke: C.yelD, 'stroke-width': 1.6, fill: 'none' }, g);
+  let zz = ''; const n = Math.max(6, Math.round(len / 9)); for (let i = 0; i <= n; i++) { const u = i / n, s = (i % 2 ? 1 : -1) * (1 - .6 * u); zz += (i ? 'L' : 'M') + (px + dx * u + nx * s).toFixed(1) + ' ' + (py + dy * u + ny * s).toFixed(1); }
+  P(zz, { stroke: C.yel, 'stroke-width': 1, fill: 'none' }, g);
+  L(x + 18 * flip, GY - 36, tx, ty, { stroke: '#555', 'stroke-width': .8 }, g);
+  return { tx, ty };
+};
+/* rakodógép (homlokrakodó): x a gép közepe, dir = 1 jobbra néz; bucketY: a kanál magassága */
+const loader = (g, x, dir = 1, bucketY = GY - 18, spill = false) => {
+  const b = (v) => x + v * dir;
+  SV('circle', { cx: b(-14), cy: GY - 8, r: 8, fill: C.dark }, g); SV('circle', { cx: b(14), cy: GY - 8, r: 8, fill: C.dark }, g);
+  P(`M${b(-24)} ${GY - 12}L${b(24)} ${GY - 12}L${b(24)} ${GY - 24}L${b(6)} ${GY - 24}L${b(2)} ${GY - 40}L${b(-12)} ${GY - 40}L${b(-14)} ${GY - 24}L${b(-24)} ${GY - 24}Z`, { fill: C.yel, stroke: C.yelD, 'stroke-width': 1 }, g);
+  R(Math.min(b(-10), b(0)), GY - 37, 10, 11, { fill: '#cfe6f2', stroke: C.yelD, 'stroke-width': .8 }, g);
+  L(b(18), GY - 22, b(34), bucketY + 4, { stroke: C.yelD, 'stroke-width': 3 }, g);
+  P(`M${b(30)} ${bucketY - 4}L${b(44)} ${bucketY - 4}L${b(42)} ${bucketY + 8}L${b(30)} ${bucketY + 8}Z`, { fill: '#8e969d', stroke: C.steelD, 'stroke-width': 1 }, g);
+  if (spill) for (let i = 0; i < 10; i++) SV('circle', { cx: b(40 + (i % 3) * 2.5), cy: bucketY + 12 + i * 3.2, r: 1.6, fill: '#9a8a70' }, g);
+};
+/* mélyvibrátor (vibroflot): függesztett cső + vibrátortest + kúpos orr */
+const vibro = (g, x, top, nose, w = 12) => {
+  R(x - w * .35, top, w * .7, nose - 46 - top, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+  R(x - w / 2, nose - 48, w, 40, { rx: 2, fill: '#5d646b', stroke: C.steelD, 'stroke-width': 1 }, g);
+  for (let i = 0; i < 4; i++) L(x - w / 2 + 1, nose - 42 + i * 9, x + w / 2 - 1, nose - 42 + i * 9, { stroke: '#8d959c', 'stroke-width': .8 }, g);
+  P(`M${x - w / 2} ${nose - 8}L${x} ${nose}L${x + w / 2} ${nose - 8}Z`, { fill: C.steelD }, g);
+};
+const jets = (g, x, y, up = false) => { for (const s of [-1, 1]) for (let k = 0; k < 3; k++) P(`M${x + s * 7} ${y - 4 - k * 9}q${s * 10} ${up ? -6 : 4} ${s * 18} ${up ? -2 : 8}`, { stroke: C.water, 'stroke-width': 1.4, fill: 'none', 'stroke-dasharray': '3 2' }, g); };
+/* vibrációs hullámjel */
+const shake = (g, x, y) => { for (const s of [-1, 1]) P(`M${x + s * 10} ${y - 8}q${s * 4} 4 0 8q${s * -4} 4 0 8`, { stroke: 'var(--ink2)', 'stroke-width': 1.1, fill: 'none' }, g); };
+/* kavics/zúzottkő foltokkal */
+const gravel = (g, d, op = 1) => P(d, { fill: 'url(#pGrav)', stroke: '#6b5a44', 'stroke-width': 1, opacity: op }, g);
+
+/* a panelnél szélesebb felirat betűméretét arányosan csökkenti (keskeny nézetben a betűnagyító miatt) */
+const fit = (t, max) => { try { const w = t.getBBox().width; if (w > max) t.setAttribute('font-size', (parseFloat(t.getAttribute('font-size')) * max / w).toFixed(2)); } catch (e) { } return t; };
+/* --- panelsor --- */
+const strip = (host, steps, opt = {}) => {
+  const draw = () => {
+    const cw = host.clientWidth || 1000, n = steps.length, cols = cw < 640 ? 2 : n, rows = Math.ceil(n / cols), gap = 22;
+    const W = cols * PW + (cols - 1) * gap, H = rows * PH + (rows - 1) * 14; const s = svg(host, W, H); pat(s);
+    steps.forEach((st, i) => {
+      const lone = cols < n && n % cols && i === n - 1, cx = lone ? (W - PW) / 2 : (i % cols) * (PW + gap), cy = Math.floor(i / cols) * (PH + 14);
+      const id = 'prc' + (++uid); const cp = SV('clipPath', { id }, defs(s)); R(0, 0, PW, PH, { rx: 12 }, cp);
+      const g = SV('g', { transform: `translate(${cx} ${cy})` }, s);
+      R(0, 0, PW, PH, { rx: 12, fill: 'var(--card)', stroke: 'var(--line)' }, g);
+      const inner = SV('g', { 'clip-path': `url(#${id})` }, g);
+      st.d(inner, s);
+      R(0, 0, PW, 40, { fill: 'var(--card)' }, inner); L(0, 40, PW, 40, { stroke: 'var(--line2)' }, inner);
+      R(0, GB, PW, PH - GB, { fill: 'var(--card)' }, inner); L(0, GB, PW, GB, { stroke: 'var(--line2)' }, inner);
+      SV('circle', { cx: 22, cy: 20, r: 12, fill: 'var(--c)' }, g); T(22, 24.5, String(i + 1), { 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 800, style: 'fill:#fff' }, g);
+      fit(T(42, 25, st.t, { 'font-size': 13.5, 'font-weight': 800, style: 'fill:var(--ink)' }, g), PW - 50);
+      (st.c || []).forEach((ln, k) => fit(T(PW / 2, GB + 22 + k * 17, ln, { 'text-anchor': 'middle', 'font-size': 12.5, 'font-weight': k ? 500 : 600, style: 'fill:var(--ink2)' }, g), PW - 14));
+      if ((i % cols) < cols - 1 && i < n - 1) { const ax = cx + PW + gap / 2, ay = cy + 150; SV('circle', { cx: ax, cy: ay, r: 10, fill: 'var(--c)' }, s); P(`M${ax - 3} ${ay - 5}L${ax + 3} ${ay}L${ax - 3} ${ay + 5}`, { stroke: '#fff', 'stroke-width': 2.2, fill: 'none', 'stroke-linecap': 'round' }, s); }
+    });
+  };
+  draw(); let lw = innerWidth; addEventListener('resize', () => { if (Math.abs(innerWidth - lw) < 24) return; lw = innerWidth; draw(); });
+  addEventListener('tabchange', () => { if (host.offsetParent && Math.abs((host.clientWidth || 0) - (host._w || 0)) > 20) { host._w = host.clientWidth; draw(); } });
+};
+
+/* ========== 2/A mélytömörítés – vibroflotáció ========== */
+(function vibroFig() {
+  const host = $('#vfFig'); if (!host) return;
+  const soil = [{ to: 228, fill: 'url(#pSand)' }, { to: GB, fill: 'url(#pClay)' }];
+  const zone = (g, nm = true) => { R(0, GY, PW, 228 - GY, { fill: '#f6c96b', opacity: .16 }, g); if (nm) layerName(g, PW - 8, 222, 'laza homok, feltöltés', 'end'); };
+  const rig = (g, nose, tip = 150) => { crane(g, 205, tip, 56); L(tip, 56, tip, nose - 120, { stroke: '#444', 'stroke-width': 1 }, g); };
+  strip(host, [
+    { t: 'Lehajtás öblítéssel', c: ['a vibrátor önsúlyánál fogva hatol le', 'a javítandó zóna aljáig'], d: (g, s) => { ground(g, soil); zone(g); rig(g, 218); vibro(g, 150, 98, 218); jets(g, 150, 214); shake(g, 150, 196); tag(g, 92, 176, 'Ø 25–40 cm'); } },
+    { t: 'Tömörödés a lyuk körül', c: ['a rezgés a lyuk környezetében', 'tömöríti a talajt'], d: (g, s) => { ground(g, soil); zone(g); halo(g, s, 150, 200, 46, 34); rig(g, 222); vibro(g, 150, 98, 222); shake(g, 150, 200); } },
+    { t: 'Felhúzás, anyagadagolás', c: ['felhúzás közben kavicsot, murvát,', 'bányameddőt vagy homokot adnak'], d: (g, s) => { ground(g, soil); zone(g); halo(g, s, 150, 212, 42, 26); P(`M128 ${GY}L141 ${GY + 12}L141 222L159 222L159 ${GY + 12}L172 ${GY}Z`, { fill: 'url(#pGrav)', stroke: '#6b5a44', 'stroke-width': .8 }, g); rig(g, 196); vibro(g, 150, 98, 196); arrowUp(g, 172, 192, 168, 'var(--ink)', 1.6, 4); loader(g, 74, 1, GY - 40, true); } },
+    { t: 'Tömörítés felfelé', c: ['a felfelé haladó vibrátorral', 'tömörítik a feltöltött lyukat'], d: (g, s) => { ground(g, soil); zone(g); for (let k = 0; k < 4; k++) halo(g, s, 150, 214 - k * 18, 40, 20, C.halo, .4); gravel(g, `M140 ${GY + 4}L160 ${GY + 4}L163 222L137 222Z`); rig(g, 168); vibro(g, 150, 98, 168); shake(g, 150, 160); arrowUp(g, 178, 200, 166, 'var(--ink)', 1.6, 4); } },
+    { t: 'Áttömörítés raszterben', c: ['megfelelő sűrűségű raszterben;', 'pl. nagy terhelésű csarnokpadozat alá'], d: (g, s) => { ground(g, soil); zone(g, false); [40, 95, 150, 205].forEach(x => halo(g, s, x, 190, 40, 44, C.halo, .42)); [40, 95, 150, 205].forEach(x => gravel(g, `M${x - 9} ${GY + 4}L${x + 9} ${GY + 4}L${x + 12} 222L${x - 12} 222Z`)); [40, 95, 150, 205].forEach((x, k) => k < 3 && L(x, 166, x + 55, 166, { stroke: 'var(--ink2)', 'stroke-width': .8, 'stroke-dasharray': '3 3' }, g)); tag(g, 128, 240, 'tömörödött összlet', { c: '#a35a0e' }); } },
+  ]);
+})();
+
+/* ========== 2/B dinamikus tömörítés ========== */
+(function dynFig() {
+  const host = $('#dcFig'); if (!host) return;
+  const soil = [{ to: GB, fill: 'url(#pSand)' }];
+  const weight = (g, x, y, w = 34, h = 16) => { R(x - w / 2, y, w, h, { rx: 3, fill: '#6a7076', stroke: C.dark, 'stroke-width': 1.2 }, g); L(x - w / 2 + 3, y + 5, x + w / 2 - 3, y + 5, { stroke: '#8d959c' }, g); };
+  strip(host, [
+    { t: 'Ejtés', c: ['ejtősúly 6–30 t,', 'ejtési magasság 10–30 m'], d: (g, s) => { ground(g, soil); crane(g, 200, 118, 50); L(118, 50, 118, 64, { stroke: '#444' }, g); weight(g, 118, 64); L(84, 80, 84, GY - 2, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g); [80, GY - 2].forEach(y => L(79, y, 89, y, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g)); tag(g, 58, 118, 'H = 10–30 m'); arrowDown(g, 140, 86, 120, 'var(--coral)', 1.8, 4); } },
+    { t: 'Becsapódás', c: ['gödör keletkezik, a talaj', 'max. 6–8 m mélységig tömörödik'], d: (g, s) => { ground(g, soil); halo(g, s, 118, GY + 6, 72, 92); P(`M96 ${GY}Q118 ${GY + 20} 140 ${GY}Z`, { fill: '#8a7350' }, g); weight(g, 118, GY - 4); for (const r of [26, 40, 54]) P(`M${118 - r} ${GY + 2}A${r} ${r * .8} 0 0 0 ${118 + r} ${GY + 2}`, { stroke: 'var(--coral)', 'stroke-width': 1.2, fill: 'none', 'stroke-dasharray': '4 3', opacity: .8 }, g); crane(g, 205, 140, 60); L(212, GY + 4, 212, GY + 92, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g); [GY + 4, GY + 92].forEach(y => L(207, y, 217, y, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g)); tag(g, 214, GY + 52, '6–8 m', { a: 'end' }); } },
+    { t: 'Raszterben, fázisonként', c: ['tömörítési raszter és fázisonkénti', 'ejtésszám a talaj alapján'], d: (g, s) => { ground(g, soil); [30, 78, 126, 174, 222].forEach((x, k) => { halo(g, s, x, GY + 30, 30, 64, C.halo, .38); P(`M${x - 13} ${GY}Q${x} ${GY + 14} ${x + 13} ${GY}Z`, { fill: '#8a7350' }, g); }); [30, 78, 126, 174, 222].forEach(x => T(x, GY - 10, 'I.', { 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 800, class: 'hl', style: 'fill:var(--coral-ink)' }, g)); tag(g, 130, 74, 'raszter, ejtésszám', { c: 'var(--coral-ink)' }); } },
+    { t: 'Pihentetés, II. fázis', c: ['pihentetés: a pórusvíznyomás leépül;', 'a köztes pontok, végül elegyengetés'], d: (g, s) => { ground(g, soil); [30, 78, 126, 174, 222].forEach(x => halo(g, s, x, GY + 30, 30, 64, C.halo, .38)); [54, 102, 150, 198].forEach(x => { halo(g, s, x, GY + 24, 26, 54, C.halo, .34); P(`M${x - 12} ${GY}Q${x} ${GY + 13} ${x + 12} ${GY}Z`, { fill: '#8a7350' }, g); T(x, GY - 10, 'II.', { 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 800, class: 'hl', style: 'fill:var(--coral-ink)' }, g); }); for (let k = 0; k < 5; k++) arrowUp(g, 24 + k * 50, GY + 80, GY + 58, C.water, 1.4, 3.5); tag(g, 130, 74, 'pórusvíz távozik', { c: C.water }); } },
+  ]);
+})();
+
+/* ========== 2/C kőtömzs ========== */
+(function stoneFig() {
+  const host = $('#ktFig'); if (!host) return;
+  const soil = [{ to: GB, fill: 'url(#pSoft)' }];
+  const weight = (g, x, y) => { R(x - 17, y, 34, 26, { rx: 6, fill: C.conc, stroke: C.dark, 'stroke-width': 1.2 }, g); L(x - 12, y + 8, x + 12, y + 8, { stroke: '#9aa1a6' }, g); };
+  const name = (g) => layerName(g, PW - 8, 242, 'nagyon puha kötött/szerves talaj', 'end');
+  strip(host, [
+    { t: 'Kráter döngöléssel', c: ['az ejtősúly gödröt üt', 'a puha talajba'], d: (g, s) => { ground(g, soil); name(g); P(`M98 ${GY}L104 ${GY + 30}L132 ${GY + 30}L138 ${GY}Z`, { fill: '#5d5546' }, g); crane(g, 205, 118, 52); L(118, 52, 118, 70, { stroke: '#444' }, g); weight(g, 118, 70); arrowDown(g, 146, 80, 118, 'var(--coral)', 1.8, 4); } },
+    { t: 'Szemcsés anyag', c: ['homokos kavics, zúzottkő vagy', 'bányameddő kerül a gödörbe'], d: (g, s) => { ground(g, soil); name(g); P(`M98 ${GY}L104 ${GY + 30}L132 ${GY + 30}L138 ${GY}Z`, { fill: '#5d5546' }, g); gravel(g, `M100 ${GY - 4}Q118 ${GY - 16} 136 ${GY - 4}L132 ${GY + 30}L104 ${GY + 30}Z`); loader(g, 52, 1, GY - 46, true); } },
+    { t: 'Bedöngölés', c: ['a döngölőgép a szemcsés anyagot', 'a puha altalajba „bedolgozza”'], d: (g, s) => { ground(g, soil); name(g); halo(g, s, 118, GY + 46, 58, 40, C.halo, .45); gravel(g, `M102 ${GY}L98 ${GY + 30}Q96 ${GY + 66} 118 ${GY + 70}Q140 ${GY + 66} 138 ${GY + 30}L134 ${GY}Z`); weight(g, 118, GY - 22); for (const sx of [-1, 1]) arrowH(g, 118 + sx * 26, 118 + sx * 56, GY + 46, 'var(--ink2)', 1.5, 4); crane(g, 205, 140, 60); } },
+    { t: 'Ismétlés', c: ['töltés és döngölés ciklusokban:', 'a tömzs lefelé és oldalra épül'], d: (g, s) => { ground(g, soil); name(g); halo(g, s, 118, GY + 50, 70, 50, C.halo, .5); gravel(g, `M100 ${GY}L90 ${GY + 30}Q84 ${GY + 80} 118 ${GY + 88}Q152 ${GY + 80} 146 ${GY + 30}L136 ${GY}Z`); for (let k = 0; k < 3; k++) L(94, GY + 22 + k * 20, 142, GY + 22 + k * 20, { stroke: '#6b5a44', 'stroke-dasharray': '3 3', 'stroke-width': .8 }, g); weight(g, 118, GY - 26); crane(g, 205, 140, 60); } },
+    { t: 'Kész kőtömzs', c: ['nagy teherbírású, nagy átmérőjű', 'tömzs, Ø 2,0–3,5 m'], d: (g, s) => { ground(g, soil); name(g); halo(g, s, 130, GY + 50, 78, 54, C.halo, .42); gravel(g, `M108 ${GY}L98 ${GY + 30}Q92 ${GY + 80} 130 ${GY + 88}Q168 ${GY + 80} 162 ${GY + 30}L152 ${GY}Z`); L(96, GY - 10, 164, GY - 10, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g); [96, 164].forEach(x => L(x, GY - 15, x, GY - 5, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g)); tag(g, 130, GY - 22, 'Ø 2,0–3,5 m'); tag(g, 214, GY + 24, 'tömörödött', { c: '#a35a0e' }); } },
+  ]);
+})();
+
+/* ========== 2/D kavicscölöp – vibrált kőoszlop ========== */
+(function columnFig() {
+  const host = $('#kcFig'); if (!host) return;
+  const soil = [{ to: 206, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
+  const names = (g) => { layerName(g, 8, 200, 'puha talaj'); layerName(g, 8, 242, 'teherbíró réteg'); };
+  /* vezetőoszlopos alapgép zsilipes, alsó adagolású vibrátorral; skip: az anyagtartály helye az árbocon */
+  const rig = (g, x, nose, skipY = 120, support = true) => {
+    tracks(g, x + 8, 64, GY);
+    R(x + 14, GY - 34, 52, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(x + 40, GY - 31, 14, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+    R(x - 4, 50, 7, GY - 50 - 10, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); for (let y = 56; y < GY - 14; y += 10) L(x - 4, y, x + 3, y + 10, { stroke: C.yelD, 'stroke-width': .7 }, g);
+    L(x + 3, 92, x + 18, GY - 34, { stroke: C.yelD, 'stroke-width': 2 }, g);
+    if (support) P(`M${x + 70} ${GY - 16}L${x + 80} ${GY}M${x + 76} ${GY}L${x + 84} ${GY}`, { stroke: C.steelD, 'stroke-width': 2.2 }, g);
+    R(x - 18, 50, 12, nose - 50 - 40, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+    P(`M${x - 22} 52L${x - 2} 52L${x - 6} 66L${x - 18} 66Z`, { fill: '#8e969d', stroke: C.steelD }, g);
+    R(x - 19, nose - 42, 14, 34, { rx: 2, fill: '#5d646b', stroke: C.steelD }, g); P(`M${x - 19} ${nose - 8}L${x - 12} ${nose}L${x - 5} ${nose - 8}Z`, { fill: C.steelD }, g);
+    R(x + 4, skipY, 18, 14, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g);
+    return x - 12;
+  };
+  strip(host, [
+    { t: 'Előkészítés', c: ['a hordozógép a vibrátort a kitűzött', 'pont fölé állítja, támaszokra áll'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4); P(`M131 ${GY + 2}L138 ${GY + 12}L145 ${GY + 2}`, { stroke: 'var(--coral)', 'stroke-width': 2, fill: 'none' }, g); } },
+    { t: 'Töltés', c: ['a rakodógép tölti az anyagtartályt,', 'az árboc mentén a zsilipbe ürít'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4, 62); R(96, GY - 16, 24, 15, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g); gravel(g, `M98 ${GY - 16}Q108 ${GY - 24} 118 ${GY - 16}Z`); P(`M108 ${GY - 22}C108 100 120 70 150 64`, { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none', 'stroke-dasharray': '4 3' }, g); P('M144 60L152 64L145 69', { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none' }, g); gravel(g, `M128 52L144 52L140 64L132 64Z`); loader(g, 52, 1, GY - 40, true); } },
+    { t: 'Lehajtás', c: ['rezgés, lenyomás és sűrített levegő:', 'tervezett mélységig, oldalra kiszorít'], d: (g, s) => { ground(g, soil); names(g); const ax = rig(g, 150, 232); for (const sx of [-1, 1]) arrowH(g, ax + sx * 12, ax + sx * 34, 190, 'var(--ink2)', 1.5, 4); shake(g, ax, 214); } },
+    { t: 'Tömörítés', c: ['a kavicsot a mélyponton kiengedik; föl-le', 'mozgással oldalra nyomja, tömöríti'], d: (g, s) => { ground(g, soil); names(g); halo(g, s, 138, 214, 34, 26, C.halo, .5); gravel(g, `M126 ${GY + 46}Q116 ${GY + 70} 124 236Q138 244 152 236Q160 ${GY + 70} 150 ${GY + 46}Z`); const ax = rig(g, 150, 196); arrowUp(g, ax + 20, 208, 186, 'var(--ink)', 1.5, 4); arrowDown(g, ax + 30, 186, 208, 'var(--ink)', 1.5, 4); } },
+    { t: 'Lezárás', c: ['kész kőoszlop Ø ≈ 0,6–1,0 m; pl. töltés-,', 'ipari padló alapozására'], d: (g, s) => { ground(g, soil); names(g); [124, 178, 232].forEach(x => { halo(g, s, x, 196, 26, 54, C.halo, .32); gravel(g, `M${x - 10} ${GY}Q${x - 14} 196 ${x - 12} 238Q${x} 246 ${x + 12} 238Q${x + 14} 196 ${x + 10} ${GY}Z`); }); R(104, GY - 10, 148, 10, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); tag(g, 178, 96, 'teherelosztó réteg', { c: 'var(--ink2)' }); } },
+  ]);
+})();
+
+/* ========== 3/A–E injektálás: a munkafolyamat ========== */
+(function groutFig() {
+  const host = $('#ijFig'); if (!host) return;
+  const soil = [{ to: GB, fill: 'url(#pSand)' }];
+  const drill = (g, x, toolY) => { tracks(g, x - 6, 56, GY); R(x - 4, GY - 32, 40, 20, { rx: 3, fill: C.yel, stroke: C.yelD }, g); R(x - 12, 62, 6, GY - 72, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); L(x - 6, 96, x + 6, GY - 32, { stroke: C.yelD, 'stroke-width': 2 }, g); R(x - 13, 62, 8, 12, { fill: '#5d646b' }, g); L(x - 9, 74, x - 9, toolY, { stroke: C.steelD, 'stroke-width': 3 }, g); };
+  const house = (g) => { R(160, 86, 84, GY - 86, { fill: '#efe6d8', stroke: '#8a7f70' }, g); P('M154 88L202 60L250 88Z', { fill: '#b5543c' }, g); R(176, 102, 16, 16, { fill: '#cfe6f2', stroke: '#8a7f70' }, g); R(208, 112, 16, 38, { fill: '#9b7350' }, g); R(156, GY, 92, 14, { fill: C.conc, stroke: '#7c848c' }, g); };
+  strip(host, [
+    { t: 'Furatkészítés', c: ['ütve-, rotary vagy vésős fúrás,', 'csőleverés – az első lépés mindig'], d: (g, s) => { ground(g, soil); house(g); drill(g, 70, 226); shake(g, 61, 216); } },
+    { t: 'Injektálócső', c: ['perforált (szelepes) cső a furatban;', 'jellemzően 50–100 cm-enként'], d: (g, s) => { ground(g, soil); house(g); [100, 132].forEach(x => { R(x - 3, GY - 8, 6, 236 - GY + 8, { fill: '#9aa1a6', stroke: C.steelD, 'stroke-width': .8 }, g); for (let y = GY + 16; y < 232; y += 14) L(x - 5, y, x + 5, y, { stroke: C.steelD, 'stroke-width': 1.2 }, g); }); tag(g, 116, 78, '50–100 cm', { c: 'var(--ink2)' }); } },
+    { t: 'Besajtolás', c: ['cementszuszpenzió, -habarcs vagy', 'vegyi oldat – alulról felfelé'], d: (g, s) => { ground(g, soil); house(g); R(16, GY - 30, 36, 24, { rx: 3, fill: '#6a7076' }, g); SV('circle', { cx: 34, cy: GY - 18, r: 7, fill: '#cfd3d6', stroke: C.dark }, g); P(`M52 ${GY - 18}Q86 ${GY - 30} 100 ${GY - 8}`, { stroke: '#333', 'stroke-width': 2, fill: 'none' }, g); R(97, GY - 8, 6, 84, { fill: '#9aa1a6', stroke: C.steelD, 'stroke-width': .8 }, g); [218, 196, 174].forEach((y, k) => SV('ellipse', { cx: 100, cy: y, rx: 22 - k * 3, ry: 12, fill: 'var(--violet)', opacity: .32 + k * .08 }, g)); arrowUp(g, 120, 226, 176, 'var(--violet-ink)', 1.6, 4); } },
+    { t: 'Hatás', c: ['kisebb hézagtérfogat: jobb szilárdsági', 'és alakváltozási tulajdonságok'], d: (g, s) => { ground(g, soil); house(g); SV('ellipse', { cx: 200, cy: GY + 40, rx: 70, ry: 40, fill: 'var(--violet)', opacity: .35 }, g); SV('ellipse', { cx: 200, cy: GY + 40, rx: 70, ry: 40, fill: 'url(#pGrav)', opacity: .35 }, g); tag(g, 200, GY + 44, 'injektált zóna', { c: 'var(--violet-ink)' }); } },
+  ]);
+})();
+
+/* ========== 3/F tömegstabilizáció ========== */
+(function massFig() {
+  const host = $('#msFig'); if (!host) return;
+  const soil = [{ to: 214, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
+  const names = (g) => { layerName(g, 8, 208, 'tőzeg, puha agyag'); };
+  /* forgó felsővázas kotró keverőszárral; a keverőfej (hx, hy) */
+  const exc = (g, x, hx, hy) => {
+    tracks(g, x - 30, 64, GY); R(x - 26, GY - 34, 54, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(x - 22, GY - 31, 14, 13, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+    const bx = x - 4, by = GY - 34, ex = (bx + hx) / 2 - 10, ey = Math.min(by, hy) - 40;
+    P(`M${bx} ${by}L${ex} ${ey}L${hx} ${ey + 14}`, { stroke: C.yel, 'stroke-width': 7, fill: 'none', 'stroke-linejoin': 'round' }, g);
+    P(`M${bx} ${by}L${ex} ${ey}L${hx} ${ey + 14}`, { stroke: C.yelD, 'stroke-width': 1, fill: 'none', 'stroke-linejoin': 'round' }, g);
+    R(hx - 3, ey + 14, 6, hy - ey - 14 - 14, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+    R(hx - 12, hy - 16, 24, 16, { rx: 3, fill: '#5d646b', stroke: C.steelD }, g); for (let k = 0; k < 3; k++) L(hx - 14, hy - 12 + k * 5, hx + 14, hy - 12 + k * 5, { stroke: '#9aa1a6', 'stroke-width': 1.4 }, g);
+  };
+  const silo = (g, x) => { R(x, 70, 26, 56, { rx: 4, fill: '#d9dcdf', stroke: '#7c848c' }, g); P(`M${x} 126L${x + 13} 140L${x + 26} 126Z`, { fill: '#c6cacd', stroke: '#7c848c' }, g); tracks(g, x - 6, 38, GY); T(x + 13, EN ? 103 : 98, 'kötő-', { 'text-anchor': 'middle', 'font-size': EN ? 8.5 : 9.5, 'font-weight': 700, style: 'fill:#4b5258' }, g); if (!EN) T(x + 13, 109, 'anyag', { 'text-anchor': 'middle', 'font-size': 9.5, 'font-weight': 700, style: 'fill:#4b5258' }, g); };
+  const hose = (g, x0, hx) => P(`M${x0} 138Q${(x0 + hx) / 2} 60 ${hx + 4} 92`, { stroke: '#333', 'stroke-width': 1.3, fill: 'none', 'stroke-dasharray': '5 3' }, g);
+  strip(host, [
+    { t: 'Lehatolás', c: ['a keverőfej a kotró keverőszárán', 'hatol le, rendszerint ≤ 5 m-ig'], d: (g, s) => { ground(g, soil); names(g); silo(g, 214); exc(g, 150, 70, 204); hose(g, 220, 70); arrowDown(g, 92, 168, 198, 'var(--ink)', 1.6, 4); } },
+    { t: 'Keverés', c: ['le-fel mozgatva keverik, a fejen át', 'nagy nyomással érkezik a kötőanyag'], d: (g, s) => { ground(g, soil); names(g); R(46, GY, 48, 214 - GY, { fill: 'var(--violet)', opacity: .38 }, g); silo(g, 214); exc(g, 150, 70, 186); hose(g, 220, 70); arrowUp(g, 100, 200, 176, 'var(--ink)', 1.5, 4); arrowDown(g, 108, 176, 200, 'var(--ink)', 1.5, 4); for (const sx of [-1, 1]) P(`M${70 + sx * 14} 180q${sx * 8} 4 ${sx * 12} 12`, { stroke: 'var(--violet-ink)', 'stroke-width': 1.4, fill: 'none' }, g); } },
+    { t: 'Haladás blokkonként', c: ['állékony területről indul, a géplánc', 'maga előtt stabilizálja a talajt'], d: (g, s) => { ground(g, soil); names(g); R(118, GY, 140, 214 - GY, { fill: 'var(--violet)', opacity: .38 }, g); for (let x = 118; x < 258; x += 28) L(x, GY, x, 214, { stroke: 'var(--violet-ink)', 'stroke-width': .8, 'stroke-dasharray': '3 3', opacity: .6 }, g); exc(g, 200, 96, 200); arrowH(g, 60, 26, 120, 'var(--ink)', 1.8, 5); tag(g, 192, 232, 'stabilizált', { c: 'var(--violet-ink)' }); } },
+    { t: 'Teherelosztó réteg', c: ['szükség esetén geotextília, georács', 'és szemcsés teherelosztó réteg'], d: (g, s) => { ground(g, soil); names(g); R(0, GY, PW, 214 - GY, { fill: 'var(--violet)', opacity: .38 }, g); R(0, GY - 14, PW, 12, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); L(0, GY - 2, PW, GY - 2, { stroke: '#2f6f8f', 'stroke-width': 2, 'stroke-dasharray': '6 3' }, g); tag(g, 130, 112, 'geotextília + szemcsés réteg', { c: 'var(--ink2)' }); } },
+  ]);
+})();
+})();
+
+</script>
+<script>
 /* ===== Kvízek és igaz/hamis állítások ===== */
 (function () {
 const Q = {
@@ -2184,7 +2370,7 @@ const Q = {
   ],
   q5: [
     { q: 'Mi segíti a vibroflotációs mélyvibrátor lefelé haladását?', o: ['Vízbesajtolás (öblítés)', 'Fúrófej', 'Robbantás', 'Sűrített cement'], a: 0, e: 'A vibrátor önsúlyánál fogva halad lefelé, ezt a <b>vízbesajtolás (öblítés)</b> segíti.' },
-    { q: 'Milyen ejtősúllyal és magasságból dolgozik a dinamikus tömörítés?', o: ['1–2 t, 2–5 m', '100 t, 100 m', '5 kg, 1 m', '15–40 t, 10–40 m'], a: 3, e: 'Ejtősúly <b>15–40 t</b>, ejtési magasság <b>H = 10–40 m</b>; max. 5–7 m mélységig hatásos.' },
+    { q: 'Milyen ejtősúllyal és magasságból dolgozik a dinamikus tömörítés?', o: ['1–2 t, 2–5 m', '100 t, 100 m', '5 kg, 1 m', '6–30 t, 10–30 m'], a: 3, e: 'Ejtősúly <b>6–30 t</b>, ejtési magasság <b>10–30 m</b>; max. 6–8 m mélységig hatásos.' },
     { q: 'Mi a kőtömzs kettős hatása?', o: ['Szigetel és vízzár', 'Tömöríti a puha altalajt és nagy teherbírású tömzsök alakulnak ki', 'Csökkenti a talajvízszintet és emeli az épületet', 'Gyorsítja a konszolidációt és hűt'], a: 1, e: 'A szemcsés anyag kiszorítása <b>tömöríti a puha talajt</b>, és <b>nagy átmérőjű, nagy teherbírású tömzsök</b> alakulnak ki.' },
     { q: 'Miben különbözik a kavicscölöp a kőtömzstől?', o: ['Betonból készül', 'Csak szemcsés talajba', 'Nagyobb átmérőjű', 'Kisebb átmérőjű szemcsés oszlopok'], a: 3, e: 'Elve hasonló, de <b>kisebb átmérőjű</b> szemcsés anyagú oszlopok – cölöpök – alakulnak ki.' },
   ],
@@ -2196,7 +2382,7 @@ const Q = {
     { q: 'Mi történik a talajjal talajtömörítő injektálásnál?', o: ['A sűrű habarcsgömbök kiszorítják és tömörítik a környező talajt', 'A habarcs behatol a pórusokba', 'A talaj megreped és felemelkedik', 'A talajt helyben átkeverik'], a: 0, e: 'Szakaszosan, nagyobb nyomáson kisebb üregeket képeznek; a sűrű anyag <b>kiszorítja és tömöríti</b> a lazább talajt, és teherviselő oszlopok jönnek létre.' },
     { q: 'Melyik módszerrel kompenzálható például az alagútépítés okozta süllyedés?', o: ['Üregkitöltő injektálás', 'Itatásos injektálás', 'Kőzet hézagkitöltő injektálás', 'Repesztő/kompenzáló injektálás'], a: 3, e: 'A <b>repesztő/kompenzáló</b> injektálásnál a kierőszakolt repedésekben keletkező anyaglemezek megemelik a talajt és az építményt.' },
     { q: 'Mivel töltik ki jellemzően a felhagyott pincéket, bányajáratokat?', o: ['Vízüveggel', 'Javított cementhabarccsal, duzzadó poliuretán habbal kiegészítve', 'Tiszta vízzel', 'Bentonitos zagyhabbal'], a: 1, e: 'Az <b>üregkitöltő</b> injektálásnál döntően javított cementhabarcsot használnak, gravitációsan vagy kis nyomással, duzzadó poliuretán habokkal kiegészítve.' },
-    { q: 'Milyen mélységig érhető el a tömegstabilizáció toldószárral?', o: ['2 m', '20 m', '50 m', 'kb. 7 m'], a: 3, e: 'A keverőszár 3–5 m, toldószárral további 2 m – így <b>akár 7 m</b> mélységig.' },
+    { q: 'Milyen mélységig végzik a tömegstabilizációt?', o: ['20 m', '30 m', '50 m', 'rendszerint legfeljebb 5 m'], a: 3, e: 'A tömegstabilizáció mélysége <b>rendszerint nem több, mint 5 m</b>; átlagosan 0,5–0,8 m³ talaj keverhető át percenként.' },
   ],
   q7: [
     { q: 'Mi az előterhelés lényege?', o: ['A talajt cementtel keverjük', 'Robbantással tömörítünk', 'Előzetes terheléssel „kikényszerítjük” az összenyomódás egy részét', 'Cölöpöket verünk'], a: 2, e: 'Előzetesen felhordott terheléssel <b>„kikényszerítjük” az altalaj összenyomódásának legalább egy részét</b> – a réteg úgy viselkedik, mint egy geológiailag előterhelt réteg.' },
@@ -2230,10 +2416,10 @@ const TFI = [
   { s: 'A talajcsere ma jellemzően térszíni lemezalapoknál alkalmazott, költséges megoldás.', t: true, e: 'Jelentős földmunka- és szállításigénye van.' },
   { s: 'A vibroflotációnál a lefelé haladást vízbesajtolás (öblítés) segíti.', t: true, e: 'Darura szerelt, 25–40 cm átmérőjű mélyvibrátor.' },
   { s: 'A mélytömörítés kötött, agyagos talajokban a leghatékonyabb.', t: false, e: 'Laza szemcsés talajok, feltöltések tömörítésére való – kötött talajban kavicscölöp jöhet szóba.' },
-  { s: 'A dinamikus tömörítésnél 15–40 t-s ejtősúlyt 10–40 m magasból ejtenek.', t: true, e: 'Az ejtősúly 15–40 t, az ejtési magasság H = 10–40 m; a hatás max. 5–7 m mélységig terjed.' },
-  { s: 'A dinamikus tömörítés 20–30 m mélységig hatásos.', t: false, e: 'Max. 5–7 m mélységig hatásos.' },
+  { s: 'A dinamikus tömörítésnél 6–30 t-s ejtősúlyt 10–30 m magasból ejtenek.', t: true, e: 'Az ejtősúly 6–30 t, az ejtési magasság 10–30 m; a hatás max. 6–8 m mélységig terjed.' },
+  { s: 'A dinamikus tömörítés 20–30 m mélységig hatásos.', t: false, e: 'Max. 6–8 m mélységig hatásos.' },
   { s: 'A dinamikus tömörítésnél a fázisok között pihentetést alkalmaznak.', t: true, e: 'A tervezett paraméterek között szerepel a pihentetés időtartama is.' },
-  { s: 'A kőtömzs csak nagyon laza-puha talajokban alkalmazható.', t: true, e: 'A szemcsés anyagot a döngölő a puha altalajba „bedolgozza”.' },
+  { s: 'A kőtömzs kötött és szerves talajok esetén hatékony.', t: true, e: 'A szemcsés anyagot a döngölőgép a nagyon puha altalajba „bedolgozza”.' },
   { s: 'A kavicscölöp a kőtömzsnél nagyobb átmérőjű.', t: false, e: 'Kisebb átmérőjű szemcsés anyagú oszlopok alakulnak ki.' },
   { s: 'Cementbesajtolással a finom homok és az iszap is jól injektálható.', t: false, e: 'Csak 0,8–1 mm-nél durvább homok-kavics, illetve repedezett kötött talaj.' },
   { s: 'Cementbesajtolásnál a perforált csöveket 50–100 cm-enként helyezik el, 7–10 atm nyomással.', t: true, e: 'Ezeken át juttatják le a cementtejet vagy a cement+homok habarcsot, csőfelhúzás közben alulról felfelé.' },
@@ -2242,7 +2428,7 @@ const TFI = [
   { s: 'A kétkomponensű injektálóanyag duzzad, és a talajjal kemény geokompozitot alkot.', t: true, e: 'Növeli a kohéziót és csökkenti a pórustérfogatot.' },
   { s: 'Utólagos injektálásnál az épület mozgását lézeres méréssel figyelik.', t: true, e: 'A 7–10 bar-os besajtolás közben lézeres szintezővel követik az épület mozgását – emelkedésnél leállnak.' },
   { s: 'A tömegstabilizáció keverőfeje egy lépésben kb. 1,2 m² felületet fog át.', t: true, e: 'Az 1,5 m széles, Ø 0,95 m-es keverőfej egy lépésben ~1,2 m²-t fog át.' },
-  { s: 'Toldószárral a tömegstabilizáció akár 7 m mélységig is elérhet.', t: true, e: '3–5 m-es keverőszár + 2 m toldás.' },
+  { s: 'A tömegstabilizációval átlagosan 0,5–0,8 m³ talaj keverhető át percenként.', t: true, e: 'A mélysége rendszerint nem több, mint 5 m.' },
   { s: 'A stabilizált felület azonnal eléri végleges teherbírását.', t: false, e: 'Nem rögtön – szükség esetén teherelosztó réteget (geotextília, georács, szemcsés anyag) készítenek.' },
   { s: 'Az előterheléssel a süllyedés egy részét az építés előtt „kikényszerítjük”.', t: true, e: 'Utána egy előzetesen komprimált réteg jóval kisebb fajlagos összenyomódásával kell számolni.' },
   { s: 'Az El Morónál a ballasztot egyszerre távolították el, mielőtt a felszerkezet építése elkezdődött.', t: false, e: 'Napról napra csökkentették, a beépített súllyal egyező mennyiségben – az összsúly közel állandó maradt.' },

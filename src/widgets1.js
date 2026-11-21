@@ -25,13 +25,13 @@ window.SVpat = pat;
     { id: 'b', n: '1/B Mélyebb alapsík', d: 'pár méteren belül teherbíró réteg, pince', href: '#alapsik', c: 'var(--teal)' },
     { id: 'c', n: '1/C Talajcsere', d: 'sekély probléma, talajvíz felett, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
     { id: 'd1', n: '2/A Mélytömörítés (vibroflotáció)', d: 'laza szemcsés talaj, feltöltés', href: '#t-mech', open: 'mech:m1', c: 'var(--amber)' },
-    { id: 'd2', n: '2/B Dinamikus tömörítés', d: 'nagy felület, laza-puha talaj, max. 5–7 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
-    { id: 'd3', n: '2/C Kőtömzs', d: 'nagyon laza-puha talaj', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
-    { id: 'd4', n: '2/D Kavicscölöp', d: 'lazább-puhább talaj, kötött talaj is', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
+    { id: 'd2', n: '2/B Dinamikus tömörítés', d: 'nagy felület, laza szemcsés talaj, feltöltés; max. 6–8 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
+    { id: 'd3', n: '2/C Kőtömzs', d: 'nagyon puha, kötött és szerves talaj', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
+    { id: 'd4', n: '2/D Kavicscölöp', d: 'sokféle talajhoz igazítható, kötött talajban is', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
     { id: 'd5', n: '3/A Itatásos injektálás', d: 'szemcsés talaj, durva iszap; cementtel csak > 0,8–1 mm', href: '#injmod', open: 'inj:i1', inj: 0, c: 'var(--violet)' },
     { id: 'd6', n: '3/B Talajtömörítő injektálás', d: 'laza talaj, iszap és agyag is; meglévő épület alatt is', href: '#injmod', open: 'inj:i1', inj: 1, c: 'var(--violet)' },
     { id: 'd8', n: '3/D Repesztő/kompenzáló injektálás', d: 'süllyedéskompenzálás, épület visszaemelése', href: '#injmod', open: 'inj:i1', inj: 3, c: 'var(--violet)' },
-    { id: 'd7', n: '3/F Tömegstabilizáció', d: 'tőzeg, puha agyag, max. ~7 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
+    { id: 'd7', n: '3/F Tömegstabilizáció', d: 'tőzeg, puha agyag; rendszerint ≤ 5 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
     { id: 'e', n: '4/A Előterhelés', d: 'telített, összenyomható kötött talaj, van idő', href: '#eloterheles', c: 'var(--coral)' },
     { id: 'f', n: '4/B–C Szerkezeti megoldás, építési sorrend', d: 'mindig kiegészítő eszköz', href: '#szerkezet', c: 'var(--coral)' },
     { id: 'h', n: '4/D Mélyalapozás', d: 'a jó teherbíró réteg mélyen van', href: '#melyalap', c: 'var(--coral)' },
@@ -45,13 +45,13 @@ window.SVpat = pat;
       case 'b': add(better === 'igen' && depth !== 'mely' ? 3 : -2, better === 'igen' ? 'pár méteren belül jobb réteg' : ''); if (sit === 'meglevo') add(-3); break;
       case 'c': add(depth === 'sekely' ? 3 : -2, depth === 'sekely' ? 'sekély probléma' : 'mély rétegnél drága'); add(gw === 'felett' ? 1 : -4, gw === 'felett' ? '' : 'talajvíz alatt nem tömöríthető'); if (sit === 'meglevo') add(-4); break;
       case 'd1': add(soil === 'szemcses' || soil === 'feltoltes' ? 3 : -3, soil === 'szemcses' ? 'laza szemcsés talaj' : soil === 'feltoltes' ? 'feltöltés' : 'kötött talajban hatástalan'); if (sit === 'meglevo') add(-3, 'rezgés a meglévő épület mellett'); break;
-      case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 5–7 m' : ''); if (sit === 'meglevo') add(-4, 'erős rezgés – épület mellett nem'); break;
+      case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 6–8 m' : ''); if (sit === 'meglevo') add(-4, 'erős rezgés – épület mellett nem'); break;
       case 'd3': add(soil === 'kotott' || soil === 'feltoltes' ? 2 : 0); if (sit === 'meglevo') add(-4); break;
       case 'd4': add(soil === 'kotott' ? 3 : soil === 'szerves' ? -1 : 1, soil === 'kotott' ? 'puha kötött talajhoz is' : ''); if (sit === 'meglevo') add(-2); break;
       case 'd5': add(soil === 'szemcses' ? 3 : soil === 'feltoltes' ? 1 : -2, soil === 'szemcses' ? 'a hézagokat tölti ki' : soil === 'feltoltes' ? '' : 'finom talajba nem jut be'); if (sit === 'meglevo') add(1, 'utólagos beavatkozás is'); break;
       case 'd6': add(soil === 'szerves' ? -2 : 1, soil === 'kotott' ? 'iszapban, agyagban is tömörít' : soil === 'szerves' ? '' : 'laza talajt tömörít'); if (sit === 'meglevo') add(3, 'meglévő épület alatt is'); break;
       case 'd8': add(sit === 'meglevo' ? 3 : -2, sit === 'meglevo' ? 'süllyedéskompenzálás, visszaemelés' : 'új építésnél ritka'); if (soil === 'szerves') add(-2); break;
-      case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'tőzeg, szerves talaj' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'max. ~7 m' : ''); if (sit === 'meglevo') add(-4); break;
+      case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'tőzeg, szerves talaj' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'rendszerint ≤ 5 m' : ''); if (sit === 'meglevo') add(-4); break;
       case 'e': add(soil === 'kotott' || soil === 'szerves' ? 3 : 0, soil === 'kotott' || soil === 'szerves' ? 'összenyomható kötött talaj' : ''); if (sit === 'meglevo') add(-4); break;
       case 'f': add(2, 'mindig érdemes'); break;
       case 'h': add(depth === 'mely' ? 4 : better === 'nem' ? 2 : 0, depth === 'mely' ? 'mélyen van a jó réteg' : ''); if (sit === 'meglevo') add(0); break;

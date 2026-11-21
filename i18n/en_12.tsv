@@ -33,13 +33,11 @@ b015943	construction and use
 04bec15	<div class="r"><span>area replacement ratio a<sub>s</sub></span><b>${pct(as * 100, 1)}</b></div><div class="r"><span>settlement after treatment (s/s<sub>0</sub>)</span><b style="color:var(--ok)">${pct(ratio * 100)} (−${pct((1 - ratio) * 100)})</b></div>
 8ac76b8	unit cell: D_{e} = ${fmt(De, 2)} m
 9ed25ef	compacted zone
-1cdfbd1	large-diameter pillar
 29590b5	sandy gravel, crushed stone
 72f2dfd	<div class="r" style="grid-column:1/-1"><span class="status w">⚠ The formula overestimates at high energy; in practice max. 5⁠–⁠7 m.</span></div>
 474a4e8	<div class="r"><span>energy per drop W·g·H</span><b>${fmt(E, 1)} MJ</b></div><div class="r"><span>estimated depth of influence n·√(W·H)</span><b>${fmt(d, 1)} m</b></div><div class="r"><span>drops at this point</span><b>${drops}</b></div><div class="r"><span>crater (illustration)</span><b>${fmt(crater / 40 * 1.5, 1)} m</b></div>${d > 7 ? '<div class="r" style="grid-column:1/-1"><span class="status w">⚠ A képlet nagy energiánál túlbecsül; a gyakorlatban max. 5⁠–⁠7 m.</span></div>' : ''}
 9e972b7	loose, mixed fill
 b9e36fe	saturated fine-grained soil
-248d7e1	typically 5–7 m
 dfd9f82	<div class="r"><span>σ<sub>1</sub> at foundation level (P/B)</span><b>${Math.round(s1)} kPa</b></div><div class="r"><span>σ<sub>2</sub> at the base of the replacement layer</span><b style="color:${ok2 ? 'var(--ok)' : 'var(--bad)'}">${Math.round(s2)} kPa</b></div><div class="r"><span>widening per side (v·tanϑ)</span><b>${fmt(v * tg, 2)} m</b></div><div class="r"><span>layers to compact (≤ 30 cm)</span><b>${nl}</b></div>
 3f75bcb	groundwater
 2bd914b	underlying layer – compressible (γ_{2})

@@ -1,0 +1,139 @@
+# 2026-11-21: talajjavítás – videókkal összehangolt szöveg, sematikus folyamatábrák (proc.js)
+4aec7af	mixing head 1.5 m × Ø 0.95 m; depth usually ≤ 5 m
+93aceb4	adaptable to a wide range of soil conditions
+c49fc3e	granular material pounded in, pillars Ø 2.0–3.5 m
+cd245d6	very soft cohesive and organic soil
+dd520a0	6–30 t pounder, 10–30 m drop height; max. 6–8 m
+9390268	loose granular deposit, fill; large area
+2053b33	<span class="fact">mixing head <b>1.5 m × Ø 0.95 m</b></span><span class="fact">per step <b>≈ 1.2 m²</b></span><span class="fact">mixing boom <b>3–5 m</b></span><span class="fact">depth usually <b>≤ 5 m</b></span><span class="fact">output <b>0.5–0.8 m³/min</b></span><span class="fact">head + boom <b>≈ 5 t</b></span><span class="fact">base machine <b>25–40 t</b></span>
+54fa3c0	The soil and the binder are mixed with a special mixing head. The mixing boom is mounted on a hydraulic excavator with a slewing superstructure; at its lower end is a mixing head rotating about its axes, to which mixing paddles developed for the soil can be fitted. During mixing the head is moved up and down, while the binder is fed continuously through the head at high pressure from self-propelled silos connected to the excavator; the operator controls the quantity from the cab. The binder depends on the soil to be improved: <b>lime, cement, gypsum, granulated blast-furnace slag</b> or a mixture of these. Mass stabilisation is one type of deep mixing (alongside column-type and panel-type mixing, e.g. CSM).
+e452c9c	void under a floor slab, rock cavity, cellar, mine gallery, shaft, utility pipe
+8fef0ac	by gravity or at low pressure; improved cement mortar, expanding PU foam
+8004cb7	most often in tunnelling; settlement compensation, re-levelling
+db10e77	high pressure, low-viscosity, fast-setting grout, in several stages
+dc447ed	rock slope, tunnel crown and face, rock under foundations, watertightness
+25cd1d3	The first step of grouting is always <b>drilling the holes</b>; there are countless methods, for example (cased) percussion drilling, bucket drilling, chisel drilling, rotary drilling, or driving or vibrating in drill pipes. The grouts are typically <b>cement suspensions, cement mortars and (chemical) solutions</b>. By substantially reducing the void volume, the strength and deformation properties of the soil improve.
+f57f707	The grouting process
+cc7dee5	The bottom-feed deep vibrator penetrates to the design depth or to the specified soil resistance, displacing the soil sideways; besides vibration, penetration is assisted by hydraulic pull-down and compressed air. Fields of application: embankment foundations and foundations of industrial floors.
+5eee548	In principle similar to stone pillars, except that <b>smaller-diameter</b> columns – piles – of granular material are formed. An economical ground improvement solution that can be adapted to a wide range of soil conditions and foundation requirements; extremely quiet, with low vibration.
+1e90afc	granular “pillars” of <b>high bearing capacity and larger diameter</b> (Ø 2.0–3.5 m) are formed.
+757fe90	The effect is twofold:
+9d4f207	The difference from dynamic compaction: during pounding, <b>granular material</b> (sandy gravel, crushed stone or mine waste) is gradually placed under the pounder, which the pounding rig “works” into the <b>very soft subsoil</b>. Effective in cohesive and organic soils.
+065e726	Ménard–Mayne estimate: <b class="nw">d ≈ n·√(W·H)</b> (W in tonnes, H in metres), n ≈ 0.5 for most soils, 0.35–0.40 for saturated fine-grained soil. An estimate – the actual depth of influence is verified by trial compaction; in practice <span class="nw">max. 6–8 m</span>.
+d425f48	The compaction effect is achieved by repeatedly dropping a <b>6–30 tonne pounder</b> from a height of <b>10–30 m</b>. The weight of the pounder, the drop height, the compaction grid, the number of drops per phase and the duration of the rest periods are determined from the soil properties and the requirements. Effective <b>to a depth of max. 6–8 m</b>, in loose granular deposits and fills. It is used for compacting larger areas, for example under heavily loaded warehouse floors.
+9ac7560	To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight to the bottom of the zone to be improved, assisted by <b>water jetting (flushing)</b>. The soil around the hole thus formed is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator. Compaction is carried out in a <b>grid</b> of suitable density; the method is used for compacting larger areas, for example under heavily loaded warehouse floors.
+9afc336	peat, soft clay; usually ≤ 5 m
+eddb7c9	adaptable to many soils, cohesive soil too
+cc81cdf	large area, loose granular soil, fill; max. 6–8 m
+3a5940e	re-levelling of structures
+2277c13	settlement compensation
+113b567	most often in tunnelling
+a164606	improving the watertightness of rock masses
+38e7fbb	stabilising tunnel crowns and faces
+0d5a494	geotextile + granular layer
+9398ff9	and granular load-distributing layer
+22faecc	if needed, geotextile, geogrid
+cb2c95f	Load-distributing layer
+fde9f1b	stabilised
+e3ee1c7	stabilises the soil ahead of it
+a3365ac	starting from stable ground, the rig
+c4491de	Advancing block by block
+691e440	through the head at high pressure
+87995dc	moved up and down; binder is fed
+5ca41e6	Mixing
+79f8d5f	the mixing head on the excavator boom
+3cfa593	penetrates, usually to ≤ 5 m
+e7854f4	Penetration
+0c16078	binder
+2a53107	grouted zone
+91ec253	and deformation properties
+4b16ef2	smaller void volume: better strength
+5245fb1	Effect
+5de3213	chemical solution – bottom up
+c9ee4fa	cement suspension, mortar or
+29856c3	Injection
+8c6f53c	typically every 50–100 cm
+1fd0b65	perforated (valved) pipe in the hole;
+bc96e59	Grout pipe
+bce1a19	pipe driving – always the first step
+3f9caa9	percussion, rotary or chisel drilling,
+b5f93ce	load-distributing layer
+6a4a02d	of embankments and industrial floors
+da9ff9f	column Ø ≈ 0.6–1.0 m; for foundations
+e5abd07	Completion
+aa2c67b	strokes push it aside and compact it
+8e04ece	gravel released at the base; up-down
+00df846	Compaction
+b677f21	to design depth, displacing sideways
+d479dcf	vibration, pull-down, compressed air:
+42a7951	Penetration
+9bd23a4	hoisted up the mast into the lock
+8df37af	the loader fills the skip, which is
+f76f357	Filling
+25bc05c	over the set-out point, on outriggers
+1aa8133	the base machine sets the vibrator
+c2c49de	Preparation
+b38cd9d	bearing layer
+1e16cf5	soft soil
+5c36be5	compacted
+fcb364a	pillar, Ø 2.0–3.5 m
+990eb3e	high-capacity, large-diameter
+311929d	Finished stone pillar
+1e36969	the pillar grows down and sideways
+77e6bf9	filling and pounding in cycles:
+08f2e0d	Repetition
+6327e23	the pounding rig “works” the granular
+634d8c0	material into the soft subsoil
+0647899	Pounding in
+3648341	mine waste goes into the crater
+5ef79e3	sandy gravel, crushed stone or
+726a757	Granular material
+be7dbeb	the pounder punches a crater
+8f19a85	into the soft soil
+dc5a4de	Crater by pounding
+6f4cf57	very soft cohesive/organic soil
+0d80e55	pore water escapes
+ecc88bf	then in-between points, levelling
+3bfeb3f	rest: pore pressure dissipates;
+cc53798	Rest, phase II
+82daa90	grid, drops
+ae57ae1	phase set according to the soil
+6a4be39	compaction grid and drops per
+2fb212c	In a grid, by phases
+29860e5	compacted to max. 6–8 m depth
+fd2f98a	a crater forms; the soil is
+5fe954a	Impact
+20c0ee8	drop height 10–30 m
+7762828	pounder 6–30 t,
+8f4f4eb	Drop
+e26a245	compacted deposit
+b4ad8be	e.g. under heavy-duty warehouse floors
+56d742c	in a grid of suitable density;
+5a0958e	Compaction in a grid
+af4fe5b	compacts the backfilled hole
+64c6f6a	the rising vibrator
+b355bf9	Compacting upwards
+500dd6c	mine waste or sand is added
+fe67f0f	while raising, gravel, hoggin,
+e6c9456	Raising, feeding material
+f92b756	compacts the soil
+9ea4153	vibration around the hole
+e89d23d	Compaction around the hole
+6ad4028	weight to the base of the zone
+5b2c4bd	the vibrator sinks under its own
+1ab75a7	Penetration with flushing
+95a3db1	loose sand, fill
+3c2c7de	Its depth is usually not more than 5 m.
+0feb01f	On average, 0.5–0.8 m³ of soil per minute can be mixed by mass stabilisation.
+b4f4947	The pounding rig “works” the granular material into the very soft subsoil.
+c6ada77	Stone pillars are effective in cohesive and organic soils.
+83192ad	Effective to a depth of max. 6–8 m.
+0b5bf74	The pounder weighs 6–30 t and the drop height is 10–30 m; the effect extends to a depth of max. 6–8 m.
+a9928a7	In dynamic compaction, a 6–30 t pounder is dropped from a height of 10–30 m.
+da2bbee	The depth of mass stabilisation is <b>usually not more than 5 m</b>; on average 0.5–0.8 m³ of soil can be mixed per minute.
+b715bd6	To what depth is mass stabilisation carried out?
+e81a1cd	Pounder <b>6–30 t</b>, drop height <b>10–30 m</b>; effective to a depth of max. 6–8 m.
+869da9d	1/C Soil replacement
+79d6a4e	usually ≤ 5 m
+5c3b061	usually max. 5 m
+60bc66a	lower contact pressure, deeper foundation level, soil replacement

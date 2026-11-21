@@ -8,20 +8,10 @@ ed35fc6	=
 ab3c01f	=
 316facd	depth of influence ≈ ${fmt(d, 1)} m
 b96fd35	=
-aa5df00	The pounder punches a crater into the soft soil.
-7cb45aa	The crater is filled with granular material (sandy gravel, crushed stone).
-7d8c2fa	Another drop: the weight “works” the gravel into the soft subsoil – displacing and compacting it.
-64805e4	Fill–drop cycles: the pillar grows downwards and sideways.
-45b2d58	Finished stone pillar: a large-diameter, high-capacity granular column + compacted surroundings.
-93a6678	Step ${step + 1}
 525ee7c	=
 ef08891	=
 74155f0	=
 efc596d	=
-14ee22b	<b>Filling:</b> the skip (material hopper) fills the airlock at the top of the vibrator with gravel; the airlock is closed with compressed air.
-3f4f1eb	<b>Penetration:</b> the vibrator reaches the design depth by vibration and the pull-down force of the rig – pushing the soil aside.
-3845f6f	<b>Compaction:</b> raise approx. 1 m → the gravel flows out at the tip → push back down. The displaced gravel widens (Ø ≈ 0.6–1.0 m) and the surroundings are compacted.
-f7160a2	<b>Completion:</b> the cycles are repeated up to the surface; a load transfer layer is placed on the finished columns.
 bca7414	Gravel
 a6112d2	Coarse sand (> 1 mm)
 87a5622	Medium sand

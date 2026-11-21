@@ -165,7 +165,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     SV('rect', { x: W - 52, y: gy, width: 52, height: Hh - gy, fill: 'var(--card)', opacity: .86 }, s);
     SV('rect', { x: W - 52, y: gy + 5 * k, width: 52, height: 2 * k, fill: 'var(--coral)', opacity: .32 }, s);
     for (let m = 0; m <= 12; m += 2) { SV('line', { x1: W - 52, x2: W - 44, y1: gy + m * k, y2: gy + m * k, stroke: 'var(--ink2)' }, s); if (m) SV('text', { x: W - 8, y: gy + m * k + 4, 'text-anchor': 'end', text: m + ' m', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)' }, s); }
-    SV('text', { x: W - 58, y: gy + 6 * k + 4, 'text-anchor': 'end', text: 'jellemzően 5–7 m', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)' }, s);
+    SV('text', { x: W - 58, y: gy + 6 * k + 4, 'text-anchor': 'end', text: 'max. 6–8 m', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)' }, s);
     const yd = gy + Math.min(d, 12.6) * k; SV('line', { x1: cx - 120, x2: W - 52, y1: yd, y2: yd, stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '4 4' }, s);
     SV('text', { x: cx - 124, y: Math.min(yd + 4, Hh - 10), 'text-anchor': 'end', text: `hatásmélység ≈ ${fmt(d, 1)} m`, 'font-size': 12.5, 'font-weight': 800, class: 'hl' }, s);
     // lánctalpas daru rácsos gémmel
@@ -194,27 +194,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 })();
 
 /* ---------- kőtömzs ---------- */
-(function stonePier() {
-  const host = $('#ktSvg'); if (!host) return; let step = 0; const T = ['Az ejtősúly gödröt üt a puha talajba.', 'A gödröt szemcsés anyaggal (homokos kavics, zúzottkő) töltik fel.', 'Újabb ejtés: a súly a kavicsot „bedolgozza” a puha altalajba – kiszorítja és tömöríti.', 'Töltés–ejtés ciklusok: a tömzs lefelé és oldalra épül.', 'Kész kőtömzs: nagy átmérőjű, nagy teherbírású szemcsés oszlop + tömörödött környezet.'];
-  const draw = () => {
-    const W = 400, Hh = 270, gy = 84, cx = 200; const s = svg(host, W, Hh); pat(s);
-    SV('rect', { x: 0, y: 0, width: W, height: gy, fill: 'var(--card2)' }, s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pSoft)' }, s); SV('rect', { x: 0, y: gy - 3, width: W, height: 4, fill: '#8a8f6a' }, s);
-    const depth = [40, 40, 78, 112, 134][step], wid = [60, 60, 80, 96, 106][step];
-    if (step >= 2) { SV('ellipse', { cx, cy: gy + depth / 2, rx: wid / 2 + 30, ry: depth / 2 + 22, fill: '#a3874f', opacity: .42 }, s);
-      [[-1, .35], [1, .35], [-1, .75], [1, .75]].forEach(([sg, f]) => { const x0 = cx + sg * (wid / 2 + 4), y0 = gy + depth * f; SV('line', { x1: x0, y1: y0, x2: x0 + sg * 20, y2: y0 + 5, stroke: '#fff', 'stroke-width': 2.2 }, s); SV('path', { d: `M${x0 + sg * 20},${y0 + 5} l${-sg * 8},-5 l${sg * 1},9 z`, fill: '#fff' }, s); }); }
-    if (step >= 1) SV('path', { d: `M${cx - wid / 2},${gy} C${cx - wid / 2 - 10},${gy + depth * .7} ${cx - wid / 3},${gy + depth} ${cx},${gy + depth} C${cx + wid / 3},${gy + depth} ${cx + wid / 2 + 10},${gy + depth * .7} ${cx + wid / 2},${gy} Z`, fill: 'url(#pGrav)', stroke: '#6d5c47', 'stroke-width': 1.5 }, s);
-    else SV('path', { d: `M${cx - 30},${gy} Q${cx},${gy + 70} ${cx + 30},${gy} Z`, fill: '#3a2f27' }, s);
-    if (step === 0 || step === 2 || step === 3) { const wy = gy - (step === 0 ? -12 : 2) - 22; SV('rect', { x: cx - 25, y: wy, width: 50, height: 22, rx: 3, fill: '#4b5458', stroke: '#222' }, s); SV('line', { x1: cx, x2: cx, y1: 0, y2: wy, stroke: '#4b5458', 'stroke-width': 1.6 }, s); SV('path', { d: `M${cx + 42},${wy - 24} v22 m-6,-8 l6,9 l6,-9`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
-    if (step === 1) { for (let i = 0; i < 12; i++) SV('circle', { cx: cx - 22 + (i * 13) % 44, cy: 16 + (i * 17) % 52, r: 5, fill: '#8f7c66', stroke: '#6d5c47' }, s); SV('text', { x: cx + 36, y: 62, text: 'homokos kavics, zúzottkő', 'font-size': 13, 'font-weight': 700, fill: 'var(--ink2)' }, s); }
-    if (step === 4) { SV('line', { x1: cx - wid / 2, x2: cx + wid / 2, y1: gy - 14, y2: gy - 14, stroke: 'var(--ink)', 'stroke-width': 1.4 }, s); [cx - wid / 2, cx + wid / 2].forEach(x => SV('line', { x1: x, x2: x, y1: gy - 19, y2: gy - 9, stroke: 'var(--ink)', 'stroke-width': 1.4 }, s)); SV('text', { x: cx, y: gy - 24, 'text-anchor': 'middle', text: 'nagy átmérőjű tömzs', 'font-size': 13, 'font-weight': 700, fill: 'var(--ink2)' }, s); }
-    if (step >= 2) SV('text', { x: cx, y: Math.min(Hh - 10, gy + depth + 42), 'text-anchor': 'middle', text: 'tömörödött zóna', 'font-size': 13, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: 10, y: gy + 20, text: 'nagyon laza-puha talaj', 'font-size': 13, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: 14, y: 26, text: `${step + 1}. lépés`, 'font-size': 15, 'font-weight': 800, fill: 'var(--ink)' }, s);
-    $('#ktTxt').textContent = T[step];
-  };
-  $('#ktSteps').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; step = +b.dataset.v; $$('#ktSteps button').forEach((x, i) => x.classList.toggle('on', i === step)); draw(); });
-  draw();
-})();
+/* (a kőtömzs régi lépésábrája helyett: proc.js – ktFig) */
 
 /* ---------- kavicscölöp raszter ---------- */
 (function stoneCol() {
@@ -232,9 +212,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     const bar = $('#kcBar'); bar.style.width = (ratio * 100) + '%';
   };
   window.U.seg('kcPat', v => { tri = v === 'tri'; draw(); }); bindR(['kcD', 'kcS', 'kcN'], draw); draw();
-  // lépések
-  const T = ['<b>Előkészítés:</b> a lánctalpas hordozógép a zsilipes (alsó adagolású) mélyvibrátort a kitűzött pont fölé állítja.', '<b>Töltés:</b> a skip (anyagtartály) feltölti a vibrátor tetején lévő zsilipet kaviccsal; a zsilipet sűrített levegővel zárják.', '<b>Lehajtás:</b> a vibrátor rezgéssel és a gép lenyomó erejével a tervezett mélységig hatol – oldalra szorítja a talajt.', '<b>Tömörítés:</b> kb. 1 m felhúzás → a kavics kifolyik a csúcsnál → visszanyomás. A kiszorított kavics kiszélesedik (Ø ≈ 0,6–1,0 m), a környezet tömörödik.', '<b>Lezárás:</b> a ciklusokat a felszínig ismétlik; a kész oszlopokra teherelosztó réteg kerül.'];
-  const sb = $('#kcSteps'); if (sb) sb.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', sb).forEach(x => x.classList.toggle('on', x === b)); $('#kcStepTxt').innerHTML = T[+b.dataset.v]; });
 })();
 
 /* ---------- injektálás: öt módszer egy metszeten ---------- */
@@ -251,11 +228,11 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
       lab: 'a habarcsgömbök kiszorítják és tömörítik a talajt' },
     { n: 'Kőzet hézagkitöltő injektálás', e: 'Olyan, mint az itatásos injektálás, csak a kőzettestek repedéshálózatát injektáljuk. Az anyag a fúrásból kiindulva a repedések mentén terjed, és kitölti azokat.',
       soil: 'repedezett, mállott kőzet', mat: 'cementtej, cementhabarcs, szükség esetén műgyanta', pr: 'a repedések nyitottságához igazítva',
-      use: ['sziklarézsűk stabilizálása', 'alapok alatti lazább kőzetek stabilizálása', 'kőzettömegek vízzáróságának javítása'],
+      use: ['sziklarézsűk stabilizálása', 'alagutak főtéjének és homlokfalának stabilizálása', 'alapok alatti lazább kőzetek stabilizálása', 'kőzetösszletek vízzáróságának javítása'],
       lab: 'csak a kőzet repedéshálózata telik ki' },
     { n: 'Repesztő/kompenzáló injektálás', e: 'A talajok és kőzetek „kierőszakolt” repedésein keresztül, nagy nyomáson kis viszkozitású, gyorsan kötő injektálóanyagot sajtolnak be. A megnyíló repedésekben injektálóanyag-lemezek keletkeznek, és a talaj a felette lévő építménnyel együtt megemelkedik. A besajtolás szelepes csöveken keresztül többször megismételhető, így a mozgás pontosan adagolható.',
       soil: 'talajok és kőzetek, finom szemcsés talaj is', mat: 'kis viszkozitású, gyorsan kötő injektálóanyag', pr: 'nagy – a talaj megreped',
-      use: ['süllyedéskompenzálás, például alagútépítés alatt', 'megsüllyedt építmények visszaemelése'],
+      use: ['leggyakrabban alagútépítés során', 'süllyedéskompenzálás', 'építmények visszaemelése'],
       lab: 'a repedésekben keletkező lemezek megemelik az épületet' },
     { n: 'Üregkitöltő injektálás', e: 'Kisebb-nagyobb üregek kitöltésére használják, gravitációsan vagy kisebb nyomással. Az üreg alulról felfelé telik meg; a nehezen elérhető részeket duzzadó habbal zárják le.',
       soil: 'természetes és mesterséges üregek', mat: 'döntően javított cementhabarcs, kiegészítve duzzadó poliuretán habokkal', pr: 'gravitációs vagy kicsi',

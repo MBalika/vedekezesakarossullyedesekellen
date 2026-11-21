@@ -4,7 +4,6 @@ e077a5a	Two-component, expanding resin
 5270482	Cement grouting (permeation grouting with cement)
 6ebc126	<span class="fact">cement grout</span><span class="fact">microfine cement</span><span class="fact">cement mortar</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">expanding polyurethane foam</span><span class="fact">other</span>
 b820d87	Grouting materials and soil grading
-16389ea	cellar, mine gallery, void under a floor slab
 d5e7d48	by gravity or at low pressure
 e33737b	voids, cellars, galleries
 4281df2	an existing void is filled
@@ -12,7 +11,6 @@ e33737b	voids, cellars, galleries
 aec7673	high pressure, fast-setting material
 80222ab	soil and rock
 26cec0c	the ground fractures, the grout sheets lift it
-ce11aa0	rock slope, rock under foundations, watertightness
 547d208	permeation type, cement-based
 6c478bd	fissured rock
 402368d	the fissure network of the rock is filled
@@ -68,13 +66,10 @@ c7b882f	by gravity or low
 f5c305e	Used to fill smaller and larger voids, by gravity or at lower pressure. The void fills from the bottom upwards; the parts that are hard to reach are sealed with expanding foam.
 9026e07	Void-filling grouting
 5f63433	the grout sheets forming in the fractures lift the building
-0607c30	re-levelling settled structures
-4191f75	settlement compensation, e.g. during tunnelling
 b51cb53	low-viscosity, fast-setting grout
 553cc38	soils and rocks, fine-grained soil too
 f941043	Low-viscosity, fast-setting grout is injected at high pressure through “forced” fractures in soils and rocks. Grout sheets form in the opening fractures, and the ground rises together with the structure above it. Injection through sleeved pipes can be repeated several times, so the movement can be controlled precisely.
 a05c5d0	only the fissure network of the rock is filled
-01ed971	improving the watertightness of rock masses
 fb7ffb7	stabilising weaker rock below foundations
 e1ae502	stabilising rock slopes
 2301e97	adjusted to the opening of the fissures

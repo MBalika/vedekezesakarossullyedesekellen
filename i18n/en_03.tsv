@@ -3,10 +3,8 @@ f041603	Deep vibrator with flushing
 b1bcd0a	Crane-suspended deep vibrators
 72d62b9	Crane-suspended vibrators
 4902c67	Dynamic compaction
-3dbdfc7	The compaction effect is achieved by repeatedly dropping a <b>15–40 tonne pounder</b> from a height of <b>H = 10–40 m</b>. To be determined: the weight of the pounder, the drop height, the compaction grid, the number of drops per phase and the duration of the rest periods. Effective <b>to a depth of max. 5–7 m</b>; for compacting larger areas on loose soils (e.g. under heavily loaded warehouse floors). Applicable only in looser, softer soils.
 ffee48c	Drop it yourself!
 1ddad9b	⬇ Drop
-0ff22ec	Ménard–Mayne estimate: <b class="nw">d ≈ n·√(W·H)</b> (W in tonnes, H in metres), n ≈ 0.5 for most soils, 0.35–0.40 for saturated fine-grained soil. An estimate – the actual depth of influence is verified by trial compaction; in practice it is typically <span class="nw">max. 5–7 m</span>.
 f9827d7	Pounder weight W <span class="v" data-for="dynW"></span>
 42a0384	Drop height H <span class="v" data-for="dynH"></span>
 a49b20b	Soil (empirical factor n)
@@ -16,30 +14,15 @@ d2b9c61	mixed, fill
 8558210	Dynamic compaction work area
 2d0e6b9	Dynamic compaction: craters of the points pounded in a grid
 02677fc	Stone pillar
-995a322	The difference from dynamic compaction: during pounding, <b>granular material</b> (sandy gravel, crushed stone) is gradually placed under the pounder, which “works” it into the softer subsoil. The effect is twofold:
 003ba6d	the displacement of the granular material <b>considerably compacts</b> the soft subsoil;
-1750634	granular “pillars” of <b>high bearing capacity and larger diameter</b> are formed.
-cef33ba	Applicable only in very loose, soft soils.
-5f06f2e	Stone pillar work stages
-cfa4764	The work stages of a stone pillar
 0502b5f	The footage on pounding also shows how stone pillars are made.
 961f1cf	Vibro stone columns (gravel piles)
-d4650cd	In principle similar to stone pillars, except that <b>smaller-diameter</b> columns – piles – of granular material are formed. Applicable only in looser, softer soils.
-882213f	1 · preparation
-0f4eb03	2 · filling
-3f34f70	3 · penetration
-787f20d	4 · compaction
-1be12c8	5 · completion
-6765e1a	<b>Preparation:</b> the crawler base machine positions the bottom-feed deep vibrator over the set-out point.
-276df97	Steps in making a gravel pile
-47085e8	The steps in making a gravel pile
 d108570	Grid and effect (plan view)
 b652603	triangular
 0bb9a07	square
 2faaa2d	Column diameter d <span class="v" data-for="kcD"></span>
 a499141	Spacing s <span class="v" data-for="kcS"></span>
 bdd7cc3	Stress concentration n (column/soil) <span class="v" data-for="kcN"></span>
-39bf93f	Cement grouting
 fef1e7a	The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.
 f3b2e11	In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.
 1832c1d	gravel
@@ -50,11 +33,7 @@ eb6970c	silt
 d1591f7	clay
 0957bbb	fissured
 65b39c9	Retrofit strengthening of a foundation by grouting – step by step
-37b4377	The soil and the binder are mixed with a special mixing head. The mixing boom is mounted on a hydraulic excavator with a slewing superstructure; at its lower end is a mixing head rotating about its axes, to which mixing paddles developed for the soil can be fitted. The binder arrives under pressure from self-propelled silos connected to the excavator; the operator controls the quantity from the cab.
-ed9161c	<span class="fact">mixing head <b>1.5 m × Ø 0.95 m</b></span><span class="fact">per step <b>≈ 1.2 m²</b></span><span class="fact">boom <b>3–5 m</b> + <b>2 m</b> extension → <b>~7 m</b></span><span class="fact">output <b>0.5–0.8 m³/min</b></span><span class="fact">head + boom <b>≈ 5 t</b></span><span class="fact">base machine <b>25–40 t</b></span>
 1a33db7	Stabilisation must always start <b>from stable ground</b> – the plant train stabilises the soil ahead of itself as it advances. The stabilised area does not reach its final bearing capacity at once: if necessary, a load-distributing layer of geotextile, geogrid and granular material is built.
-ae15cbf	Deep stabilisation technology
-1f1723e	Mass stabilisation technology
 9b889b0	Outlook: in a pilot project in Helsinki the best result in peat was achieved with 100 kg/m³ of cement; the binder accounted for nearly half of the total cost, and the strength may even double between 30 and 90 days.
 d5d3121	Plan the job!
 54a1c7e	Progress <span class="v" data-for="msT"></span>

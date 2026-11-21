@@ -620,6 +620,11 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 .tabs button .n{width:auto;min-width:22px;padding:0 6px;white-space:nowrap}
 /* 1/B: a szöveg keskenyebb, a kompenzáció-panel szélesebb – a két oszlop közel egyforma magas */
 @media (min-width:981px){.tw-b{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}}
+/* folyamatábrák (proc.js) */
+:root{--prsky:#e4eef5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--prsky:#1a2a33}}
+:root[data-theme="dark"]{--prsky:#1a2a33}
+.procfig{margin:22px 0 6px}
 
 </style>
 <style id="bxt-css">
@@ -922,12 +927,13 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Deep compaction – vibroflotation</h3>
-        <p>To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight, assisted by <b>water jetting (flushing)</b>. The soil around the hole is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator.</p>
+        <p>To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight to the bottom of the zone to be improved, assisted by <b>water jetting (flushing)</b>. The soil around the hole thus formed is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator. Compaction is carried out in a <b>grid</b> of suitable density; the method is used for compacting larger areas, for example under heavily loaded warehouse floors.</p>
       </div>
       <div>
         <div class="grid g2"><figure class="photo"><img src="img/melytomorites-foto1.jpg" alt="Deep vibrator with flushing" loading="lazy"><figcaption>Deep vibrator during flushing</figcaption></figure><figure class="photo"><img src="img/melytomorites-foto2.jpg" alt="Crane-suspended deep vibrators" loading="lazy"><figcaption>Crane-suspended vibrators</figcaption></figure></div>
       </div>
     </div>
+    <div class="procfig" id="vfFig"></div>
     <div data-ytc="I1M6afZLrxo"></div>
   </div>
 
@@ -935,13 +941,14 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     <div class="twocol">
       <div>
         <h3 style="margin-bottom:10px">Dynamic compaction</h3>
-        <p>The compaction effect is achieved by repeatedly dropping a <b>15–40 tonne pounder</b> from a height of <b>H = 10–40 m</b>. To be determined: the weight of the pounder, the drop height, the compaction grid, the number of drops per phase and the duration of the rest periods. Effective <b>to a depth of max. 5–7 m</b>; for compacting larger areas on loose soils (e.g. under heavily loaded warehouse floors). Applicable only in looser, softer soils.</p>
-        <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne estimate: <b class="nw">d ≈ n·√(W·H)</b> (W in tonnes, H in metres), n ≈ 0.5 for most soils, 0.35–0.40 for saturated fine-grained soil. An estimate – the actual depth of influence is verified by trial compaction; in practice it is typically <span class="nw">max. 5–7 m</span>.</p></div>
+        <p>The compaction effect is achieved by repeatedly dropping a <b>6–30 tonne pounder</b> from a height of <b>10–30 m</b>. The weight of the pounder, the drop height, the compaction grid, the number of drops per phase and the duration of the rest periods are determined from the soil properties and the requirements. Effective <b>to a depth of max. 6–8 m</b>, in loose granular deposits and fills. It is used for compacting larger areas, for example under heavily loaded warehouse floors.</p>
+        <div class="callout web"><span class="ci">i</span><p>Ménard–Mayne estimate: <b class="nw">d ≈ n·√(W·H)</b> (W in tonnes, H in metres), n ≈ 0.5 for most soils, 0.35–0.40 for saturated fine-grained soil. An estimate – the actual depth of influence is verified by trial compaction; in practice <span class="nw">max. 6–8 m</span>.</p></div>
       </div>
       <div>
         <figure class="photo"><img src="img/dinamikus-foto1.jpg" alt="Dynamic compaction work area" loading="lazy"><figcaption>Dynamic compaction: craters of the points pounded in a grid</figcaption></figure>
       </div>
     </div>
+    <div class="procfig" id="dcFig"></div>
     <div data-ytc="VNDEW8acU_0"></div>
     <h4 class="tryh">Try it: drop it yourself!</h4>
     <div class="twocol tw-top">
@@ -950,8 +957,8 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       </div>
       <div>
         <div class="panel"><div class="pb">
-          <div class="ctl"><label>Pounder weight W <span class="v" data-for="dynW"></span></label><input type="range" id="dynW" min="10" max="40" value="15"></div>
-          <div class="ctl"><label>Drop height H <span class="v" data-for="dynH"></span></label><input type="range" id="dynH" min="10" max="40" value="12"></div>
+          <div class="ctl"><label>Pounder weight W <span class="v" data-for="dynW"></span></label><input type="range" id="dynW" min="6" max="30" value="15"></div>
+          <div class="ctl"><label>Drop height H <span class="v" data-for="dynH"></span></label><input type="range" id="dynH" min="10" max="30" value="15"></div>
           <div class="ctl"><label>Soil (empirical factor n)</label><div class="seg" id="dynSoil"><button data-v="0.55">clean sand</button><button data-v="0.5" class="on">mixed, fill</button><button data-v="0.38">saturated fine-grained</button></div></div>
           <div class="res" id="dynOut"></div>
         </div></div>
@@ -960,37 +967,31 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m3">
-    <div class="twocol">
+    <h3 style="margin-bottom:10px">Stone pillar</h3>
+    <div class="twocol tw-top">
       <div>
-        <h3 style="margin-bottom:10px">Stone pillar</h3>
-        <p>The difference from dynamic compaction: during pounding, <b>granular material</b> (sandy gravel, crushed stone) is gradually placed under the pounder, which “works” it into the softer subsoil. The effect is twofold:</p>
-        <ul><li>the displacement of the granular material <b>considerably compacts</b> the soft subsoil;</li><li>granular “pillars” of <b>high bearing capacity and larger diameter</b> are formed.</li></ul>
-        <p>Applicable only in very loose, soft soils.</p>
+        <p>The difference from dynamic compaction: during pounding, <b>granular material</b> (sandy gravel, crushed stone or mine waste) is gradually placed under the pounder, which the pounding rig “works” into the <b>very soft subsoil</b>. Effective in cohesive and organic soils.</p>
       </div>
       <div>
-    <figure class="photo contain"><img src="img/kotomzs-abra.jpg" alt="Stone pillar work stages" loading="lazy" style="height:300px;padding:6px"><figcaption>The work stages of a stone pillar</figcaption></figure>
+        <p style="margin-bottom:6px">The effect is twofold:</p>
+        <ul><li>the displacement of the granular material <b>considerably compacts</b> the soft subsoil;</li><li>granular “pillars” of <b>high bearing capacity and larger diameter</b> (Ø 2.0–3.5 m) are formed.</li></ul>
       </div>
     </div>
+    <div class="procfig" id="ktFig"></div>
     <div class="vinline"><p class="ytnote">The footage on pounding also shows how stone pillars are made.</p><button data-ytm="VNDEW8acU_0" data-tech="Pounding and stone pillars"></button></div>
-    <h4 class="tryh">Try it: making a stone pillar step by step</h4>
-    <div class="solo">
-        <div class="stepper" id="ktSteps"><button data-v="0" class="on">1</button><button data-v="1">2</button><button data-v="2">3</button><button data-v="3">4</button><button data-v="4">5</button></div>
-        <div class="panel"><div class="pb"><div id="ktSvg"></div><p id="ktTxt" style="margin:8px 0 0"></p></div></div>
-    </div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m4">
-    <div class="twocol">
+    <h3 style="margin-bottom:10px">Vibro stone columns (gravel piles)</h3>
+    <div class="twocol tw-top">
       <div>
-        <h3 style="margin-bottom:10px">Vibro stone columns (gravel piles)</h3>
-        <p>In principle similar to stone pillars, except that <b>smaller-diameter</b> columns – piles – of granular material are formed. Applicable only in looser, softer soils.</p>
-        <div class="stepper" id="kcSteps"><button data-v="0" class="on">1 · preparation</button><button data-v="1">2 · filling</button><button data-v="2">3 · penetration</button><button data-v="3">4 · compaction</button><button data-v="4">5 · completion</button></div>
-        <p id="kcStepTxt"><b>Preparation:</b> the crawler base machine positions the bottom-feed deep vibrator over the set-out point.</p>
+        <p>In principle similar to stone pillars, except that <b>smaller-diameter</b> columns – piles – of granular material are formed. An economical ground improvement solution that can be adapted to a wide range of soil conditions and foundation requirements; extremely quiet, with low vibration.</p>
       </div>
       <div>
-        <figure class="photo contain"><img src="img/en/kavicscolop-abra.jpg" alt="Steps in making a gravel pile" loading="lazy" style="height:400px;padding:6px"><figcaption>The steps in making a gravel pile</figcaption></figure>
+        <p>The bottom-feed deep vibrator penetrates to the design depth or to the specified soil resistance, displacing the soil sideways; besides vibration, penetration is assisted by hydraulic pull-down and compressed air. Fields of application: embankment foundations and foundations of industrial floors.</p>
       </div>
     </div>
+    <div class="procfig" id="kcFig"></div>
     <div data-ytc="2iWMoVIZc_k"></div>
     <h4 class="tryh">Try it: grid and effect</h4>
     <div class="solo">
@@ -1014,6 +1015,9 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   <nav class="subidx" aria-label="Subsections"><a href="#injmod" data-open="inj:i1" data-inj="0"><span>3/A</span>Permeation</a><a href="#injmod" data-open="inj:i1" data-inj="1"><span>3/B</span>Compaction</a><a href="#injmod" data-open="inj:i1" data-inj="2"><span>3/C</span>Rock fissure</a><a href="#injmod" data-open="inj:i1" data-inj="3"><span>3/D</span>Fracture/compensation</a><a href="#injmod" data-open="inj:i1" data-inj="4"><span>3/E</span>Void filling</a><a href="#t-inj" data-open="inj:i2"><span>3/F</span>Mass stabilisation</a></nav>
   <div class="tabs" data-group="inj" id="t-inj"><button data-tab="i1" class="on"><span class="n">3/A–E</span>Grouting</button><button data-tab="i2"><span class="n">3/F</span>Mass stabilisation</button></div>
   <div class="tabpane on" data-group="inj" data-tab="i1">
+    <h3 style="margin-bottom:10px">The grouting process</h3>
+    <p>The first step of grouting is always <b>drilling the holes</b>; there are countless methods, for example (cased) percussion drilling, bucket drilling, chisel drilling, rotary drilling, or driving or vibrating in drill pipes. The grouts are typically <b>cement suspensions, cement mortars and (chemical) solutions</b>. By substantially reducing the void volume, the strength and deformation properties of the soil improve.</p>
+    <div class="procfig" id="ijFig"></div>
   <div class="sub-h" id="injmod"><span class="lt">3/A–E</span><h3>Five grouting methods – what does the grout do to the soil?</h3></div>
     <p>The grouting methods differ in what the injected material does to the soil. It may only fill the existing voids, displace and compact the soil, fracture and lift it, or fill an existing void.</p>
     <div class="tscroll" style="margin-top:22px"><table class="t sumt injt">
@@ -1021,22 +1025,21 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <tbody>
         <tr><td><b>3/A · Permeation</b></td><td>the grout fills the voids; the void volume and the soil structure do not change</td><td>granular soil, coarse silt</td><td>low pressure, low-viscosity material</td><td>underpinning, sealing, excavations</td></tr>
         <tr><td><b>3/B · Compaction</b></td><td>voids formed stage by stage, the surrounding soil is compacted</td><td>loose soil, also silt and clay</td><td>higher pressure, stiff mortar</td><td>load-bearing columns, re-levelling floor slabs</td></tr>
-        <tr><td><b>3/C · Rock fissure</b></td><td>the fissure network of the rock is filled</td><td>fissured rock</td><td>permeation type, cement-based</td><td>rock slope, rock under foundations, watertightness</td></tr>
-        <tr><td><b>3/D · Fracture/compensation</b></td><td>the ground fractures, the grout sheets lift it</td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling</td></tr>
-        <tr><td><b>3/E · Void filling</b></td><td>an existing void is filled</td><td>voids, cellars, galleries</td><td>by gravity or at low pressure</td><td>cellar, mine gallery, void under a floor slab</td></tr>
+        <tr><td><b>3/C · Rock fissure</b></td><td>the fissure network of the rock is filled</td><td>fissured rock</td><td>permeation type, cement-based</td><td>rock slope, tunnel crown and face, rock under foundations, watertightness</td></tr>
+        <tr><td><b>3/D · Fracture/compensation</b></td><td>the ground fractures, the grout sheets lift it</td><td>soil and rock</td><td>high pressure, low-viscosity, fast-setting grout, in several stages</td><td>most often in tunnelling; settlement compensation, re-levelling</td></tr>
+        <tr><td><b>3/E · Void filling</b></td><td>an existing void is filled</td><td>voids, cellars, galleries</td><td>by gravity or at low pressure; improved cement mortar, expanding PU foam</td><td>void under a floor slab, rock cavity, cellar, mine gallery, shaft, utility pipe</td></tr>
       </tbody>
     </table></div>
     <div class="sub-h"><span class="lt">⚗</span><h3>Grouting materials and soil grading</h3></div>
-    <div class="twocol">
+    <div class="twocol tw-top">
       <div>
         <div class="facts"><span class="fact">cement grout</span><span class="fact">microfine cement</span><span class="fact">cement mortar</span><span class="fact">water glass (sodium silicate) based</span><span class="fact">acrylamide</span><span class="fact">lignosulphite – lignosulphonate</span><span class="fact">phenoplast</span><span class="fact">aminoplast</span><span class="fact">expanding polyurethane foam</span><span class="fact">other</span></div>
         <h4 style="margin:16px 0 6px">Cement grouting (permeation grouting with cement)</h4>
         <p>The perforated grout pipes are placed <b>50–100 cm</b> apart, and the cement grout or cement-sand mortar is injected at a pressure of <b>7–10 atm</b>. The voids have to be larger than the diameter of the cement particles, so only sand-gravel <b>coarser than 0.8–1 mm</b>, or cohesive soil with cavities and fissures, can be grouted with it. Grouting must proceed <b>from the bottom upwards</b> as the pipe is withdrawn.</p>
-        <h4 style="margin:16px 0 6px">Two-component, expanding resin</h4>
-        <p>In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.</p>
       </div>
       <div>
-        <figure class="photo contain"><img src="img/cementbesajtolas-abra.jpg" alt="Cement grouting" loading="lazy" style="height:230px;padding:6px"><figcaption>Cement grouting</figcaption></figure>
+        <h4 style="margin:0 0 6px">Two-component, expanding resin</h4>
+        <p>In sandy and silty soil (not effective in clay). It enters the soil as a liquid at higher pressure, fills cavities, gaps and cracks and binds the grains together; after a few minutes it <b>starts to expand</b> and forms a very hard <b>geocomposite</b> with the soil – the cohesion increases and the pore volume decreases considerably. Common for retrofit strengthening of foundations.</p>
       </div>
     </div>
     <div class="sub-h"><span class="lt">📷</span><h3>Retrofit strengthening of a foundation by grouting – step by step</h3></div>
@@ -1066,17 +1069,17 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
     <h3 style="margin-bottom:10px">Mass stabilisation</h3>
-    <div class="twocol">
+    <div class="twocol tw-top">
       <div>
-        <p>The soil and the binder are mixed with a special mixing head. The mixing boom is mounted on a hydraulic excavator with a slewing superstructure; at its lower end is a mixing head rotating about its axes, to which mixing paddles developed for the soil can be fitted. The binder arrives under pressure from self-propelled silos connected to the excavator; the operator controls the quantity from the cab.</p>
-        <div class="facts"><span class="fact">mixing head <b>1.5 m × Ø 0.95 m</b></span><span class="fact">per step <b>≈ 1.2 m²</b></span><span class="fact">boom <b>3–5 m</b> + <b>2 m</b> extension → <b>~7 m</b></span><span class="fact">output <b>0.5–0.8 m³/min</b></span><span class="fact">head + boom <b>≈ 5 t</b></span><span class="fact">base machine <b>25–40 t</b></span></div>
+        <p>The soil and the binder are mixed with a special mixing head. The mixing boom is mounted on a hydraulic excavator with a slewing superstructure; at its lower end is a mixing head rotating about its axes, to which mixing paddles developed for the soil can be fitted. During mixing the head is moved up and down, while the binder is fed continuously through the head at high pressure from self-propelled silos connected to the excavator; the operator controls the quantity from the cab. The binder depends on the soil to be improved: <b>lime, cement, gypsum, granulated blast-furnace slag</b> or a mixture of these. Mass stabilisation is one type of deep mixing (alongside column-type and panel-type mixing, e.g. CSM).</p>
+        <div class="facts"><span class="fact">mixing head <b>1.5 m × Ø 0.95 m</b></span><span class="fact">per step <b>≈ 1.2 m²</b></span><span class="fact">mixing boom <b>3–5 m</b></span><span class="fact">depth usually <b>≤ 5 m</b></span><span class="fact">output <b>0.5–0.8 m³/min</b></span><span class="fact">head + boom <b>≈ 5 t</b></span><span class="fact">base machine <b>25–40 t</b></span></div>
+      </div>
+      <div>
         <div class="callout warn"><span class="ci">!</span><p>Stabilisation must always start <b>from stable ground</b> – the plant train stabilises the soil ahead of itself as it advances. The stabilised area does not reach its final bearing capacity at once: if necessary, a load-distributing layer of geotextile, geogrid and granular material is built.</p></div>
         <p class="src" style="margin-top:12px">Outlook: in a pilot project in Helsinki the best result in peat was achieved with 100 kg/m³ of cement; the binder accounted for nearly half of the total cost, and the strength may even double between 30 and 90 days.</p>
       </div>
-      <div>
-        <figure class="photo contain"><img src="img/tomegstab-abra.jpg" alt="Deep stabilisation technology" loading="lazy" style="height:170px;padding:6px"><figcaption>Mass stabilisation technology</figcaption></figure>
-      </div>
     </div>
+    <div class="procfig" id="msFig"></div>
     <div data-ytc="85GbWBj3in8"></div>
     <h4 class="tryh">Try it: plan the job!</h4>
     <div class="solo">
@@ -1085,7 +1088,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <div id="msSvg"></div>
       <div class="ctl"><label>Progress <span class="v" data-for="msT"></span></label><input type="range" id="msT" min="0" max="100" value="45"></div>
       <div class="ctl"><label>Area <span class="v" data-for="msA"></span></label><input type="range" id="msA" min="200" max="6000" step="100" value="1500"></div>
-      <div class="ctl"><label>Depth <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="7" step="0.5" value="3"></div>
+      <div class="ctl"><label>Depth <span class="v" data-for="msD"></span></label><input type="range" id="msD" min="1" max="5" step="0.5" value="3"></div>
       <div class="ctl"><label>Mixing output <span class="v" data-for="msQ"></span></label><input type="range" id="msQ" min="0.5" max="0.8" step="0.05" value="0.65"></div>
       <div class="ctl" style="grid-column:1/-1"><label>Binder content <span class="v" data-for="msK"></span></label><input type="range" id="msK" min="60" max="200" step="5" value="100"></div>
       <div class="res" id="msOut"></div>
@@ -1176,16 +1179,16 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <tr class="g1"><td><span class="code">1/B</span> <b>Deeper foundation level</b></td><td>a better bearing layer within a few metres</td><td>basement: the excavated soil unloads the ground</td><td>a strip footing deeper than 2–2.5 m is not economical</td></tr>
       <tr class="g1"><td><span class="code">1/C</span> <b>Soil replacement</b></td><td>any poor soil, in a shallow zone</td><td>50–80 cm, compacted in layers ≤ 30 cm</td><td>only above the water table; widening: B + 2·v·tanϑ</td></tr>
       <tr class="g2"><td><span class="code">2/A</span> <b>Deep compaction</b></td><td>loose granular soil, fill</td><td>vibrator Ø 25–40 cm, with flushing</td><td>fines content approx. &lt; 10–12%</td></tr>
-      <tr class="g2"><td><span class="code">2/B</span> <b>Dynamic compaction</b></td><td>looser, softer soil, large area</td><td>15–40 t pounder, H = 10–40 m; max. 5–7 m</td><td>strong vibration – not next to buildings</td></tr>
-      <tr class="g2"><td><span class="code">2/C</span> <b>Stone pillar</b></td><td>very loose, soft soil</td><td>granular material pounded in, large-diameter pillars</td><td>displacement compaction + load-bearing elements</td></tr>
-      <tr class="g2"><td><span class="code">2/D</span> <b>Gravel pile</b></td><td>looser, softer soil (cohesive too)</td><td>bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m</td><td>also acts as a vertical drain</td></tr>
+      <tr class="g2"><td><span class="code">2/B</span> <b>Dynamic compaction</b></td><td>loose granular deposit, fill; large area</td><td>6–30 t pounder, 10–30 m drop height; max. 6–8 m</td><td>strong vibration – not next to buildings</td></tr>
+      <tr class="g2"><td><span class="code">2/C</span> <b>Stone pillar</b></td><td>very soft cohesive and organic soil</td><td>granular material pounded in, pillars Ø 2.0–3.5 m</td><td>displacement compaction + load-bearing elements</td></tr>
+      <tr class="g2"><td><span class="code">2/D</span> <b>Gravel pile</b></td><td>adaptable to a wide range of soil conditions</td><td>bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m</td><td>also acts as a vertical drain</td></tr>
       <tr class="g3"><td><span class="code">3/A</span> <b>Permeation grouting</b></td><td>granular soil, coarse silt; with cement only coarser than 0.8–1 mm</td><td>cement grouting: pipes every 50–100 cm, 7–10 atm</td><td>fills the voids; from the bottom upwards</td></tr>
       <tr class="g3"><td><span class="code">3/B</span> <b>Compaction grouting</b></td><td>loose soil, also silt and clay</td><td>stiff mortar, bulbs stage by stage</td><td>compacts, forms load-bearing columns</td></tr>
       <tr class="g3"><td><span class="code">3/C</span> <b>Rock fissure grouting</b></td><td>fissured rock</td><td>filling the fissure network</td><td>slope, rock under foundations, watertightness</td></tr>
       <tr class="g3"><td><span class="code">3/D</span> <b>Fracture/compensation grouting</b></td><td>soil and rock</td><td>high pressure, fast-setting material</td><td>settlement compensation, re-levelling buildings</td></tr>
       <tr class="g3"><td><span class="code">3/E</span> <b>Void-filling grouting</b></td><td>voids, cellars, mine galleries</td><td>by gravity or at low pressure</td><td>improved cement mortar, expanding PU foam</td></tr>
       <tr class="g3"><td><span class="code">3</span> <b>Two-component resin</b></td><td>sandy, silty soil</td><td>expanding geocomposite</td><td>not effective in clay; retrofit strengthening</td></tr>
-      <tr class="g3"><td><span class="code">3/F</span> <b>Mass stabilisation</b></td><td>peat, soft clay, organic soil</td><td>mixing head 1.5 m × Ø 0.95 m; max. ~7 m</td><td>starts from stable ground; hardening takes time</td></tr>
+      <tr class="g3"><td><span class="code">3/F</span> <b>Mass stabilisation</b></td><td>peat, soft clay, organic soil</td><td>mixing head 1.5 m × Ø 0.95 m; depth usually ≤ 5 m</td><td>starts from stable ground; hardening takes time</td></tr>
       <tr class="g4"><td><span class="code">4/A</span> <b>Preloading</b></td><td>saturated, compressible cohesive soil</td><td>surcharge ≥ the later building load</td><td>long time – can be accelerated with drains</td></tr>
       <tr class="g4"><td><span class="code">4/B–C</span> <b>Structure, sequence</b></td><td>–</td><td>rigid or flexible structure, settlement joint</td><td>supplementary tool</td></tr>
       <tr class="g4"><td><span class="code">4/D</span> <b>Deep foundations</b></td><td>if the bearing layer is deep</td><td>pile, diaphragm wall</td><td>often the simplest and fastest</td></tr>
@@ -1342,7 +1345,7 @@ window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-
 
 // --- videók ---
 const VIDEOS = {
-  tj1: { t: 'Changing the foundation', s: 'lower contact pressure · deeper foundation level · soil replacement', d: '2:16', ch: '1/A–1/C' },
+  tj1: { t: 'Changing the foundation', s: 'lower contact pressure, deeper foundation level, soil replacement', d: '2:16', ch: '1/A–1/C' },
   tj7: { t: 'Preloading – Mexico City', s: 'ballast up to the building weight, waiting, phased removal', d: '2:14', ch: '4/A' },
 };
 window.VIDEOS = VIDEOS;
@@ -1442,15 +1445,15 @@ window.SVpat = pat;
   const M = [
     { id: 'a', n: '1/A Lower contact pressure', d: 'wider foundation – if there is a better layer lower down', href: '#talpnyomas', c: 'var(--teal)' },
     { id: 'b', n: '1/B Deeper foundation level', d: 'bearing layer within a few metres, basement', href: '#alapsik', c: 'var(--teal)' },
-    { id: 'c', n: '1/C Talajcsere', d: 'shallow problem, above the water table, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
+    { id: 'c', n: '1/C Soil replacement', d: 'shallow problem, above the water table, 50–80 cm', href: '#talajcsere', c: 'var(--teal)' },
     { id: 'd1', n: '2/A Deep compaction (vibroflotation)', d: 'loose granular soil, fill', href: '#t-mech', open: 'mech:m1', c: 'var(--amber)' },
-    { id: 'd2', n: '2/B Dynamic compaction', d: 'large area, loose or soft soil, max. 5–7 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
-    { id: 'd3', n: '2/C Stone pillar', d: 'very loose, soft soil', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
-    { id: 'd4', n: '2/D Gravel pile', d: 'looser, softer soil, cohesive soil too', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
+    { id: 'd2', n: '2/B Dynamic compaction', d: 'large area, loose granular soil, fill; max. 6–8 m', href: '#t-mech', open: 'mech:m2', c: 'var(--amber)' },
+    { id: 'd3', n: '2/C Stone pillar', d: 'very soft cohesive and organic soil', href: '#t-mech', open: 'mech:m3', c: 'var(--amber)' },
+    { id: 'd4', n: '2/D Gravel pile', d: 'adaptable to many soils, cohesive soil too', href: '#t-mech', open: 'mech:m4', c: 'var(--amber)' },
     { id: 'd5', n: '3/A Permeation grouting', d: 'granular soil, coarse silt; with cement only > 0.8–1 mm', href: '#injmod', open: 'inj:i1', inj: 0, c: 'var(--violet)' },
     { id: 'd6', n: '3/B Compaction grouting', d: 'loose soil, also silt and clay; also under existing buildings', href: '#injmod', open: 'inj:i1', inj: 1, c: 'var(--violet)' },
     { id: 'd8', n: '3/D Fracture/compensation grouting', d: 'settlement compensation, re-levelling buildings', href: '#injmod', open: 'inj:i1', inj: 3, c: 'var(--violet)' },
-    { id: 'd7', n: '3/F Mass stabilisation', d: 'peat, soft clay, max. ~7 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
+    { id: 'd7', n: '3/F Mass stabilisation', d: 'peat, soft clay; usually ≤ 5 m', href: '#t-inj', open: 'inj:i2', c: 'var(--violet)' },
     { id: 'e', n: '4/A Preloading', d: 'saturated, compressible cohesive soil, time available', href: '#eloterheles', c: 'var(--coral)' },
     { id: 'f', n: '4/B–C Structural measures, construction sequence', d: 'always a supplementary tool', href: '#szerkezet', c: 'var(--coral)' },
     { id: 'h', n: '4/D Deep foundations', d: 'the good bearing layer is deep', href: '#melyalap', c: 'var(--coral)' },
@@ -1464,13 +1467,13 @@ window.SVpat = pat;
       case 'b': add(better === 'yes' && depth !== 'mely' ? 3 : -2, better === 'yes' ? 'better layer within a few metres' : ''); if (sit === 'meglevo') add(-3); break;
       case 'c': add(depth === 'sekely' ? 3 : -2, depth === 'sekely' ? 'shallow problem' : 'expensive for a deep layer'); add(gw === 'felett' ? 1 : -4, gw === 'felett' ? '' : 'cannot be compacted below the water table'); if (sit === 'meglevo') add(-4); break;
       case 'd1': add(soil === 'szemcses' || soil === 'feltoltes' ? 3 : -3, soil === 'szemcses' ? 'loose granular soil' : soil === 'feltoltes' ? 'fill' : 'ineffective in cohesive soil'); if (sit === 'meglevo') add(-3, 'vibration next to the existing building'); break;
-      case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 5–7 m' : ''); if (sit === 'meglevo') add(-4, 'strong vibration – not next to a building'); break;
+      case 'd2': add(['szemcses', 'feltoltes'].includes(soil) ? 2 : soil === 'kotott' ? 0 : -1); add(depth === 'mely' ? -2 : 1, depth === 'mely' ? 'max. 6–8 m' : ''); if (sit === 'meglevo') add(-4, 'strong vibration – not next to a building'); break;
       case 'd3': add(soil === 'kotott' || soil === 'feltoltes' ? 2 : 0); if (sit === 'meglevo') add(-4); break;
       case 'd4': add(soil === 'kotott' ? 3 : soil === 'szerves' ? -1 : 1, soil === 'kotott' ? 'also for soft cohesive soil' : ''); if (sit === 'meglevo') add(-2); break;
       case 'd5': add(soil === 'szemcses' ? 3 : soil === 'feltoltes' ? 1 : -2, soil === 'szemcses' ? 'fills the voids' : soil === 'feltoltes' ? '' : 'does not penetrate fine soil'); if (sit === 'meglevo') add(1, 'also as a retrofit measure'); break;
       case 'd6': add(soil === 'szerves' ? -2 : 1, soil === 'kotott' ? 'compacts silt and clay too' : soil === 'szerves' ? '' : 'compacts loose soil'); if (sit === 'meglevo') add(3, 'also under existing buildings'); break;
       case 'd8': add(sit === 'meglevo' ? 3 : -2, sit === 'meglevo' ? 'settlement compensation, re-levelling' : 'rare in new construction'); if (soil === 'szerves') add(-2); break;
-      case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'peat, organic soil' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'max. ~7 m' : ''); if (sit === 'meglevo') add(-4); break;
+      case 'd7': add(soil === 'szerves' ? 4 : soil === 'kotott' ? 1 : -1, soil === 'szerves' ? 'peat, organic soil' : ''); add(depth === 'mely' ? -3 : 1, depth === 'mely' ? 'usually ≤ 5 m' : ''); if (sit === 'meglevo') add(-4); break;
       case 'e': add(soil === 'kotott' || soil === 'szerves' ? 3 : 0, soil === 'kotott' || soil === 'szerves' ? 'compressible cohesive soil' : ''); if (sit === 'meglevo') add(-4); break;
       case 'f': add(2, 'always worthwhile'); break;
       case 'h': add(depth === 'mely' ? 4 : better === 'no' ? 2 : 0, depth === 'mely' ? 'the good layer is deep' : ''); if (sit === 'meglevo') add(0); break;
@@ -1801,7 +1804,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     SV('rect', { x: W - 52, y: gy, width: 52, height: Hh - gy, fill: 'var(--card)', opacity: .86 }, s);
     SV('rect', { x: W - 52, y: gy + 5 * k, width: 52, height: 2 * k, fill: 'var(--coral)', opacity: .32 }, s);
     for (let m = 0; m <= 12; m += 2) { SV('line', { x1: W - 52, x2: W - 44, y1: gy + m * k, y2: gy + m * k, stroke: 'var(--ink2)' }, s); if (m) SV('text', { x: W - 8, y: gy + m * k + 4, 'text-anchor': 'end', text: m + ' m', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)' }, s); }
-    SV('text', { x: W - 58, y: gy + 6 * k + 4, 'text-anchor': 'end', text: 'typically 5–7 m', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)' }, s);
+    SV('text', { x: W - 58, y: gy + 6 * k + 4, 'text-anchor': 'end', text: 'max. 6–8 m', 'font-size': 11.5, 'font-weight': 700, class: 'hl', style: 'fill:var(--coral-ink)' }, s);
     const yd = gy + Math.min(d, 12.6) * k; SV('line', { x1: cx - 120, x2: W - 52, y1: yd, y2: yd, stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '4 4' }, s);
     SV('text', { x: cx - 124, y: Math.min(yd + 4, Hh - 10), 'text-anchor': 'end', text: `depth of influence ≈ ${fmt(d, 1)} m`, 'font-size': 12.5, 'font-weight': 800, class: 'hl' }, s);
     // lánctalpas daru rácsos gémmel
@@ -1830,27 +1833,7 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 })();
 
 /* ---------- kőtömzs ---------- */
-(function stonePier() {
-  const host = $('#ktSvg'); if (!host) return; let step = 0; const T = ['The pounder punches a crater into the soft soil.', 'The crater is filled with granular material (sandy gravel, crushed stone).', 'Another drop: the weight “works” the gravel into the soft subsoil – displacing and compacting it.', 'Fill–drop cycles: the pillar grows downwards and sideways.', 'Finished stone pillar: a large-diameter, high-capacity granular column + compacted surroundings.'];
-  const draw = () => {
-    const W = 400, Hh = 270, gy = 84, cx = 200; const s = svg(host, W, Hh); pat(s);
-    SV('rect', { x: 0, y: 0, width: W, height: gy, fill: 'var(--card2)' }, s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pSoft)' }, s); SV('rect', { x: 0, y: gy - 3, width: W, height: 4, fill: '#8a8f6a' }, s);
-    const depth = [40, 40, 78, 112, 134][step], wid = [60, 60, 80, 96, 106][step];
-    if (step >= 2) { SV('ellipse', { cx, cy: gy + depth / 2, rx: wid / 2 + 30, ry: depth / 2 + 22, fill: '#a3874f', opacity: .42 }, s);
-      [[-1, .35], [1, .35], [-1, .75], [1, .75]].forEach(([sg, f]) => { const x0 = cx + sg * (wid / 2 + 4), y0 = gy + depth * f; SV('line', { x1: x0, y1: y0, x2: x0 + sg * 20, y2: y0 + 5, stroke: '#fff', 'stroke-width': 2.2 }, s); SV('path', { d: `M${x0 + sg * 20},${y0 + 5} l${-sg * 8},-5 l${sg * 1},9 z`, fill: '#fff' }, s); }); }
-    if (step >= 1) SV('path', { d: `M${cx - wid / 2},${gy} C${cx - wid / 2 - 10},${gy + depth * .7} ${cx - wid / 3},${gy + depth} ${cx},${gy + depth} C${cx + wid / 3},${gy + depth} ${cx + wid / 2 + 10},${gy + depth * .7} ${cx + wid / 2},${gy} Z`, fill: 'url(#pGrav)', stroke: '#6d5c47', 'stroke-width': 1.5 }, s);
-    else SV('path', { d: `M${cx - 30},${gy} Q${cx},${gy + 70} ${cx + 30},${gy} Z`, fill: '#3a2f27' }, s);
-    if (step === 0 || step === 2 || step === 3) { const wy = gy - (step === 0 ? -12 : 2) - 22; SV('rect', { x: cx - 25, y: wy, width: 50, height: 22, rx: 3, fill: '#4b5458', stroke: '#222' }, s); SV('line', { x1: cx, x2: cx, y1: 0, y2: wy, stroke: '#4b5458', 'stroke-width': 1.6 }, s); SV('path', { d: `M${cx + 42},${wy - 24} v22 m-6,-8 l6,9 l6,-9`, fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.4 }, s); }
-    if (step === 1) { for (let i = 0; i < 12; i++) SV('circle', { cx: cx - 22 + (i * 13) % 44, cy: 16 + (i * 17) % 52, r: 5, fill: '#8f7c66', stroke: '#6d5c47' }, s); SV('text', { x: cx + 36, y: 62, text: 'sandy gravel, crushed stone', 'font-size': 13, 'font-weight': 700, fill: 'var(--ink2)' }, s); }
-    if (step === 4) { SV('line', { x1: cx - wid / 2, x2: cx + wid / 2, y1: gy - 14, y2: gy - 14, stroke: 'var(--ink)', 'stroke-width': 1.4 }, s); [cx - wid / 2, cx + wid / 2].forEach(x => SV('line', { x1: x, x2: x, y1: gy - 19, y2: gy - 9, stroke: 'var(--ink)', 'stroke-width': 1.4 }, s)); SV('text', { x: cx, y: gy - 24, 'text-anchor': 'middle', text: 'large-diameter pillar', 'font-size': 13, 'font-weight': 700, fill: 'var(--ink2)' }, s); }
-    if (step >= 2) SV('text', { x: cx, y: Math.min(Hh - 10, gy + depth + 42), 'text-anchor': 'middle', text: 'compacted zone', 'font-size': 13, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: 10, y: gy + 20, text: 'very loose, soft soil', 'font-size': 13, 'font-weight': 700, class: 'hl' }, s);
-    SV('text', { x: 14, y: 26, text: `Step ${step + 1}`, 'font-size': 15, 'font-weight': 800, fill: 'var(--ink)' }, s);
-    $('#ktTxt').textContent = T[step];
-  };
-  $('#ktSteps').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; step = +b.dataset.v; $$('#ktSteps button').forEach((x, i) => x.classList.toggle('on', i === step)); draw(); });
-  draw();
-})();
+/* (a kőtömzs régi lépésábrája helyett: proc.js – ktFig) */
 
 /* ---------- kavicscölöp raszter ---------- */
 (function stoneCol() {
@@ -1868,9 +1851,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
     const bar = $('#kcBar'); bar.style.width = (ratio * 100) + '%';
   };
   window.U.seg('kcPat', v => { tri = v === 'tri'; draw(); }); bindR(['kcD', 'kcS', 'kcN'], draw); draw();
-  // lépések
-  const T = ['<b>Preparation:</b> the crawler base machine positions the bottom-feed deep vibrator over the set-out point.', '<b>Filling:</b> the skip (material hopper) fills the airlock at the top of the vibrator with gravel; the airlock is closed with compressed air.', '<b>Penetration:</b> the vibrator reaches the design depth by vibration and the pull-down force of the rig – pushing the soil aside.', '<b>Compaction:</b> raise approx. 1 m → the gravel flows out at the tip → push back down. The displaced gravel widens (Ø ≈ 0.6–1.0 m) and the surroundings are compacted.', '<b>Completion:</b> the cycles are repeated up to the surface; a load transfer layer is placed on the finished columns.'];
-  const sb = $('#kcSteps'); if (sb) sb.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', sb).forEach(x => x.classList.toggle('on', x === b)); $('#kcStepTxt').innerHTML = T[+b.dataset.v]; });
 })();
 
 /* ---------- injektálás: öt módszer egy metszeten ---------- */
@@ -1887,11 +1867,11 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
       lab: 'the mortar bulbs displace and compact the soil' },
     { n: 'Rock fissure grouting', e: 'Like permeation grouting, but the fissure network of the rock mass is grouted. The grout spreads from the borehole along the fissures and fills them.',
       soil: 'fissured, weathered rock', mat: 'cement grout, cement mortar, resin where needed', pr: 'adjusted to the opening of the fissures',
-      use: ['stabilising rock slopes', 'stabilising weaker rock below foundations', 'improving the watertightness of rock masses'],
+      use: ['stabilising rock slopes', 'stabilising tunnel crowns and faces', 'stabilising weaker rock below foundations', 'improving the watertightness of rock masses'],
       lab: 'only the fissure network of the rock is filled' },
     { n: 'Fracture/compensation grouting', e: 'Low-viscosity, fast-setting grout is injected at high pressure through “forced” fractures in soils and rocks. Grout sheets form in the opening fractures, and the ground rises together with the structure above it. Injection through sleeved pipes can be repeated several times, so the movement can be controlled precisely.',
       soil: 'soils and rocks, fine-grained soil too', mat: 'low-viscosity, fast-setting grout', pr: 'high – the ground fractures',
-      use: ['settlement compensation, e.g. during tunnelling', 're-levelling settled structures'],
+      use: ['most often in tunnelling', 'settlement compensation', 're-levelling of structures'],
       lab: 'the grout sheets forming in the fractures lift the building' },
     { n: 'Void-filling grouting', e: 'Used to fill smaller and larger voids, by gravity or at lower pressure. The void fills from the bottom upwards; the parts that are hard to reach are sealed with expanding foam.',
       soil: 'natural and man-made voids', mat: 'mainly improved cement mortar, supplemented with expanding polyurethane foams', pr: 'by gravity or low',
@@ -2165,6 +2145,212 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 
 </script>
 <script>
+/* ===== Folyamatábrák a talajjavítási módszerekhez (a BME-videók ábrái és szövegei alapján) =====
+   Minden ábra lépésenkénti metszetsor: számozott panel, cím, rajz, rövid magyarázat.
+   Széles nézetben egy sorban, keskenyben két oszlopban. Az útvonalak szóközzel írva (az angol build tizedesvessző-cseréje miatt). */
+(function () {
+const { $, $$ } = window.U; const SV = window.SV, svg = window.mkSvg, pat = window.SVpat;
+const PW = 260, PH = 330, GY = 150, GB = 250;           // panel szélessége/magassága, terep- és talajalj-szint a panelen belül
+const C = { yel: '#f2b705', yelD: '#b88700', steel: '#7c848c', steelD: '#4b5258', dark: '#2f3439', water: '#3b8fd0', halo: '#ef8a2a', grout: '#d8d4c8', groutD: '#9c968a', conc: '#c3c7ca' };
+
+/* --- alapelemek --- */
+const P = (d, a, g) => SV('path', { d, ...a }, g);
+const R = (x, y, w, h, a, g) => SV('rect', { x, y, width: w, height: h, ...a }, g);
+const L = (x1, y1, x2, y2, a, g) => SV('line', { x1, y1, x2, y2, ...a }, g);
+const T = (x, y, text, a, g) => SV('text', { x, y, text, ...a }, g);
+const arrowDown = (g, x, y1, y2, c = 'var(--ink)', w = 2, hw = 5) => { L(x, y1, x, y2 - hw * 1.3, { stroke: c, 'stroke-width': w }, g); P(`M${x - hw} ${y2 - hw * 1.6}L${x} ${y2}L${x + hw} ${y2 - hw * 1.6}Z`, { fill: c }, g); };
+const arrowH = (g, x1, x2, y, c = 'var(--ink)', w = 1.8, hw = 5) => { const s = Math.sign(x2 - x1); L(x1, y, x2 - s * hw * 1.3, y, { stroke: c, 'stroke-width': w }, g); P(`M${x2 - s * hw * 1.6} ${y - hw}L${x2} ${y}L${x2 - s * hw * 1.6} ${y + hw}Z`, { fill: c }, g); };
+const arrowUp = (g, x, y1, y2, c = 'var(--ink)', w = 2, hw = 5) => { L(x, y1, x, y2 + hw * 1.3, { stroke: c, 'stroke-width': w }, g); P(`M${x - hw} ${y2 + hw * 1.6}L${x} ${y2}L${x + hw} ${y2 + hw * 1.6}Z`, { fill: c }, g); };
+/* felirat kis kártyán (mintás talajon is olvasható) */
+const tag = (g, x, y, text, o = {}) => { const gg = SV('g', {}, g); const t = T(x, y, text, { 'font-size': o.fs || 11.5, 'font-weight': o.fw || 700, 'text-anchor': o.a || 'middle', style: `fill:${o.c || 'var(--ink)'}` }, gg); try { const b = t.getBBox(); const r = R(b.x - 5, b.y - 2.5, b.width + 10, b.height + 5, { rx: 5, fill: 'var(--card)', opacity: .92, stroke: o.c || 'var(--line)', 'stroke-opacity': .5 }); gg.insertBefore(r, t); } catch (e) { } return gg; };
+let uid = 0;
+const defs = (s) => { let d = s.querySelector('defs'); if (!d) d = SV('defs', {}, s); return d; };
+const radial = (s, c, op) => { const id = 'prh' + (++uid); const rg = SV('radialGradient', { id }, defs(s)); SV('stop', { offset: '0', 'stop-color': c, 'stop-opacity': op }, rg); SV('stop', { offset: '.7', 'stop-color': c, 'stop-opacity': op * .45 }, rg); SV('stop', { offset: '1', 'stop-color': c, 'stop-opacity': 0 }, rg); return `url(#${id})`; };
+const halo = (g, s, cx, cy, rx, ry, c = C.halo, op = .62) => SV('ellipse', { cx, cy, rx, ry, fill: radial(s, c, op) }, g);
+
+/* terep: ég, rétegek, fű; a rétegek: [{to, fill, name}] felülről lefelé */
+const ground = (g, layers = [{ to: GB, fill: 'url(#pSand)' }]) => {
+  R(0, 40, PW, GY - 40, { fill: 'var(--prsky)' }, g);
+  let y = GY; layers.forEach(l => { R(0, y, PW, l.to - y, { fill: l.fill }, g); y = l.to; });
+  R(0, GY - 3, PW, 4, { fill: '#7d9a5b' }, g);
+};
+const layerName = (g, x, y, text, a = 'start') => T(x, y, text, { 'font-size': 10.5, 'font-weight': 700, 'text-anchor': a, class: 'hl', style: 'fill:var(--ink2)' }, g);
+
+/* gépek */
+const tracks = (g, x, w, y) => { R(x, y - 12, w, 12, { rx: 6, fill: C.dark }, g); for (let i = 0; i < 5; i++) SV('circle', { cx: x + 7 + i * (w - 14) / 4, cy: y - 6, r: 3.2, fill: '#6b7178' }, g); };
+/* lánctalpas rácsos gémű daru: x a lánctalp közepe, a gémcsúcs (tx, ty) */
+const crane = (g, x, tx, ty, flip = 1) => {
+  tracks(g, x - 34, 68, GY);
+  R(x - 26, GY - 36, 50, 24, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g);
+  R(x - 22 * flip - (flip < 0 ? 14 : 0), GY - 33, 14, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+  R(flip > 0 ? x + 14 : x - 30, GY - 34, 14, 20, { fill: C.yelD }, g);
+  const px = x - 10 * flip, py = GY - 34; const dx = tx - px, dy = ty - py, len = Math.hypot(dx, dy), nx = -dy / len * 3.2, ny = dx / len * 3.2;
+  P(`M${px + nx} ${py + ny}L${tx + nx * .4} ${ty + ny * .4}M${px - nx} ${py - ny}L${tx - nx * .4} ${ty - ny * .4}`, { stroke: C.yelD, 'stroke-width': 1.6, fill: 'none' }, g);
+  let zz = ''; const n = Math.max(6, Math.round(len / 9)); for (let i = 0; i <= n; i++) { const u = i / n, s = (i % 2 ? 1 : -1) * (1 - .6 * u); zz += (i ? 'L' : 'M') + (px + dx * u + nx * s).toFixed(1) + ' ' + (py + dy * u + ny * s).toFixed(1); }
+  P(zz, { stroke: C.yel, 'stroke-width': 1, fill: 'none' }, g);
+  L(x + 18 * flip, GY - 36, tx, ty, { stroke: '#555', 'stroke-width': .8 }, g);
+  return { tx, ty };
+};
+/* rakodógép (homlokrakodó): x a gép közepe, dir = 1 jobbra néz; bucketY: a kanál magassága */
+const loader = (g, x, dir = 1, bucketY = GY - 18, spill = false) => {
+  const b = (v) => x + v * dir;
+  SV('circle', { cx: b(-14), cy: GY - 8, r: 8, fill: C.dark }, g); SV('circle', { cx: b(14), cy: GY - 8, r: 8, fill: C.dark }, g);
+  P(`M${b(-24)} ${GY - 12}L${b(24)} ${GY - 12}L${b(24)} ${GY - 24}L${b(6)} ${GY - 24}L${b(2)} ${GY - 40}L${b(-12)} ${GY - 40}L${b(-14)} ${GY - 24}L${b(-24)} ${GY - 24}Z`, { fill: C.yel, stroke: C.yelD, 'stroke-width': 1 }, g);
+  R(Math.min(b(-10), b(0)), GY - 37, 10, 11, { fill: '#cfe6f2', stroke: C.yelD, 'stroke-width': .8 }, g);
+  L(b(18), GY - 22, b(34), bucketY + 4, { stroke: C.yelD, 'stroke-width': 3 }, g);
+  P(`M${b(30)} ${bucketY - 4}L${b(44)} ${bucketY - 4}L${b(42)} ${bucketY + 8}L${b(30)} ${bucketY + 8}Z`, { fill: '#8e969d', stroke: C.steelD, 'stroke-width': 1 }, g);
+  if (spill) for (let i = 0; i < 10; i++) SV('circle', { cx: b(40 + (i % 3) * 2.5), cy: bucketY + 12 + i * 3.2, r: 1.6, fill: '#9a8a70' }, g);
+};
+/* mélyvibrátor (vibroflot): függesztett cső + vibrátortest + kúpos orr */
+const vibro = (g, x, top, nose, w = 12) => {
+  R(x - w * .35, top, w * .7, nose - 46 - top, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+  R(x - w / 2, nose - 48, w, 40, { rx: 2, fill: '#5d646b', stroke: C.steelD, 'stroke-width': 1 }, g);
+  for (let i = 0; i < 4; i++) L(x - w / 2 + 1, nose - 42 + i * 9, x + w / 2 - 1, nose - 42 + i * 9, { stroke: '#8d959c', 'stroke-width': .8 }, g);
+  P(`M${x - w / 2} ${nose - 8}L${x} ${nose}L${x + w / 2} ${nose - 8}Z`, { fill: C.steelD }, g);
+};
+const jets = (g, x, y, up = false) => { for (const s of [-1, 1]) for (let k = 0; k < 3; k++) P(`M${x + s * 7} ${y - 4 - k * 9}q${s * 10} ${up ? -6 : 4} ${s * 18} ${up ? -2 : 8}`, { stroke: C.water, 'stroke-width': 1.4, fill: 'none', 'stroke-dasharray': '3 2' }, g); };
+/* vibrációs hullámjel */
+const shake = (g, x, y) => { for (const s of [-1, 1]) P(`M${x + s * 10} ${y - 8}q${s * 4} 4 0 8q${s * -4} 4 0 8`, { stroke: 'var(--ink2)', 'stroke-width': 1.1, fill: 'none' }, g); };
+/* kavics/zúzottkő foltokkal */
+const gravel = (g, d, op = 1) => P(d, { fill: 'url(#pGrav)', stroke: '#6b5a44', 'stroke-width': 1, opacity: op }, g);
+
+/* a panelnél szélesebb felirat betűméretét arányosan csökkenti (keskeny nézetben a betűnagyító miatt) */
+const fit = (t, max) => { try { const w = t.getBBox().width; if (w > max) t.setAttribute('font-size', (parseFloat(t.getAttribute('font-size')) * max / w).toFixed(2)); } catch (e) { } return t; };
+/* --- panelsor --- */
+const strip = (host, steps, opt = {}) => {
+  const draw = () => {
+    const cw = host.clientWidth || 1000, n = steps.length, cols = cw < 640 ? 2 : n, rows = Math.ceil(n / cols), gap = 22;
+    const W = cols * PW + (cols - 1) * gap, H = rows * PH + (rows - 1) * 14; const s = svg(host, W, H); pat(s);
+    steps.forEach((st, i) => {
+      const lone = cols < n && n % cols && i === n - 1, cx = lone ? (W - PW) / 2 : (i % cols) * (PW + gap), cy = Math.floor(i / cols) * (PH + 14);
+      const id = 'prc' + (++uid); const cp = SV('clipPath', { id }, defs(s)); R(0, 0, PW, PH, { rx: 12 }, cp);
+      const g = SV('g', { transform: `translate(${cx} ${cy})` }, s);
+      R(0, 0, PW, PH, { rx: 12, fill: 'var(--card)', stroke: 'var(--line)' }, g);
+      const inner = SV('g', { 'clip-path': `url(#${id})` }, g);
+      st.d(inner, s);
+      R(0, 0, PW, 40, { fill: 'var(--card)' }, inner); L(0, 40, PW, 40, { stroke: 'var(--line2)' }, inner);
+      R(0, GB, PW, PH - GB, { fill: 'var(--card)' }, inner); L(0, GB, PW, GB, { stroke: 'var(--line2)' }, inner);
+      SV('circle', { cx: 22, cy: 20, r: 12, fill: 'var(--c)' }, g); T(22, 24.5, String(i + 1), { 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 800, style: 'fill:#fff' }, g);
+      fit(T(42, 25, st.t, { 'font-size': 13.5, 'font-weight': 800, style: 'fill:var(--ink)' }, g), PW - 50);
+      (st.c || []).forEach((ln, k) => fit(T(PW / 2, GB + 22 + k * 17, ln, { 'text-anchor': 'middle', 'font-size': 12.5, 'font-weight': k ? 500 : 600, style: 'fill:var(--ink2)' }, g), PW - 14));
+      if ((i % cols) < cols - 1 && i < n - 1) { const ax = cx + PW + gap / 2, ay = cy + 150; SV('circle', { cx: ax, cy: ay, r: 10, fill: 'var(--c)' }, s); P(`M${ax - 3} ${ay - 5}L${ax + 3} ${ay}L${ax - 3} ${ay + 5}`, { stroke: '#fff', 'stroke-width': 2.2, fill: 'none', 'stroke-linecap': 'round' }, s); }
+    });
+  };
+  draw(); let lw = innerWidth; addEventListener('resize', () => { if (Math.abs(innerWidth - lw) < 24) return; lw = innerWidth; draw(); });
+  addEventListener('tabchange', () => { if (host.offsetParent && Math.abs((host.clientWidth || 0) - (host._w || 0)) > 20) { host._w = host.clientWidth; draw(); } });
+};
+
+/* ========== 2/A mélytömörítés – vibroflotáció ========== */
+(function vibroFig() {
+  const host = $('#vfFig'); if (!host) return;
+  const soil = [{ to: 228, fill: 'url(#pSand)' }, { to: GB, fill: 'url(#pClay)' }];
+  const zone = (g, nm = true) => { R(0, GY, PW, 228 - GY, { fill: '#f6c96b', opacity: .16 }, g); if (nm) layerName(g, PW - 8, 222, 'loose sand, fill', 'end'); };
+  const rig = (g, nose, tip = 150) => { crane(g, 205, tip, 56); L(tip, 56, tip, nose - 120, { stroke: '#444', 'stroke-width': 1 }, g); };
+  strip(host, [
+    { t: 'Penetration with flushing', c: ['the vibrator sinks under its own', 'weight to the base of the zone'], d: (g, s) => { ground(g, soil); zone(g); rig(g, 218); vibro(g, 150, 98, 218); jets(g, 150, 214); shake(g, 150, 196); tag(g, 92, 176, 'Ø 25–40 cm'); } },
+    { t: 'Compaction around the hole', c: ['vibration around the hole', 'compacts the soil'], d: (g, s) => { ground(g, soil); zone(g); halo(g, s, 150, 200, 46, 34); rig(g, 222); vibro(g, 150, 98, 222); shake(g, 150, 200); } },
+    { t: 'Raising, feeding material', c: ['while raising, gravel, hoggin,', 'mine waste or sand is added'], d: (g, s) => { ground(g, soil); zone(g); halo(g, s, 150, 212, 42, 26); P(`M128 ${GY}L141 ${GY + 12}L141 222L159 222L159 ${GY + 12}L172 ${GY}Z`, { fill: 'url(#pGrav)', stroke: '#6b5a44', 'stroke-width': .8 }, g); rig(g, 196); vibro(g, 150, 98, 196); arrowUp(g, 172, 192, 168, 'var(--ink)', 1.6, 4); loader(g, 74, 1, GY - 40, true); } },
+    { t: 'Compacting upwards', c: ['the rising vibrator', 'compacts the backfilled hole'], d: (g, s) => { ground(g, soil); zone(g); for (let k = 0; k < 4; k++) halo(g, s, 150, 214 - k * 18, 40, 20, C.halo, .4); gravel(g, `M140 ${GY + 4}L160 ${GY + 4}L163 222L137 222Z`); rig(g, 168); vibro(g, 150, 98, 168); shake(g, 150, 160); arrowUp(g, 178, 200, 166, 'var(--ink)', 1.6, 4); } },
+    { t: 'Compaction in a grid', c: ['in a grid of suitable density;', 'e.g. under heavy-duty warehouse floors'], d: (g, s) => { ground(g, soil); zone(g, false); [40, 95, 150, 205].forEach(x => halo(g, s, x, 190, 40, 44, C.halo, .42)); [40, 95, 150, 205].forEach(x => gravel(g, `M${x - 9} ${GY + 4}L${x + 9} ${GY + 4}L${x + 12} 222L${x - 12} 222Z`)); [40, 95, 150, 205].forEach((x, k) => k < 3 && L(x, 166, x + 55, 166, { stroke: 'var(--ink2)', 'stroke-width': .8, 'stroke-dasharray': '3 3' }, g)); tag(g, 128, 240, 'compacted deposit', { c: '#a35a0e' }); } },
+  ]);
+})();
+
+/* ========== 2/B dinamikus tömörítés ========== */
+(function dynFig() {
+  const host = $('#dcFig'); if (!host) return;
+  const soil = [{ to: GB, fill: 'url(#pSand)' }];
+  const weight = (g, x, y, w = 34, h = 16) => { R(x - w / 2, y, w, h, { rx: 3, fill: '#6a7076', stroke: C.dark, 'stroke-width': 1.2 }, g); L(x - w / 2 + 3, y + 5, x + w / 2 - 3, y + 5, { stroke: '#8d959c' }, g); };
+  strip(host, [
+    { t: 'Drop', c: ['pounder 6–30 t,', 'drop height 10–30 m'], d: (g, s) => { ground(g, soil); crane(g, 200, 118, 50); L(118, 50, 118, 64, { stroke: '#444' }, g); weight(g, 118, 64); L(84, 80, 84, GY - 2, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g); [80, GY - 2].forEach(y => L(79, y, 89, y, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g)); tag(g, 58, 118, 'H = 10–30 m'); arrowDown(g, 140, 86, 120, 'var(--coral)', 1.8, 4); } },
+    { t: 'Impact', c: ['a crater forms; the soil is', 'compacted to max. 6–8 m depth'], d: (g, s) => { ground(g, soil); halo(g, s, 118, GY + 6, 72, 92); P(`M96 ${GY}Q118 ${GY + 20} 140 ${GY}Z`, { fill: '#8a7350' }, g); weight(g, 118, GY - 4); for (const r of [26, 40, 54]) P(`M${118 - r} ${GY + 2}A${r} ${r * .8} 0 0 0 ${118 + r} ${GY + 2}`, { stroke: 'var(--coral)', 'stroke-width': 1.2, fill: 'none', 'stroke-dasharray': '4 3', opacity: .8 }, g); crane(g, 205, 140, 60); L(212, GY + 4, 212, GY + 92, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g); [GY + 4, GY + 92].forEach(y => L(207, y, 217, y, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g)); tag(g, 214, GY + 52, '6–8 m', { a: 'end' }); } },
+    { t: 'In a grid, by phases', c: ['compaction grid and drops per', 'phase set according to the soil'], d: (g, s) => { ground(g, soil); [30, 78, 126, 174, 222].forEach((x, k) => { halo(g, s, x, GY + 30, 30, 64, C.halo, .38); P(`M${x - 13} ${GY}Q${x} ${GY + 14} ${x + 13} ${GY}Z`, { fill: '#8a7350' }, g); }); [30, 78, 126, 174, 222].forEach(x => T(x, GY - 10, 'I.', { 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 800, class: 'hl', style: 'fill:var(--coral-ink)' }, g)); tag(g, 130, 74, 'grid, drops', { c: 'var(--coral-ink)' }); } },
+    { t: 'Rest, phase II', c: ['rest: pore pressure dissipates;', 'then in-between points, levelling'], d: (g, s) => { ground(g, soil); [30, 78, 126, 174, 222].forEach(x => halo(g, s, x, GY + 30, 30, 64, C.halo, .38)); [54, 102, 150, 198].forEach(x => { halo(g, s, x, GY + 24, 26, 54, C.halo, .34); P(`M${x - 12} ${GY}Q${x} ${GY + 13} ${x + 12} ${GY}Z`, { fill: '#8a7350' }, g); T(x, GY - 10, 'II.', { 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 800, class: 'hl', style: 'fill:var(--coral-ink)' }, g); }); for (let k = 0; k < 5; k++) arrowUp(g, 24 + k * 50, GY + 80, GY + 58, C.water, 1.4, 3.5); tag(g, 130, 74, 'pore water escapes', { c: C.water }); } },
+  ]);
+})();
+
+/* ========== 2/C kőtömzs ========== */
+(function stoneFig() {
+  const host = $('#ktFig'); if (!host) return;
+  const soil = [{ to: GB, fill: 'url(#pSoft)' }];
+  const weight = (g, x, y) => { R(x - 17, y, 34, 26, { rx: 6, fill: C.conc, stroke: C.dark, 'stroke-width': 1.2 }, g); L(x - 12, y + 8, x + 12, y + 8, { stroke: '#9aa1a6' }, g); };
+  const name = (g) => layerName(g, PW - 8, 242, 'very soft cohesive/organic soil', 'end');
+  strip(host, [
+    { t: 'Crater by pounding', c: ['the pounder punches a crater', 'into the soft soil'], d: (g, s) => { ground(g, soil); name(g); P(`M98 ${GY}L104 ${GY + 30}L132 ${GY + 30}L138 ${GY}Z`, { fill: '#5d5546' }, g); crane(g, 205, 118, 52); L(118, 52, 118, 70, { stroke: '#444' }, g); weight(g, 118, 70); arrowDown(g, 146, 80, 118, 'var(--coral)', 1.8, 4); } },
+    { t: 'Granular material', c: ['sandy gravel, crushed stone or', 'mine waste goes into the crater'], d: (g, s) => { ground(g, soil); name(g); P(`M98 ${GY}L104 ${GY + 30}L132 ${GY + 30}L138 ${GY}Z`, { fill: '#5d5546' }, g); gravel(g, `M100 ${GY - 4}Q118 ${GY - 16} 136 ${GY - 4}L132 ${GY + 30}L104 ${GY + 30}Z`); loader(g, 52, 1, GY - 46, true); } },
+    { t: 'Pounding in', c: ['the pounding rig “works” the granular', 'material into the soft subsoil'], d: (g, s) => { ground(g, soil); name(g); halo(g, s, 118, GY + 46, 58, 40, C.halo, .45); gravel(g, `M102 ${GY}L98 ${GY + 30}Q96 ${GY + 66} 118 ${GY + 70}Q140 ${GY + 66} 138 ${GY + 30}L134 ${GY}Z`); weight(g, 118, GY - 22); for (const sx of [-1, 1]) arrowH(g, 118 + sx * 26, 118 + sx * 56, GY + 46, 'var(--ink2)', 1.5, 4); crane(g, 205, 140, 60); } },
+    { t: 'Repetition', c: ['filling and pounding in cycles:', 'the pillar grows down and sideways'], d: (g, s) => { ground(g, soil); name(g); halo(g, s, 118, GY + 50, 70, 50, C.halo, .5); gravel(g, `M100 ${GY}L90 ${GY + 30}Q84 ${GY + 80} 118 ${GY + 88}Q152 ${GY + 80} 146 ${GY + 30}L136 ${GY}Z`); for (let k = 0; k < 3; k++) L(94, GY + 22 + k * 20, 142, GY + 22 + k * 20, { stroke: '#6b5a44', 'stroke-dasharray': '3 3', 'stroke-width': .8 }, g); weight(g, 118, GY - 26); crane(g, 205, 140, 60); } },
+    { t: 'Finished stone pillar', c: ['high-capacity, large-diameter', 'pillar, Ø 2.0–3.5 m'], d: (g, s) => { ground(g, soil); name(g); halo(g, s, 130, GY + 50, 78, 54, C.halo, .42); gravel(g, `M108 ${GY}L98 ${GY + 30}Q92 ${GY + 80} 130 ${GY + 88}Q168 ${GY + 80} 162 ${GY + 30}L152 ${GY}Z`); L(96, GY - 10, 164, GY - 10, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g); [96, 164].forEach(x => L(x, GY - 15, x, GY - 5, { stroke: 'var(--ink)', 'stroke-width': 1.2 }, g)); tag(g, 130, GY - 22, 'Ø 2.0–3.5 m'); tag(g, 214, GY + 24, 'compacted', { c: '#a35a0e' }); } },
+  ]);
+})();
+
+/* ========== 2/D kavicscölöp – vibrált kőoszlop ========== */
+(function columnFig() {
+  const host = $('#kcFig'); if (!host) return;
+  const soil = [{ to: 206, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
+  const names = (g) => { layerName(g, 8, 200, 'soft soil'); layerName(g, 8, 242, 'bearing layer'); };
+  /* vezetőoszlopos alapgép zsilipes, alsó adagolású vibrátorral; skip: az anyagtartály helye az árbocon */
+  const rig = (g, x, nose, skipY = 120, support = true) => {
+    tracks(g, x + 8, 64, GY);
+    R(x + 14, GY - 34, 52, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(x + 40, GY - 31, 14, 12, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+    R(x - 4, 50, 7, GY - 50 - 10, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); for (let y = 56; y < GY - 14; y += 10) L(x - 4, y, x + 3, y + 10, { stroke: C.yelD, 'stroke-width': .7 }, g);
+    L(x + 3, 92, x + 18, GY - 34, { stroke: C.yelD, 'stroke-width': 2 }, g);
+    if (support) P(`M${x + 70} ${GY - 16}L${x + 80} ${GY}M${x + 76} ${GY}L${x + 84} ${GY}`, { stroke: C.steelD, 'stroke-width': 2.2 }, g);
+    R(x - 18, 50, 12, nose - 50 - 40, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+    P(`M${x - 22} 52L${x - 2} 52L${x - 6} 66L${x - 18} 66Z`, { fill: '#8e969d', stroke: C.steelD }, g);
+    R(x - 19, nose - 42, 14, 34, { rx: 2, fill: '#5d646b', stroke: C.steelD }, g); P(`M${x - 19} ${nose - 8}L${x - 12} ${nose}L${x - 5} ${nose - 8}Z`, { fill: C.steelD }, g);
+    R(x + 4, skipY, 18, 14, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g);
+    return x - 12;
+  };
+  strip(host, [
+    { t: 'Preparation', c: ['the base machine sets the vibrator', 'over the set-out point, on outriggers'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4); P(`M131 ${GY + 2}L138 ${GY + 12}L145 ${GY + 2}`, { stroke: 'var(--coral)', 'stroke-width': 2, fill: 'none' }, g); } },
+    { t: 'Filling', c: ['the loader fills the skip, which is', 'hoisted up the mast into the lock'], d: (g, s) => { ground(g, soil); names(g); rig(g, 150, GY - 4, 62); R(96, GY - 16, 24, 15, { rx: 2, fill: '#8e969d', stroke: C.steelD }, g); gravel(g, `M98 ${GY - 16}Q108 ${GY - 24} 118 ${GY - 16}Z`); P(`M108 ${GY - 22}C108 100 120 70 150 64`, { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none', 'stroke-dasharray': '4 3' }, g); P('M144 60L152 64L145 69', { stroke: 'var(--ink2)', 'stroke-width': 1.6, fill: 'none' }, g); gravel(g, `M128 52L144 52L140 64L132 64Z`); loader(g, 52, 1, GY - 40, true); } },
+    { t: 'Penetration', c: ['vibration, pull-down, compressed air:', 'to design depth, displacing sideways'], d: (g, s) => { ground(g, soil); names(g); const ax = rig(g, 150, 232); for (const sx of [-1, 1]) arrowH(g, ax + sx * 12, ax + sx * 34, 190, 'var(--ink2)', 1.5, 4); shake(g, ax, 214); } },
+    { t: 'Compaction', c: ['gravel released at the base; up-down', 'strokes push it aside and compact it'], d: (g, s) => { ground(g, soil); names(g); halo(g, s, 138, 214, 34, 26, C.halo, .5); gravel(g, `M126 ${GY + 46}Q116 ${GY + 70} 124 236Q138 244 152 236Q160 ${GY + 70} 150 ${GY + 46}Z`); const ax = rig(g, 150, 196); arrowUp(g, ax + 20, 208, 186, 'var(--ink)', 1.5, 4); arrowDown(g, ax + 30, 186, 208, 'var(--ink)', 1.5, 4); } },
+    { t: 'Completion', c: ['column Ø ≈ 0.6–1.0 m; for foundations', 'of embankments and industrial floors'], d: (g, s) => { ground(g, soil); names(g); [124, 178, 232].forEach(x => { halo(g, s, x, 196, 26, 54, C.halo, .32); gravel(g, `M${x - 10} ${GY}Q${x - 14} 196 ${x - 12} 238Q${x} 246 ${x + 12} 238Q${x + 14} 196 ${x + 10} ${GY}Z`); }); R(104, GY - 10, 148, 10, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); tag(g, 178, 96, 'load-distributing layer', { c: 'var(--ink2)' }); } },
+  ]);
+})();
+
+/* ========== 3/A–E injektálás: a munkafolyamat ========== */
+(function groutFig() {
+  const host = $('#ijFig'); if (!host) return;
+  const soil = [{ to: GB, fill: 'url(#pSand)' }];
+  const drill = (g, x, toolY) => { tracks(g, x - 6, 56, GY); R(x - 4, GY - 32, 40, 20, { rx: 3, fill: C.yel, stroke: C.yelD }, g); R(x - 12, 62, 6, GY - 72, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); L(x - 6, 96, x + 6, GY - 32, { stroke: C.yelD, 'stroke-width': 2 }, g); R(x - 13, 62, 8, 12, { fill: '#5d646b' }, g); L(x - 9, 74, x - 9, toolY, { stroke: C.steelD, 'stroke-width': 3 }, g); };
+  const house = (g) => { R(160, 86, 84, GY - 86, { fill: '#efe6d8', stroke: '#8a7f70' }, g); P('M154 88L202 60L250 88Z', { fill: '#b5543c' }, g); R(176, 102, 16, 16, { fill: '#cfe6f2', stroke: '#8a7f70' }, g); R(208, 112, 16, 38, { fill: '#9b7350' }, g); R(156, GY, 92, 14, { fill: C.conc, stroke: '#7c848c' }, g); };
+  strip(host, [
+    { t: 'Drilling', c: ['percussion, rotary or chisel drilling,', 'pipe driving – always the first step'], d: (g, s) => { ground(g, soil); house(g); drill(g, 70, 226); shake(g, 61, 216); } },
+    { t: 'Grout pipe', c: ['perforated (valved) pipe in the hole;', 'typically every 50–100 cm'], d: (g, s) => { ground(g, soil); house(g); [100, 132].forEach(x => { R(x - 3, GY - 8, 6, 236 - GY + 8, { fill: '#9aa1a6', stroke: C.steelD, 'stroke-width': .8 }, g); for (let y = GY + 16; y < 232; y += 14) L(x - 5, y, x + 5, y, { stroke: C.steelD, 'stroke-width': 1.2 }, g); }); tag(g, 116, 78, '50–100 cm', { c: 'var(--ink2)' }); } },
+    { t: 'Injection', c: ['cement suspension, mortar or', 'chemical solution – bottom up'], d: (g, s) => { ground(g, soil); house(g); R(16, GY - 30, 36, 24, { rx: 3, fill: '#6a7076' }, g); SV('circle', { cx: 34, cy: GY - 18, r: 7, fill: '#cfd3d6', stroke: C.dark }, g); P(`M52 ${GY - 18}Q86 ${GY - 30} 100 ${GY - 8}`, { stroke: '#333', 'stroke-width': 2, fill: 'none' }, g); R(97, GY - 8, 6, 84, { fill: '#9aa1a6', stroke: C.steelD, 'stroke-width': .8 }, g); [218, 196, 174].forEach((y, k) => SV('ellipse', { cx: 100, cy: y, rx: 22 - k * 3, ry: 12, fill: 'var(--violet)', opacity: .32 + k * .08 }, g)); arrowUp(g, 120, 226, 176, 'var(--violet-ink)', 1.6, 4); } },
+    { t: 'Effect', c: ['smaller void volume: better strength', 'and deformation properties'], d: (g, s) => { ground(g, soil); house(g); SV('ellipse', { cx: 200, cy: GY + 40, rx: 70, ry: 40, fill: 'var(--violet)', opacity: .35 }, g); SV('ellipse', { cx: 200, cy: GY + 40, rx: 70, ry: 40, fill: 'url(#pGrav)', opacity: .35 }, g); tag(g, 200, GY + 44, 'grouted zone', { c: 'var(--violet-ink)' }); } },
+  ]);
+})();
+
+/* ========== 3/F tömegstabilizáció ========== */
+(function massFig() {
+  const host = $('#msFig'); if (!host) return;
+  const soil = [{ to: 214, fill: 'url(#pSoft)' }, { to: GB, fill: 'url(#pSand)' }];
+  const names = (g) => { layerName(g, 8, 208, 'peat, soft clay'); };
+  /* forgó felsővázas kotró keverőszárral; a keverőfej (hx, hy) */
+  const exc = (g, x, hx, hy) => {
+    tracks(g, x - 30, 64, GY); R(x - 26, GY - 34, 54, 22, { rx: 3, fill: C.yel, stroke: C.yelD, 'stroke-width': 1.2 }, g); R(x - 22, GY - 31, 14, 13, { rx: 2, fill: '#cfe6f2', stroke: C.yelD }, g);
+    const bx = x - 4, by = GY - 34, ex = (bx + hx) / 2 - 10, ey = Math.min(by, hy) - 40;
+    P(`M${bx} ${by}L${ex} ${ey}L${hx} ${ey + 14}`, { stroke: C.yel, 'stroke-width': 7, fill: 'none', 'stroke-linejoin': 'round' }, g);
+    P(`M${bx} ${by}L${ex} ${ey}L${hx} ${ey + 14}`, { stroke: C.yelD, 'stroke-width': 1, fill: 'none', 'stroke-linejoin': 'round' }, g);
+    R(hx - 3, ey + 14, 6, hy - ey - 14 - 14, { fill: C.steel, stroke: C.steelD, 'stroke-width': .8 }, g);
+    R(hx - 12, hy - 16, 24, 16, { rx: 3, fill: '#5d646b', stroke: C.steelD }, g); for (let k = 0; k < 3; k++) L(hx - 14, hy - 12 + k * 5, hx + 14, hy - 12 + k * 5, { stroke: '#9aa1a6', 'stroke-width': 1.4 }, g);
+  };
+  const silo = (g, x) => { R(x, 70, 26, 56, { rx: 4, fill: '#d9dcdf', stroke: '#7c848c' }, g); P(`M${x} 126L${x + 13} 140L${x + 26} 126Z`, { fill: '#c6cacd', stroke: '#7c848c' }, g); tracks(g, x - 6, 38, GY); T(x + 13, EN ? 103 : 98, 'binder', { 'text-anchor': 'middle', 'font-size': EN ? 8.5 : 9.5, 'font-weight': 700, style: 'fill:#4b5258' }, g); if (!EN) T(x + 13, 109, 'anyag', { 'text-anchor': 'middle', 'font-size': 9.5, 'font-weight': 700, style: 'fill:#4b5258' }, g); };
+  const hose = (g, x0, hx) => P(`M${x0} 138Q${(x0 + hx) / 2} 60 ${hx + 4} 92`, { stroke: '#333', 'stroke-width': 1.3, fill: 'none', 'stroke-dasharray': '5 3' }, g);
+  strip(host, [
+    { t: 'Penetration', c: ['the mixing head on the excavator boom', 'penetrates, usually to ≤ 5 m'], d: (g, s) => { ground(g, soil); names(g); silo(g, 214); exc(g, 150, 70, 204); hose(g, 220, 70); arrowDown(g, 92, 168, 198, 'var(--ink)', 1.6, 4); } },
+    { t: 'Mixing', c: ['moved up and down; binder is fed', 'through the head at high pressure'], d: (g, s) => { ground(g, soil); names(g); R(46, GY, 48, 214 - GY, { fill: 'var(--violet)', opacity: .38 }, g); silo(g, 214); exc(g, 150, 70, 186); hose(g, 220, 70); arrowUp(g, 100, 200, 176, 'var(--ink)', 1.5, 4); arrowDown(g, 108, 176, 200, 'var(--ink)', 1.5, 4); for (const sx of [-1, 1]) P(`M${70 + sx * 14} 180q${sx * 8} 4 ${sx * 12} 12`, { stroke: 'var(--violet-ink)', 'stroke-width': 1.4, fill: 'none' }, g); } },
+    { t: 'Advancing block by block', c: ['starting from stable ground, the rig', 'stabilises the soil ahead of it'], d: (g, s) => { ground(g, soil); names(g); R(118, GY, 140, 214 - GY, { fill: 'var(--violet)', opacity: .38 }, g); for (let x = 118; x < 258; x += 28) L(x, GY, x, 214, { stroke: 'var(--violet-ink)', 'stroke-width': .8, 'stroke-dasharray': '3 3', opacity: .6 }, g); exc(g, 200, 96, 200); arrowH(g, 60, 26, 120, 'var(--ink)', 1.8, 5); tag(g, 192, 232, 'stabilised', { c: 'var(--violet-ink)' }); } },
+    { t: 'Load-distributing layer', c: ['if needed, geotextile, geogrid', 'and granular load-distributing layer'], d: (g, s) => { ground(g, soil); names(g); R(0, GY, PW, 214 - GY, { fill: 'var(--violet)', opacity: .38 }, g); R(0, GY - 14, PW, 12, { fill: 'url(#pGrav)', stroke: '#6b5a44' }, g); L(0, GY - 2, PW, GY - 2, { stroke: '#2f6f8f', 'stroke-width': 2, 'stroke-dasharray': '6 3' }, g); tag(g, 130, 112, 'geotextile + granular layer', { c: 'var(--ink2)' }); } },
+  ]);
+})();
+})();
+
+</script>
+<script>
 /* ===== Kvízek és igaz/hamis állítások ===== */
 (function () {
 const Q = {
@@ -2183,7 +2369,7 @@ const Q = {
   ],
   q5: [
     { q: 'What assists the descent of the vibroflotation deep vibrator?', o: ['Water jetting (flushing)', 'A drill bit', 'Blasting', 'Compressed cement'], a: 0, e: 'The vibrator descends under its own weight, assisted by <b>water jetting (flushing)</b>.' },
-    { q: 'What pounder weight and drop height does dynamic compaction use?', o: ['1–2 t, 2–5 m', '100 t, 100 m', '5 kg, 1 m', '15–40 t, 10–40 m'], a: 3, e: 'Pounder <b>15–40 t</b>, drop height <b>H = 10–40 m</b>; effective to a depth of max. 5–7 m.' },
+    { q: 'What pounder weight and drop height does dynamic compaction use?', o: ['1–2 t, 2–5 m', '100 t, 100 m', '5 kg, 1 m', '6–30 t, 10–30 m'], a: 3, e: 'Pounder <b>6–30 t</b>, drop height <b>10–30 m</b>; effective to a depth of max. 6–8 m.' },
     { q: 'What is the twofold effect of a stone pillar?', o: ['It insulates and waterproofs', 'It compacts the soft subsoil, and high-capacity pillars are formed', 'It lowers the groundwater level and lifts the building', 'It speeds up consolidation and cools'], a: 1, e: 'The displacement of the granular material <b>compacts the soft soil</b>, and <b>large-diameter, high-capacity pillars</b> are formed.' },
     { q: 'How does a gravel pile differ from a stone pillar?', o: ['It is made of concrete', 'Only in granular soil', 'Larger diameter', 'Smaller-diameter granular columns'], a: 3, e: 'The principle is similar, but <b>smaller-diameter</b> columns – piles – of granular material are formed.' },
   ],
@@ -2195,7 +2381,7 @@ const Q = {
     { q: 'What happens to the soil in compaction grouting?', o: ['The stiff mortar bulbs displace and compact the surrounding soil', 'The mortar penetrates the pores', 'The soil fractures and rises', 'The soil is mixed in place'], a: 0, e: 'At higher pressure, small voids are formed stage by stage; the stiff grout <b>displaces and compacts</b> the looser soil, and load-bearing columns are formed.' },
     { q: 'Which method can compensate, for example, the settlement caused by tunnelling?', o: ['Void-filling grouting', 'Permeation grouting', 'Rock fissure grouting', 'Fracture/compensation grouting'], a: 3, e: 'In <b>fracture/compensation</b> grouting, the grout sheets forming in the forced fractures lift the ground and the structure.' },
     { q: 'What are abandoned cellars and mine galleries typically filled with?', o: ['With water glass', 'With improved cement mortar, supplemented with expanding polyurethane foam', 'With clean water', 'Bentonite slurry foam'], a: 1, e: 'In <b>void-filling</b> grouting, mainly improved cement mortar is used, by gravity or at low pressure, supplemented with expanding polyurethane foams.' },
-    { q: 'To what depth can mass stabilisation reach with an extension boom?', o: ['2 m', '20 m', '50 m', 'approx. 7 m'], a: 3, e: 'The mixing boom is 3–5 m, plus another 2 m with an extension – so <b>up to 7 m</b> deep.' },
+    { q: 'To what depth is mass stabilisation carried out?', o: ['20 m', '30 m', '50 m', 'usually max. 5 m'], a: 3, e: 'The depth of mass stabilisation is <b>usually not more than 5 m</b>; on average 0.5–0.8 m³ of soil can be mixed per minute.' },
   ],
   q7: [
     { q: 'What is the essence of preloading?', o: ['The soil is mixed with cement', 'Compaction by blasting', 'Part of the compression is “forced out” by loading in advance', 'Piles are driven'], a: 2, e: 'With a surcharge placed in advance we <b>“force out” at least part of the compression of the subsoil</b> – the layer behaves like a geologically overconsolidated layer.' },
@@ -2229,10 +2415,10 @@ const TFI = [
   { s: 'Soil replacement is a costly solution, today typically used for rafts at ground level.', t: true, e: 'It requires a lot of earthworks and haulage.' },
   { s: 'In vibroflotation, the descent is assisted by water jetting (flushing).', t: true, e: 'A crane-mounted deep vibrator 25–40 cm in diameter.' },
   { s: 'Deep compaction is most effective in cohesive, clayey soils.', t: false, e: 'It is for compacting loose granular soils and fills – in cohesive soil a gravel pile may be considered.' },
-  { s: 'In dynamic compaction a 15–40 t pounder is dropped from a height of 10–40 m.', t: true, e: 'The pounder weighs 15–40 t, the drop height is H = 10–40 m; the effect reaches a depth of max. 5–7 m.' },
-  { s: 'Dynamic compaction is effective to a depth of 20–30 m.', t: false, e: 'It is effective to a depth of max. 5–7 m.' },
+  { s: 'In dynamic compaction, a 6–30 t pounder is dropped from a height of 10–30 m.', t: true, e: 'The pounder weighs 6–30 t and the drop height is 10–30 m; the effect extends to a depth of max. 6–8 m.' },
+  { s: 'Dynamic compaction is effective to a depth of 20–30 m.', t: false, e: 'Effective to a depth of max. 6–8 m.' },
   { s: 'In dynamic compaction, rest periods are used between the phases.', t: true, e: 'The design parameters include the duration of the rest periods.' },
-  { s: 'Stone pillars can be used only in very loose, soft soils.', t: true, e: 'The pounder “works” the granular material into the soft subsoil.' },
+  { s: 'Stone pillars are effective in cohesive and organic soils.', t: true, e: 'The pounding rig “works” the granular material into the very soft subsoil.' },
   { s: 'A gravel pile has a larger diameter than a stone pillar.', t: false, e: 'Smaller-diameter columns of granular material are formed.' },
   { s: 'Fine sand and silt can also be grouted well with cement grout.', t: false, e: 'Only sand-gravel coarser than 0.8–1 mm, or fissured cohesive soil.' },
   { s: 'In cement grouting the perforated pipes are placed every 50–100 cm, at a pressure of 7–10 atm.', t: true, e: 'Through them the cement grout or cement-sand mortar is injected, from the bottom upwards as the pipe is withdrawn.' },
@@ -2241,7 +2427,7 @@ const TFI = [
   { s: 'The two-component grout expands and forms a hard geocomposite with the soil.', t: true, e: 'It increases the cohesion and reduces the pore volume.' },
   { s: 'During retrofit grouting the movement of the building is monitored by laser measurement.', t: true, e: 'During injection at 7–10 bar the movement of the building is followed with a laser level – injection stops if it rises.' },
   { s: 'The mixing head of mass stabilisation covers an area of about 1.2 m² per step.', t: true, e: 'The 1.5 m wide, Ø 0.95 m mixing head covers ~1.2 m² per step.' },
-  { s: 'With an extension boom, mass stabilisation can reach a depth of up to 7 m.', t: true, e: '3–5 m mixing boom + 2 m extension.' },
+  { s: 'On average, 0.5–0.8 m³ of soil per minute can be mixed by mass stabilisation.', t: true, e: 'Its depth is usually not more than 5 m.' },
   { s: 'The stabilised area reaches its final bearing capacity immediately.', t: false, e: 'Not at once – if necessary, a load-distributing layer (geotextile, geogrid, granular material) is built.' },
   { s: 'With preloading, part of the settlement is “forced out” before construction.', t: true, e: 'Afterwards a much smaller specific compression of a precompressed layer has to be expected.' },
   { s: 'At El Moro the ballast was removed all at once, before construction of the superstructure began.', t: false, e: 'It was reduced day by day, by the same amount as the weight built in – the total weight stayed nearly constant.' },

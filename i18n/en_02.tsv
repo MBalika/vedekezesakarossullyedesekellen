@@ -14,19 +14,14 @@ fd535dd	a strip footing deeper than 2–2.5 m is not economical
 4025e11	only above the water table; widening: B + 2·v·tanϑ
 b813c7d	loose granular soil, fill
 593a9aa	vibrator Ø 25–40 cm, with flushing
-550e006	looser, softer soil, large area
-c5f13d3	15–40 t pounder, H = 10–40 m; max. 5–7 m
 ea50b7d	strong vibration – not next to buildings
-8289980	granular material pounded in, large-diameter pillars
 b35e7d1	displacement compaction + load-bearing elements
-feec665	looser, softer soil (cohesive too)
 bbcee04	bottom-feed deep vibrator, Ø ≈ 0.6–1.0 m
 45d7553	also acts as a vertical drain
 cb3f0cc	sandy, silty soil
 0c4772c	expanding geocomposite
 390595c	not effective in clay; retrofit strengthening
 14324c5	peat, soft clay, organic soil
-7da3d99	mixing head 1.5 m × Ø 0.95 m; max. ~7 m
 0f43aa1	starts from stable ground; hardening takes time
 70ca39e	saturated, compressible cohesive soil
 91ba57d	surcharge ≥ the later building load
@@ -95,4 +90,3 @@ b34c7b3	🧱 Layers ≤ 30 cm
 3630971	Safety against bearing failure has to be verified both <b>on the replacement soil below the foundation level</b> and <b>on the soil below the base of the replacement</b> – and of course the settlements must also stay within the limits. A costly (lengthy) solution; today it is typically used for rafts at ground level.
 d5179e8	Watch it as an animation
 cfe56b1	Deep compaction – vibroflotation
-14e1534	To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight, assisted by <b>water jetting (flushing)</b>. The soil around the hole is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator.
