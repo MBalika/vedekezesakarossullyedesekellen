@@ -631,6 +631,11 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 :root[data-theme="dark"]{--prsky:#1a2a33}
 .procfig{margin:22px 0 6px}
 
+/* fejléc: az app teljes neve; keskeny kijelzőn két sorba törhet */
+.brand .bn{min-width:0}
+@media (max-width:640px){.brand{white-space:normal;min-width:0;flex:1 1 auto;font-size:14px;line-height:1.15}.brand .logo{flex:none}.topbar .row1 .sp{display:none}}
+@media (max-width:1000px){.brand small{display:none}}
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -744,7 +749,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 <header class="topbar">
   <div class="wrap">
     <div class="row1">
-      <a class="brand" href="#top"><span class="logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 20h18M6 20V9l6-5 6 5v11"/><path d="M9 20v-6h6v6" opacity=".7"/></svg></span>Káros süllyedések <small>BME · Alapozás · interaktív tananyag</small></a>
+      <a class="brand" href="#top"><span class="logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 20h18M6 20V9l6-5 6 5v11"/><path d="M9 20v-6h6v6" opacity=".7"/></svg></span><span class="bn">Védekezés a káros süllyedések ellen</span> <small>BME · Alapozás · interaktív tananyag</small></a>
       <span class="sp"></span>
       <a class="tbtn" href="#videok">▶ Videók</a>
       <button class="tbtn" id="themeBtn">☾ Sötét</button>
