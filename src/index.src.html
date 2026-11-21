@@ -334,23 +334,36 @@
 
   <div class="sub-h" id="eloterheles"><span class="lt">4/A</span><h3>Előterhelés alkalmazása: süllyedjen előbb – az épület nélkül</h3></div>
   <p>Az építmény süllyedését úgy mérsékeljük, hogy előzetesen felhordott terheléssel <b>„kikényszerítjük”</b> az altalaj összenyomódásának legalább egy részét. A réteg ezután úgy viselkedik, mint egy geológiailag előterhelt réteg: az alapra kerülő teher alatt már jóval kisebb fajlagos összenyomódással kell számolni.</p>
-  <div class="prose two">
-      <h3 style="margin-bottom:10px">Mexikóváros</h3>
-      <p>A főváros egy régi vulkáni tó helyén épült, amelyet igen vastag, nagymértékben összenyomható, finom vulkáni hamuból lerakódott tavi üledék tölt ki. Az egész város süllyed – helyenként méteres nagyságrendben. Klasszikus példa José A. Cuevas megoldása a Lotería Nacional („El Moro”) épületénél, az 1930-as években. Az épület <b>kompenzált alapozást</b> kapott: annyi talajt emeltek ki, amennyinek a súlyát a kész épület nagyjából visszapótolja. A kiemelés után a munkagödör feneke megemelkedett (legfeljebb 127 cm-t mértek). A merev vasbeton alapszerkezetre ezért <b>ideiglenes ballasztot</b> raktak a tervezett épületsúlyig – az eredeti terv kavicsot írt elő, a kivitelezéskor betontömböket használtak. Így a talaj visszakapta korábbi terhét, és az alakváltozás még a felszerkezet építése előtt lezajlott. Az építés közben a ballasztot <b>napról napra annyival csökkentették, amennyi súly beépült</b>: az összsúly közel állandó maradt. A város regionális süllyedését ez nem állítja meg.</p>
-      <div class="callout web"><span class="ci">i</span><p><b>Kitekintés – függőleges drének:</b> vastag agyagrétegben a konszolidáció évekig tarthat (a konszolidációs idő a szivárgási úthossz négyzetével arányos). Előregyártott függőleges drénekkel (PVD) a víz vízszintesen, rövid úton jut a drénbe – így az előterhelés ideje hónapokra rövidülhet.</p></div>
+  <div class="case">
+    <div class="case-intro">
+      <h3>Esettanulmány: Mexikóváros</h3>
+      <p>A főváros egy régi vulkáni tó helyén épült: a tavat igen vastag, nagymértékben összenyomható, finom vulkáni hamuból lerakódott üledék tölti ki. Az egész város süllyed – helyenként méteres nagyságrendben.</p>
+      <p>Klasszikus példa José A. Cuevas megoldása a Lotería Nacional („El Moro”) épületénél, az 1930-as években.</p>
+    </div>
+    <ol class="case-steps">
+      <li><b>Kompenzált alapozás.</b> Annyi talajt emeltek ki, amennyinek a súlyát a kész épület nagyjából visszapótolja.</li>
+      <li><b>Megemelkedő gödörfenék.</b> A kiemelés után a munkagödör feneke megemelkedett – legfeljebb 127 cm-t mértek.</li>
+      <li><b>Ballaszt az épületsúlyig.</b> A merev vasbeton alapszerkezetre ideiglenes ballasztot raktak (a terv kavicsot írt elő, betontömböket használtak). A talaj visszakapta korábbi terhét, az alakváltozás még a felszerkezet építése előtt lezajlott.</li>
+      <li><b>Ballaszt helyett épület.</b> Építés közben a ballasztot napról napra annyival csökkentették, amennyi súly beépült – az összsúly közel állandó maradt.</li>
+    </ol>
+    <p class="case-note">A város regionális süllyedését ez nem állítja meg.</p>
   </div>
   <div class="vinline"><button class="vcard" data-video="tj7"></button></div>
   <div class="sub-h try" id="plsim"><span class="lt">4/A</span><h3>Próbáld ki: előterhelés és tehermentesítés</h3></div>
-  <div class="charts" style="margin-top:0">
-    <div class="panel"><div class="ph"><h4>Hézagtényező – hatékony feszültség</h4></div><div class="pb"><div id="plSvg"></div></div></div>
-    <div class="panel"><div class="ph"><h4>Süllyedés az idő függvényében</h4></div><div class="pb"><div id="plTime"></div></div></div>
+  <div class="sim plsim">
+    <div class="panel"><div class="ph"><h4>Süllyedés az idő függvényében</h4></div><div class="pb">
+      <div id="plTime"></div>
+      <div class="legend"><span><i style="background:var(--coral)"></i>előterhelés nélkül</span><span><i style="background:var(--amber)"></i>előterhelés és kivárás</span><span><i style="background:var(--teal)"></i>az épület alatt, előterhelés után</span></div>
+    </div></div>
+    <div class="panel"><div class="pb">
+      <div class="ctl"><label>Épület okozta többletfeszültség Δσ <span class="v" data-for="plB"></span></label><input type="range" id="plB" min="20" max="160" step="5" value="80"></div>
+      <div class="ctl"><label><span>Előterhelés Δσ<sub>p</sub></span> <span class="v" data-for="plP"></span></label><input type="range" id="plP" min="0" max="200" step="5" value="100"></div>
+      <div class="ctl"><label><span>Kivárási idő t<sub>p</sub></span> <span class="v" data-for="plT"></span></label><input type="range" id="plT" min="2" max="18" step="1" value="12"></div>
+      <div class="res" id="plOut"></div>
+      <p class="insight" id="plTxt"></p>
+      <p class="src" style="margin-top:8px">Szemléltető modell: 6 m vastag, normálisan konszolidált agyag, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0,45, C<sub>r</sub> = 0,06, e<sub>0</sub> = 1,2; a konszolidáció lefutása U(t) = 1 − e<sup>−t/5 hónap</sup>. Az épület a kivárási idő végén terhel.</p>
+    </div></div>
   </div>
-  <div class="panel" style="margin-top:16px"><div class="pb">
-    <div class="grid g2"><div class="ctl"><label>Épület okozta többletfeszültség Δσ <span class="v" data-for="plB"></span></label><input type="range" id="plB" min="20" max="160" step="5" value="80"></div><div class="ctl"><label>Előterhelés Δσ<sub>p</sub> <span class="v" data-for="plP"></span></label><input type="range" id="plP" min="0" max="200" step="5" value="100"></div></div>
-    <div class="res" id="plOut"></div>
-    <div class="legend"><span><i style="background:var(--coral)"></i>előterhelés nélkül</span><span><i style="background:var(--amber)"></i>előterhelés + tehermentesítés</span><span><i style="background:var(--teal)"></i>újraterhelés (épület) előterhelés után</span></div>
-    <p class="src" style="margin-top:8px">Szemléltető modell: 6 m vastag normálisan konszolidált agyag, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0,45, C<sub>r</sub> = 0,06, e<sub>0</sub> = 1,2. Ha Δσ ≤ Δσ<sub>p</sub>, az épület alatt csak az újraterhelési (kis meredekségű) ágon nyomódik össze a talaj.</p>
-  </div></div>
   <div class="solo" style="margin-top:22px">
     <div class="panel"><div class="ph"><h4>Ballaszt + épület = állandó teher</h4></div><div class="pb"><p class="figcap" id="mxCap"></p><div id="mxSvg"></div><div class="ctl"><label>Építés előrehaladása <span class="v" data-for="mxT"></span></label><input type="range" id="mxT" min="0" max="100" value="0"></div></div></div>
   </div>

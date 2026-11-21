@@ -25,12 +25,8 @@ b07ed84	Depth <span class="v" data-for="msD"></span>
 7ef460a	Mixing output <span class="v" data-for="msQ"></span>
 4bcc023	Binder content <span class="v" data-for="msK"></span>
 2f98c23	The settlement of the structure is reduced by <b>“forcing out”</b> at least part of the compression of the subsoil with a surcharge placed in advance. The layer then behaves like a geologically overconsolidated layer: under the load placed on the foundation, a much smaller specific compression has to be expected.
-5a6f35c	Void ratio – effective stress
 da0ac5a	Settlement versus time
 cd3c9b1	Additional stress from the building Δσ <span class="v" data-for="plB"></span>
-62c05bc	<span><i style="background:var(--coral)"></i>without preloading</span><span><i style="background:var(--amber)"></i>preloading + unloading</span><span><i style="background:var(--teal)"></i>reloading (building) after preloading</span>
-2656171	Mexico City
-1ec8f09	<b>Outlook – vertical drains:</b> in a thick clay layer consolidation can take years (the consolidation time is proportional to the square of the drainage path length). With prefabricated vertical drains (PVD) the water reaches the drain horizontally, by a short path – so the preloading time can be cut to months.
 01d0ce7	Construction progress <span class="v" data-for="mxT"></span>
 9a66d7b	Choosing the right stiffness for the structure: it should <b>either be so rigid</b> that it can carry the stresses from differential settlement without damage, <b>or so flexible</b> that it can follow the deformations from settlement without damage (within the specified limits, of course).
 8d3ccc1	Support settlement in a frame
@@ -80,7 +76,6 @@ dc6e5cf	=
 aa0ec88	<div class="kicker">Result</div><b>${ok} / ${items.length}</b><p class="muted">${ok === items.length ? 'Hibátlan – gratulálok!' : ok >= items.length * .6 ? 'Szép munka! Nézd át a hibás kérdéseket.' : 'Érdemes még egyszer átfutni a fejezetet.'}</p><div class="qnav" style="justify-content:center"><button class="sec" data-a="restart">Újrakezdés</button></div>
 3b01da9	Flawless – well done!
 8905ebf	Ballast + building = constant load
-62cbfb2	The capital was built on the site of an old volcanic lake, filled with very thick, highly compressible lake sediment deposited from fine volcanic ash. The whole city is settling – in places by metres. A classic example is José A. Cuevas's solution for the Lotería Nacional (“El Moro”) building in the 1930s. The building was given a <b>compensated foundation</b>: as much soil was excavated as the weight of the finished building would roughly replace. After excavation the bottom of the pit heaved (up to 127 cm was measured). So <b>temporary ballast</b> was placed on the rigid reinforced concrete substructure up to the design weight of the building – the original design specified gravel, concrete blocks were used in construction. The soil thus got its former load back, and the deformation took place before the superstructure was built. During construction the ballast was <b>reduced day by day by the weight that had been built in</b>: the total weight stayed nearly constant. This does not stop the regional subsidence of the city.
 9b1a3dc	Construction: the ballast is reduced day by day by the weight that has been built in
 3668cfc	Finished building – the ballast is gone, the total weight did not increase
 5f65c72	Ballast up to the design weight of the building → the soil gets its former load back

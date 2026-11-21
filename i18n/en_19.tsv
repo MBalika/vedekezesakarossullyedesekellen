@@ -1,0 +1,14 @@
+# 2026-11-21: 4/A előterhelés – egyetlen, állítható idő–süllyedés ábra, magyarázattal
+2fe5a17	Illustrative model: 6 m thick, normally consolidated clay, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0.45, C<sub>r</sub> = 0.06, e<sub>0</sub> = 1.2; consolidation follows U(t) = 1 − e<sup>−t/5 months</sup>. The building is loaded at the end of the waiting time.
+42f544c	<span><i style="background:var(--coral)"></i>without preloading</span><span><i style="background:var(--amber)"></i>preloading and waiting</span><span><i style="background:var(--teal)"></i>under the building, after preloading</span>
+57aa8fd	During the ${tp}-month waiting time <b>${pct(Up * 100)}</b> of the consolidation took place, so the soil “saw” ${fmt(dpE, 0)} kPa – less than the building’s ${ds} kPa. The difference compresses the soil on the virgin (steep) branch: <b>${fmt(sAfter, 0)} mm</b> instead of ${fmt(sNo, 0)} mm (−${pct(red * 100)}). A larger preload or a longer waiting time helps.
+873ed85	During the ${tp}-month waiting time <b>${pct(Up * 100)}</b> of the consolidation took place, so the soil “saw” an additional stress of ${fmt(dpE, 0)} kPa – more than the building applies. Under the building it is compressed only on the reloading (flat) branch: <b>${fmt(sAfter, 0)} mm</b> instead of ${fmt(sNo, 0)} mm (−${pct(red * 100)}).
+ac3a8a3	Without preloading the whole settlement of the building – <b>${fmt(sNo, 0)} mm</b> – takes place under the finished building, during its use.
+04cefee	<div class="r" style="grid-column:1/-1"><span>under the building, after preloading</span><b style="color:var(--teal-ink)">${fmt(sAfter, 0)} mm</b></div>
+fdaba38	<div class="r"><span>“forced out” by the preload</span><b style="color:var(--amber-ink)">${fmt(sPre, 0)} mm</b></div>
+8b49482	<div class="r"><span>under the building, without preloading</span><b style="color:var(--coral)">${fmt(sNo, 0)} mm</b></div>
+4e893ea	building load
+e8feab1	preparation
+5dd255e	preloading
+fcd0fb4	<span>Waiting time t<sub>p</sub></span> <span class="v" data-for="plT"></span>
+1017b96	<span>Preload Δσ<sub>p</sub></span> <span class="v" data-for="plP"></span>

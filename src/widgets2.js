@@ -333,40 +333,62 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
 
 /* ---------- e) előterhelés: e – log σ' ---------- */
 (function preload() {
-  const host = $('#plSvg'); if (!host) return; const host2 = $('#plTime');
-  const s0 = 60, Cc = 0.45, Cr = 0.06, e0 = 1.2, Hc = 6;
+  const host2 = $('#plTime'); if (!host2) return;
+  const s0 = 60, Cc = 0.45, Cr = 0.06, e0 = 1.2, Hc = 6, TAU = 5, TM = 36;   // σ′0 (kPa), tömörödési és újraterhelési index, e0, rétegvastagság (m), időállandó (hónap), időtengely (hónap)
+  const U = (t) => t <= 0 ? 0 : 1 - Math.exp(-t / TAU);
   const draw = () => {
-    const ds = rv('plB'), dp = rv('plP'); out('plB', ds + ' kPa'); out('plP', dp ? dp + ' kPa' : 'nincs');
-    const f = Hc / (1 + e0) * 1000; const sNo = f * Cc * Math.log10((s0 + ds) / s0);
-    const sPre = dp > 0 ? f * Cc * Math.log10((s0 + dp) / s0) : 0;
-    const sAfter = dp <= 0 ? sNo : ds <= dp ? f * Cr * Math.log10((s0 + ds) / s0) : f * Cr * Math.log10((s0 + dp) / s0) + f * Cc * Math.log10((s0 + ds) / (s0 + dp));
-    // e - log σ' diagram
-    const W = 420, Hh = 300, L = 58, R = 14, T = 18, B = 40; const s = svg(host, W, Hh); const lx = (v) => L + (Math.log10(v) - Math.log10(30)) / (Math.log10(400) - Math.log10(30)) * (W - L - R), ey = (e) => T + (e0 + 0.02 - e) / 0.42 * (Hh - T - B);
-    [30, 60, 100, 200, 400].forEach(v => { SV('line', { x1: lx(v), x2: lx(v), y1: T, y2: Hh - B, stroke: 'var(--line2)' }, s); SV('text', { x: lx(v), y: Hh - B + 14, 'text-anchor': 'middle', 'font-size': 10, fill: 'var(--mute)', text: v }, s); });
-    SV('text', { x: (W + L) / 2, y: Hh - 6, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)', text: 'hatékony feszültség σ′ [kPa] (log)' }, s); SV('text', { x: 14, y: Hh / 2, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)', transform: `rotate(-90 14 ${Hh / 2})`, text: 'hézagtényező e' }, s);
-    [0.8, 0.9, 1.0, 1.1, 1.2].forEach(e => { SV('line', { x1: L, x2: W - R, y1: ey(e), y2: ey(e), stroke: 'var(--line2)' }, s); SV('text', { x: L - 6, y: ey(e) + 3.5, 'text-anchor': 'end', 'font-size': 10, fill: 'var(--mute)', text: fmt(e, 1) }, s); });
-    const eN = (v) => e0 - Cc * Math.log10(v / s0); const pts = (a, b, fn) => { const p = []; for (let i = 0; i <= 40; i++) { const v = a * Math.pow(b / a, i / 40); p.push(`${lx(v)},${ey(fn(v))}`); } return p.join(' '); };
-    SV('polyline', { points: pts(s0, 400, eN), fill: 'none', stroke: 'var(--line)', 'stroke-width': 6, 'stroke-linecap': 'round' }, s);
-    SV('text', { x: lx(300), y: ey(eN(300)) - 10, 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--mute)', text: 'szűz görbe' }, s);
-    // előterhelés nélkül
-    SV('polyline', { points: pts(s0, s0 + ds, eN), fill: 'none', stroke: 'var(--coral)', 'stroke-width': 3 }, s); SV('circle', { cx: lx(s0 + ds), cy: ey(eN(s0 + ds)), r: 5, fill: 'var(--coral)' }, s);
-    if (dp > 0) { const ep = eN(s0 + dp); SV('polyline', { points: pts(s0, s0 + dp, eN), fill: 'none', stroke: 'var(--amber)', 'stroke-width': 3, 'stroke-dasharray': '6 4' }, s); const eU = (v) => ep + Cr * Math.log10((s0 + dp) / v);
-      SV('polyline', { points: pts(s0, s0 + dp, eU), fill: 'none', stroke: 'var(--amber)', 'stroke-width': 2, 'stroke-dasharray': '3 3' }, s);
-      const eR = (v) => v <= s0 + dp ? eU(v) : eN(v); SV('polyline', { points: pts(s0, s0 + ds, eR), fill: 'none', stroke: 'var(--teal)', 'stroke-width': 3.5 }, s); SV('circle', { cx: lx(s0 + ds), cy: ey(eR(s0 + ds)), r: 5, fill: 'var(--teal)' }, s); SV('circle', { cx: lx(s0 + dp), cy: ey(ep), r: 4, fill: 'var(--amber)' }, s); }
-    SV('circle', { cx: lx(s0), cy: ey(e0), r: 5, fill: 'var(--ink2)' }, s); SV('text', { x: lx(s0) + 9, y: ey(e0) + 2, 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)', text: 'σ′_{0}' }, s);
-    // idő–süllyedés
-    const W2 = 420, H2 = 300; const s2 = svg(host2, W2, H2); const smx = Math.max(sNo, sPre + sAfter, 50); const stp = [10, 20, 50, 100, 200, 250, 500].find(v => smx / v <= 5) || 500; const top = Math.ceil(smx / stp) * stp; const tx = (m) => 58 + m / 36 * (W2 - 72), sy = (v) => 30 + v / top * (H2 - 76);
-    for (let v = 0; v <= top + 1e-6; v += stp) { SV('line', { x1: tx(0), x2: tx(36), y1: sy(v), y2: sy(v), stroke: 'var(--line2)' }, s2); SV('text', { x: tx(0) - 6, y: sy(v) + 3.5, 'text-anchor': 'end', 'font-size': 10, fill: 'var(--mute)', text: fmt(v) }, s2); }
-    for (let m = 0; m <= 36; m += 6) { SV('line', { x1: tx(m), x2: tx(m), y1: 30, y2: H2 - 46, stroke: 'var(--line2)' }, s2); SV('text', { x: tx(m), y: H2 - 32, 'text-anchor': 'middle', 'font-size': 10, fill: 'var(--mute)', text: m }, s2); }
-    SV('text', { x: (W2 + 54) / 2, y: H2 - 14, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)', text: 'idő [hónap]' }, s2); SV('text', { x: 14, y: H2 / 2, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: 'var(--ink2)', transform: `rotate(-90 14 ${H2 / 2})`, text: 'süllyedés [mm] ↓' }, s2);
-    const U = (t) => 1 - Math.exp(-t / 5); const a = [], b = [];
-    for (let m = 0; m <= 36; m += .5) { a.push(`${tx(m)},${sy(m < 12 ? 0 : sNo * U(m - 12))}`); let v = 0; if (dp > 0) { if (m < 12) v = sPre * U(m); else v = sPre * U(12) + (m >= 12 ? (sAfter) * U(m - 12) : 0); } else v = m < 12 ? 0 : sNo * U(m - 12); b.push(`${tx(m)},${sy(v)}`); }
-    SV('rect', { x: tx(0), y: 30, width: tx(12) - tx(0), height: H2 - 76, fill: 'var(--amber)', opacity: .12 }, s2); SV('text', { x: tx(6), y: 20, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--amber-ink)', 'font-weight': 700, text: dp > 0 ? 'előterhelés, kivárás' : 'tervezés, előkészítés' }, s2); SV('text', { x: tx(24), y: 20, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--ink2)', 'font-weight': 700, text: 'építés és használat' }, s2);
-    SV('line', { x1: tx(12), x2: tx(12), y1: 30, y2: H2 - 46, stroke: 'var(--ink2)', 'stroke-dasharray': '3 3' }, s2);
-    SV('polyline', { points: a.join(' '), fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.5, 'stroke-dasharray': dp > 0 ? '6 4' : '' }, s2); if (dp > 0) SV('polyline', { points: b.join(' '), fill: 'none', stroke: 'var(--teal)', 'stroke-width': 3 }, s2);
-    $('#plOut').innerHTML = `<div class="r"><span>épület alatti süllyedés előterhelés nélkül</span><b style="color:var(--coral)">${fmt(sNo, 0)} mm</b></div><div class="r"><span>előterhelés alatt „kikényszerített”</span><b style="color:var(--amber-ink)">${fmt(sPre, 0)} mm</b></div><div class="r" style="grid-column:1/-1"><span>az épület alatti süllyedés előterhelés után</span><b style="color:var(--teal)">${fmt(sAfter, 0)} mm ${dp > 0 ? `(−${pct((1 - sAfter / sNo) * 100)})` : ''}</b></div>`;
+    const ds = rv('plB'), dp = rv('plP'), tp = rv('plT'); out('plB', ds + ' kPa'); out('plP', dp ? dp + ' kPa' : 'nincs'); out('plT', tp + ' hónap');
+    const f = Hc / (1 + e0) * 1000, lg = Math.log10;
+    const sNo = f * Cc * lg((s0 + ds) / s0);                                   // előterhelés nélkül: az épület alatt a szűz ágon
+    const sPreF = dp > 0 ? f * Cc * lg((s0 + dp) / s0) : 0;                   // az előterhelés végleges süllyedése
+    const Up = dp > 0 ? U(tp) : 0, sPre = sPreF * Up;                          // a kivárási idő alatt kikényszerített rész
+    const dpE = dp > 0 ? Math.max(0, Math.pow(10, lg(s0 + dp) * Up + lg(s0) * (1 - Up)) - s0) : 0;   // az elért előterhelési feszültség (a kikényszerített süllyedésnek megfelelő)
+    const heave = dpE > 0 ? f * Cr * lg((s0 + dpE) / s0) : 0;                  // tehermentesítéskor visszaduzzad (újraterhelési ág)
+    const sAfter = dp <= 0 ? sNo : ds <= dpE ? f * Cr * lg((s0 + ds) / s0) : f * Cr * lg((s0 + dpE) / s0) + f * Cc * lg((s0 + ds) / (s0 + dpE));
+    // görbék (a süllyedés lefelé nő)
+    const W2 = 560, H2 = 330; const s2 = svg(host2, W2, H2);
+    const smx = Math.max(sNo, sPre + Math.max(0, sAfter - heave), 40); const stp = [10, 20, 25, 50, 100, 200, 250, 500].find(v => smx / v <= 5) || 500; const top = Math.ceil(smx / stp) * stp;
+    const L = 58, Rr = 92, T = 34, B = 48, tx = (m) => L + m / TM * (W2 - L - Rr), sy = (v) => T + v / top * (H2 - T - B);
+    for (let v = 0; v <= top + 1e-6; v += stp) { SV('line', { x1: tx(0), x2: tx(TM), y1: sy(v), y2: sy(v), stroke: 'var(--line2)' }, s2); SV('text', { x: tx(0) - 6, y: sy(v) + 3.5, 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--mute)', text: fmt(v) }, s2); }
+    for (let m = 0; m <= TM; m += 6) { SV('line', { x1: tx(m), x2: tx(m), y1: T, y2: H2 - B, stroke: 'var(--line2)' }, s2); SV('text', { x: tx(m), y: H2 - B + 15, 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--mute)', text: m }, s2); }
+    SV('text', { x: (W2 + L) / 2, y: H2 - 12, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 600, fill: 'var(--ink2)', text: 'idő [hónap]' }, s2);
+    SV('text', { x: 14, y: (H2 - B + T) / 2, 'text-anchor': 'middle', 'font-size': 11.5, 'font-weight': 600, fill: 'var(--ink2)', transform: `rotate(-90 14 ${(H2 - B + T) / 2})`, text: 'süllyedés [mm] ↓' }, s2);
+    // szakaszok: előterhelés és kivárás | az épület terhel
+    SV('rect', { x: tx(0), y: T, width: tx(tp) - tx(0), height: H2 - T - B, fill: 'var(--amber)', opacity: .12 }, s2);
+    SV('text', { x: tx(tp / 2), y: T - 10, 'text-anchor': 'middle', 'font-size': 11.5, fill: 'var(--amber-ink)', 'font-weight': 700, text: dp > 0 ? 'előterhelés' : 'előkészítés' }, s2);
+    SV('text', { x: tx((tp + TM) / 2), y: T - 10, 'text-anchor': 'middle', 'font-size': 11.5, fill: 'var(--teal-ink)', 'font-weight': 700, text: 'az épület terhel' }, s2);
+    SV('line', { x1: tx(tp), x2: tx(tp), y1: T, y2: H2 - B, stroke: 'var(--ink2)', 'stroke-width': 1.2, 'stroke-dasharray': '4 3' }, s2);
+    const a = [], p1 = [], p2 = [];
+    for (let m = 0; m <= TM + 1e-6; m += .25) {
+      a.push(`${tx(m).toFixed(1)},${sy(m < tp ? 0 : sNo * U(m - tp)).toFixed(1)}`);
+      if (dp > 0 && m <= tp) p1.push(`${tx(m).toFixed(1)},${sy(sPreF * U(m)).toFixed(1)}`);
+      if (dp > 0 && m >= tp) p2.push(`${tx(m).toFixed(1)},${sy(sPre - heave + sAfter * U(m - tp)).toFixed(1)}`);
+    }
+    SV('polyline', { points: a.join(' '), fill: 'none', stroke: 'var(--coral)', 'stroke-width': 2.6, 'stroke-dasharray': dp > 0 ? '7 4' : '' }, s2);
+    if (dp > 0) {
+      SV('polyline', { points: p1.join(' '), fill: 'none', stroke: 'var(--amber)', 'stroke-width': 3.2 }, s2);
+      SV('line', { x1: tx(tp), x2: tx(tp), y1: sy(sPre), y2: sy(sPre - heave), stroke: 'var(--amber)', 'stroke-width': 3.2 }, s2);   // tehermentesítés: kis visszaduzzadás
+      SV('polyline', { points: p2.join(' '), fill: 'none', stroke: 'var(--teal)', 'stroke-width': 3.4 }, s2);
+      SV('circle', { cx: tx(tp), cy: sy(sPre), r: 4.5, fill: 'var(--amber)' }, s2);
+    }
+    // a végállapotok és az épület alatti süllyedés (kapcsos jel) a jobb szélen
+    const brace = (y1, y2, x, c, txt) => { if (Math.abs(y2 - y1) < 2) return; SV('path', { d: `M${x} ${y1}h5V${y2}h-5`, fill: 'none', stroke: c, 'stroke-width': 1.6 }, s2); SV('text', { x: x + 9, y: (y1 + y2) / 2 + 4, text: txt, 'font-size': 11.5, 'font-weight': 800, class: 'hl', style: `fill:${c}` }, s2); };
+    const yN = sy(sNo * U(TM - tp)); SV('circle', { cx: tx(TM), cy: yN, r: 4.5, fill: 'var(--coral)' }, s2);
+    if (dp > 0) { const y0 = sy(sPre - heave), yA = sy(sPre - heave + sAfter * U(TM - tp)); SV('circle', { cx: tx(TM), cy: yA, r: 4.5, fill: 'var(--teal)' }, s2); brace(sy(0), yN, tx(TM) + 8, 'var(--coral)', ''); SV('text', { x: tx(TM) + 17, y: sy(0) + 14, text: fmt(sNo, 0) + ' mm', 'font-size': 11.5, 'font-weight': 800, class: 'hl', style: 'fill:var(--coral)' }, s2); brace(y0, yA, tx(TM) + 30, 'var(--teal-ink)', fmt(sAfter, 0) + ' mm'); }
+    else brace(sy(0), yN, tx(TM) + 8, 'var(--coral)', fmt(sNo, 0) + ' mm');
+    // eredmények és magyarázat
+    const red = sNo > 0 ? Math.max(0, 1 - sAfter / sNo) : 0;
+    $('#plOut').innerHTML = `<div class="r"><span>az épület alatt, előterhelés nélkül</span><b style="color:var(--coral)">${fmt(sNo, 0)} mm</b></div>`
+      + `<div class="r"><span>az előterhelés alatt kikényszerítve</span><b style="color:var(--amber-ink)">${fmt(sPre, 0)} mm</b></div>`
+      + `<div class="r" style="grid-column:1/-1"><span>az épület alatt, előterhelés után</span><b style="color:var(--teal-ink)">${fmt(sAfter, 0)} mm</b></div>`;
+    const tx1 = dp <= 0
+      ? `Előterhelés nélkül az épület teljes süllyedése – <b>${fmt(sNo, 0)} mm</b> – már a kész épület alatt, a használat során zajlik le.`
+      : ds <= dpE
+        ? `A ${tp} hónapos kivárás alatt a konszolidáció <b>${pct(Up * 100)}</b>-a lezajlott, a talaj így ${fmt(dpE, 0)} kPa többletfeszültséget „látott” – többet, mint amennyit az épület ad. Az épület alatt már csak az újraterhelési (lapos) ágon nyomódik össze: <b>${fmt(sAfter, 0)} mm</b> a ${fmt(sNo, 0)} mm helyett (−${pct(red * 100)}).`
+        : `A ${tp} hónapos kivárás alatt a konszolidáció <b>${pct(Up * 100)}</b>-a zajlott le, a talaj ${fmt(dpE, 0)} kPa-t „látott” – ez kevesebb az épület ${ds} kPa-jánál. A különbség már a szűz (meredek) ágon nyomja össze a talajt: <b>${fmt(sAfter, 0)} mm</b> a ${fmt(sNo, 0)} mm helyett (−${pct(red * 100)}). Nagyobb vagy tovább hagyott előterhelés segít.`;
+    const el = $('#plTxt'); if (el.innerHTML !== tx1) el.innerHTML = tx1;
   };
-  bindR(['plB', 'plP'], draw); draw();
+  bindR(['plB', 'plP', 'plT'], draw); draw();
   // Mexikóváros (El Moro): ballaszt + épület = állandó; a merev alapszerkezet a talajba süllyesztve (kompenzált alapozás)
   const mx = $('#mxSvg'); if (!mx) return; const r = $('#mxT');
   const dm = () => { const u = rv('mxT') / 100; out('mxT', pct(u * 100)); const W = 600, Hh = 250, gy = 190; const s = svg(mx, W, Hh); pat(s);

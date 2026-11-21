@@ -22,17 +22,8 @@ a633627	peat, soft clay
 3986ec5	The plant train starts from stable (already stabilised) ground and mixes the soil ahead of itself
 b4244d8	=
 c1b70ff	=
-f085908	=
-0e90d78	void ratio e
-108b371	virgin curve
 1530fd0	time [months]
-c2ef8f4	=
 39b4e93	settlement [mm] ↓
-0cf421e	preloading, waiting
-f5f7eb4	design, preparation
-7cd8dd1	<div class="r"><span>settlement under the building without preloading</span><b style="color:var(--coral)">
-b2e6752	 mm</b></div><div class="r"><span>“forced out” under the preload</span><b style="color:var(--amber-ink)">
-daef4b8	 mm</b></div><div class="r" style="grid-column:1/-1"><span>settlement under the building after preloading</span><b style="color:var(--teal)">
 4222eff	=
 4a079f2	building
 2a793d2	Σ = constant

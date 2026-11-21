@@ -2,8 +2,6 @@
 fbab74a	Interactive module for the Foundation Engineering course at the BME Faculty of Civil Engineering (Department of Engineering Geology and Geotechnics). The numerical examples and simulators are simplified models for teaching purposes.
 d1f50c5	The Foundation Engineering modules
 afae6cd	The rest of the series
-cb22e69	Illustrative model: 6 m thick normally consolidated clay, σ′<sub>0</sub> = 60 kPa, C<sub>c</sub> = 0.45, C<sub>r</sub> = 0.06, e<sub>0</sub> = 1.2. If Δσ ≤ Δσ<sub>p</sub>, the soil below the building compresses only along the reloading branch (with a small slope).
-46dc2e8	Preload Δσ<sub>p</sub> <span class="v" data-for="plP"></span>
 8bff9e5	σ<sub>2</sub> = P / (B + 2·v·tanϑ) + γ<sub>1</sub>·v, where γ<sub>1</sub> = 20 kN/m³ is the unit weight of the replacement soil – simplified illustration.
 15b08dc	<b>Did you know?</b> The 44-storey Torre Latinoamericana in Mexico City (1956), 182 m high including its antenna, stands on extremely compressible volcanic clay: its base slab is 13.5 m deep, and the load is carried by 361 piles down to a dense sand layer 33 m deep. Its structural and foundation designer, Leonardo Zeevaert, also exploited the weight of the excavated soil – the tower “does not settle, it floats”, and it withstood the magnitude 7.9 earthquake of 1957.
 72376df	A <b>strip footing deeper than 2–2.5 m</b> is no longer economical – in that case pad foundations (or caisson foundations) are advisable, tied together at the top by a grid of ground beams.
@@ -24,8 +22,6 @@ c991739	unloading (γ·D)
 e68ccf5	fraction of the final load
 457aa47	compressible clay
 5346469	soft volcanic clay
-b015943	construction and use
-54a335f	effective stress σ′ [kPa] (log)
 9ed25ef	compacted zone
 29590b5	sandy gravel, crushed stone
 72f2dfd	<div class="r" style="grid-column:1/-1"><span class="status w">⚠ The formula overestimates at high energy; in practice max. 5⁠–⁠7 m.</span></div>

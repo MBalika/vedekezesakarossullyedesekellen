@@ -619,3 +619,18 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 /* 2/B és 2/C: közös felvétel – a kártya fölötti megjegyzés */
 .ytshare{margin:26px auto -12px;max-width:720px;text-align:center!important;text-align-last:center;font-weight:700;color:var(--ink2)}
 
+
+/* 4/A esettanulmány (Mexikóváros): bevezető + számozott lépések, levegősen */
+.case{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:22px 40px;align-items:start;margin:26px 0 10px;padding:26px 28px 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--shadow)}
+.case h3{margin:0 0 14px;text-align:center}
+.case-intro p{margin:0 0 14px;line-height:1.75}
+.case-steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:cs}
+.case-steps li{counter-increment:cs;position:relative;margin:0;padding:13px 16px 13px 54px;border-radius:12px;background:var(--card2);border:1px solid var(--line2);line-height:1.65;text-align:justify;text-align-last:left}
+.case-steps li::before{content:counter(cs);position:absolute;left:15px;top:13px;width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font:800 13px var(--fb)}
+.case-steps li b{color:var(--ci)}
+.case-note{grid-column:1/-1;margin:2px 0 0;text-align:center!important;text-align-last:center;font-weight:700;color:var(--ink2)}
+@media (max-width:860px){.case{grid-template-columns:minmax(0,1fr);gap:16px;padding:20px 18px}}
+
+/* 4/A előterhelés: egyetlen, állítható idő–süllyedés ábra, mellette a kezelők és a magyarázat */
+.plsim{margin-top:4px}
+.plsim .insight{margin-top:12px}
