@@ -820,9 +820,9 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <ul><li>a szélesebb alaptest maga is <b>nagyobb súlyt</b> jelent,</li><li>főként pedig a szélesebb alap alatt <b>nagyobb mélységig</b> jutnak le az összenyomódást okozó feszültségek – <b>nagyobb lesz a határmélység</b>.</li></ul>
       <p>Akkor hatásos, ha <b>mélyebben kevésbé összenyomódó</b> rétegek vannak (A eset). A B esetben a puhább, lejjebb lévő agyagréteg kap szélesítéskor nagyobb feszültséget – így a süllyedés akár <b>növekedhet</b> is: pont ellenkező hatást érünk el!</p>
     </div>
-    <div class="panel"><div class="ph"><h4>A és B eset – meddig ér a feszültségbura?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Alapszélesség <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
+    <div class="panel"><div class="ph"><h4>A és B eset – meddig ér a határmélység?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Alapszélesség <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div><p class="src" style="margin:6px 0 0">Négyzetes pilléralap, p<sub>0</sub> = 150 kPa többletfeszültség, Kany-féle feszültségszámítás; a határmélység ott van, ahol Δσ<sub>z</sub> = σ<sub>g</sub>/5 (γ = 20 kN/m³, D = 1,0 m). A felső réteg 3,0 m vastag.</p></div></div>
   </div>
-  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg"></div><p class="src" style="margin:6px 0 0">Szaggatott: az eredeti, b szélességű és q talpfeszültségű sávalap; színes: a módosított. Balra a feszültségbura (ahol σ<sub>z</sub> az alap saját talpfeszültségének 20 %-a), jobbra a σ<sub>z</sub> függőleges feszültség az alaptest tengelyében – rugalmas féltérben számolva, a mélység b egységekben. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
+  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg"></div><p class="src" style="margin:6px 0 0">Kany-féle feszültségszámítás sávalap alatt: Δσ<sub>z</sub> = p<sub>0</sub> · k(z/B), a karakterisztikus pont alatti szorzókkal (B/L = 0); p<sub>0</sub> = σ<sub>talp</sub> − σ<sub>g</sub> a többletfeszültség. Szaggatott: az eredeti alap (B = 2,0 m, p<sub>0</sub> = 100 kPa); színes: a módosított. A piros szaggatott egyenes a σ<sub>g</sub>/5 határ (σ<sub>g</sub> = γ · (D + z), γ = 20 kN/m³, D = 1,0 m): ahol a többletfeszültség-ábra metszi, ott van a <b>határmélység</b> (m<sub>0</sub>, n = 5). A többletfeszültség nagyságát a talpfeszültség, a mélységgel való leépülését az alap <b>szélessége</b> szabja meg – mindkettő változtatja a határmélységet.</p></div></div>
 
   <div class="sub-h" id="alapsik"><span class="lt">1/B</span><h3>Alapsík mélyebbre vitele – és a pince</h3></div>
   <div class="twocol tw-top tw-b">
@@ -865,7 +865,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <div class="ctl"><label>Alapsík mélysége D <span class="v" data-for="simD"></span></label><input type="range" id="simD" min="0.8" max="4.0" step="0.1" value="1.0"></div>
       <div class="ctl"><label>Oszlopteher N <span class="v" data-for="simN"></span></label><input type="range" id="simN" min="600" max="2000" step="50" value="1200"></div>
       <div class="ctl"><label>Határmélység / feszültségeloszlás</label><div class="seg" id="simMeth"><button data-v="J" class="on">Jáky: m<sub>0</sub> = B, lineáris</button><button data-v="E">Rugalmas féltér + 0,2·σ<sub>0</sub></button></div></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:6px 0 10px"><label class="tgl"><input type="checkbox" id="simBulb" checked>feszültségbura</label><div class="ctl" style="flex:1;min-width:140px;margin:0"><label>Süllyedés torzítása <span class="v" data-for="simEx"></span></label><input type="range" id="simEx" min="1" max="40" step="1" value="10"></div></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:6px 0 10px"><label class="tgl"><input type="checkbox" id="simBulb" checked>feszültséghagyma</label><div class="ctl" style="flex:1;min-width:140px;margin:0"><label>Süllyedés torzítása <span class="v" data-for="simEx"></span></label><input type="range" id="simEx" min="1" max="40" step="1" value="10"></div></div>
       <div class="big"><b id="rS">0</b><span class="u">mm süllyedés</span><span class="status" id="rStatus"></span></div>
       <div class="meter"><i id="rBar"></i><span class="lim" style="left:25%"></span><span class="lim" style="left:50%"></span></div>
       <div class="legend"><span>0</span><span style="margin-left:auto">25 mm</span><span>50 mm</span><span>100 mm</span></div>
@@ -1491,22 +1491,27 @@ window.SVpat = pat;
   draw();
 })();
 
-/* ---------- A/B rétegződés: a feszültségbura eléri-e a mélyebb réteget? ---------- */
+/* ---------- A/B rétegződés: a határmélység eléri-e a mélyebb réteget? (Kany, négyzetes alap, n = 5) ---------- */
 (function abFig() {
   const host = $('#abSvg'); if (!host) return; const r = $('#abB');
+  const KZB = [0, .05, .1, .2, .3, .4, .5, .6, .8, 1, 1.5, 2, 3, 4, 5, 10, 20], KK = [1, .981, .898, .694, .557, .47, .409, .362, .289, .234, .144, .094, .047, .028, .018, .005, .001];   // B/L = 1
+  const kany = (x) => { if (x >= 20) return KK[16]; let i = 0; while (KZB[i + 1] < x) i++; return KK[i] + (KK[i + 1] - KK[i]) * (x - KZB[i]) / (KZB[i + 1] - KZB[i]); };
+  const m0 = (B) => { let z = 0; while (z < 20 && 150 * kany(z / B) > 20 * (1 + z) / 5) z += .01; return z; };   // p0 = 150 kPa, γ = 20 kN/m³, D = 1 m
   const draw = () => {
     const B = +r.value; window.U.fillRange(r); $(`[data-for="abB"]`).textContent = fmt(B, 1) + ' m';
-    const s = svg(host, 640, 300); pat(s);
+    const s = svg(host, 640, 316); pat(s); const M = m0(B);
     [['A', 0, 'url(#pClay)', 'url(#pSand)', 'puha agyag', 'homok', true], ['B', 330, 'url(#pSand)', 'url(#pClay)', 'homok', 'puha agyag', false]].forEach(([nm, ox, c1, c2, n1, n2, good]) => {
-      const g = SV('g', { transform: `translate(${ox},0)` }, s); const k = 34, Y = 92, yB = Y + 2.2 * k, Hh = 300;
-      SV('rect', { x: 0, y: Y, width: 310, height: 2.2 * k, fill: c1 }, g); SV('rect', { x: 0, y: yB, width: 310, height: Hh - yB, fill: c2 }, g);
+      const g = SV('g', { transform: `translate(${ox},0)` }, s); const k = 34, Y = 92, yB = Y + 3 * k, Hh = 316;
+      SV('rect', { x: 0, y: Y, width: 310, height: 3 * k, fill: c1 }, g); SV('rect', { x: 0, y: yB, width: 310, height: Hh - yB, fill: c2 }, g);
       SV('text', { x: 8, y: Y + 18, text: n1, 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, g); SV('text', { x: 8, y: Hh - 10, text: n2, 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, g);
-      const cx = 155, w = B * k; const depth = 1.25 * B * k; // a 0,2·q-s izobár kb. 1,2–1,3·B mélyre ér (négyzetes alap)
-      const bulb = `M${cx - w / 2},${Y + 8} C${cx - w * 0.95},${Y + depth * 0.35} ${cx - w * 0.55},${Y + depth} ${cx},${Y + 8 + depth} C${cx + w * 0.55},${Y + depth} ${cx + w * 0.95},${Y + depth * 0.35} ${cx + w / 2},${Y + 8} Z`;
-      const reach = Y + 8 + depth > yB; SV('path', { d: bulb, fill: reach ? (good ? '#39c2a5' : '#d4553a') : '#e5ae47', opacity: .5, stroke: reach ? (good ? '#0d7a68' : '#a63a23') : '#c2830c', 'stroke-width': 2 }, g);
+      const cx = 155, w = B * k, ym = Y + M * k, reach = M > 3;
+      const col = reach ? (good ? '#39c2a5' : '#d4553a') : '#e5ae47', ink = reach ? (good ? '#0d7a68' : '#a63a23') : '#c2830c';
+      // az alap alatti, a határmélységig összenyomódó talajtömb
+      SV('rect', { x: cx - w / 2, y: Y + 8, width: w, height: Math.min(ym, Hh) - Y - 8, fill: col, opacity: .45, stroke: ink, 'stroke-width': 1.6 }, g);
+      if (ym < Hh) { SV('line', { x1: 40, y1: ym, x2: 300, y2: ym, stroke: ink, 'stroke-width': 2, 'stroke-dasharray': '7 4' }, g); SV('text', { x: 300, y: ym - 6, 'text-anchor': 'end', text: 'm_{0} = ' + fmt(M, 1) + ' m', 'font-size': 13, 'font-weight': 800, class: 'hl', style: `fill:${ink}` }, g); }
       SV('rect', { x: cx - w / 2, y: Y, width: w, height: 8, fill: '#c3c7ca', stroke: '#4b5458' }, g); SV('rect', { x: cx - 7, y: Y - 26, width: 14, height: 26, fill: '#c3c7ca', stroke: '#4b5458' }, g);
       SV('text', { x: 0, y: 22, text: EN ? 'Case ' + nm : nm + ' eset', 'font-size': 17, 'font-weight': 800, fill: 'var(--ink)' }, g);
-      SV('text', { x: 0, y: 44, text: reach ? (good ? '✓ a teher egy része a homokra jut' : '✗ a puha agyag is terhelést kap') : 'a bura még a felső rétegben van', 'font-size': 12.5, 'font-weight': 700, fill: reach ? (good ? 'var(--ok)' : 'var(--bad)') : 'var(--amber-ink)' }, g);
+      SV('text', { x: 0, y: 44, text: reach ? (good ? '✓ a teher egy része a homokra jut' : '✗ a puha agyag is terhelést kap') : 'a határmélység még a felső rétegben van', 'font-size': 12.5, 'font-weight': 700, fill: reach ? (good ? 'var(--ok)' : 'var(--bad)') : 'var(--amber-ink)' }, g);
     });
   };
   r.addEventListener('input', draw); draw();
@@ -1566,74 +1571,80 @@ window.SVpat = pat;
   const pl = $('#bsPlay'); if (pl) pl.addEventListener('click', () => { const t0 = performance.now(); const step = (t) => { const u = clamp((t - t0) / 4000, 0, 1); rT.value = Math.round(u * 100); draw(); if (u < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); });
 })();
 
-/* ---------- 3 eset: teher / szélesség hatása a feszültségre ---------- */
+/* ---------- 3 eset: teher / szélesség hatása a többletfeszültségre és a határmélységre (Kany-féle számítás) ---------- */
 (function threeCases() {
-  /* sávalap a rugalmas féltér felszínén: σz(x, z) a tengelytől x távolságban (q talpfeszültség, b szélesség) */
-  const sz = (q, b, x, z) => { if (z <= 1e-6) return Math.abs(x) <= b / 2 ? q : 0; const t1 = Math.atan((x + b / 2) / z), t2 = Math.atan((x - b / 2) / z); return q / Math.PI * (t1 - t2 + Math.sin(t1) * Math.cos(t1) - Math.sin(t2) * Math.cos(t2)); };
-  /* a bura (σz = 0,2 · a saját talpfeszültség) mélysége a tengelyben */
-  const reach = (b) => { let lo = 0, hi = 20 * b; for (let k = 0; k < 50; k++) { const m = (lo + hi) / 2; if (sz(1, b, 0, m) > .2) lo = m; else hi = m; } return lo; };
+  /* Kany-táblázat, sávalap (B/L = 0): σz/p0 a karakterisztikus pont alatt, z/B szerint (a Síkalapok süllyedésszámítása táblázata) */
+  const KZB = [0, .05, .1, .2, .3, .4, .5, .6, .8, 1, 1.5, 2, 3, 4, 5, 10, 20], KK = [1, .99, .945, .826, .739, .677, .63, .59, .524, .467, .36, .288, .203, .155, .125, .063, .032];
+  /* a táblázati értékek között lineáris interpoláció – ahogy a Kany-táblázatot a gyakorlatban használjuk */
+  const kany = (x) => { if (x >= 20) return KK[16]; let i = 0; while (KZB[i + 1] < x) i++; return KK[i] + (KK[i + 1] - KK[i]) * (x - KZB[i]) / (KZB[i + 1] - KZB[i]); };
+  const GAM = 20, DD = 1, NN = 5, P0 = 100, B0 = 2;   // γ (kN/m³), alapozási mélység D (m), n-szabály, p0 (kPa), B (m)
+  const ds = (p, b, z) => p * kany(z / b);              // többletfeszültség a karakterisztikus pont alatt
+  const crit = (z) => GAM * (DD + z) / NN;              // σg/5
+  const m0 = (p, b) => { let z = 0; while (z < 40 && ds(p, b, z) > crit(z)) z += .01; return z; };
   const host = $('#tcSvg'); if (!host) return;
   const cases = [
-    { t: '1. Kétszeres teher', ch: 'b, 2q', bk: 1, qk: 2, c: 'var(--coral)', ci: 'var(--coral-ink)', d: ['Minden mélységben kétszeres feszültség,', 'a bura mélysége nem változik'] },
-    { t: '2. Kétszeres szélesség', ch: '2b, q', bk: 2, qk: 1, c: 'var(--teal)', ci: 'var(--teal-ink)', d: ['Felül ugyanakkora feszültség,', 'de kétszer olyan mélyre hat'] },
-    { t: '3. Fele felület', ch: 'b/2, 2q', bk: .5, qk: 2, c: 'var(--violet)', ci: 'var(--violet-ink)', d: ['Felül kétszeres feszültség,', 'de a bura fele olyan mély'] },
+    { t: '1. Kétszeres teher', ch: 'B, 2p_{0}', bk: 1, qk: 2, c: 'var(--coral)', ci: 'var(--coral-ink)', d: 'Minden mélységben kétszeres Δσ_{z}' },
+    { t: '2. Kétszeres szélesség', ch: '2B, p_{0}', bk: 2, qk: 1, c: 'var(--teal)', ci: 'var(--teal-ink)', d: 'Felül ugyanakkora, de lassabban csökken' },
+    { t: '3. Fele felület', ch: 'B/2, 2p_{0}', bk: .5, qk: 2, c: 'var(--violet)', ci: 'var(--violet-ink)', d: 'Felül kétszeres, de gyorsan leépül' },
   ];
   const draw = () => {
-    const nar = (host.clientWidth || 1000) < 680, PW = 340, PH = 500, W = nar ? PW + 20 : PW * 3, Hh = nar ? PH * 3 : PH;
+    const nar = (host.clientWidth || 1000) < 680, PW = 340, PH = 540, W = nar ? PW + 20 : PW * 3, Hh = nar ? PH * 3 : PH;
     const s = svg(host, W, Hh);
-    const B = 42, KZ = 42, KQ = 48, ZM = 6.7, yb = 150;   // b = 42 px, a mélység ugyanilyen léptékű (1 b = 42 px), q = 48 px
-    const r0 = reach(1);
+    const KZ = 36, ZM = 8.5, KQ = .92, yb = 150, cx = 140, yE = yb + ZM * KZ;   // 1 m = 36 px (mélység és szélesség), 1 kPa = 0,92 px; cx: a karakterisztikus pont függőlegese
+    const r0 = m0(P0, B0);
     cases.forEach((C, i) => {
-      const g = SV('g', { transform: nar ? `translate(10,${i * PH})` : `translate(${i * PW},0)` }, s); const cx = 128;
+      const g = SV('g', { transform: nar ? `translate(10,${i * PH})` : `translate(${i * PW},0)` }, s);
       if (!nar && i) SV('line', { x1: 0, y1: 20, x2: 0, y2: PH - 20, stroke: 'var(--line)', 'stroke-width': 1 }, g);
       if (nar && i) SV('line', { x1: 10, y1: 0, x2: PW - 10, y2: 0, stroke: 'var(--line)', 'stroke-width': 1 }, g);
       SV('text', { x: PW / 2, y: 30, 'text-anchor': 'middle', text: C.t, 'font-size': 16, 'font-weight': 800, fill: 'var(--ink)' }, g);
       // előtte → utána
-      SV('rect', { x: 52, y: 44, width: 14, height: 10, fill: 'none', stroke: 'var(--mute)', 'stroke-width': 1.5, 'stroke-dasharray': '3 2' }, g);
-      SV('text', { x: 71, y: 54, text: 'előtte: b, q', 'font-size': 12.5, 'font-weight': 700, style: 'fill:var(--ink2)' }, g);
-      SV('text', { x: 170, y: 54, 'text-anchor': 'middle', text: '→', 'font-size': 14, 'font-weight': 800, style: 'fill:var(--ink2)' }, g);
+      SV('rect', { x: 46, y: 44, width: 14, height: 10, fill: 'none', stroke: 'var(--mute)', 'stroke-width': 1.5, 'stroke-dasharray': '3 2' }, g);
+      SV('text', { x: 65, y: 54, text: 'előtte: B, p_{0}', 'font-size': 12.5, 'font-weight': 700, style: 'fill:var(--ink2)' }, g);
+      SV('text', { x: 172, y: 54, 'text-anchor': 'middle', text: '→', 'font-size': 14, 'font-weight': 800, style: 'fill:var(--ink2)' }, g);
       SV('rect', { x: 186, y: 44, width: 14, height: 10, fill: C.c, 'fill-opacity': .45, stroke: C.c, 'stroke-width': 1.5 }, g);
       SV('text', { x: 205, y: 54, text: 'utána: ' + C.ch, 'font-size': 12.5, 'font-weight': 800, style: `fill:${C.ci}` }, g);
-      // mélységrács (z/b)
-      for (let k = 1; k <= 6; k++) { const y = yb + k * KZ; SV('line', { x1: 34, y1: y, x2: PW - 14, y2: y, stroke: 'var(--line2)', 'stroke-width': 1 }, g); SV('text', { x: 28, y: y + 4, 'text-anchor': 'end', text: k + 'b', 'font-size': 11, style: 'fill:var(--mute)' }, g); }
-      SV('text', { x: 28, y: yb + 4, 'text-anchor': 'end', text: 'z = 0', 'font-size': 11, style: 'fill:var(--mute)' }, g);
-      // bura balra (σz = 0,2·q₀ a saját talpfeszültséghez): előtte szaggatott, utána kitöltve
-      const half = (b) => { const pts = []; const R = reach(b); for (let k = 0; k <= 48; k++) { const z = R * k / 48; let lo = 0, hi = 3 * b; for (let n = 0; n < 30; n++) { const m = (lo + hi) / 2; if (sz(1, b, m, z) > .2) lo = m; else hi = m; } pts.push([cx - Math.max(lo, k ? 0 : b / 2) * B, yb + Math.min(z, ZM) * KZ]); } return pts; };
-      const hp = (pts) => 'M' + cx + ' ' + yb + 'L' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L') + 'Z';
-      const h1 = half(C.bk), h0 = half(1);
-      SV('path', { d: hp(h1), fill: C.c, 'fill-opacity': .28, stroke: C.c, 'stroke-width': 2 }, g);
-      SV('path', { d: hp(h0), fill: 'none', stroke: 'var(--ink2)', 'stroke-width': 1.6, 'stroke-dasharray': '6 4' }, g);
-      // a bura mélysége: előtte → utána
-      const r1 = reach(C.bk), y0 = yb + r0 * KZ, y1 = yb + Math.min(r1, ZM) * KZ;
-      SV('line', { x1: 40, y1: y0, x2: cx, y2: y0, stroke: 'var(--ink2)', 'stroke-width': 1.2, 'stroke-dasharray': '3 3' }, g);
-      if (Math.abs(r1 - r0) > .05) { SV('line', { x1: 40, y1: y1, x2: cx, y2: y1, stroke: C.c, 'stroke-width': 1.6 }, g); const xa = 56; SV('line', { x1: xa, y1: y0, x2: xa, y2: y1 + (y1 > y0 ? -7 : 7), stroke: C.ci, 'stroke-width': 2 }, g); SV('path', { d: `M${xa - 5} ${y1 + (y1 > y0 ? -9 : 9)}L${xa} ${y1}L${xa + 5} ${y1 + (y1 > y0 ? -9 : 9)}Z`, fill: C.ci }, g); }
-      if (Math.abs(r1 - r0) > .05) SV('text', { x: 64, y: y0 + (r1 > r0 + .05 ? -6 : 15), text: fmt(r0, 1) + 'b', 'font-size': 12, 'font-weight': 700, class: 'hl', style: 'fill:var(--ink2)' }, g);
-      if (Math.abs(r1 - r0) > .05) SV('text', { x: 64, y: y1 + (r1 > r0 ? -6 : -6), text: fmt(r1, 1) + 'b', 'font-size': 13, 'font-weight': 800, class: 'hl', style: `fill:${C.ci}` }, g);
-      else SV('text', { x: 44, y: y0 + 17, text: fmt(r1, 1) + 'b – változatlan', 'font-size': 13, 'font-weight': 800, class: 'hl', style: `fill:${C.ci}` }, g);
-      // σz a tengelyben jobbra: előtte szaggatott, utána kitöltve
-      const prof = (q, b) => { const P = []; for (let k = 0; k <= 80; k++) { const z = ZM * k / 80; P.push([cx + sz(q, b, 0, z) * KQ, yb + z * KZ]); } return P; };
-      const pp = (P) => 'M' + cx + ' ' + yb + 'L' + P.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L') + 'L' + cx + ' ' + (yb + ZM * KZ) + 'Z';
-      const p1 = prof(C.qk, C.bk), p0 = prof(1, 1);
-      SV('path', { d: pp(p1), fill: C.c, 'fill-opacity': .5, stroke: C.c, 'stroke-width': 2.2 }, g);
-      SV('path', { d: 'M' + p0.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L'), fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.8, 'stroke-dasharray': '6 4' }, g);
-      // σ-tengely a felszínen: q, 2q
-      [1, 2].forEach(k => { const x = cx + k * KQ; SV('line', { x1: x, y1: yb + 2, x2: x, y2: yb + ZM * KZ, stroke: 'var(--line)', 'stroke-width': 1, 'stroke-dasharray': '2 4' }, g); SV('text', { x, y: yb + ZM * KZ + 16, 'text-anchor': 'middle', text: k === 1 ? 'q' : '2q', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--ink2)' }, g); });
-      SV('text', { x: cx - 8, y: yb + ZM * KZ + 16, 'text-anchor': 'end', text: 'feszültségbura', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--ink2)' }, g);
-      SV('text', { x: cx + 2 * KQ + 30, y: yb + ZM * KZ + 16, text: 'σ_{z}', 'font-size': 13, 'font-weight': 800, style: 'fill:var(--ink)' }, g);
-      // tengely
-      SV('line', { x1: cx, y1: yb - 12, x2: cx, y2: yb + ZM * KZ + 4, stroke: 'var(--ink)', 'stroke-width': 1.2, 'stroke-dasharray': '10 3 2 3' }, g);
-      // terep, alaptest (előtte szaggatott, utána tömör), teherblokk (magasság ∝ talpfeszültség)
+      // mélységrács (m, az alapsík alatt)
+      for (let k = 1; k <= 8; k++) { const y = yb + k * KZ; SV('line', { x1: 34, y1: y, x2: PW - 14, y2: y, stroke: 'var(--line2)', 'stroke-width': 1 }, g); SV('text', { x: 30, y: y + 4, 'text-anchor': 'end', text: k + ' m', 'font-size': 10.5, style: 'fill:var(--mute)' }, g); }
+      // Δσz a karakterisztikus pont alatt: utána kitöltve (a határmélységig erősebben), előtte szaggatott
+      const r1 = m0(C.qk * P0, C.bk * B0), y0 = yb + r0 * KZ, y1 = yb + r1 * KZ;
+      const prof = (p, b, zt) => { const P = []; for (let k = 0; k <= 120; k++) { const z = zt * k / 120; P.push([cx + ds(p, b, z) * KQ, yb + z * KZ]); } return P; };
+      const area = (P, zt) => 'M' + cx + ' ' + yb + 'L' + P.map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L') + 'L' + cx + ' ' + (yb + zt * KZ).toFixed(1) + 'Z';
+      SV('path', { d: area(prof(C.qk * P0, C.bk * B0, ZM), ZM), fill: C.c, 'fill-opacity': .14 }, g);
+      SV('path', { d: area(prof(C.qk * P0, C.bk * B0, r1), r1), fill: C.c, 'fill-opacity': .42 }, g);
+      SV('path', { d: 'M' + prof(C.qk * P0, C.bk * B0, ZM).map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L'), fill: 'none', stroke: C.c, 'stroke-width': 2.2 }, g);
+      SV('path', { d: 'M' + prof(P0, B0, ZM).map(q => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L'), fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.8, 'stroke-dasharray': '6 4' }, g);
+      // σg/5 határ (n = 5)
+      SV('line', { x1: cx + crit(0) * KQ, y1: yb, x2: cx + crit(ZM) * KQ, y2: yE, stroke: '#d4553a', 'stroke-width': 2, 'stroke-dasharray': '7 4' }, g);
+      SV('text', { x: cx + crit(ZM) * KQ + 6, y: yE - 6, text: 'σ_{g}/5', 'font-size': 12.5, 'font-weight': 800, class: 'hl', style: 'fill:#c2412f' }, g);
+      // határmélység: előtte szaggatott, utána tömör vonal; metszéspontok
+      SV('line', { x1: 34, y1: y0, x2: PW - 14, y2: y0, stroke: 'var(--ink2)', 'stroke-width': 1.4, 'stroke-dasharray': '4 3' }, g);
+      SV('line', { x1: 34, y1: y1, x2: PW - 14, y2: y1, stroke: C.ci, 'stroke-width': 2 }, g);
+      SV('circle', { cx: cx + crit(r0) * KQ, cy: y0, r: 3.6, fill: 'var(--card)', stroke: 'var(--ink)', 'stroke-width': 1.6 }, g);
+      SV('circle', { cx: cx + crit(r1) * KQ, cy: y1, r: 4.2, fill: C.c, stroke: C.ci, 'stroke-width': 1.6 }, g);
+      const dz = Math.abs(r1 - r0) > .35;
+      if (dz) { const xa = 46; SV('line', { x1: xa, y1: y0 + 3, x2: xa, y2: y1 - 8, stroke: C.ci, 'stroke-width': 2 }, g); SV('path', { d: `M${xa - 5} ${y1 - 10}L${xa} ${y1 - 1}L${xa + 5} ${y1 - 10}Z`, fill: C.ci }, g); }
+      SV('text', { x: 56, y: y0 - 5, text: 'm_{0} = ' + fmt(r0, 1) + ' m', 'font-size': 12, 'font-weight': 700, class: 'hl', style: 'fill:var(--ink2)' }, g);
+      SV('text', { x: 56, y: dz ? y1 - 6 : y1 + 16, text: 'm_{0} = ' + fmt(r1, 1) + ' m', 'font-size': 13, 'font-weight': 800, class: 'hl', style: `fill:${C.ci}` }, g);
+      // Δσz-tengely: 100 és 200 kPa
+      [100, 200].forEach(v => { const x = cx + v * KQ; SV('line', { x1: x, y1: yb + 2, x2: x, y2: yE, stroke: 'var(--line)', 'stroke-width': 1, 'stroke-dasharray': '2 4' }, g); SV('text', { x: v === 100 ? x : x + 12, y: yE + 16, 'text-anchor': v === 100 ? 'middle' : 'end', text: v === 100 ? '100' : '200 kPa', 'font-size': 11.5, 'font-weight': 700, style: 'fill:var(--mute)' }, g); });
+      SV('text', { x: cx + 6, y: yE + 16, text: 'Δσ_{z}', 'font-size': 12.5, 'font-weight': 800, style: 'fill:var(--ink)' }, g);
+      // tengely (a karakterisztikus pont függőlegese)
+      SV('line', { x1: cx, y1: yb - 12, x2: cx, y2: yE + 4, stroke: 'var(--ink)', 'stroke-width': 1.2, 'stroke-dasharray': '10 3 2 3' }, g);
+      // terep/alapsík, alaptest (előtte szaggatott, utána tömör), teherblokk (magasság ∝ p0)
       SV('line', { x1: 34, y1: yb, x2: PW - 14, y2: yb, stroke: '#7d9a5b', 'stroke-width': 3 }, g);
-      const b1 = C.bk * B, q1 = C.qk * 26, ft = 12;
-      SV('rect', { x: cx - b1 / 2, y: yb - ft - q1, width: b1, height: q1, fill: C.c, 'fill-opacity': .35, stroke: C.c, 'stroke-width': 1.6 }, g);
-      const na = Math.max(3, Math.round(b1 / 11)); for (let k = 0; k < na; k++) { const x = cx - b1 / 2 + (k + .5) * b1 / na; SV('line', { x1: x, y1: yb - ft - q1 + 3, x2: x, y2: yb - ft - 7, stroke: C.ci, 'stroke-width': 1.5 }, g); SV('path', { d: `M${x - 3.5} ${yb - ft - 9}L${x} ${yb - ft - 2}L${x + 3.5} ${yb - ft - 9}Z`, fill: C.ci }, g); }
-      SV('rect', { x: cx - b1 / 2, y: yb - ft, width: b1, height: ft, fill: '#c3c7ca', stroke: '#4b5458', 'stroke-width': 1.6 }, g);
-      SV('rect', { x: cx - B / 2, y: yb - ft - 26, width: B, height: 26 + ft, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.6, 'stroke-dasharray': '5 3' }, g);
-      SV('text', { x: cx + Math.max(b1, B) / 2 + 8, y: yb - ft - q1 + 12, text: C.qk === 2 ? '2q' : 'q', 'font-size': 14, 'font-weight': 800, style: `fill:${C.ci}` }, g);
-      const yt = yb - ft - Math.max(q1, 26) - 10; SV('line', { x1: cx - b1 / 2, y1: yt, x2: cx + b1 / 2, y2: yt, stroke: C.ci, 'stroke-width': 1.3 }, g); [cx - b1 / 2, cx + b1 / 2].forEach(x => SV('line', { x1: x, y1: yt - 5, x2: x, y2: yt + 5, stroke: C.ci, 'stroke-width': 1.3 }, g));
-      SV('text', { x: cx, y: yt - 6, 'text-anchor': 'middle', text: C.bk === 1 ? 'b' : C.bk === 2 ? '2b' : 'b/2', 'font-size': 13, 'font-weight': 800, class: 'hl', style: `fill:${C.ci}` }, g);
-      // tanulság
-      C.d.forEach((ln, k) => SV('text', { x: PW / 2, y: yb + ZM * KZ + 44 + k * 18, 'text-anchor': 'middle', text: ln, 'font-size': 13.5, 'font-weight': k ? 600 : 700, style: 'fill:var(--ink)' }, g));
+      const b1 = C.bk * B0 * KZ, bb = B0 * KZ, q1 = C.qk * 26, ft = 12;
+      const fx = cx - .37 * b1, fx0 = cx - .37 * bb;   // az alap közepe: a karakterisztikus pont a középvonaltól 0,37·B-re van
+      SV('rect', { x: fx - b1 / 2, y: yb - ft - q1, width: b1, height: q1, fill: C.c, 'fill-opacity': .35, stroke: C.c, 'stroke-width': 1.6 }, g);
+      const na = Math.max(3, Math.round(b1 / 11)); for (let k = 0; k < na; k++) { const x = fx - b1 / 2 + (k + .5) * b1 / na; SV('line', { x1: x, y1: yb - ft - q1 + 3, x2: x, y2: yb - ft - 7, stroke: C.ci, 'stroke-width': 1.5 }, g); SV('path', { d: `M${x - 3.5} ${yb - ft - 9}L${x} ${yb - ft - 2}L${x + 3.5} ${yb - ft - 9}Z`, fill: C.ci }, g); }
+      SV('rect', { x: fx - b1 / 2, y: yb - ft, width: b1, height: ft, fill: '#c3c7ca', stroke: '#4b5458', 'stroke-width': 1.6 }, g);
+      SV('rect', { x: fx0 - bb / 2, y: yb - ft - 26, width: bb, height: 26 + ft, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.6, 'stroke-dasharray': '5 3' }, g);
+      SV('text', { x: Math.max(fx + b1 / 2, fx0 + bb / 2) + 8, y: yb - ft - q1 + 12, text: C.qk === 2 ? '2p_{0}' : 'p_{0}', 'font-size': 14, 'font-weight': 800, style: `fill:${C.ci}` }, g);
+      const yt = yb - ft - Math.max(q1, 26) - 10; SV('line', { x1: fx - b1 / 2, y1: yt, x2: fx + b1 / 2, y2: yt, stroke: C.ci, 'stroke-width': 1.3 }, g); [fx - b1 / 2, fx + b1 / 2].forEach(x => SV('line', { x1: x, y1: yt - 5, x2: x, y2: yt + 5, stroke: C.ci, 'stroke-width': 1.3 }, g));
+      SV('text', { x: fx, y: yt - 6, 'text-anchor': 'middle', text: C.bk === 1 ? 'B' : C.bk === 2 ? '2B' : 'B/2', 'font-size': 13, 'font-weight': 800, class: 'hl', style: `fill:${C.ci}` }, g);
+      SV('circle', { cx, cy: yb, r: 3.4, fill: 'var(--ink)' }, g);   // karakterisztikus pont
+      // tanulság: mi történik a többletfeszültséggel és a határmélységgel
+      SV('text', { x: PW / 2, y: yE + 44, 'text-anchor': 'middle', text: C.d, 'font-size': 13.5, 'font-weight': 700, style: 'fill:var(--ink)' }, g);
+      SV('text', { x: PW / 2, y: yE + 63, 'text-anchor': 'middle', text: `határmélység: ${fmt(r0, 1)} m → ${fmt(r1, 1)} m`, 'font-size': 13.5, 'font-weight': 700, style: `fill:${C.ci}` }, g);
     });
   };
   draw(); let lw = host.clientWidth; addEventListener('resize', () => { if (Math.abs(host.clientWidth - lw) > 20) { lw = host.clientWidth; draw(); } });

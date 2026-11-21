@@ -1,15 +1,6 @@
 # 2026-11-21: alaptest és teher hatása – előtte/utána feszültségábrák; 1/B régi ábrák nélkül
 4656936	Ground improvement is the artificial improvement of the properties of the soils below the foundation that are dangerous in terms of settlement – by introducing foreign material and/or by <b>compacting</b> the soil. Four mechanical methods are presented below.
-57d4aa7	Dashed: the original strip footing of width b and contact pressure q; coloured: the modified one. On the left, the stress bulb (where σ<sub>z</sub> is 20 % of the footing's own contact pressure); on the right, the vertical stress σ<sub>z</sub> on the axis of the footing – calculated for an elastic half-space, with depth in units of b. The depth of the effect is set by the <b>width</b> of the foundation, the magnitude of the stress by the <b>contact pressure</b>.
-64cd2b8	b – unchanged
 a56bb0a	after: 
-5dc1149	before: b, q
-43982b5	but the bulb is half as deep
-bc5b868	Twice the stress at the top,
 2ada412	3. Half the area
-0bb46e6	but it reaches twice as deep
-e446b26	The same stress at the top,
 7780349	2. Double width
-8185879	the depth of the bulb does not change
-a1b804a	Double stress at every depth,
 0a2741b	1. Double load

@@ -41,7 +41,6 @@ a5eadac	Case A: soft clay on top, sand below
 aba78ee	Depth of foundation level D <span class="v" data-for="simD"></span>
 6d9b92d	Column load N <span class="v" data-for="simN"></span>
 c34dd27	Influence depth / stress distribution
-c2e540c	stress bulb
 885223e	Settlement exaggeration <span class="v" data-for="simEx"></span>
 2741182	=
 6bf4176	<span>contact pressure q</span><b id="rQ"></b>
@@ -55,7 +54,6 @@ e7b303c	Contribution by layer
 230bdde	the wider footing itself means a <b>greater weight</b>,
 684ba4e	and above all, under a wider foundation the stresses causing compression reach <b>greater depths</b> – <b>the influence depth increases</b>.
 b1d87b9	It is effective if there are <b>less compressible layers deeper down</b> (case A). In case B, widening puts more stress on the softer clay layer lower down – so the settlement may even <b>increase</b>: exactly the opposite of what we wanted!
-0e75d15	Cases A and B – how deep does the stress bulb reach?
 f2d42f4	Foundation width <span class="v" data-for="abB"></span>
 f8519dd	Effect of footing size and load on the stresses
 c529c3b	Deeper foundation level – and the basement

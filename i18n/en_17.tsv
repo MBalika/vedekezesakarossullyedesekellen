@@ -1,0 +1,11 @@
+# 2026-11-21: 1/A és A/B ábra – Kany-féle számítás, határmélység (feszültségbura helyett)
+eaffaea	pressure bulb
+12c6bd5	Kany's stress calculation under a strip footing: Δσ<sub>z</sub> = p<sub>0</sub> · k(z/B), with the factors for the characteristic point (B/L = 0); p<sub>0</sub> = σ<sub>contact</sub> − σ<sub>g</sub> is the additional stress. Dashed: the original footing (B = 2.0 m, p<sub>0</sub> = 100 kPa); coloured: the modified one. The red dashed line is the σ<sub>g</sub>/5 limit (σ<sub>g</sub> = γ · (D + z), γ = 20 kN/m³, D = 1.0 m): where the additional-stress diagram crosses it lies the <b>influence depth</b> (m<sub>0</sub>, n = 5). The magnitude of the additional stress is set by the contact pressure, its decrease with depth by the <b>width</b> of the footing – both change the influence depth.
+c3175ef	Square pad footing, p<sub>0</sub> = 150 kPa additional stress, Kany's stress calculation; the influence depth lies where Δσ<sub>z</sub> = σ<sub>g</sub>/5 (γ = 20 kN/m³, D = 1.0 m). The upper layer is 3.0 m thick.
+5b6496f	Cases A and B – where does the influence depth lie?
+885488d	influence depth: ${fmt(r0, 1)} m → ${fmt(r1, 1)} m
+e9297de	before: B, p_{0}
+a0a65ae	Twice as large at the top, but decays quickly
+7cddd73	Same at the top, but decreases more slowly
+c1bffb3	Twice the Δσ_{z} at every depth
+f544c20	the influence depth is still in the upper layer
