@@ -217,13 +217,59 @@ const strip = (host, steps, opt = {}) => {
 (function groutFig() {
   const host = $('#ijFig'); if (!host) return;
   const soil = [{ to: GB, fill: 'url(#pSand)' }];
-  const drill = (g, x, toolY) => { tracks(g, x - 6, 56, GY); R(x - 4, GY - 32, 40, 20, { rx: 3, fill: C.yel, stroke: C.yelD }, g); R(x - 12, 62, 6, GY - 72, { fill: C.yel, stroke: C.yelD, 'stroke-width': .8 }, g); L(x - 6, 96, x + 6, GY - 32, { stroke: C.yelD, 'stroke-width': 2 }, g); R(x - 13, 62, 8, 12, { fill: '#5d646b' }, g); L(x - 9, 74, x - 9, toolY, { stroke: C.steelD, 'stroke-width': 3 }, g); };
-  const house = (g) => { R(160, 86, 84, GY - 86, { fill: '#efe6d8', stroke: '#8a7f70' }, g); P('M154 88L202 60L250 88Z', { fill: '#b5543c' }, g); R(176, 102, 16, 16, { fill: '#cfe6f2', stroke: '#8a7f70' }, g); R(208, 112, 16, 38, { fill: '#9b7350' }, g); R(156, GY, 92, 14, { fill: C.conc, stroke: '#7c848c' }, g); };
+  /* a megerősítendő épület és alaptestje középen; az injektálás az alaptest alá irányul:
+     ferde furatok a fal két oldaláról, a csúcsuk az alaptest alatt */
+  const FL = 86, FR = 214, FY = GY + 14;                       // alaptest széle és alsó síkja
+  const holes = [{ x0: 70, x1: 130 }, { x0: 230, x1: 170 }];  // belépés a terepen → csúcs az alaptest alatt
+  const TIPY = GY + 66;
+  const at = (h, t) => [h.x0 + (h.x1 - h.x0) * t, GY + (TIPY - GY) * t];
+  const house = (g) => {
+    R(96, 84, 108, GY - 84, { fill: '#efe6d8', stroke: '#8a7f70' }, g); P('M90 86L150 54L210 86Z', { fill: '#b5543c' }, g);
+    R(110, 100, 18, 18, { fill: '#cfe6f2', stroke: '#8a7f70' }, g); R(170, 100, 18, 18, { fill: '#cfe6f2', stroke: '#8a7f70' }, g); R(140, 116, 20, 34, { fill: '#9b7350' }, g);
+    R(FL, GY, FR - FL, 14, { fill: C.conc, stroke: '#7c848c' }, g);
+  };
+  /* kis fúrógép a bal oldalon, ferde árboccal; a fúrórúd a furat irányában az alaptest alá hatol */
+  const drill = (g, depthT) => {
+    const h = holes[0], dx = (h.x1 - h.x0) / (TIPY - GY);
+    tracks(g, 2, 52, GY); R(6, GY - 30, 40, 18, { rx: 3, fill: C.yel, stroke: C.yelD }, g);
+    const mtop = [h.x0 - dx * 56, GY - 56]; L(mtop[0], mtop[1], h.x0, GY - 4, { stroke: C.yel, 'stroke-width': 7 }, g); L(mtop[0], mtop[1], h.x0, GY - 4, { stroke: C.yelD, 'stroke-width': 1, 'stroke-dasharray': '3 5' }, g);
+    L(36, GY - 30, h.x0 - dx * 30, GY - 30, { stroke: C.yelD, 'stroke-width': 2 }, g);
+    const tip = at(h, depthT); L(h.x0 - dx * 40, GY - 40, tip[0], tip[1], { stroke: C.steelD, 'stroke-width': 3 }, g);
+    R(h.x0 - dx * 44 - 6, GY - 50, 12, 12, { rx: 2, fill: '#5d646b' }, g);
+    return tip;
+  };
+  /* perforált (szelepes) injektálócső a furatban */
+  const pipe = (g, h, op = 1) => {
+    const [ax, ay] = [h.x0, GY - 8], [bx, by] = at(h, 1); L(ax, ay, bx, by, { stroke: '#9aa1a6', 'stroke-width': 6, 'stroke-linecap': 'round', opacity: op }, g); L(ax, ay, bx, by, { stroke: C.steelD, 'stroke-width': .8, opacity: op }, g);
+    const nx = -(by - ay), ny = bx - ax, nl = Math.hypot(nx, ny);
+    for (let t = .35; t <= 1; t += .13) { const [px, py] = [ax + (bx - ax) * t, ay + (by - ay) * t]; L(px - nx / nl * 5, py - ny / nl * 5, px + nx / nl * 5, py + ny / nl * 5, { stroke: C.steelD, 'stroke-width': 1.2, opacity: op }, g); }
+    R(ax - 5, ay - 6, 10, 7, { rx: 2, fill: C.steelD, opacity: op }, g);
+  };
+  const bulbs = (g, h, n = 3) => { for (let k = 0; k < n; k++) { const [x, y] = at(h, 1 - k * .16); SV('ellipse', { cx: x, cy: y, rx: 16 - k * 3, ry: 10 - k, fill: 'var(--violet)', opacity: .42 - k * .08 }, g); } };
   strip(host, [
-    { t: 'Furatkészítés', c: ['ütve-, rotary vagy vésős fúrás,', 'csőleverés – az első lépés mindig'], d: (g, s) => { ground(g, soil); house(g); drill(g, 70, 226); shake(g, 61, 216); } },
-    { t: 'Injektálócső', c: ['perforált (szelepes) cső a furatban;', 'jellemzően 50–100 cm-enként'], d: (g, s) => { ground(g, soil); house(g); [100, 132].forEach(x => { R(x - 3, GY - 8, 6, 236 - GY + 8, { fill: '#9aa1a6', stroke: C.steelD, 'stroke-width': .8 }, g); for (let y = GY + 16; y < 232; y += 14) L(x - 5, y, x + 5, y, { stroke: C.steelD, 'stroke-width': 1.2 }, g); }); tag(g, 116, 78, '50–100 cm', { c: 'var(--ink2)' }); } },
-    { t: 'Besajtolás', c: ['cementszuszpenzió, -habarcs vagy', 'vegyi oldat – alulról felfelé'], d: (g, s) => { ground(g, soil); house(g); R(16, GY - 30, 36, 24, { rx: 3, fill: '#6a7076' }, g); SV('circle', { cx: 34, cy: GY - 18, r: 7, fill: '#cfd3d6', stroke: C.dark }, g); P(`M52 ${GY - 18}Q86 ${GY - 30} 100 ${GY - 8}`, { stroke: '#333', 'stroke-width': 2, fill: 'none' }, g); R(97, GY - 8, 6, 84, { fill: '#9aa1a6', stroke: C.steelD, 'stroke-width': .8 }, g); [218, 196, 174].forEach((y, k) => SV('ellipse', { cx: 100, cy: y, rx: 22 - k * 3, ry: 12, fill: 'var(--violet)', opacity: .32 + k * .08 }, g)); arrowUp(g, 120, 226, 176, 'var(--violet-ink)', 1.6, 4); } },
-    { t: 'Hatás', c: ['kisebb hézagtérfogat: jobb szilárdsági', 'és alakváltozási tulajdonságok'], d: (g, s) => { ground(g, soil); house(g); SV('ellipse', { cx: 200, cy: GY + 40, rx: 70, ry: 40, fill: 'var(--violet)', opacity: .35 }, g); SV('ellipse', { cx: 200, cy: GY + 40, rx: 70, ry: 40, fill: 'url(#pGrav)', opacity: .35 }, g); tag(g, 200, GY + 44, 'injektált zóna', { c: 'var(--violet-ink)' }); } },
+    { t: 'Furatkészítés', c: ['ütve-, rotary vagy vésős fúrás,', 'csőleverés – az első lépés mindig'], d: (g, s) => {
+      ground(g, soil); house(g); const tip = drill(g, 1); shake(g, tip[0] - 4, tip[1] - 6);
+      const h = holes[1], [bx, by] = at(h, 1); L(h.x0, GY, bx, by, { stroke: 'var(--ink2)', 'stroke-width': 1.6, 'stroke-dasharray': '4 3' }, g);
+    } },
+    { t: 'Injektálócső', c: ['perforált (szelepes) cső a furatban;', 'jellemzően 50–100 cm-enként'], d: (g, s) => {
+      ground(g, soil); house(g); holes.forEach(h => pipe(g, h));
+    } },
+    { t: 'Besajtolás', c: ['cementszuszpenzió, -habarcs vagy', 'vegyi oldat – alulról felfelé'], d: (g, s) => {
+      ground(g, soil); house(g); holes.forEach(h => pipe(g, h)); bulbs(g, holes[0]); bulbs(g, holes[1], 1);
+      R(8, GY - 30, 34, 24, { rx: 3, fill: '#6a7076' }, g); SV('circle', { cx: 25, cy: GY - 18, r: 7, fill: '#cfd3d6', stroke: C.dark }, g);
+      P(`M42 ${GY - 18}Q56 ${GY - 30} ${holes[0].x0} ${GY - 12}`, { stroke: '#333', 'stroke-width': 2, fill: 'none' }, g);
+      // nyíl a cső mentén felfelé (alulról felfelé injektálnak, csőhúzás közben)
+      const h = holes[0], [x1, y1] = at(h, .95), [x2, y2] = at(h, .5), len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len, px = -uy, py = ux, off = 13;
+      const sx = x1 + px * off, sy2 = y1 + py * off, ex = x2 + px * off, ey = y2 + py * off;
+      L(sx, sy2, ex - ux * 6, ey - uy * 6, { stroke: 'var(--violet-ink)', 'stroke-width': 1.8 }, g);
+      P(`M${ex.toFixed(1)} ${ey.toFixed(1)}L${(ex - ux * 9 + px * 4.5).toFixed(1)} ${(ey - uy * 9 + py * 4.5).toFixed(1)}L${(ex - ux * 9 - px * 4.5).toFixed(1)} ${(ey - uy * 9 - py * 4.5).toFixed(1)}Z`, { fill: 'var(--violet-ink)' }, g);
+    } },
+    { t: 'Hatás', c: ['kisebb hézagtérfogat: jobb szilárdsági', 'és alakváltozási tulajdonságok'], d: (g, s) => {
+      ground(g, soil);
+      SV('ellipse', { cx: 150, cy: FY + 32, rx: 74, ry: 32, fill: 'var(--violet)', opacity: .36 }, g); SV('ellipse', { cx: 150, cy: FY + 32, rx: 74, ry: 32, fill: 'url(#pGrav)', opacity: .32 }, g);
+      holes.forEach(h => pipe(g, h, .35)); house(g);
+      tag(g, 150, FY + 40, 'injektált zóna', { c: 'var(--violet-ink)' });
+    } },
   ]);
 })();
 
