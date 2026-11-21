@@ -34,11 +34,7 @@ d175e55	=
 3945320	<b>Pinned joints (determinate):</b> no restraint forces, the hinges rotate – but the <b>distortion</b> causes cracking and sticking in the infill walls. ${d > 20 ? '<span class="status b">falrepedések</span>' : ''}
 8945fa8	<span class="status b">wall cracks</span>
 54dffd4	=
-84c886b	=
 66d9894	settlement joint
-0fca6cf	crack at the junction
-d013452	tall, heavy building part
-2d03c2a	low, light part
 0c0c71d	=
 496f7b7	 months
 38b8ae3	risky range (stability!)

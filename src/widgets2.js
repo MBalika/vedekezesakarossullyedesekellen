@@ -436,21 +436,6 @@ const animate = (dur, fn, done) => { const t0 = performance.now(); const st = (t
   window.U.seg('frType', v => { rigid = v === 'rigid'; draw(); }); bindR(['frD'], draw); draw();
 })();
 
-/* ---------- süllyedési hézag ---------- */
-(function joint() {
-  const host = $('#jtSvg'); if (!host) return; let j = false;
-  const draw = () => {
-    const u = rv('jtS') / 100; out('jtS', pct(u * 100)); const W = 600, Hh = 270, gy = 210; const s = svg(host, W, Hh); pat(s); SV('rect', { x: 0, y: gy, width: W, height: Hh - gy, fill: 'url(#pClay)' }, s); SV('text', { x: 12, y: Hh - 10, text: 'összenyomható agyag', 'font-size': 12.5, 'font-weight': 700, class: 'hl' }, s);
-    const sT = 40 * u, sL = 10 * u; // magas rész többet süllyed
-    if (j) { SV('rect', { x: 120, y: gy - 170 + sT, width: 180, height: 170, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, s); SV('rect', { x: 306, y: gy - 70 + sL, width: 200, height: 70, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, s); SV('line', { x1: 303, x2: 303, y1: gy - 175, y2: gy + 6, stroke: '#2b78ad', 'stroke-width': 2, 'stroke-dasharray': '5 4' }, s); SV('text', { x: 310, y: gy - 150, text: 'süllyedési hézag', 'font-size': 12, 'font-weight': 700, fill: '#2b78ad' }, s); }
-    else { const pts = `120,${gy - 170 + sT} 300,${gy - 170 + sT} 300,${gy - 70 + sT * .7} 506,${gy - 70 + sL} 506,${gy + sL} 300,${gy + sT * .7} 120,${gy + sT}`; SV('polygon', { points: pts, fill: '#f5efe2', stroke: '#5b524a', 'stroke-width': 2 }, s); if (u > .25) { SV('path', { d: `M300,${gy - 70 + sT * .7} l14,${10 + u * 6} l-6,${8} l16,${12 + u * 10} l-6,${10} l12,${12}`, stroke: u > .6 ? '#b5302a' : '#3b2f28', 'stroke-width': 1.5 + u * 3, fill: 'none' }, s); SV('text', { x: 330, y: gy - 92, text: 'repedés a csatlakozásnál', 'font-size': 12, 'font-weight': 700, fill: '#b5302a' }, s); } }
-    for (let k = 0; k < 4; k++) for (let i = 0; i < 4; i++) SV('rect', { x: 140 + i * 40, y: gy - 155 + k * 40 + sT, width: 16, height: 18, fill: '#9fc3d6' }, s);
-    for (let i = 0; i < 4; i++) SV('rect', { x: 330 + i * 44, y: gy - 52 + sL, width: 18, height: 18, fill: '#9fc3d6' }, s);
-    SV('text', { x: 130, y: 22, text: 'magas, nehéz épületrész', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)' }, s); SV('text', { x: 360, y: 22, text: 'alacsony, könnyű rész', 'font-size': 12, 'font-weight': 700, fill: 'var(--ink2)' }, s);
-  };
-  $('#jtTgl').addEventListener('change', e => { j = e.target.checked; draw(); }); bindR(['jtS'], draw); draw();
-})();
-
 /* ---------- g) építési ütem telített agyagon ---------- */
 (function pace() {
   const host = $('#paSvg'); if (!host) return;

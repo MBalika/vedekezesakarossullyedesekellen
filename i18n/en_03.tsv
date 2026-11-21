@@ -34,10 +34,6 @@ cd3c9b1	Additional stress from the building Δσ <span class="v" data-for="plB">
 77bd7a7	pinned joints
 35e7e1c	Settlement of the right-hand column δ <span class="v" data-for="frD"></span>
 6fd9b4c	In an area prone to settlement, design a <b>statically determinate</b> structure if possible: there are no rigid connections, and in the event of significant differential settlement the columns, beams and floors can rotate relative to each other (pinned connections), so no additional internal forces develop.
-e38f26c	Settlement joint
-f2c9242	joint
-1e61690	Consolidation progress <span class="v" data-for="jtS"></span>
-e1972f4	Long building parts with different loads are best separated by a settlement joint – it is needed anyway because of thermal expansion.
 ee3908a	<b>Utilities:</b> for structures designed for large settlement, proper connection of service pipes and utilities has to be provided – <b>oval opening, flexible pipe + sleeve</b>.
 7fad165	The right construction sequence
 d266962	<b>Structural parts sensitive</b> to settlement should be built <b>as late as possible</b>. Opposing tendencies:
