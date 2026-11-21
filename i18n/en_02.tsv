@@ -55,8 +55,6 @@ e7b303c	Contribution by layer
 44ffb6c	📌 Set as baseline
 1930a86	▶ Widening
 1a2b4b3	▶ Deepening
-8ae73c8	Stress below the foundation level
-376a543	Settlement as a function of the variable
 6484150	Using a lower contact pressure
 512bb95	We build a foundation with a <b>larger area</b> than bearing resistance alone would require. Lower stresses develop under a wider foundation. In many cases, however, it does not reduce the settlement as much as the designer expects:
 230bdde	the wider footing itself means a <b>greater weight</b>,
@@ -71,8 +69,6 @@ c529c3b	Deeper foundation level – and the basement
 4febf1b	the foundation level reaches (or may reach) a deeper bearing layer;
 edc350d	the <b>weight of the excavated soil</b> increases – this unloads the subsoil.
 747d336	If the mass of soil excavated for the “basement” is greater than that of the structure placed there, the resultant of the effective stresses transferred to the subsoil is “negative”, and the structure (with a sufficiently rigid RC raft) will be practically immobile – this is the principle of the <b>compensated foundation</b>.
-88d36a7	Deeper foundation level with a basement
-714d7b9	The role of excavation
 2c8a856	Excavation and compensation
 78ac2a8	▶ Construction
 c58155e	Storeys above ground <span class="v" data-for="bsN"></span>
@@ -100,7 +96,3 @@ b34c7b3	🧱 Layers ≤ 30 cm
 d5179e8	Watch it as an animation
 cfe56b1	Deep compaction – vibroflotation
 14e1534	To reduce the compressibility and increase the strength of loose granular soils and fills. A vibrating tube (deep vibrator) <b>25–40 cm in diameter</b>, suspended from a crane, penetrates under its own weight, assisted by <b>water jetting (flushing)</b>. The soil around the hole is compacted; as the vibrator is gradually raised, gravel, hoggin, mine waste or sand is fed into the hole and compacted by the rising vibrator.
-4f52301	1 · Penetration
-ac5e02c	2 · Compaction
-a5f1f16	3 · Withdrawal + backfilling
-e8d439a	4 · Done

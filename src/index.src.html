@@ -80,24 +80,23 @@
     </div>
     <div class="panel"><div class="ph"><h4>A és B eset – meddig ér a feszültségbura?</h4></div><div class="pb"><div id="abSvg"></div><div class="ctl"><label>Alapszélesség <span class="v" data-for="abB"></span></label><input type="range" id="abB" min="1" max="4.2" step="0.1" value="1.4"></div></div></div>
   </div>
-  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg" style="max-width:860px;margin:0 auto"></div><p class="src" style="margin:4px 0 0">A szaggatott vonal az eredeti (b szélességű, q talpfeszültségű) alap feszültségburája. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
+  <div class="panel" style="margin-top:18px"><div class="ph"><h4>Az alaptest és a teher nagyságának hatása a feszültségekre</h4></div><div class="pb"><div id="tcSvg"></div><p class="src" style="margin:6px 0 0">Szaggatott: az eredeti, b szélességű és q talpfeszültségű sávalap; színes: a módosított. Balra a feszültségbura (ahol σ<sub>z</sub> az alap saját talpfeszültségének 20 %-a), jobbra a σ<sub>z</sub> függőleges feszültség az alaptest tengelyében – rugalmas féltérben számolva, a mélység b egységekben. A hatás mélységét az alap <b>szélessége</b> szabja meg, a feszültség nagyságát a <b>talpfeszültség</b>.</p></div></div>
 
   <div class="sub-h" id="alapsik"><span class="lt">1/B</span><h3>Alapsík mélyebbre vitele – és a pince</h3></div>
-  <div class="twocol">
+  <div class="twocol tw-top tw-b">
     <div>
       <p>Akkor jön számításba, ha a térszínközeli kompresszibilis rétegben felvett alapsík esetén túl nagy süllyedés adódik, és nem túl nagy mélységben (pár méterre) <b>kevésbé összenyomódó, jobb teherbíró</b> talaj van. Ekkor az alapok melletti takarás megnő, így a talajtöréssel szembeni biztonság növekszik, az alapszélesség csökkenthető.</p>
       <div class="callout warn"><span class="ci">!</span><p><b>2–2,5 m-nél mélyebb sávalapot</b> már nem gazdaságos készíteni – ilyenkor pilléralapozás (vagy kútalapozás) célszerű, amelyet felül gerendarács köt össze.</p></div>
       <p>Ilyen talajviszonyok mellett érdemes <b>pincét</b> készíteni, ha a terepszint alatti helyiségek is hasznosíthatók. A pince hatása kettős:</p>
       <ul><li>mélyebben fekvő teherbíró rétegre kerül(het) az alapsík;</li><li>nő a <b>kiemelt földtömeg súlya</b> – ez tehermentesíti az altalajt.</li></ul>
       <p>Ha a „pince” helyéről kiemelt talaj tömege nagyobb az oda kerülő építményénél, az altalajra hárított hatékony feszültségek eredője „negatív”, és az építmény (kellően merev vb. lemezalap esetén) gyakorlatilag mozdulatlan lesz – ez a <b>kompenzált alapozás</b> elve.</p>
-      <div class="grid g2"><figure class="photo contain"><img src="img/pince-abra.jpg" alt="Mélyebb alapsík felvétele pincével" loading="lazy" style="height:170px;padding:8px"><figcaption>Mélyebb alapsík felvétele pincével</figcaption></figure><figure class="photo contain"><img src="img/foldkiemeles-abra.jpg" alt="A földkiemelés szerepe" loading="lazy" style="height:170px;padding:8px"><figcaption>A földkiemelés szerepe</figcaption></figure></div>
       <div class="callout dyk"><span class="ci">★</span><p><b>Tudtad?</b> Mexikóváros antennával együtt 182 m magas, 44 szintes Torre Latinoamericanája (1956) a rendkívül összenyomható vulkáni agyagon áll: alaplemeze 13,5 m mélyen van, a terhet 361 cölöp adja le a 33 m mélyen lévő tömör homokrétegre. Statikus és alapozási tervezője, Leonardo Zeevaert a kiemelt talaj súlyát is kihasználta – a torony „nem süllyed, hanem úszik”, és az 1957-es 7,9-es erősségű földrengést is kiállta.</p></div>
     </div>
-    <div class="panel"><div class="ph"><h4>Földkiemelés és kompenzáció</h4><button class="chip" id="bsPlay">▶ Építés</button></div><div class="pb">
+    <div class="panel"><div class="ph"><h4>Földkiemelés és kompenzáció</h4><button class="chip" id="bsPlay">▶ Építés</button></div><div class="pb ctl2">
       <div id="bsSvg"></div>
       <div class="ctl"><label>Felszín feletti szintek <span class="v" data-for="bsN"></span></label><input type="range" id="bsN" min="1" max="14" value="6"></div>
       <div class="ctl"><label>Pinceszintek <span class="v" data-for="bsP"></span></label><input type="range" id="bsP" min="0" max="3" value="1"></div>
-      <div class="ctl"><label>Építés készültsége <span class="v" data-for="bsT"></span></label><input type="range" id="bsT" min="0" max="100" value="100"></div>
+      <div class="ctl" style="grid-column:1/-1"><label>Építés készültsége <span class="v" data-for="bsT"></span></label><input type="range" id="bsT" min="0" max="100" value="100"></div>
       <div class="res" id="bsOut"></div>
       <div class="insight" id="bsMsg"></div>
       <p class="src" style="margin:8px 0 0">Szemléltetés: kb. 12 kPa/szint + 15 kPa alaplemez, γ = 19 kN/m³.</p>
@@ -140,10 +139,6 @@
       <div style="margin-top:10px;font-size:13.5px" id="rCmp"></div>
       <div class="btns" style="margin-top:12px"><button class="chip" id="simPin">📌 Rögzítem kiindulónak</button><button class="chip" id="simPlayB">▶ Szélesítés</button><button class="chip" id="simPlayD">▶ Mélyítés</button><button class="chip" id="simReset">↺</button></div>
     </div></div>
-  </div>
-  <div class="charts">
-    <div class="panel"><div class="ph"><h4>Feszültség az alapsík alatt</h4></div><div class="pb"><svg class="svgbox" id="simDepth"></svg></div></div>
-    <div class="panel"><div class="ph"><h4>Süllyedés a változó függvényében</h4><div class="seg" id="simCurveSel"><button data-v="B" class="on">s(B)</button><button data-v="D">s(D)</button></div></div><div class="pb"><svg class="svgbox" id="simCurve"></svg></div></div>
   </div>
   <p class="src" style="margin-top:10px">A szimulátor a pontosabb süllyedésszámítás lépéseit követi: tartós teher → feszültség az alaptest alatt (négyszög alakú terhelt felület középpontja alatt, Steinbrenner; vagy Jáky-féle lineáris közelítés) → határmélység (Jáky: m<sub>0</sub> = B négyzetes alapnál; vagy a hazai gyakorlat szerinti 0,2·σ<sub>0</sub> kritérium) → rétegenkénti összegzés: s = Σ Δσ<sub>z</sub>·Δh / E<sub>oed</sub>. A földkiemelés hatását a q<sub>0</sub> = q − γ·D többletfeszültség veszi figyelembe; az alaptest és a visszatöltés súlya a teherhez adódik. Oktatási modell, nem tervezőprogram.</p>
   <div class="quiz" id="q3"><div class="qh"><h4>Önellenőrzés · 1/A–1/B</h4><div class="dots"></div></div></div>
@@ -188,7 +183,7 @@
 
 <!-- 2. MECHANIKAI TÖMÖRÍTÉS -->
 <section class="chap c-amber grp" id="tomorites"><div class="wrap">
-  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">2. módszercsoport · talajszilárdítás mechanikai eljárásokkal</div><h2>Mechanikai tömörítés</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával, vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be – a csoport végén egy valós felvétel a talajjavítások egészéről.</p></div></div>
+  <div class="chhead"><div class="chnum">2</div><div><div class="kicker">2. módszercsoport · talajszilárdítás mechanikai eljárásokkal</div><h2>Mechanikai tömörítés</h2><p class="lead">Talajszilárdításnak nevezzük az alap alatti, a süllyedés szempontjából veszélyes talajok tulajdonságainak mesterséges javítását – idegen anyag bejuttatásával és/vagy a talaj <b>tömörítésével</b>. Az alábbiakban négy mechanikai eljárást mutatunk be.</p></div></div>
   <div class="tabs" data-group="mech" id="t-mech"><button data-tab="m1" class="on"><span class="n">2/A</span>Mélytömörítés</button><button data-tab="m2"><span class="n">2/B</span>Dinamikus tömörítés</button><button data-tab="m3"><span class="n">2/C</span>Kőtömzs</button><button data-tab="m4"><span class="n">2/D</span>Kavicscölöp</button></div>
 
   <div class="tabpane on" data-group="mech" data-tab="m1">
@@ -202,21 +197,6 @@
       </div>
     </div>
     <div data-ytc="Gca4PGhTC5o"></div>
-    <h4 class="tryh">Próbáld ki: vibroflotáció lépésről lépésre</h4>
-    <div class="twocol tw-top">
-      <div>
-        <div class="stepper" id="vibSteps"><button data-v="0" class="on">1 · Lehatolás</button><button data-v="1">2 · Tömörítés</button><button data-v="2">3 · Felhúzás + töltés</button><button data-v="3">4 · Kész</button></div>
-        <div class="panel"><div class="pb"><div id="vibSvg"></div><p id="vibTxt" style="margin:8px 0 0"></p></div></div>
-      </div>
-      <div>
-        <div class="panel"><div class="ph"><h4>Mikor működik? – finomszem-tartalom</h4></div><div class="pb">
-          <div class="ctl"><label>Finom szemcsék (iszap + agyag) aránya <span class="v" data-for="vibFines"></span></label><input type="range" id="vibFines" min="0" max="40" value="6"></div>
-          <div style="position:relative;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--ok) 0 25%,var(--amber) 25% 37.5%,var(--coral) 37.5%)"><span id="vibPtr" style="position:absolute;top:-4px;width:4px;height:22px;background:var(--ink);border-radius:2px"></span></div>
-          <div style="margin-top:10px" id="vibFinesMsg"></div>
-          <p class="src" style="margin-top:10px">Kitekintés: a vibrációs tömörítés akkor hatékony, ha a finomszem-tartalom kb. 10–12 % alatt marad – a finom szemcsék „elnyelik” a rezgési energiát.</p>
-        </div></div>
-      </div>
-    </div>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m2">

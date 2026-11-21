@@ -72,13 +72,6 @@ ede701c	load and settlement during construction
 91b97c2	settlement ↓
 91307e9	<b>Fully compensated foundation:</b> the weight of the excavated soil is greater than that of the building, and the net stress transferred to the subsoil is “negative” – with a sufficiently rigid RC raft the structure is practically immobile. <span class="muted">(With overcompensation the soil may heave; below the water table uplift also has to be checked.)</span>
 000c7e8	<b>Weak compensation:</b> the excavated soil counterbalances only a small part of the load. Try more basement levels!
-88e71d5	Double load
-26a5e5b	stress doubled everywhere, same depth
-abcd148	Double width
-dc21640	same stress twice as deep
-82c93b2	Half the area
-18be8c5	high stress at the top, but a shallow effect
-b48c246	=
 6307cc1	=
 a62a0e9	=
 56c73b0	=

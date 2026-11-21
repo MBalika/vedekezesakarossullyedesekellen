@@ -49,7 +49,7 @@ FONTS = '<style id="fonts-css">' + ''.join([
 # POST: a fordítókészlet által nem kezelt helyek (egyedi data-* attribútum) az angol HTML-ben
 POST = [('data-tech="Döngölés és kőtömzs"', 'data-tech="Pounding and stone pillars"'),
         # angol feliratú ábrák és videó-indexképek (img/en/)
-        *[(f'src="img/{f}.jpg"', f'src="img/en/{f}.jpg"') for f in ['pince-abra', 'foldkiemeles-abra', 'kavicscolop-abra']],
+        *[(f'src="img/{f}.jpg"', f'src="img/en/{f}.jpg"') for f in ['kavicscolop-abra']],
         ('<img src="img/${i}.jpg"', '<img src="img/${i === \'inj-4\' ? \'en/\' : \'\'}${i}.jpg"'),
         ('<img src="img/thumb-${c.dataset.video}.jpg"', '<img src="img/en/thumb-${c.dataset.video}.jpg"')]
 

@@ -599,3 +599,5 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 /* áttekintő kártyák: az alpontok kitöltik a kártyát (egyforma magas kártyák, nincs üres alj) */
 .dir a{flex:1 1 0;min-height:40px}
 .tabs button .n{width:auto;min-width:22px;padding:0 6px;white-space:nowrap}
+/* 1/B: a szöveg keskenyebb, a kompenzáció-panel szélesebb – a két oszlop közel egyforma magas */
+@media (min-width:981px){.tw-b{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}}
