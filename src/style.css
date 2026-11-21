@@ -539,6 +539,10 @@ sub,sup{font-size:.72em;line-height:0}
 /* az Alapozás tananyagai: 12 kártya teli sorokban (4 × 3, 3 × 4, 2 × 6) */
 .series{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .series a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s;text-align:center}
+.series a.next{background:var(--hero1);border-color:color-mix(in srgb,#39c2a5 40%,var(--hero1));color:#fff}
+.series a.next b{color:#7fe0c6}
+.series a.next small{color:var(--hero-mute)}
+.series a.next::after{color:var(--hero-mute)}
 .series a:hover{transform:translateY(-2px);border-color:var(--teal)}
 .series a b{display:block;font:700 15.5px/1.25 var(--fh);margin-bottom:4px}
 .series a small{display:block;color:var(--mute);font-size:12.5px;line-height:1.4}

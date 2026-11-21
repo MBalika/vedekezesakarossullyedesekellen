@@ -559,6 +559,10 @@ sub,sup{font-size:.72em;line-height:0}
 /* az Alapozás tananyagai: 12 kártya teli sorokban (4 × 3, 3 × 4, 2 × 6) */
 .series{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .series a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s;text-align:center}
+.series a.next{background:var(--hero1);border-color:color-mix(in srgb,#39c2a5 40%,var(--hero1));color:#fff}
+.series a.next b{color:#7fe0c6}
+.series a.next small{color:var(--hero-mute)}
+.series a.next::after{color:var(--hero-mute)}
 .series a:hover{transform:translateY(-2px);border-color:var(--teal)}
 .series a b{display:block;font:700 15.5px/1.25 var(--fh);margin-bottom:4px}
 .series a small{display:block;color:var(--mute);font-size:12.5px;line-height:1.4}
@@ -1216,16 +1220,16 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   <div class="tfgrid" id="tfGrid"></div>
 </div></section>
 <section class="chap c-sky" id="tovabb"><div class="wrap">
-  <div class="chhead"><div class="chnum">↗</div><div><div class="kicker">A sorozat többi része</div><h2>Az Alapozás tananyagai</h2><p class="lead">A káros süllyedések elleni védekezés a tárgy egyik állomása. A többi interaktív tananyag ugyanebben a rendszerben mutatja be az alapozás tervezésének lépéseit.</p></div></div>
+  <div class="chhead"><div class="chnum">↗</div><div><div class="kicker">A sorozat többi része</div><h2>Az Alapozás tananyagai</h2><p class="lead">A káros süllyedések elleni védekezés az 5. állomás második része. A többi interaktív tananyag ugyanebben a rendszerben mutatja be az alapozás tervezésének lépéseit.</p></div></div>
   <div class="series">
-    <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése</b><small>Alapsík, alaptípus, törési mechanizmus – a tervezés lépései</small></a>
-    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok teherbírásszámítása</b><small>Az alapfelület méretezése teherbírási határállapotban</small></a>
+    <a class="next" href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Következik: alapozás kedvezőtlen altalajon</b><small>Térfogatváltozó agyag, roskadékony lösz, feltöltés, szerves talaj</small></a>
     <a href="https://bme-alapozas.vercel.app/" target="_blank" rel="noopener"><b>Alapozás – nyitóoldal</b><small>A tárgy útja kilenc állomáson és minden tananyag egy helyen</small></a>
     <a href="https://talajfelderites.vercel.app/" target="_blank" rel="noopener"><b>Talajfelderítés</b><small>Fúrás, szondázás, geofizika, mintavétel – mit tudunk meg a talajról</small></a>
+    <a href="https://sikalapoktervezese.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok tervezése</b><small>Alaptípusok, alapsík, határállapotok, törési mechanizmus</small></a>
+    <a href="https://sikalapok-teherbirasszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok teherbírásszámítása</b><small>Az alapfelület méretezése teherbírási határállapotban</small></a>
     <a href="https://sikalapokallekonysagvizsgalata.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok állékonyságvizsgálata</b><small>Elcsúszás, felborulás, felúszás, általános állékonyság</small></a>
     <a href="https://sikalapok-sullyedesszamitasa.vercel.app/" target="_blank" rel="noopener"><b>Síkalapok süllyedésszámítása</b><small>Feszültségek az altalajban, süllyedés, süllyedéstűrés, mérés</small></a>
-    <a href="https://kedvezotlen-altalaj.vercel.app/" target="_blank" rel="noopener"><b>Alapozás kedvezőtlen altalajon</b><small>Térfogatváltozó agyag, roskadékony lösz, feltöltés, szerves talaj</small></a>
-    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>A síkalapokat érő hatások</b><small>Rezgés, földrengés, üreg, kimosás és fagy az alap alatt</small></a>
+    <a href="https://sikalapokaterohatasok.vercel.app/" target="_blank" rel="noopener"><b>Síkalapokat érő hatások</b><small>Rezgés, földrengés, üreg, kimosás és fagy az alap alatt</small></a>
     <a href="https://melyalapozasok.vercel.app/" target="_blank" rel="noopener"><b>Mélyalapozások</b><small>Cölöpök, résfalak, kutak – ha a teherbíró réteg mélyen van</small></a>
     <a href="https://munkaterhatarolasok.vercel.app/" target="_blank" rel="noopener"><b>Munkatérhatárolások</b><small>Dúcolás, falak, horgonyzás – a mélyebb alapsík munkagödre</small></a>
     <a href="https://bme-alapozas.vercel.app/telek/" target="_blank" rel="noopener"><b>Egy telek, egy félév</b><small>Kilenc feladat egyetlen telken – te vagy a geotechnikus</small></a>
