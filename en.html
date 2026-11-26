@@ -661,6 +661,16 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
 /* 4/B csarnokkeret: csomópont-választó és falazat-kapcsoló egy sorban */
 .frsw{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center}
 
+/* kereszthivatkozás a társ-tananyagokra: ugyanaz a technológia más szerepben */
+.xref { margin: 22px 0 8px; padding: 12px 14px 14px; border: 1px dashed var(--line); border-radius: 12px; background: var(--card2); }
+.xref-h { display: block; text-align: center; font: 700 11.5px/1.2 ui-monospace, "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); margin: 0 0 10px; }
+.xref-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.xref a { flex: 1 1 260px; max-width: 440px; display: grid; grid-template-columns: auto 1fr; column-gap: 11px; align-items: center; padding: 9px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--xc); text-decoration: none; color: var(--ink); transition: border-color .15s, transform .15s; }
+.xref a:hover { border-color: var(--xc); transform: translateY(-1px); }
+.xref .xa { grid-row: span 2; min-width: 34px; height: 34px; padding: 0 5px; border-radius: 8px; display: grid; place-items: center; font: 800 12px/1 ui-monospace, "JetBrains Mono", monospace; color: #fff; background: var(--xc); }
+.xref b { font-size: 13.5px; line-height: 1.25; }
+.xref small { color: var(--mute); font-size: 12.5px; line-height: 1.35; text-align: left; hyphens: manual; }
+
 </style>
 <style id="bxt-css">
 /* Dobozcímek középre – formázás skill */
@@ -768,7 +778,6 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
   window.__boxTitles=run;
 })();
 </script>
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script><script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -971,6 +980,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     </div>
     <div class="procfig" id="vfFig"></div>
     <div data-ytc="I1M6afZLrxo"></div>
+    <aside class="xref" aria-label="Related course materials"><span class="xref-h">The same technology elsewhere</span><div class="xref-list"><a href="https://melyalapozasok.vercel.app/en#egy-ko" target="_blank" rel="noopener" style="--xc:#9b3cab"><span class="xa">6.4</span><b>Deep foundations ↗</b><small>Gravel pile: the same depth vibrator, filled with gravel</small></a></div></aside>
   </div>
 
   <div class="tabpane" data-group="mech" data-tab="m2">
@@ -1031,6 +1041,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
     </div>
     <div class="procfig" id="kcFig"></div>
     <div data-ytc="2iWMoVIZc_k"></div>
+    <aside class="xref" aria-label="Related course materials"><span class="xref-h">The same technology elsewhere</span><div class="xref-list"><a href="https://melyalapozasok.vercel.app/en#egy-ko" target="_blank" rel="noopener" style="--xc:#9b3cab"><span class="xa">6.4</span><b>Deep foundations ↗</b><small>Gravel pile, vibro stone column: the rig and the process step by step</small></a></div></aside>
   </div>
   <div class="quiz" id="q5"><div class="qh"><h4>Self-check · 2/A–2/D</h4><div class="dots"></div></div></div>
 </div></section>
@@ -1068,6 +1079,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       </div></div>
       <div class="panel"><div class="pb injinfo" id="injInfo"></div></div>
     </div>
+    <aside class="xref" aria-label="Related course materials"><span class="xref-h">The same technology elsewhere</span><div class="xref-list"><a href="https://melyalapozasok.vercel.app/en#egy-jet" target="_blank" rel="noopener" style="--xc:#9b3cab"><span class="xa">6.2</span><b>Deep foundations ↗</b><small>Jet grouting: a soilcrete column mixed by a high-pressure jet</small></a><a href="https://melyalapozasok.vercel.app/en#egy-mikro" target="_blank" rel="noopener" style="--xc:#9b3cab"><span class="xa">6.1</span><b>Deep foundations ↗</b><small>Micropiles: a grouted cement body around the core bar</small></a><a href="https://munkaterhatarolasok.vercel.app/en#jetfal" target="_blank" rel="noopener" style="--xc:#d38a12"><span class="xa">4.2</span><b>Excavation support ↗</b><small>Jet-grouting wall: watertight excavation support</small></a></div></aside>
   </div>
   <div class="tabpane" data-group="inj" data-tab="i2">
     <h3 style="margin-bottom:10px">Mass stabilisation</h3>
@@ -1096,6 +1108,7 @@ section.chap.grp{border-top:5px solid var(--c);background:linear-gradient(180deg
       <div class="res" id="msOut"></div>
     </div></div>
     </div>
+    <aside class="xref" aria-label="Related course materials"><span class="xref-h">The same technology elsewhere</span><div class="xref-list"><a href="https://melyalapozasok.vercel.app/en#egy-dsm" target="_blank" rel="noopener" style="--xc:#9b3cab"><span class="xa">6.3</span><b>Deep foundations ↗</b><small>Deep mixing: column mixing and CSM panels</small></a><a href="https://munkaterhatarolasok.vercel.app/en#dsmfal" target="_blank" rel="noopener" style="--xc:#d38a12"><span class="xa">4.4</span><b>Excavation support ↗</b><small>Deep-mixed wall: as excavation support</small></a></div></aside>
   </div>
   <div class="quiz" id="q6"><div class="qh"><h4>Self-check · 3/A–3/F</h4><div class="dots"></div></div></div>
 </div></section>
@@ -1355,6 +1368,16 @@ $$('.tabs').forEach(tabs => {
   tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; $$('button', tabs).forEach(x => x.classList.toggle('on', x === b)); panes.forEach(p => p.classList.toggle('on', p.dataset.tab === b.dataset.tab)); dispatchEvent(new CustomEvent('tabchange', { detail: { group: grp, tab: b.dataset.tab } })); });
 });
 window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-group="${grp}"] button[data-tab="${tab}"]`); if (b) b.click(); };
+// a társ-tananyagokból érkező mélyhivatkozás egy fülre (#kavicscolop, #tomegstabilizacio …): a fül megnyílik, a lap a fülsorhoz ugrik
+const HASH_TAB = { melytomorites: 'mech:m1', dinamikus: 'mech:m2', kotomzs: 'mech:m3', kavicscolop: 'mech:m4', injektalas: 'inj:i1', tomegstabilizacio: 'inj:i2' };
+function hashTab() {
+  const t = HASH_TAB[decodeURIComponent(location.hash.slice(1))]; if (!t) return;
+  const [g, k] = t.split(':'); window.U.openTab(g, k);
+  const tabs = document.querySelector(`.tabs[data-group="${g}"]`); if (!tabs) return;
+  const go = () => { const tb = document.querySelector('.topbar'); scrollTo({ top: Math.max(0, tabs.getBoundingClientRect().top + scrollY - (tb ? tb.offsetHeight : 0) - 12), behavior: 'instant' }); };
+  go(); addEventListener('load', () => { go(); setTimeout(go, 700); }, { once: true });
+}
+hashTab(); addEventListener('hashchange', hashTab);
 
 // --- videók ---
 const VIDEOS = {

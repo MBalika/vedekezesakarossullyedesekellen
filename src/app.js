@@ -99,6 +99,16 @@ $$('.tabs').forEach(tabs => {
   tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; $$('button', tabs).forEach(x => x.classList.toggle('on', x === b)); panes.forEach(p => p.classList.toggle('on', p.dataset.tab === b.dataset.tab)); dispatchEvent(new CustomEvent('tabchange', { detail: { group: grp, tab: b.dataset.tab } })); });
 });
 window.U.openTab = (grp, tab) => { const b = document.querySelector(`.tabs[data-group="${grp}"] button[data-tab="${tab}"]`); if (b) b.click(); };
+// a társ-tananyagokból érkező mélyhivatkozás egy fülre (#kavicscolop, #tomegstabilizacio …): a fül megnyílik, a lap a fülsorhoz ugrik
+const HASH_TAB = { melytomorites: 'mech:m1', dinamikus: 'mech:m2', kotomzs: 'mech:m3', kavicscolop: 'mech:m4', injektalas: 'inj:i1', tomegstabilizacio: 'inj:i2' };
+function hashTab() {
+  const t = HASH_TAB[decodeURIComponent(location.hash.slice(1))]; if (!t) return;
+  const [g, k] = t.split(':'); window.U.openTab(g, k);
+  const tabs = document.querySelector(`.tabs[data-group="${g}"]`); if (!tabs) return;
+  const go = () => { const tb = document.querySelector('.topbar'); scrollTo({ top: Math.max(0, tabs.getBoundingClientRect().top + scrollY - (tb ? tb.offsetHeight : 0) - 12), behavior: 'instant' }); };
+  go(); addEventListener('load', () => { go(); setTimeout(go, 700); }, { once: true });
+}
+hashTab(); addEventListener('hashchange', hashTab);
 
 // --- videók ---
 const VIDEOS = {
